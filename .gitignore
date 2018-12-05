@@ -4,3 +4,6 @@
 *.toc
 *.aux
 *.7z
+*.bbl
+*.blg
+.DS_Store

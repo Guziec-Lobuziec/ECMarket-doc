@@ -10,6 +10,7 @@
 \usepackage{float}
 \usepackage{array}
 \usepackage{amsmath}
+\usepackage{url}
 \graphicspath{ {./images/} }
 
 \begin{document}
@@ -43,8 +44,8 @@
 \section{Wstęp}
 Na fali pojawiających się nowych zdecentralizowanych aplikacji,
 protokołów komunikacj p2p, algorytmów rozproszonego konsensusu i ideii Internetu 3.0,
-narodziła się w śród nas koncepcja systemu wsperającego i nadzorującego szeroko rozumianą wymianę obiektów,
-w szczególności dóbr fizycznych, który wpasowywałby się do tego nowego wspaniałego świata.
+narodziła się w wśród nas koncepcja systemu wspierającego i nadzorującego szeroko rozumianą wymianę obiektów,
+w szczególności dóbr fizycznych, który wpasowywałby się do tego nowego, wspaniałego świata.
 Porwani przez tę wizję, poświęcamy tę pracą pierwszemu podstawowemu wydaniu systemu ECMarket,
 ktore będzie wstępem do stworzenia analogu do serwisów aukcyjnych typu Allegro czy Ebay w uniwersum
 aplikacji zdecentralizowanych.
@@ -66,6 +67,14 @@ Przełom nastąpił w 2009 w raz z prezentacją technologi Bitcoin, która ofero
 \subsection{Rich Picture}
 
 \subsection{Konkurencja}
+ECMarket ma na chwilę obecną kilka wartych uwagi konkurentów, którzy operują w trochę innych, ale pokrywających się z naszym obszarach.
+\begin{itemize}
+	\item \textit{uPort} Pozwala użytkownikom tylko zarejestrować własną tożsamość w Ethereum i zarządzać własnymi kluczami i danymi w bezpiecznym portfelu \cite{website:uPort}.
+	\item \textit{Ujo Music} Handluje tylko utworami muzycznymi, nie posiada również rozbudowanego systemu konktraktów \cite{website:UjoMusic}.
+	\item \textit{IDEX} Oferuje tylko usługi wymiany tokenów ERC20 \cite{website:IDEX}.
+	\item \textit{OpenBazaar} Oferuje tylko jeden rozdaj umowy (umowa między dwiema stronami z depozytem)\cite{website:openbazaar}. 
+\end{itemize}
+Nasza oferta stanowi swoiste połączenie i wariację niektórych własności oferowanych przez wyżej wymienionych konkurentów, dlatego sądzimy, że mamy szansę wypromować się na tym rynku.
 
 \subsection{Proponowane Rozwiązanie}
 
@@ -76,7 +85,7 @@ Przełom nastąpił w 2009 w raz z prezentacją technologi Bitcoin, która ofero
 \subsection{Cele i Zakres Projektu}
 
 Celem projektu jest dostarczenie odpornej na cenzurę, ogólnodostępnej, otwartej platformy, w ramach której możliwe jest przeprowadzanie kupna oraz sprzedaży dóbr w sposób niezależny od osób trzecich lub w ramach grup handlowych, tworzonych przez użytkowników systemu z określanymi przez nich zasadami.
-W pierwszym stadium systemu, realizowanym w ramach tego projektu, planujemy pobierać mały stały procent od kwoty przesyłanej w transakcjach między użytkownikami, by zapewnić utrzymanie i dalszy rozwój projektu.
+W pierwszym stadium systemu, realizowanym w ramach tego projektu, planujemy pobierać mały, stały procent od kwoty przesyłanej w transakcjach między użytkownikami, by zapewnić utrzymanie i dalszy rozwój projektu.
 Naszą platformę kierujemy do wszystkich pragnących niezależnego i otwartego systemu do handlu.
 
 
@@ -203,9 +212,9 @@ Pierwsze wydanie systemu dostarczy klientom zestaw umów gotowych umów do użyc
 
 \subsection{Ograniczenia}
 Głównym ograniczeniem jest czas na wykonanie projektu, który wynosi niepełny rok.
-Każda instrukcja wykonana na Wirtualnej Maszynie Ethereum (EVM), kosztuje pewną ilość etheru, co stanowi ograniczenie jak bardzo skomplikowany kod może być na niej wykonywany. Ten problem można częściowo rozwiązać delegując wykonanie niektórych zadań do klientów, takich które nie wymagają wiarygodności lub takie dla których można skonstruować dowód poprawności obliczeń, którego weryfikacja jest tańsza niż sam kod.
+Każda instrukcja wykonana na Wirtualnej Maszynie Ethereum (EVM), kosztuje pewną ilość etheru, co stanowi ograniczenie jak bardzo skomplikowany kod może być na niej wykonywany. Ten problem można częściowo rozwiązać delegując wykonanie niektórych zadań do klientów, takich, które nie wymagają wiarygodności lub takie, dla których można skonstruować dowód poprawności obliczeń, którego weryfikacja jest tańsza niż sam kod.
 Pewnym ograniczeniem jest fakt, że nie opieramy się na żadnej stronie trzeciej, która byłaby wstanie stanowić autorytet i potwierdzać, że jakieś wydarzenie miało miejsce lub nie miało (np. dostarczenie produktu, który jednocześnie spełniałby pewne wymagania klienta lub innych stron). Te gwarancje próbujemy zbudować na podłożu teorii gier oraz społecznej teorii gier, by doprowadzić do sytuacji, gdzie strony nie wywiązujące się z umów tracą pieniądze lub/i ocenę, więc efektywnie zniechęcane do takich działań.
-Istotnym problemem, który chcemy przynajmniej od Siebie odsunąć są kwestie prawne, a więc rosnąca kontrola władzy państwowej nad różnymi aspektami życia. By rozwiązać ten problem planujemy wydać platformę na licencji z rodziny GPL, jak również zbudować w ramach naszej platformy system repozytoriów zarządzanych przez klientów. Jednak realizacja tego drugiego wykracza poza nasze obecne możliwości czasowe.
+Istotnym problemem, który chcemy przynajmniej od Siebie odsunąć są kwestie prawne, a więc rosnąca kontrola władzy państwowej nad różnymi aspektami życia. By rozwiązać ten problem planujemy wydać platformę na licencji z rodziny GPL, jak również zbudować w ramach naszej platformy system repozytoriów zarządzanych przez klientów. Jednak realizacja tego drugiego odbędzie się nie wcześniej, niż w drugim wydaniu aplikacji.
 
 
 
@@ -586,6 +595,6 @@ Istotnym problemem, który chcemy przynajmniej od Siebie odsunąć są kwestie p
 
 \section{Załączniki}
 
-\bibliographystyle{plain}
+\bibliographystyle{IEEEtranS}
 \bibliography{bibliografia}
 \end{document}

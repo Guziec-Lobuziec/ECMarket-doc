@@ -551,7 +551,29 @@ Umowa A1.1\\
 
 \section{Przyrost Pierwszy}
 \subsection{Cele przyrostu}
+Podczas pierwszego przyrostu postawiliśmy sobie za cel przeanalizowanie, jak powinny wyglądać sprawiedliwe kontrakty, tak, aby każda ze stron nie czuła się w żaden sposób oszukana. Naszym kolejnym celem było zaproponowanie, jak system powinien wyglądać, jakich akcji może podejmować się użytkownik, jakie powinien mieć ograniczenia w danych przypadkach, oraz ustalić wstępną architekturę systemu. Oprócz tego, wykonaliśmy wstępny harmonogram prac do monitorowania postępów.
+
 \subsection{Analiza back-end'u}
+Na samym początku zabraliśmy się za analizę naszego systemu. Postanowiliśmy że naszym głównym przedmiotem badań będzie przeanalizowanie sprawiedliwych kontraktów. Podczas analizowania różnych przypadków postanowiliśmy że system powinien dostarczać różne rodzaje kontraktów w zależności od potrzeb użytkowników którzy będą korzystać z naszego systemu. Podczas prac analizowaliśmy różnego przypadki umów, na koniec postanowiliśmy że w ramach naszej pracy inżynierskiej stworzymy dwa typy kontraktów.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.35\textwidth]{A1_1.png}
+\caption{Analiza umowy 1.1}
+\label{A1_1}
+\end{figure}
+
+Umowa przedstawiona powyżej jest najprostszą dostępną umową w naszym systemie. Umowę rozpoczyna Sprzedawca, który tworzy umowę (punkt 0 na rysunku \ref{A1_1}) . Potencjalny kupujący zainteresowany umową wpłaca pieniądze(1), a w następnym kroku Sprzedawca potwierdza transakcję i wypłaca przedmiot zakupu(2). Na koniec kupujący ocenia sprzedającego(3). W umowie istnieją alternatywne scenariusze, ponieważ kupujący może nie chcieć zawrzeć umowy z nisko ocenianym sprzedającym i odrzucić ofertę(2a), gdzie następnym krokiem jest wypłacenie przez kupującego(3a). Jeżeli dojdzie do porozumienia lub też nie, umowa zostaje zakończona(4a).
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.45\textwidth]{A1_2.png}
+\caption{Analiza umowy 1.2}
+\label{A1_2}
+\end{figure}
+
+Umowa A1.2 jest ewolucją umowy A1.1. W tym przypadku sprzedający dodatkowo ustala zaliczkę oraz czas pozwalający na wycofanie się kupującego. Kolejną ważną cechą jest też możliwość ocenienia sprzedającego przez kupującego. W powyższej umowie dochodzi jedna dodatkowa alternatywna droga do zakończenia umowy. Kupujący może zrezygnować z kontynuowania procesu i może zażądać zwrotu wpłaconych pieniędzy, jednak może to zrobić tylko przed terminem pozwalającym na wycofanie się.
+
 \subsection{Projektowanie back-end'u}
 \subsection{Testy walidacyjne}
 \subsection{Implementacja}

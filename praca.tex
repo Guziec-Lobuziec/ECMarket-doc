@@ -93,31 +93,19 @@ Naszą platformę kierujemy do wszystkich pragnących niezależnego i otwartego 
 
 \subsection{Kontekst Projektu}
 
-System będzie docelowo uruchomiony na Testnecie Ethereum i będzie dostarczał rozproszoną, odporną na cenzurę platformę do handlu.
-Użytkownicy w pierwszym stadium rozwoju platformy będą się dzielić na Deweloperów i na Klientów. Zadaniem Deweloperów będzie dostarczanie kodu i jego deployment oraz ponoszenie kosztów tych operacji. Deweloperzy będą również beneficjentami oprocentowania transakcji. Klientami nazywamy wszystkich użytkowników, którzy dokonują transakcji.
-
-\begin{comment}
-, tworzą grupy handlowe lub pełnią jakiekolwiek inne funkcje w ramach grup handlowych
-\end{comment}
-
-Klienci mogą zarządzać swoimi portfelami, oraz mogą wchodzić w interakcje z dostępnymi dla nich umowami.
-
-\begin{comment}
-, grupami, które stworzyli (chyba że grupa została zdefiniowana inaczej)
-\end{comment}
-
-Liczba Deweloperów będzie ograniczona do kilku kilkunastu w zależności od potrzeb. Liczba Klientów nie jest w żaden sposób ograniczona.
+System będzie docelowo uruchomiony na Testnecie Ethereum i będzie dostarczał rozproszoną, odporną na cenzurę, na ile pozwala na to protokół\cite{website:TheDAOHack, website:ethereum2018whitepaper}, platformę do handlu.
+Użytkownicy w pierwszym stadium rozwoju platformy będą się dzielić na Deweloperów i na Klientów. Zadaniem Deweloperów będzie dostarczanie kodu i jego deployment oraz ponoszenie kosztów tych operacji. Deweloperzy będą również beneficjentami oprocentowania transakcji. Klientami nazywamy wszystkich użytkowników, którzy dokonują transakcji. Klienci mogą zarządzać swoimi portfelami, oraz mogą wchodzić w interakcje z dostępnymi dla nich umowami.Liczba Klientów nie jest w żaden sposób ograniczona.
 
 \subsection{Analiza Biznesowa}
 Pierwsze wydanie systemu dostarczy klientom zestaw umów gotowych umów do użycia i system ocen, który będzie dawać nam przewagę nad konkurencją w takich kwestiach jak:
 \begin{itemize}
-\item Wiarygodny system ocen - Stanowiący kluczową wartość oferowaną przez nasze rozwiązanie. W naszym systemie nie występuje administrator to też niezwykle istotne było stworzenie środowiska promującego bycie uczciwym. Podobne rozwiązania możemy zaobserwować w przeróżnych serwisach aukcyjnych, gdzie stanowią pewnego rodzaju informację dla kupującego o tym czy może ufać sprzedającemu. Nasze rozwiązanie pozwala na ocenienie drugiej strony umowy - takowej oceny dokonuje także sprzedający, a nie tylko kupujący. Dodatkowo ocenom tym zostają nadane odpowiednie wagi tak by zapobiec próbom wpłynięcia na system ocen np. poprzez wchodzenie w małe transakcje z dużą ilością kont powiązanych ze sprzedającym. Wagi przyznawane są na podstawie ocen posiadanych przez stronę wystawiającą takową ocenę, a także jej wiarygodności dla społeczności platformy wyrażoną poprzez oceny pozytywne oraz ogólną ilość ocen.
-\item Niezależność od walut FIAT - Na platformie płatności odbywać się będą przy pomocy Ether'u (ETH), kryptowaluty, której wartość jest niezależna od żadnego centralnego organu finansowego. Naszych środków nie da się zamrozić tak jak np. w przypadku Peso Argentyńskiego (ARS) w 2001 roku podczas kryzysu finansowego. Nie grozi nam także hiperinflacja, pieniędzy nie da się po prostu dodrukować przez specyfikę pozyskiwania Ether'u (ETH).
-\item Niezależność od stron trzecich - Transakcje odbywają się w ramach zdecentralizowanej sieci Ethereum, gdzie nie występuje żaden administrator czy istytucja będąca w stanie zablokować bądź cofnąć naszą transakcję. Gwarantuje to poczucie bezpieczeństwa i niezależności wyróżniające nas na tle konkurencyjnych serwisów nieopartych na technologii blockchain, gdzie strona trzecia już występuje. Zwiększa to także bezpieczeństwo naszych danych osobowych zachowując większą anonimowość.
-\item Bezpieczne wykonanie umów - ???
-\item Różnorodność umów – sposobów przeprowadzenia transakcji - Przygotowaliśmy 11 przykładowych modeli umów z czego 2 znajdą się w pierwszym wydaniu systemu. Gwarantuje to dostosowanie systemu do potrzeb użytkowników. Dodatkowo ilość ta mogłaby się powiększyć wraz z powiększeniem bazy użytkowników.
-\item Globalny zasięg ofert - Sieć Ethereum wiąże się z brakiem ograniczenia co do lokalizacji na kuli ziemskiej. Korzystać z niej można z dowolnego zakątku, wystarczy jedynie połączenie z internetem. Ether może nabyć każdy co stanowi jedyny wymóg by korzystać z naszej platformy. Daje to o wiele większą wszechstronnoć od większości platform do handlu ograniczonych jedynie do rynku globalnego. Konkurować z nami pod tym względem mogliby jedynie giganci tacy jak np. Amazon czy eBay.
-\item Budowanie nowych rozwiązań - Unikalna cecha wyróżniająca nas na rynku. Jestemy otwarci na społeczność tworząca się wokół naszej platformy w znacznie szerszy sposób niż nieblockchainowa konkurencja. Po wypuszczeniu produktu żyłby on własnym życiem kontrolowany w całości przez społeczność posiadającą możliwość wprowadzania modyfikacji, które mogłyby zostać przez większość zaakceptowane bądź odrzucone co stanowi gwarancję dostosowania ECMarket'u do potrzeb potencjalnego użytkownika. W końcu kto lepiej okre
+\item Wiarygodny system ocen --- stanowiący kluczową wartość oferowaną przez nasze rozwiązanie. W naszym systemie nie występuje administrator, to też niezwykle istotne było stworzenie środowiska promującego bycie uczciwym. Podobne rozwiązania możemy zaobserwować w przeróżnych serwisach aukcyjnych, gdzie stanowią pewnego rodzaju informację dla kupującego o tym czy może ufać sprzedającemu. Nasze rozwiązanie pozwala na ocenienie drugiej strony umowy --- takowej oceny dokonuje także sprzedający, a nie tylko kupujący. Dodatkowo ocenom tym zostają nadane odpowiednie wagi tak by zapobiec próbom wpłynięcia na system ocen np. poprzez wchodzenie w małe transakcje z dużą ilością kont powiązanych ze sprzedającym. Wagi przyznawane są na podstawie ocen posiadanych przez stronę wystawiającą takową ocenę, a także jej wiarygodności dla społeczności platformy wyrażoną poprzez oceny pozytywne oraz ogólną ilość ocen.
+\item Niezależność od walut FIAT --- na platformie płatności odbywać się będą przy pomocy Ether'u (ETH), kryptowaluty, której wartość jest niezależna od żadnego centralnego organu finansowego. Naszych środków nie da się zamrozić tak jak np. w przypadku Peso Argentyńskiego (ARS) w 2001 roku podczas kryzysu finansowego. Nie grozi nam także hiperinflacja, pieniędzy nie da się po prostu dodrukować przez specyfikę pozyskiwania Ether'u (ETH).
+\item Niezależność od stron trzecich --- transakcje odbywają się w ramach zdecentralizowanej sieci Ethereum, gdzie nie występuje żaden administrator czy istytucja będąca w stanie zablokować bądź cofnąć naszą transakcję. Gwarantuje to poczucie bezpieczeństwa i niezależności wyróżniające nas na tle konkurencyjnych serwisów nieopartych na technologii blockchain, gdzie strona trzecia już występuje. Zwiększa to także bezpieczeństwo naszych danych osobowych zachowując większą anonimowość.
+\item Bezpieczne wykonanie umów --- ???
+\item Różnorodność umów --- sposobów przeprowadzenia transakcji - Przygotowaliśmy 11 przykładowych modeli umów z czego 2 znajdą się w pierwszym wydaniu systemu. Gwarantuje to dostosowanie systemu do potrzeb użytkowników. Dodatkowo ilość ta mogłaby się powiększyć wraz z powiększeniem bazy użytkowników. 
+\item Globalny zasięg ofert --- sieć Ethereum wiąże się z brakiem ograniczenia co do lokalizacji na kuli ziemskiej. Korzystać z niej można z dowolnego zakątku, wystarczy jedynie połączenie z internetem. Ether może nabyć każdy co stanowi jedyny wymóg by korzystać z naszej platformy. Daje to o wiele większą wszechstronnoć od większości platform do handlu ograniczonych jedynie do rynku lokalnego. Konkurować z nami pod tym względem mogliby jedynie giganci tacy jak np. Amazon czy eBay.
+\item Budowanie nowych rozwiązań --- unikalna cecha wyróżniająca nas na rynku. Jestemy otwarci na społeczność tworząca się wokół naszej platformy w znacznie szerszy sposób niż nieblockchainowa konkurencja. Po wypuszczeniu produktu żyłby on własnym życiem kontrolowany w całości przez społeczność posiadającą możliwość wprowadzania modyfikacji, które mogłyby zostać przez większość zaakceptowane bądź odrzucone co stanowi gwarancję dostosowania ECMarket'u do potrzeb potencjalnego użytkownika. Jednakże dodanie funkcjonalności związanych z tą cechą, jest zaplanowane na przyszłe wydania
 \end{itemize}
 
 
@@ -151,7 +139,7 @@ Przy określaniu paradygmatu, metodologii i procesu wytwarzania oprogramowania, 
 		\item może przeszkodzić w kompleksowej analizie problemu
 		\item duże nakłady czasu na przygotowanie prototypu
 		\item logiczna walidacja problemu
-		\itme najlepiej się sprawdza przy budowaniu UI
+		\item najlepiej się sprawdza przy budowaniu UI
 	\end{itemize}
 \end{itemize}
 
@@ -162,6 +150,8 @@ Przy określaniu paradygmatu, metodologii i procesu wytwarzania oprogramowania, 
 Metodologią, którą rozważaliśmy na początku był Scrum, jednak wymóg stałej komunikacji i intensywności pracy, zdyskwalifikował ją dość szybko. Problemem również była bardzo mocno zróżnicowana wśród zespołu znajomość technologii (Ethereum). Wahaliśmy się, czy nie użyć protypowania, jednakże mieliśmy już na samym początku, w pewnym stopniu określone wymagania, więc zdecydowaliśmy się na bardziej znaną nam metodę ewolucyjno-przyrostową.
 
 \subsection{Plan Zapewnienia Jakości}
+
+TDD
 
 \subsection{Udziałowcy}
 
@@ -226,20 +216,6 @@ Metodologią, którą rozważaliśmy na początku był Scrum, jednak wymóg sta�
 \begin{tabular}{|l|m{11cm}|}
 \hline
 \multicolumn{2}{|l|}{\textit{\textbf{Karta udziałowca}}}                               \\ \hline
-\textit{Identyfikator:}  & \textit{UOB 03}                                             \\ \hline
-\textit{Nazwa:}          & \textit{Współtwórcy}                                              \\ \hline
-\textit{Opis:}           & \textit{Grupa która wyznacza kierunek w którym system będzie się rozwijał.} \\ \hline
-\textit{Typ udziałowca:} & \textit{Ożywiony bezpośredni}                               \\ \hline
-\textit{Punkt widzenia:} & \textit{techniczny, wykonawczy}                                       \\ \hline
-\textit{Ograniczenia:}   & \textit{Współtwórcy nie mogą narzucać wymagań systemowych.}      \\ \hline
-\textit{Wymagania:}      & \textit{}                                                   \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\begin{tabular}{|l|m{11cm}|}
-\hline
-\multicolumn{2}{|l|}{\textit{\textbf{Karta udziałowca}}}                               \\ \hline
 \textit{Identyfikator:}  & \textit{UNP 02}                                             \\ \hline
 \textit{Nazwa:}          & \textit{Regulacje prawne}                                              \\ \hline
 \textit{Opis:}           & \textit{Prawo ma duży wpływ na możliwości naszego systemu.} \\ \hline
@@ -254,8 +230,8 @@ Metodologią, którą rozważaliśmy na początku był Scrum, jednak wymóg sta�
 \subsection{Ograniczenia}
 Głównym ograniczeniem jest czas na wykonanie projektu, który wynosi niepełny rok.
 Każda instrukcja wykonana na Wirtualnej Maszynie Ethereum (EVM), kosztuje pewną ilość etheru, co stanowi ograniczenie jak bardzo skomplikowany kod może być na niej wykonywany. Ten problem można częściowo rozwiązać delegując wykonanie niektórych zadań do klientów, takich, które nie wymagają wiarygodności lub takie, dla których można skonstruować dowód poprawności obliczeń, którego weryfikacja jest tańsza niż sam kod.
-Pewnym ograniczeniem jest fakt, że nie opieramy się na żadnej stronie trzeciej, która byłaby wstanie stanowić autorytet i potwierdzać, że jakieś wydarzenie miało miejsce lub nie miało (np. dostarczenie produktu, który jednocześnie spełniałby pewne wymagania klienta lub innych stron). Te gwarancje próbujemy zbudować na podłożu teorii gier oraz społecznej teorii gier, by doprowadzić do sytuacji, gdzie strony nie wywiązujące się z umów tracą pieniądze lub/i ocenę, więc efektywnie zniechęcane do takich działań.
-Istotnym problemem, który chcemy przynajmniej od Siebie odsunąć są kwestie prawne, a więc rosnąca kontrola władzy państwowej nad różnymi aspektami życia. By rozwiązać ten problem planujemy wydać platformę na licencji z rodziny GPL, jak również zbudować w ramach naszej platformy system repozytoriów zarządzanych przez klientów. Jednak realizacja tego drugiego odbędzie się nie wcześniej, niż w drugim wydaniu aplikacji.
+Pewnym ograniczeniem jest fakt, że nie opieramy się na żadnej stronie trzeciej, która byłaby w stanie stanowić autorytet i potwierdzać, że jakieś wydarzenie miało miejsce lub nie miało (np. dostarczenie produktu, który jednocześnie spełniałby pewne wymagania klienta lub innych stron). Te gwarancje próbujemy zbudować na podłożu teorii gier oraz społecznej teorii gier, by doprowadzić do sytuacji, gdzie strony nie wywiązujące się z umów tracą pieniądze lub/i ocenę, więc efektywnie zniechęcane do takich działań.
+Istotnym problemem, który chcemy przynajmniej od Siebie odsunąć są kwestie prawne, a więc rosnąca kontrola władzy państwowej nad różnymi aspektami życia. Chcielibyśmy rozwiązać ten problem po przez wydanie platformy na licencji z rodziny GPL, jak również zbudować w ramach naszej platformy system repozytoriów zarządzanych przez klientów. Jednak realizacja tego drugiego odbędzie się nie wcześniej, niż w drugim wydaniu aplikacji.
 
 
 
@@ -605,7 +581,7 @@ Na samym początku zabraliśmy się za analizę naszego systemu. Postanowiliśmy
 \label{A1_1}
 \end{figure}
 
-Umowa przedstawiona powyżej jest najprostszą dostępną umową w naszym systemie. Umowę rozpoczyna Sprzedawca, który tworzy umowę (punkt 0 na rysunku \ref{A1_1}) . Potencjalny kupujący zainteresowany umową wpłaca pieniądze(1), a w następnym kroku Sprzedawca potwierdza transakcję i wypłaca przedmiot zakupu(2). Na koniec kupujący ocenia sprzedającego(3). W umowie istnieją alternatywne scenariusze, ponieważ kupujący może nie chcieć zawrzeć umowy z nisko ocenianym sprzedającym i odrzucić ofertę(2a), gdzie następnym krokiem jest wypłacenie przez kupującego(3a). Jeżeli dojdzie do porozumienia lub też nie, umowa zostaje zakończona(4a).
+Umowa przedstawiona powyżej jest najprostszą dostępną umową w naszym systemie. Umowę rozpoczyna Sprzedawca, który tworzy umowę (punkt 0 na rysunku \ref{A1_1}) . Potencjalny kupujący zainteresowany umową wpłaca pieniądze(1), a w następnym kroku Sprzedawca potwierdza transakcję(2). Na koniec kupujący ocenia sprzedającego(3). W umowie istnieją alternatywne scenariusze, ponieważ sprzedający może nie chcieć zawrzeć umowy z nisko ocenianym kupującym i odrzucić ofertę(2a), gdzie następnym krokiem jest wypłacenie tokenów przez kupującego(3a). Jeżeli dojdzie do porozumienia lub też nie, umowa zostaje zakończona(4a).
 
 \begin{figure}[h!]
 \centering

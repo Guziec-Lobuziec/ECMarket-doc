@@ -51,20 +51,26 @@ aplikacji zdecentralizowanych.
 \newpage
 \section{Podziękowania}
 
+
+
 \newpage
 \section{Opis Problemu}
 
 \subsection{Prezentacja Problemu}
 W związku z rosnącą centralizacją Internetu, problemem cenzury oraz spadkiem zaufania do
-instytucji państwa \cite{website:trustPOL,website:trustUSA} jak i korporacji, powstało wiele projektów mających
+instytucji państwa\cite{work:trustPOL,website:trustUSA} jak i korporacji, powstało wiele projektów mających
 na celu rozproszenie tej koncentracji władzy, jednak przez długi czas rozwiązania te nie zyskiwały
-duzej popularności poza specjalistycznymi dziedzinami.
-Odwilż w tej kwestii przyniósł protokół Kademila, na której oparte zostały sieci wymiany plików takie
+duzej popularności poza specjalistycznymi dziedzinami.\\
+Odwilż w tej kwestii przyniósł protokół Kademila\cite{work:Kademila}, na której oparte zostały sieci wymiany plików takie
 jak BitTorrent, czy Kad Network. Ich funkcjonalność ograniczała się do wymiany plików, jednak nie była
 pozbawiona wad takich jak niska żywotność niepopularnych plików, egoistyczne zachowania klientów sieci
-(leeching), brak odporności na ataki DDoS.
-Przełom nastąpił w 2009 w raz z prezentacją technologi Bitcoin, która oferowała roziązanie problemów z
-żywotnością, z którymi borykały się.
+(leeching), brak odporności na ataki DDoS (Distributed Denial-of-Service).\\
+Przełom nastąpił w 2009 w raz z prezentacją technologi Bitcoin\cite{work:BitcoinPaper}, która oferowała roziązanie wymienionych problemów, z którymi borykały się poprzednie rozwiązania. Zastosowanie mechanizmu PoW (Proof-of-Work), jako zabezpieczenia przed atakami DDos i Sybili, użycie nowej struktury --- blockchainu, jako rozproszonej bazy danych, a przede wszystki, innowacyjne jak na tamte czasy, zastosowanie zachęty finansowej dla klientów zbierających transakcje i przechowujących blockchain, by zachować żywotność sieci, storzyło mieszankę, która zagwarantowała sukces tej technologii. Dowodem tego jest osiągnięcie przez Bitcoina pod koniec listopada 2013 wartości 1200 USD/BTC.\\
+Te wydarzenia dały początek nowej dziedzinie wiedzy nazawanej krypto-ekonomią oraz zapoczątkowały eksplozję nowych kryptowalut i rozwiązań pochodnych. Jednym z nowych rozwiązań, które pojawiło się na horyzoncie na przełomie 2013 i 2014 jest Ethereum\cite{website:ethereum2018whitepaper}. Rozwiązanie zaproponowane przez Vitalika Buterina, Gavina Wooda oraz Josepha Lubina, oferuje rozproszoną platformę obliczeniową z systemem operacyjnym, obsługującym inteligentne kontrakty (smart contracts). Podobnie jak Bitcoin oferuje możliwość przesyłania wewnętrznych tokenów (w przypadku Ethereum nazywanych Etherem) między użytkownikami, a dzięki zmodyfikowanemu konsensusowi Nakamoto (Ethereum 2.0 będzie używać innych mechanizmów), daje podobne, a nawet silniejsze gwarancje bezpieczeństawa. Najbardziej istotna różnica występuje jednak w systemie skryptów (inteligentnych kontraktów), te oferowane przez Ethereum, w przeciwieństwie do Bitcoina, są kompletne w sensie Turinga i mogą posiadać bardziej skomplikowany stan.
+
+\subsection{Proponowane Rozwiązanie}
+Dzięki takiemu zestawowi cech, Ethereum stanowi dobrą platformę, do budowania własnych, wyspecjalizowanych systemów, które są bezpieczne i niezależne od potencjalnie nieuczciwych stron trzecich. Szczególnym przypadkiem się tutaj platformy handlowe, które agregują oferty sprzedających, pośredniczą w wykonaniu opłat i dostarczają narzędzia od oceny kupujących i sprzedających. W przypadku scentralizowanych wersji takich platform, bardzo częstym problemem jest faworyzowanie pewnych grup sprzedawców, różne stopy opłat dla różnych uczestników i stronniczy moderatorzy.\\
+Mając na uwadze wymienione wcześniej fakty, proponowanym przez nas rozwiązaniem problemów z centralizacją i nieuczciwymi pośrednikami, przynajmniej w sferze platform handlowych, jest stworzenie takiej aplikacji w ekosystemie Ethereum i zapewnienie, że w późniejszych etapach rozwoju, będzie ona rozwijana w ścisłej współpracy ze społecznością sieci. Z tego powodu chcielibyśmy zaprezentować nasze autorskie podejście w postaci projektu ECMarket.
 
 \subsection{Rich Picture}
 
@@ -77,8 +83,6 @@ ECMarket ma na chwilę obecną kilka wartych uwagi konkurentów, którzy operuj�
 	\item \textit{OpenBazaar} Oferuje tylko jeden rozdaj umowy (umowa między dwiema stronami z depozytem)\cite{website:openbazaar}. 
 \end{itemize}
 Nasza oferta stanowi swoiste połączenie i wariację niektórych własności oferowanych przez wyżej wymienionych konkurentów, dlatego sądzimy, że mamy szansę wypromować się na tym rynku.
-
-\subsection{Proponowane Rozwiązanie}
 
 
 \newpage
@@ -99,12 +103,12 @@ Użytkownicy w pierwszym stadium rozwoju platformy będą się dzielić na Dewel
 \subsection{Analiza Biznesowa}
 Pierwsze wydanie systemu dostarczy klientom zestaw umów gotowych umów do użycia i system ocen, który będzie dawać nam przewagę nad konkurencją w takich kwestiach jak:
 \begin{itemize}
-\item Wiarygodny system ocen --- stanowiący kluczową wartość oferowaną przez nasze rozwiązanie. W naszym systemie nie występuje administrator, to też niezwykle istotne było stworzenie środowiska promującego bycie uczciwym. Podobne rozwiązania możemy zaobserwować w przeróżnych serwisach aukcyjnych, gdzie stanowią pewnego rodzaju informację dla kupującego o tym czy może ufać sprzedającemu. Nasze rozwiązanie pozwala na ocenienie drugiej strony umowy --- takowej oceny dokonuje także sprzedający, a nie tylko kupujący. Dodatkowo ocenom tym zostają nadane odpowiednie wagi tak by zapobiec próbom wpłynięcia na system ocen np. poprzez wchodzenie w małe transakcje z dużą ilością kont powiązanych ze sprzedającym. Wagi przyznawane są na podstawie ocen posiadanych przez stronę wystawiającą takową ocenę, a także jej wiarygodności dla społeczności platformy wyrażoną poprzez oceny pozytywne oraz ogólną ilość ocen.
-\item Niezależność od walut FIAT --- na platformie płatności odbywać się będą przy pomocy Ether'u (ETH), kryptowaluty, której wartość jest niezależna od żadnego centralnego organu finansowego. Naszych środków nie da się zamrozić tak jak np. w przypadku Peso Argentyńskiego (ARS) w 2001 roku podczas kryzysu finansowego. Nie grozi nam także hiperinflacja, pieniędzy nie da się po prostu dodrukować przez specyfikę pozyskiwania Ether'u (ETH).
+\item Wiarygodny system ocen --- stanowiący kluczową wartość oferowaną przez nasze rozwiązanie. W naszym systemie nie występuje administrator, to też niezwykle istotne było stworzenie środowiska promującego bycie uczciwym. Podobne rozwiązania możemy zaobserwować w przeróżnych serwisach aukcyjnych, gdzie stanowią pewnego rodzaju informację dla kupującego o tym czy może ufać sprzedającemu. Nasze rozwiązanie pozwala na ocenienie drugiej strony umowy --- takowej oceny dokonuje także sprzedający, a nie tylko kupujący. Dodatkowo ocenom tym zostają nadane odpowiednie wagi tak by zapobiec próbom wpłynięcia na system ocen np.\ poprzez wchodzenie w małe transakcje z dużą ilością kont powiązanych ze sprzedającym. Wagi przyznawane są na podstawie ocen posiadanych przez stronę wystawiającą takową ocenę, a także jej wiarygodności dla społeczności platformy wyrażoną poprzez oceny pozytywne oraz ogólną ilość ocen.
+\item Niezależność od walut FIAT --- na platformie płatności odbywać się będą przy pomocy Ether'u (ETH), kryptowaluty, której wartość jest niezależna od żadnego centralnego organu finansowego. Naszych środków nie da się zamrozić tak jak np.\ w przypadku Peso Argentyńskiego (ARS) w 2001 roku podczas kryzysu finansowego. Nie grozi nam także hiperinflacja, pieniędzy nie da się po prostu dodrukować przez specyfikę pozyskiwania Ether'u (ETH).
 \item Niezależność od stron trzecich --- transakcje odbywają się w ramach zdecentralizowanej sieci Ethereum, gdzie nie występuje żaden administrator czy istytucja będąca w stanie zablokować bądź cofnąć naszą transakcję. Gwarantuje to poczucie bezpieczeństwa i niezależności wyróżniające nas na tle konkurencyjnych serwisów nieopartych na technologii blockchain, gdzie strona trzecia już występuje. Zwiększa to także bezpieczeństwo naszych danych osobowych zachowując większą anonimowość.
 \item Bezpieczne wykonanie umów --- ???
 \item Różnorodność umów --- sposobów przeprowadzenia transakcji - Przygotowaliśmy 11 przykładowych modeli umów z czego 2 znajdą się w pierwszym wydaniu systemu. Gwarantuje to dostosowanie systemu do potrzeb użytkowników. Dodatkowo ilość ta mogłaby się powiększyć wraz z powiększeniem bazy użytkowników. 
-\item Globalny zasięg ofert --- sieć Ethereum wiąże się z brakiem ograniczenia co do lokalizacji na kuli ziemskiej. Korzystać z niej można z dowolnego zakątku, wystarczy jedynie połączenie z internetem. Ether może nabyć każdy co stanowi jedyny wymóg by korzystać z naszej platformy. Daje to o wiele większą wszechstronnoć od większości platform do handlu ograniczonych jedynie do rynku lokalnego. Konkurować z nami pod tym względem mogliby jedynie giganci tacy jak np. Amazon czy eBay.
+\item Globalny zasięg ofert --- sieć Ethereum wiąże się z brakiem ograniczenia co do lokalizacji na kuli ziemskiej. Korzystać z niej można z dowolnego zakątku, wystarczy jedynie połączenie z internetem. Ether może nabyć każdy co stanowi jedyny wymóg by korzystać z naszej platformy. Daje to o wiele większą wszechstronnoć od większości platform do handlu ograniczonych jedynie do rynku lokalnego. Konkurować z nami pod tym względem mogliby jedynie giganci tacy jak np.\ Amazon czy eBay.
 \item Budowanie nowych rozwiązań --- unikalna cecha wyróżniająca nas na rynku. Jestemy otwarci na społeczność tworząca się wokół naszej platformy w znacznie szerszy sposób niż nieblockchainowa konkurencja. Po wypuszczeniu produktu żyłby on własnym życiem kontrolowany w całości przez społeczność posiadającą możliwość wprowadzania modyfikacji, które mogłyby zostać przez większość zaakceptowane bądź odrzucone co stanowi gwarancję dostosowania ECMarket'u do potrzeb potencjalnego użytkownika. Jednakże dodanie funkcjonalności związanych z tą cechą, jest zaplanowane na przyszłe wydania
 \end{itemize}
 
@@ -230,7 +234,7 @@ TDD
 \subsection{Ograniczenia}
 Głównym ograniczeniem jest czas na wykonanie projektu, który wynosi niepełny rok.
 Każda instrukcja wykonana na Wirtualnej Maszynie Ethereum (EVM), kosztuje pewną ilość etheru, co stanowi ograniczenie jak bardzo skomplikowany kod może być na niej wykonywany. Ten problem można częściowo rozwiązać delegując wykonanie niektórych zadań do klientów, takich, które nie wymagają wiarygodności lub takie, dla których można skonstruować dowód poprawności obliczeń, którego weryfikacja jest tańsza niż sam kod.
-Pewnym ograniczeniem jest fakt, że nie opieramy się na żadnej stronie trzeciej, która byłaby w stanie stanowić autorytet i potwierdzać, że jakieś wydarzenie miało miejsce lub nie miało (np. dostarczenie produktu, który jednocześnie spełniałby pewne wymagania klienta lub innych stron). Te gwarancje próbujemy zbudować na podłożu teorii gier oraz społecznej teorii gier, by doprowadzić do sytuacji, gdzie strony nie wywiązujące się z umów tracą pieniądze lub/i ocenę, więc efektywnie zniechęcane do takich działań.
+Pewnym ograniczeniem jest fakt, że nie opieramy się na żadnej stronie trzeciej, która byłaby w stanie stanowić autorytet i potwierdzać, że jakieś wydarzenie miało miejsce lub nie miało (np.\ dostarczenie produktu, który jednocześnie spełniałby pewne wymagania klienta lub innych stron). Te gwarancje próbujemy zbudować na podłożu teorii gier oraz społecznej teorii gier, by doprowadzić do sytuacji, gdzie strony nie wywiązujące się z umów tracą pieniądze lub/i ocenę, więc efektywnie zniechęcane do takich działań.
 Istotnym problemem, który chcemy przynajmniej od Siebie odsunąć są kwestie prawne, a więc rosnąca kontrola władzy państwowej nad różnymi aspektami życia. Chcielibyśmy rozwiązać ten problem po przez wydanie platformy na licencji z rodziny GPL, jak również zbudować w ramach naszej platformy system repozytoriów zarządzanych przez klientów. Jednak realizacja tego drugiego odbędzie się nie wcześniej, niż w drugim wydaniu aplikacji.
 
 
@@ -638,16 +642,18 @@ Umowa A1.2 jest ewolucją umowy A1.1. W tym przypadku sprzedający dodatkowo ust
 
 \newpage
 \section{Słownik Pojęć}
-•    Ekosystem Ethereum (zespół technologii Ethereum) – Ethereum jako środowisko wykonawcze oparte na blockchainie, rozproszona przestrzeń dyskowa Swarm, system komunikatów Whisper, biblioteki web3 i aplikacje klienckie Ethereum. \newline
-•    Ethereum – środowisko wykonawcze oparte na blockchainie dla inteligentnych kontraktów. \newline
-•    Blockchain – struktura danych mogąca przechowywać dowolne dane w postaci bloków, skonstruowana na zasadzie listy (lub w pewnym stopniu drzewa), gdzie wskaźnikami do poprzednich bloków są ich kryptograficzne hasze.\newline
-•    Drzewa Merkle – struktura danych mogąca przechowywać dowolne dane, skonstruowana na zasadzie drzewa, gdzie wskaźnikami na rodziców są ich kryptograficzne hasze. \newline
-•    Mainnet – główna sieć Ethereum o id równym 1. Na niej odbywają się transakcje z użyciem etheru posiadającym wartość dla użytkowników. \newline
-•    Swarm – zdecentralizowana przestrzeń dyskowa oparta na drzewach Merkle, zintegrowana z Ethereum. \newline
-•    Whisper – zdecentralizowany, wysoce anonimowy system komunikatów zintegrowany z Ethereum.\newline
-•    Wirtualna Maszyna Ethereum – część Ethereum wykonująca bytecode skompilowanych kontraktów. \newline
-•    Ether – jednostka płatności/możliwości wykonania kodu. Jest podstawową walutą w ekosystemie Ethereum. 1 ether dzieli się na $10$\textsuperscript{18} wei. \newline
-
+\begin{itemize}
+	\item Platforma Handlowa --- aplikacje agregujące oferty handlowe, pośredniczące w wykonaniu opłat i dostarczające narzędzia od oceny kupujących i sprzedających. 
+	\item Ekosystem Ethereum (zespół technologii Ethereum) --- Ethereum jako środowisko wykonawcze oparte na blockchainie, rozproszona przestrzeń dyskowa Swarm, system komunikatów Whisper, biblioteki web3 i aplikacje klienckie Ethereum.
+	\item  Ethereum --- środowisko wykonawcze oparte na blockchainie dla inteligentnych kontraktów.
+	\item  Blockchain --- struktura danych mogąca przechowywać dowolne dane w postaci bloków, skonstruowana na zasadzie listy (lub w pewnym stopniu drzewa), gdzie wskaźnikami do poprzednich bloków są ich kryptograficzne hasze.
+	\item Drzewa Merkle --- struktura danych mogąca przechowywać dowolne dane, skonstruowana na zasadzie drzewa, gdzie wskaźnikami na rodziców są ich kryptograficzne hasze.
+	\item Mainnet --- główna sieć Ethereum o id równym 1. Na niej odbywają się transakcje z użyciem etheru posiadającym wartość dla użytkowników.
+	\item Swarm --- zdecentralizowana przestrzeń dyskowa oparta na drzewach Merkle, zintegrowana z Ethereum. 
+	\item Whisper --- zdecentralizowany, wysoce anonimowy system komunikatów zintegrowany z Ethereum.
+	\item Wirtualna Maszyna Ethereum --- część Ethereum wykonująca bytecode skompilowanych kontraktów.
+	\item Ether --- jednostka płatności/możliwości wykonania kodu. Jest podstawową walutą w ekosystemie Ethereum. 1 ether dzieli się na $10$\textsuperscript{18} wei.
+\end{itemize}
 
 \newpage
 \section{Załączniki}

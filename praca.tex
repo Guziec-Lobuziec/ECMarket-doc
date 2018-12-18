@@ -1,6 +1,6 @@
 \documentclass[11pt,oneside]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[english,polish]{babel}
+\usepackage[polish]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[a4paper,width=170mm,top=18mm,bottom=22mm,includeheadfoot]{geometry}
 \usepackage{graphicx}
@@ -125,7 +125,7 @@ Pierwsze wydanie systemu dostarczy klientom zestaw umów gotowych umów do użyc
 Przy określaniu paradygmatu, metodologii i procesu wytwarzania oprogramowania, które zastosujemy w naszym projekcie rozważaliśmy następujące strategie
 
 \begin{itemize}
-	\item Ewolucyjno-przyrostowy
+	\item Ewolucyjno-przyrostowy \\
 	Cechy:
 	\begin{itemize}
 		\item nie wymaga pełnej specyfikacji problemu
@@ -134,25 +134,32 @@ Przy określaniu paradygmatu, metodologii i procesu wytwarzania oprogramowania, 
 		\item funkcjonalności systemu muszą dawać rozbić się na podfunkcjonalności
 		\item proces zajmuje dużo czasu
 	\end{itemize}
-	\item Scrum
+	\item Scrum \\
 	Cechy:
 	\begin{itemize}
 		\item szybka adaptacja do zmian wymagań
 		\item wymagana stała komunikacja w zespole
 		\item nieduże przyrosty w małych odstępach
 		\item wymaga podobnych umiejętności wszystkich członków zespołu
-		\item samozarządzanie się zsespołu
+		\item samozarządzanie się zespołu
 		\item szybko tworzone oprogramowanie
 	\end{itemize}
-	\item Prototypowanie
+	\item Prototypowanie \\
 	Cechy:
 	\begin{itemize}
 		\item wspomaga identyfikację wymagań
-		\item 
+		\item może przeszkodzić w kompleksowej analizie problemu
+		\item duże nakłady czasu na przygotowanie prototypu
+		\item logiczna walidacja problemu
+		\itme najlepiej się sprawdza przy budowaniu UI
 	\end{itemize}
 \end{itemize}
 
+\nocite{academy:BYT, wiki:Scrum, wiki:SoftPrototyping}
+
 \subsection{Wybór Strategii i Argumentacja}
+
+Metodologią, którą rozważaliśmy na początku był Scrum, jednak wymóg stałej komunikacji i intensywności pracy, zdyskwalifikował ją dość szybko. Problemem również była bardzo mocno zróżnicowana wśród zespołu znajomość technologii (Ethereum). Wahaliśmy się, czy nie użyć protypowania, jednakże mieliśmy już na samym początku, w pewnym stopniu określone wymagania, więc zdecydowaliśmy się na bardziej znaną nam metodę ewolucyjno-przyrostową.
 
 \subsection{Plan Zapewnienia Jakości}
 
@@ -670,7 +677,6 @@ Umowa A1.2 jest ewolucją umowy A1.1. W tym przypadku sprzedający dodatkowo ust
 \section{Załączniki}
 
 \newpage
-\section{Bibliografia}
 \bibliographystyle{IEEEtranS}
 \bibliography{bibliografia}
 \end{document}

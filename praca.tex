@@ -568,8 +568,6 @@ W ramach infrastruktury komunikacyjnej wykorzysztaliśmy platformę https://www.
 S --- Sprzedający \\
 K --- Kupujący \\ \\
 
-\textbf{Analiza}
-
 
 \subsubsection{Umowa A1.2}
 \textbf{Scenariusz:} \\
@@ -610,7 +608,7 @@ K --- Kupujący \\ \\
 S --- Sprzedający \\
 K --- Kupujący \\ \\
 
-\textbf{Analiza}
+\newpage
 
 
 \subsubsection{Umowa A1.3}
@@ -673,7 +671,536 @@ S --- Sprzedający \\
 K --- Kupujący \\
 k1, k2 --- kaucje\\ \\
 
-\textbf{Analiza}
+\newpage
+\subsubsection{Umowa A2.1}
+\textbf{Scenariusz:} \\
+\begin{table}[H]
+    \begin{tabular}{ll}
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A2.1 --- aukcja prosta jawna}}}                                                           \\ \hline
+    0.        & S tworzy umowę
+\\ \hline
+    1.        & K1 wpłaca kwotę k1
+\\ \hline
+    2.        & \textit{opcjonalnie S zatwierdza udział K1}
+\\ \hline
+    3.        & Aukcja się kończy --- S wypłaca k1
+\\ \hline
+    4.        & K1 ocenia S
+\\ 
+	\multicolumn{2}{l}{}
+\\        
+	2a.        & K2 wpłaca kwotę k2 (k2 > k1)
+\\ \hline   
+	3a.        &\textit{opcjonalnie S zatwierdza udział K2}
+\\ \hline     
+	4a.        & K1 wypłaca k1
+\\   
+	\multicolumn{2}{l}{}
+\\        
+	Na.        & Km wpłaca kwotę kN (kN > k(N-1))
+\\ \hline 
+	(N+1)a.        & Aukcja się kończy --- S wypłaca kN
+\\ \hline     
+	5ba.        & Km ocenia S
+\\ 
+	\multicolumn{2}{l}{}
+\\        
+	2b.        & \textit{Opcjonalne --- S odrzuca K1}
+\\ \hline     
+	3b.        & \textit{Opcjonalne --- K1 wypłaca k1}
+\\ 
+\end{tabular}
+\end{table}
+\textbf{Legenda:} \\
+K1, K2, …, Km – klienci biorący udział w aukcji (m <= N) \\
+S – sprzedawca \\ \\
+Zatwierdzanie powinno nastąpić tylko raz przy pierwszej wpłacie. W przeciwnym wypadku sprzedający może mieć za dużą kontrolę nad aukcją (potencjalne skutki wymagają weryfikacji) \\
+Aukcja się kończy, pod wpływem decyzji S lub innego zdarzenia \\ \\
+
+\newpage
+\subsubsection{Umowa A2.2}
+\textbf{Scenariusz:} \\
+\begin{table}[H]
+    \begin{tabular}{ll}
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A2.2 ---  aukcja prosta niejawna}}}                                                           \\ \hline
+    0.        & S tworzy umowę
+\\ \hline
+    1. async1       & K1 wpłaca depozyt k1 i wysyła kryptograficzny hasz h1
+\\ \hline
+    2. async1        & \textit{opcjonalnie S zatwierdza udział K1 przy pierwszej wpłacie}
+\\ \hline
+    3. async2        & K2 wpłaca depozyt k2 i wysyła kryptograficzny hasz h2
+\\ \hline
+    4. async2        & \textit{opcjonalnie S zatwierdza udział K2 przy pierwszej wpłacie} 
+\\ 
+	\multicolumn{2}{l}{}
+\\        
+	N. async N        & KM wpłaca depozyt kM i wysyła kryptograficzny hasz hM 
+\\ \hline   
+	N+1. async N        & \textit{opcjonalnie S zatwierdza udział KM przy pierwszej wpłacie}
+\\ \hline     
+	N+2.        & Faza licytacji się kończy 
+\\    \hline   
+	N+3. async1         & K1 wysyła w postaci jawnej wartość p1, sól s1 i znacznik prawdziwości f1
+\\ \hline     
+	N+4. async2         & K2 wysyła w postaci jawnej wartość p2, sól s2 i znacznik prawdziwości f2
+
+\\   
+	\multicolumn{2}{l}{}
+\\        
+	N+M. async M .        & KM wysyła w postaci jawnej wartość pM, sól sM i znacznik prawdziwości fM
+\\ \hline 
+	N+M+1.        & Koniec aukcji – S wypłaca środki w ilości pI = max(S), gdzie
+\\ \hline
+			&  S = \{pK: 1=<K=<N \& wysłane(pK) \& fK \& pK <= kK \& hK == hasz(pK.fK.sK)\}
+\\ \hline     
+	N+M+2.        &  KI ocenia S i wypłaca kI – pI 
+\\ \hline  
+	N+M+3.        & Klienci ze zbioru
+\\ \hline
+			& R = \{KK: 1=<K=<N \& wysłane(pK) \& hK == hash(pK.fK.sK)\} wypłacają wpłacone k 
+\\   \hline  
+	N+M+4.        & Klienci spoza zbioru R tracą k na rzecz systemu
+\\ 
+\end{tabular}
+\end{table}
+\textbf{Legenda:} \\
+K1-KM – klienci \\
+async[numer] – sąsiadujące kroki oznaczone async o różnych numerach wykonują się w dowolnej kolejności \\
+Klienci mogą dokonać więcej niż jednej wpłaty \\ \\
+
+\newpage
+\subsubsection{Umowa A3.1}
+\textbf{Scenariusz:} \\
+\begin{table}[H]
+    \begin{tabular}{ll}
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A3.1 ---  prosta umowa z świadkami (pasywna)}}}                                                           \\ \hline
+    0.        & S tworzy umowę
+\\ \hline
+    1.       & K zawiera umowę i wpłaca cenę – zgłasza zbiór ŚK 2t+1 świadków 
+\\ \hline
+    2.        & S zatwierdza K i zgłasza zbiór SŚ 2t+1 świadków, taki, że ŚK  n ŚS =/= O
+\\ \hline
+    3.        & K potwierdza poprawność 
+\\ \hline
+    4.        &  S wypłaca i ocenia K 
+\\ \hline
+    5.        & K ocenia S
+\\  \hline
+            & KONIEC
+\\ 
+	\multicolumn{2}{l}{}
+\\        
+	3a.        & K nie potwierdza  
+\\ \hline   
+	4a.        & ŚK U ŚS oraz K i S głosują na K lub S – procedura głosowania 
+\\ \hline     
+	5a.        & Większość za K – K wypłaca i ocenia S i ŚS 
+\\    \hline   
+	6a.         & S ocenia ŚK i K
+\\    
+	\multicolumn{2}{l}{}
+\\        
+	5aa.        & Większość za S – S wypłaca i ocenia K i ŚK 
+\\ \hline 
+	6aa.        & K ocenia ŚS i S
+\\ 
+	\multicolumn{2}{l}{}
+\\        
+		     & if(nieparzysta ilość nie zagłosuje i jest remis) 
+\\ \hline
+	4ab.        & S wypłaca i ocenia ŚS 
+\\ \hline 
+	5ab.        & K ocenia S i ŚK
+\\ 
+	\multicolumn{2}{l}{}
+\\        
+	7a.	     & ŚK U ŚS (ci co zagłosowali) ocenia S i K (wypłacają prowizje)
+\\
+\end{tabular}
+\end{table}
+
+\newpage
+\subsubsection{Umowa A3.2}
+\textbf{Scenariusz:} \\
+\begin{table}[H]
+    \begin{tabular}{ll}
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A3.2 ---  prosta umowa z losowaniem świadków (pasywna)}}}                                                           \\ \hline
+    0.        & S tworzy umowę i zgłasza swoją połowę zbioru świadków 
+\\ \hline
+    1.        &  K zawiera umowę, wpłaca cenę
+\\ \hline
+		& i zgłasza swoją połowę zbioru świadków 
+\\ \hline
+    2.        &  S zatwierdza K 
+\\ \hline
+    3.        &  K potwierdza poprawność 
+\\ \hline
+    4.        & S wypłaca i ocenia K
+\\ \hline
+    5.	    &  K ocenia S 
+\\ \hline
+	    & KONIEC
+\\
+	\multicolumn{2}{l}{}
+\\        
+	3a.        & K nie potwierdza 
+\\ \hline   
+	4a.        & System losuje zbiór świadków Ś 2t+1 z sumy zgłoszonych zbiorów 
+\\ \hline     
+	5a.        & Ś oraz K i S głosują na K lub S – procedura głosowania 
+\\   \hline     
+	6a.        & Większość za K – K wypłaca i ocenia S i Ś
+\\   \hline     
+	7a.        & S ocenia Ś i K
+\\   
+	\multicolumn{2}{l}{}
+\\        
+	6ab.        & Większość za S – S wypłaca i ocenia K i Ś 
+\\ \hline 
+	7ab.        &  K ocenia Ś i S
+\\
+	\multicolumn{2}{l}{}
+\\        
+	       & if(nieparzysta ilość nie zagłosuje i jest remis) 
+\\ \hline     
+	5ac.        &  S wypłaca i ocenia Ś
+\\ \hline  
+	6ac.        &  K ocenia S i Ś 
+\\  
+	\multicolumn{2}{l}{}
+\\   
+	8a.		& Ś (ci co zagłosowali) ocenia S i K (wypłacają prowizje)     
+\\   
+\end{tabular}
+\end{table}
+
+
+\newpage
+\subsubsection{Umowa A3.3}
+\textbf{Scenariusz:} \\
+\begin{table}[H]
+    \begin{tabular}{ll}
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A3.3 ---  umowa z zaliczką i świadkami (pasywna)}}}                                                           \\ \hline
+    0.        & S tworzy umowę oraz ustala cenę i zaliczkę 
+\\ \hline
+    1.        &   K zawiera, wpłaca cenę i zgłasza zbiór ŚK 2t+1 świadków 
+\\ \hline
+    2.        & S zatwierdza K i zgłasza zbiór SŚ 2t+1 świadków, taki że ŚK n ŚS =/= O
+\\ \hline
+    3.        & K potwierdza poprawność 
+\\ \hline
+    4.        & S wypłaca i ocenia K
+\\ \hline
+    5.	    &  K ocenia S 
+\\ \hline
+	    & KONIEC
+\\
+	\multicolumn{2}{l}{}
+\\        
+	3a.        &  K nie potwierdza i żąda zwrotu (cena – zaliczka) jeśli 
+\\ \hline
+		  & (teraz < ostateczny termin wycofania się) 
+\\ \hline   
+	4a.        &  S wypłaca zaliczkę i ocenia K
+\\ \hline     
+	5a.        &  K wypłaca (cena – zaliczka) 
+\\   \hline     
+	       & KONIEC
+\\   
+	\multicolumn{2}{l}{}
+\\        
+	3b.        & K nie potwierdza i żąda zwrotu całej kwoty 
+\\ \hline 
+	4b.        & ŚK U ŚS oraz K i S głosują na K lub S – procedura głosowania 
+\\ \hline 
+	5b.        &   Większość za K – K wypłaca i ocenia S i ŚS 
+\\ \hline 
+	6b.        &  S ocenia ŚK i K
+\\
+	\multicolumn{2}{l}{}
+\\        
+	5ba.        & Większość za S – S wypłaca i ocenia K i ŚK 
+\\ \hline  
+	6ba.        &   K ocenia ŚS i S
+\\  
+	\multicolumn{2}{l}{}
+\\   
+			& if(nieparzysta ilość nie zagłosuje i jest remis) 
+\\ \hline     
+	4bb.		& S wypłaca cenę i ocenia ŚS
+\\   \hline  
+	5bb.        & K ocenia S i ŚK 
+\\  \hline  
+	7b.        &   ŚK U ŚS (ci co zagłosowali) ocenia S i K (wypłacają prowizje)
+\\  
+\end{tabular}
+\end{table}
+
+
+\newpage
+\subsubsection{Umowa A3.4}
+\textbf{Scenariusz:} \\
+\begin{table}[H]
+    \begin{tabular}{ll}
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A3.4 ---   prosta umowa z świadkami (aktywna)}}}                                                           \\ \hline
+    0.        &  S tworzy umowę 
+\\ \hline
+    1.        &    K zawiera umowę i wpłaca cenę – zgłasza zbiór ŚK 2t+1 świadków 
+\\ \hline
+    2.        & S zatwierdza K i zgłasza zbiór SŚ 2t+1 świadków, taki że ŚK n ŚS =/= O
+\\ \hline
+    3.        & ŚK U ŚS oraz K i S głosują na K lub S – procedura głosowania
+\\ \hline
+    4.        & Większość za S – S wypłaca i ocenia K i ŚK 
+\\ \hline
+    5.	    &  K ocenia ŚS i S 
+\\ \hline
+    6.	    &  ŚK U ŚS (ci co zagłosowali) ocenia S i K (wypłacają prowizje) 
+\\ \hline
+		& KONIEC
+\\
+	\multicolumn{2}{l}{}
+\\        
+	4a.        &   Większość za K – K wypłaca i ocenia S i ŚS 
+\\ \hline   
+	5a.        &  S ocenia ŚK i K 
+\\ \hline     
+	        & powrót do 6.
+\\  
+	\multicolumn{2}{l}{}
+\\   
+			& if(nieparzysta ilość nie zagłosuje i jest remis) 
+\\ \hline     
+	4b.		&  S wypłaca i ocenia ŚS 
+\\   \hline  
+	5b.        & K ocenia S i ŚK  
+\\  \hline  
+	        &   powrót do 6.
+\\  
+\end{tabular}
+\end{table}
+
+\newpage
+\subsubsection{Umowa A4.2}
+\textbf{Scenariusz:} \\
+\begin{table}[H]
+    \begin{tabular}{ll}
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A4.2 ---   aukcja prosta niejawna ze świadkami (pasywna)}}}                                                           \\ \hline
+    0.        & S tworzy umowę i zgłasza zbiór świadków ŚS o rozmiarze 2t+1 
+\\ \hline
+    1. async1       & K1 wpłaca depozyt k1 i wysyła kryptograficzny hasz h1
+\\ \hline
+		& Jeśli nie ma świadka, to zgłasza zbiór ŚK1 2t+1 świadków, taki że ŚK1 n ŚS =/= O
+\\ \hline
+    2. async1        &  S zatwierdza udział K1 przy pierwszej wpłacie
+\\ \hline
+    3. async2        &  K2 wpłaca depozyt k2 i wysyła kryptograficzny hasz h2 
+\\ \hline
+		& Jeśli nie ma świadka, to zgłasza zbiór ŚK2 2t+1 świadków, taki że ŚK2 n ŚS =/= O
+\\ \hline
+    4. async2        & S zatwierdza udział K2 przy pierwszej wpłacie
+\\ 
+	\multicolumn{2}{l}{}
+\\        
+	N. async N        & KM wpłaca depozyt kM i wysyła kryptograficzny hasz hM
+\\ \hline   
+	N+2. async N         & S zatwierdza udział KM przy pierwszej wpłacie 
+\\ \hline     
+	N+3.        & Faza licytacji się kończy 
+\\    \hline   
+	N+4. async1         & K1 wysyła w postaci jawnej wartość p1, sól s1 i znacznik prawdziwości f1
+\\ \hline     
+	N+5. async2         & K2 wysyła w postaci jawnej wartość p2, sól s2 i znacznik prawdziwości f2
+\\   
+	\multicolumn{2}{l}{}
+\\        
+	N+M+3. async M .        & KM wysyła w postaci jawnej wartość pM, sól sM i znacznik prawdziwości fM
+\\ \hline 
+	N+M+4.        & Koniec aukcji – wybieramy ŚKI i KI, takie że pI == max(S), gdzie 
+\\ \hline
+			&  S = \{pK: 1=<K=<N \& wysłane(pK) \& fK \& pK <= kK \& hK == hasz(pK.fK.sK)\}. 
+\\ \hline     
+	N+M+5.        & KI potwierdza poprawność 
+\\ \hline  
+	N+M+6.        &  S wypłaca środki w ilości pI i ocenia KI 
+\\ \hline  
+	N+M+7.        &  KI ocenia S i wypłaca kI – pI
+\\  
+	\multicolumn{2}{l}{}
+\\        
+	N+M+5.a.        & KI nie potwierdza
+\\ \hline 
+	N+M+6.a.        & ŚKI U ŚS oraz K i S głosują na KI lub S – procedura głosowania 
+\\ \hline     
+	N+M+7.a.        &  Większość za KI – KI wypłaca kI i ocenia S i ŚS 
+\\ \hline  
+	N+M+8.a.        &  S ocenia ŚKI i KI
+\\ 
+	\multicolumn{2}{l}{}
+\\       
+	N+M+7.aa.        &  Większość za S – S wypłaca pI i ocenia KI i ŚKI 
+\\ \hline  
+	N+M+8.aa.        &   KI ocenia ŚS i S i wypłaca kI – pI
+\\ 
+	\multicolumn{2}{l}{}
+\\      
+		& if(nieparzysta ilość nie zagłosuje i jest remis) 
+\\ \hline
+	N+M+6.ab.        &  S wypłaca pI i ocenia ŚS 
+\\ \hline  
+	N+M+7.ab.        & KI ocenia S i ŚKI i wypłaca kI – pI [następny N+M+9.a.]
+\\ 
+	\multicolumn{2}{l}{}
+\\  
+	N+M+9.a.        & ŚKI U ŚS (ci co zagłosowali) ocenia S i K (wypłacają prowizje) [następny N+M+9.]
+\\ 
+	\multicolumn{2}{l}{}
+\\  
+	N+M+9.        &  Klienci ze zbioru 
+\\ \hline
+			&  R=\{KK: 1=<K=<N\& wysłane(pK)\& hK== hash(pK.fK.sK)\} wypłacają wpłacone k 
+\\ 
+	\multicolumn{2}{l}{}
+\\  
+	N+M+10.        &  Klienci spoza zbioru R tracą k na rzecz systemu
+\\ 
+\end{tabular}
+\end{table}
+\textbf{Legenda:} \\
+K1-KM – klienci \\
+async[numer] – sąsiadujące kroki oznaczone async o różnych numerach wykonują się w dowolnej kolejności \\
+Klienci mogą dokonać więcej niż jednej wpłaty \\ \\
+
+\newpage
+\subsubsection{Umowa A4.3}
+\textbf{Scenariusz:} \\
+\begin{table}[H]
+    \begin{tabular}{ll}
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A4.3 ---   aukcja prosta niejawna ze świadkami (aktywna)}}}                                                           \\ \hline
+    0.        & S tworzy umowę i zgłasza zbiór świadków ŚS o rozmiarze 2t+1 
+\\ \hline
+    1. async1       &  K1 wpłaca depozyt k1 i wysyła kryptograficzny hasz h1 (opcjonalnie opłaty dla Ś)
+\\ \hline
+		& Jeśli nie ma świadka, to zgłasza zbiór ŚK1 2t+1 świadków, taki że ŚK1 n ŚS =/= O
+\\ \hline
+    2. async1        &   S zatwierdza udział K1 przy pierwszej wpłacie 
+\\ \hline
+    3. async2        &  K2 wpłaca depozyt k2 i wysyła kryptograficzny hasz h2 (opcjonalnie opłaty dla Ś)
+\\ \hline
+		& Jeśli nie ma świadka, to zgłasza zbiór ŚK2 2t+1 świadków, taki że ŚK2 n ŚS =/= O
+\\ \hline
+    4. async2        & S zatwierdza udział K2 przy pierwszej wpłacie
+\\ 
+	\multicolumn{2}{l}{}
+\\        
+	N. async N        &  KM wpłaca depozyt kM i wysyła kryptograficzny hasz hM (opcjonalnie opłaty dla Ś)
+\\ \hline 
+			& Jeśli nie ma świadka, to zgłasza zbiór ŚKM 2t+1 świadków, taki że ŚKM n ŚS =/= O
+\\ \hline  
+	N+2. async N         & S zatwierdza udział KM przy pierwszej wpłacie 
+\\ \hline     
+	N+3.        & Faza licytacji się kończy 
+\\    \hline   
+	N+4. async1         & K1 wysyła w postaci jawnej wartość p1, sól s1 i znacznik prawdziwości f1
+\\ \hline     
+	N+5. async2         & K2 wysyła w postaci jawnej wartość p2, sól s2 i znacznik prawdziwości f2
+\\   
+	\multicolumn{2}{l}{}
+\\        
+	N+M+3. async M .        & KM wysyła w postaci jawnej wartość pM, sól sM i znacznik prawdziwości fM
+\\ \hline 
+	N+M+4.        & Koniec aukcji – wybieramy ŚKI i KI, takie że pI == max(S), gdzie 
+\\ \hline
+			&  S = \{pK: 1=<K=<N \& wysłane(pK) \& fK \& pK <= kK \& hK == hasz(pK.fK.sK)\}.  
+\\ \hline     
+	N+M+5.        &  Głosowanie – większość za 
+\\ \hline  
+	N+M+6.        &  S wypłaca środki w ilości pI i ocenia KI i ŚKI 
+\\ \hline  
+	N+M+7.        &  KI ocenia S i ŚS i wypłaca kI – pI 
+\\  \hline  
+	N+M+8.        &  ŚKI U ŚS (ci co zagłosowali) oceniają KI i S (opcjonalnie wypłacają swoje prowizje) 
+\\  \hline  
+	N+M+9.        & Klienci ze zbioru
+\\ \hline
+			&  R=\{KK: 1=<K=<N\& wysłane(pK)\& hK== hash(pK.fK.sK)\} wypłacają wpłacone k 
+\\  \hline  
+	N+M+10.        &  Klienci spoza zbioru R tracą k na rzecz systemu
+\\  
+	\multicolumn{2}{l}{}
+\\        
+	N+M+5.a.        & Większość przeciw 
+\\ \hline 
+	N+M+6.a.        &  KI wypłaca i ocenia S i ŚS 
+\\ \hline     
+	N+M+7.a.        &  S ocenia KI i ŚKI 
+\\ \hline  
+	N+M+8.a.        &  ŚKI U ŚS (ci co zagłosowali) (wypłaca i) ocenia KI i S 
+\\ \hline  
+	N+M+9.a.        &  powrót do N+M+9.
+\\ 
+\end{tabular}
+\end{table}
+\textbf{Legenda:} \\
+K1-KM – klienci \\
+async[numer] – sąsiadujące kroki oznaczone async o różnych numerach wykonują się w dowolnej kolejności \\
+Klienci mogą dokonać więcej niż jednej wpłaty \\
+Klient może zgłosić tylko jednego U. Robi to przy pierwszej zaakceptowanej wpłacie.\\ \\
+
+\newpage
+\subsubsection{Umowa PA1}
+\textbf{Scenariusz:} \\
+\begin{table}[H]
+    \begin{tabular}{ll}
+    \multicolumn{2}{l}{\textit{\textbf{Umowa PA1 ---  proste wiązanie świadków prowizją}}}                                                           \\ \hline
+    1.       &  Udziałowiec U tworzy umowę 
+\\ \hline
+    2.       &    Świadek Ś1 zgłasza się 
+\\ \hline
+    3.        &  U go akceptuje i wpłaca prowizję (lub nie) 
+\\ \hline
+    4.        &  Ś2 zgłasza się 
+\\ \hline
+    5.		&   U go akceptuje  i wpłaca prowizję (lub nie) 
+\\
+	\multicolumn{2}{l}{}
+\\        
+	N+1.        &   ŚN zgłasza się 
+\\ \hline  
+	N+2.        &  U go akceptuje  i wpłaca prowizję (lub nie)  
+\\ \hline     
+	N+3.        & U zgłasza A1  
+\\    \hline   
+	N+4.         &  A1 raportuje uczestnictwo świadków 
+\\   
+	\multicolumn{2}{l}{}
+\\        
+	N+M+2.        & U zgłasza AM 
+\\ \hline 
+	N+M+3.        & AM raportuje uczestnictwo świadków 
+\\ \hline     
+	N+M+4.        &   Świadkowie, którzy uczestniczyli (głosowali poprawnie) we wszystkich 
+\\ \hline
+			& umowach, do których zostali wytypowani, wypłacają prowizje 
+\\ \hline  
+	N+M+5.        &   U wypłaca resztę 
+\\ 
+	\multicolumn{2}{l}{}
+\\        
+	        & if(teraz > T) 
+\\ \hline 
+	1a.        &  Świadkowie wypłacają prowizje jeśli uczestniczyli we wszystkich 
+\\ \hline
+		& umowach, do których zostali wytypowani 
+\\ \hline     
+	2a.        &  U wypłaca resztę
+\\ 
+\end{tabular}
+\end{table}
+\textbf{Legenda:} \\
+dane wejściowe: prowizja na świadka P, ilość świadków N, Ilość umów A - po której jest wypłata M, czas wygaśnięcia T \\
+dane dodatkowe: licznik zgłoszonych umów I \\ \\
 
 \subsection{Specyfikacja Przypadków Uzycia}
 \subsubsection{Diagram przypadków uzycia}

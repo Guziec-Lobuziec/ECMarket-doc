@@ -539,6 +539,142 @@ W ramach infrastruktury komunikacyjnej wykorzysztaliśmy platformę https://www.
 \end{tabular}
 \end{table}
 
+\subsection{Scenariusze i Analiza Umów}
+
+\subsubsection{Umowa A1.1}
+\textbf{Scenariusz:} \\
+\begin{table}[H]
+    \begin{tabular}{ll}
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A1.1 --- umowa prosta}}}                                                           \\ \hline
+    0.        & S tworzy
+\\ \hline
+    1.        & K wpłaca
+\\ \hline
+    2.        & S potwierdza i wypłaca
+\\ \hline
+    3.       & K ocenia
+\\
+	\multicolumn{2}{l}{}
+\\        
+	2a.        & S odrzuca
+\\ \hline   
+	3a.        & K wypłaca
+\\ \hline     
+	4a.        & Koniec
+\\                                 
+\end{tabular}
+\end{table}
+\textbf{Legenda:} \\
+S --- Sprzedający \\
+K --- Kupujący \\ \\
+
+\textbf{Analiza}
+
+
+\subsubsection{Umowa A1.2}
+\textbf{Scenariusz:} \\
+\begin{table}[H]
+    \begin{tabular}{ll}
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A1.2 --- umowa z zaliczką}}}                                                           \\ \hline
+    0.        & S tworzy i ustala cenę, zaliczkę i czas do wycofania się
+\\ \hline
+    1.        & K wpłaca cenę
+\\ \hline
+    2.        & S potwierdza
+\\
+	\multicolumn{2}{l}{\textit{(teraz >= ostateczny termin wycofania się)}}
+\\   
+    3.       & S wypłaca i ocenia
+\\ \hline
+    4.       & K ocenia
+\\ 
+	\multicolumn{2}{l}{}
+\\        
+	2a.        & S odrzuca
+\\ \hline   
+	3a.        & K wypłaca
+\\ \hline     
+	4a.        & Koniec
+\\   
+	\multicolumn{2}{l}{}
+\\        
+	3b.        & K nie potwierdza i żąda zwrotu (cena – zaliczka) jeśli \textit{(teraz < ostateczny termin wycofania się)}
+\\ \hline 
+	4b.        & S wypłaca i ocenia
+\\ \hline     
+	5b.        & Koniec
+\\                                
+\end{tabular}
+\end{table}
+\textbf{Legenda:} \\
+S --- Sprzedający \\
+K --- Kupujący \\ \\
+
+\textbf{Analiza}
+
+
+\subsubsection{Umowa A1.3}
+\textbf{Scenariusz:} \\
+\begin{table}[H]
+    \begin{tabular}{ll}
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A1.3 --- umowa z kaucjami}}}                                                           \\ \hline
+    0.        & S tworzy
+\\ \hline
+    1.        & K wpłaca k1 + cena
+\\ \hline
+    2.        & S wpłaca k2
+\\ \hline
+    3.        & K potwierdza, ocenia i wypłaca k1
+\\ \hline
+    4.        & S wypłaca k2 + cena i ocenia
+\\ 
+	\multicolumn{2}{l}{}
+\\        
+	2a.        & S odrzuca
+\\ \hline   
+	3a.        & K wypłaca k1 + cena
+\\ \hline     
+	4a.        & Koniec
+\\   
+	\multicolumn{2}{l}{}
+\\        
+	3b.        & K odrzuca --- nowa\_cena
+\\ \hline 
+	4ba.        & S ugoda --- wypłaca nowa\_cena + k2 i ocenia
+\\ \hline     
+	5ba.        & K wypłata cena - cena\_nowa + k1 i ocenia
+\\ \hline  
+	6ba.        & Koniec
+\\   
+	\multicolumn{2}{l}{}
+\\        
+	4bb.        & S odrzuca --- nowa\_cena\_2
+\\ \hline     
+	5bb.        & K ugoda --- wypłaca cena - nowa\_cena\_2 + k1 i ocenia
+\\ \hline  
+	6bb.        & S wypłaca nowa\_cena\_2 + k2 i ocenia   
+\\ \hline  
+	7bb.		& Koniec     
+\\   
+	\multicolumn{2}{l}{}
+\\   
+	\multicolumn{2}{l}{\textit{(liczba odrzuceń > max liczba odrzuceń)}}
+\\                
+    3+l. odrzuceń.b.*.        & S/K odrzuca --- k1+k2 zostają zabrane przez system
+\\ \hline  
+	4+l. odrzuceń.b.*.        & S i K oceniają. S wypłaca cenę  
+\\ \hline  
+	5+l. odrzuceń.b.*.			& Koniec     
+\\ 
+\end{tabular}
+\end{table}
+\textbf{Legenda:} \\
+S --- Sprzedający \\
+K --- Kupujący \\
+k1, k2 --- kaucje\\ \\
+
+\textbf{Analiza}
+
 \subsection{Specyfikacja Przypadków Uzycia}
 \subsubsection{Diagram przypadków uzycia}
 

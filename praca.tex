@@ -1181,7 +1181,7 @@ Klient może zgłosić tylko jednego U. Robi to przy pierwszej zaakceptowanej wp
 	N+M+3.        & AM raportuje uczestnictwo świadków 
 \\ \hline     
 	N+M+4.        &   Świadkowie, którzy uczestniczyli (głosowali poprawnie) we wszystkich 
-\\ \hline
+\\
 			& umowach, do których zostali wytypowani, wypłacają prowizje 
 \\ \hline  
 	N+M+5.        &   U wypłaca resztę 
@@ -1191,7 +1191,7 @@ Klient może zgłosić tylko jednego U. Robi to przy pierwszej zaakceptowanej wp
 	        & if(teraz > T) 
 \\ \hline 
 	1a.        &  Świadkowie wypłacają prowizje jeśli uczestniczyli we wszystkich 
-\\ \hline
+\\
 		& umowach, do których zostali wytypowani 
 \\ \hline     
 	2a.        &  U wypłaca resztę
@@ -1199,8 +1199,77 @@ Klient może zgłosić tylko jednego U. Robi to przy pierwszej zaakceptowanej wp
 \end{tabular}
 \end{table}
 \textbf{Legenda:} \\
-dane wejściowe: prowizja na świadka P, ilość świadków N, Ilość umów A - po której jest wypłata M, czas wygaśnięcia T \\
+dane wejściowe: prowizja na świadka P, ilość świadków N, Ilość umów A po której jest wypłata M, czas wygaśnięcia T \\
 dane dodatkowe: licznik zgłoszonych umów I \\ \\
+
+\newpage
+\subsubsection{Umowa PA2}
+\textbf{Scenariusz:} \\
+\begin{table}[H]
+    \begin{tabular}{ll}
+    \multicolumn{2}{l}{\textit{\textbf{Umowa PA2 ---  proste wiązanie świadków prowizją i kaucją}}}                                                           \\ \hline
+    1.       &  Udziałowiec U tworzy umowę 
+\\ \hline
+    2.       &    Świadek Ś1 zgłasza się i wpłaca kaucję
+\\ \hline
+    3.        &  U go akceptuje i wpłaca prowizję (lub nie) 
+\\ \hline
+    4.        &  Ś2 zgłasza się i wpłaca kaucję
+\\ \hline
+    5.		&   U go akceptuje  i wpłaca prowizję (lub nie) 
+\\
+	\multicolumn{2}{l}{}
+\\        
+	N+1.        &   ŚN zgłasza się i wpłaca kaucję
+\\ \hline  
+	N+2.        &  U go akceptuje  i wpłaca prowizję (lub nie)  
+\\ \hline     
+	N+3.        & U zgłasza A1  
+\\    \hline   
+	N+4.         &  A1 raportuje uczestnictwo świadków 
+\\   
+	\multicolumn{2}{l}{}
+\\        
+	N+M+2.        & U zgłasza AM 
+\\ \hline 
+	N+M+3.        & AM raportuje uczestnictwo świadków 
+\\ \hline     
+	N+M+4.        &   Świadkowie, którzy uczestniczyli (głosowali poprawnie) we wszystkich 
+\\
+			& umowach, do których zostali wytypowani, wypłacają prowizja + kaucja 
+\\ \hline  
+	N+M+5.        &   U wypłaca resztę 
+\\ 
+	\multicolumn{2}{l}{}
+\\        
+	        & if(teraz > T) 
+\\ \hline 
+	1a.        &  Świadkowie wypłacają prowizja + kaucja jeśli uczestniczyli we wszystkich
+\\
+		& umowach, do których zostali wytypowani. Nie wytypowani do żadnych wypłacają samą kaucję
+\\ \hline     
+	2a.        &  U wypłaca resztę. Kaucje świadków, którzy nie wywiązali się, 
+\\
+				& zostają zabrane przez system.
+\\ 
+\end{tabular}
+\end{table}
+\textbf{Legenda:} \\
+dane wejściowe: prowizja na świadka P, ilość świadków N, Ilość umów A po której jest wypłata M, czas wygaśnięcia T, kaucja K \\
+dane dodatkowe: licznik zgłoszonych umów I \\ \\
+
+\newpage
+\subsubsection{Głosowanie świadków}
+\textbf{Głosowanie WV1} \\
+\textbf{Scenariusz:} \\
+wejście: zbiór Ś, K, S, maksymalny czas trwania, zdarzenie kończące\\ \\
+1. oddawanie głosów na K lub S wyjście: wynik, kto oddał głos \\ \\
+\textbf{Głosowanie WV2} \\
+\textbf{Scenariusz:} \\
+wejście: zbiór Ś, K, S, maksymalny czas trwania, zdarzenie kończące fazę głosowania, zdarzenie kończące fazę odsłaniania\\ \\
+1. wysyłanie haszy kryptograficznych h \\
+2. wysyłanie głosów v i soli s \\
+wyjście: wynik, kto oddał ważny głos (h == hash(v.s))\\ \\
 
 \subsection{Specyfikacja Przypadków Uzycia}
 \subsubsection{Diagram przypadków uzycia}

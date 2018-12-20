@@ -568,7 +568,7 @@ W ramach infrastruktury komunikacyjnej wykorzysztaliśmy platformę https://www.
 S --- Sprzedający \\
 K --- Kupujący \\ \\
 
-
+\newpage
 \subsubsection{Umowa A1.2}
 \textbf{Scenariusz:} \\
 \begin{table}[H]
@@ -673,6 +673,15 @@ k1, k2 --- kaucje\\ \\
 
 \newpage
 \subsubsection{Umowa A2.1}
+\textbf{Abstrakt}\\
+
+Umowa prostej jawnej aukcji, podobnie jak umowa A1.1, wymaga wpłacenia środków przez
+klienta (dalej nazywanego K[numer]) na portfel umowy, w celu jej zawarcia (może być dodana
+opcja zatwierdzenia K przy pierwszej wpłacie), jednak w przeciwieństwie do niej na początku
+następuje sekwencja licytacji. W trakcie jej K1-Km obserwują kwoty wpłacane przez innych
+uczestników i przebijają ostatnią najwyższą ofertę. Faza licytacji kończy się pod wpływem decyzji
+sprzedającego (dalej nazywany S) lub innego zdarzenia [wymagane jest określenie jakie
+wydarzenia mogą zakończyć aukcję i jakie potencjalne pod-umowy mogą generować].\\ \\
 \textbf{Scenariusz:} \\
 \begin{table}[H]
     \begin{tabular}{ll}
@@ -716,9 +725,56 @@ K1, K2, …, Km – klienci biorący udział w aukcji (m <= N) \\
 S – sprzedawca \\ \\
 Zatwierdzanie powinno nastąpić tylko raz przy pierwszej wpłacie. W przeciwnym wypadku sprzedający może mieć za dużą kontrolę nad aukcją (potencjalne skutki wymagają weryfikacji) \\
 Aukcja się kończy, pod wpływem decyzji S lub innego zdarzenia \\ \\
+\textbf{Analiza}
+
+Jawna aukcja posiada tę zaletę, że dają możliwość K1-Km między sobą konkurować, a
+przede wszystkim obserwować jak kształtuje się ostateczna cena, jednak tylko wtedy, gdy
+sprzedawca jest uczciwy. Nieuczciwy sprzedawca nie może bezpośrednio ingerować w przebieg
+aukcji, jednak z pomocą multi-konta lub wspólników może windować cenę, nieproporcjonalnie do
+wartości oferowanego produktu. Jedyną ochroną w tej sytuacji dla Kn jest system ocen,
+pozwalający sprawdzić sprzedawcę przed zawiązaniem umowy lub go ukarać po jej zakończeniu.
+
+Należy mieć jednak na uwadze przy ocenianiu „sprawiedliwości” tej transakcji, że cała idea
+aukcji opiera się na tym, że daje sprzedającemu przewagę, tzn. klienci konkurują między sobą
+oferując wyższe kwoty za towar. Ten problem może być rozwiązany z pomocą grup handlowych,
+które mogą kontrolować i narzucać dodatkowe zasady na przebieg umowy i jej kontrahentów.
+
+Rola trolli jest ograniczona, głównie przez ich portfel (windowanie ceny wymaga posiadania
+funduszy, poza tym troll ryzykuje „wygranie” aukcji) i jest tym bardziej ograniczona im jest
+większa cena wejścia do aukcji, a pozostali gracze dysponują duża ilością środków. Jednak nie
+eliminuje to całkowicie problemu i prosta aukcja jawna w obecnej postaci może nie być
+odpowiednia do transakcji, które wymagają dużej odporności na ataki zamożnych adwersarzy.
 
 \newpage
 \subsubsection{Umowa A2.2}
+\textbf{Abstrakt}\\
+
+Umowa niejawnej prostej aukcji składa się z trzech faz: licytacja, odsłanianie, wypłaty. W
+trakcie licytacji klienci (oznaczeni dalej jako K1-KM) wpłacają depozyty k1-kM (większe równe od
+opcjonalnej minimalnej ceny) razem z kryptograficznymi haszami h1-hM. Kolejność w jakiej są
+dokonywane wpłaty jest dowolna. Wpłaty mogą wymagać opcjonalnego zatwierdzenia przez
+sprzedającego. Faza licytacji jest kończona predefiniowanym zdarzeniem [wymagane jest
+określenie jakie wydarzenia mogą zakończyć aukcję i jakie potencjalne pod-umowy mogą
+generować], np. decyzją sprzedającego (nazywanego dalej S).
+
+Kolejnym krokiem jest odsłanianie, w trakcie którego K1-KM wysyłają p – faktyczną
+kwotę, f – znacznik prawdziwości i s – sól. Na podstawie tych wartości jest wyliczany
+kryptograficzny hasz – hasz(p.f.s) i jest on porównywany z wysłaną poprzednio wartością h.
+Wpłaty spełniające równość h == hasz(p.f.s), są oznaczane jako poprawne, pozostałe jako
+niepoprawne. Wpłaty spełniające dodatkowo warunek f \& k >= p (1.) są nominowane do udziału w
+licytacji. Ta faza podobnie jak poprzednia kończy się pod wpływem wydarzenia [wymagane jest
+określenie jakie wydarzenia mogą zakończyć aukcję i jakie potencjalne pod-umowy mogą
+generować].
+
+Ostatnim etapem są wypłaty, w trakcie których:
+
+\begin{enumerate}
+	\item Poprawna wpłata spełniająca 1. z najwyższym p, należąca do pewnego KI, jest wypłacana S
+	\item KI wypłaca kI – pI i ocenia S
+	\item Poprawne wpłaty są wypłacane przez odpowiednich K
+	\item Niepoprawne wpłaty są rekwirowane przez system
+\end{enumerate}
+Faza wypłat jest kończona wraz z wypłaceniem wszystkich poprawnych wpłat.\newpage
 \textbf{Scenariusz:} \\
 \begin{table}[H]
     \begin{tabular}{ll}
@@ -768,6 +824,31 @@ Aukcja się kończy, pod wpływem decyzji S lub innego zdarzenia \\ \\
 K1-KM – klienci \\
 async[numer] – sąsiadujące kroki oznaczone async o różnych numerach wykonują się w dowolnej kolejności \\
 Klienci mogą dokonać więcej niż jednej wpłaty \\ \\
+\textbf{Analiza}
+
+W aukcji niejawnej sprzedawca i klienci mogą jedynie dowiedzieć się jaki jest górny limit
+potencjalnych ofert, bez gwarancji że wszystkie będą brać udział w wyznaczaniu ostatecznej ceny.
+Taki system utrudnia konkurowanie między K, ale też ogranicza nieuczciwe praktyki ze strony S. K
+muszą polegać głównie na własnej ocenie produktu i swoich możliwości przy składaniu propozycji
+ceny. S nie zna prawdziwych kwot obstawianych przez K, więc nie ma jaki ich skutecznie
+windować. Jedyne co może zrobić to podwyższać potencjalny górny limit ofert, co nie gwarantuje,
+że K podniosą prawdziwe stawki.
+
+Działania trolli w tym rodzaju aukcji nie są szkodliwe, wręcz przeciwnie, mogą być
+pożądane, np. K wystawiają fałszywe oferty, by wystraszyć innych kupców.
+
+Klienci w fazie odsłaniania mają już wgląd do szczegółów ofert innych K, którzy ujawnili o
+nich dane, co może rodzić chęć do nie ujawniania części swoich ofert, np. pewien KX złożył dwie
+propozycje, jedna opiewająca na relatywnie niską kwotę, a drugą na znacznie większą. Po
+odczekaniu, aż pozostali uczestnicy aukcji ujawnią swoje oferty, odkrył, że pierwsza niższa jest
+wystarczająca do zwycięstwa, co może zrodzić chęć nie ujawnienia drugiej mniej opłacalnej.Takie działanie kłóci się z ideą tej umowy i by zniechęcać do takich działań, wpłaty które nie
+zostały poprawnie odsłonięte, będą rekwirowane przez system.
+
+Problemem do dalszej analizy jest dokładne określenie ograniczeń na zdarzenie kończące
+fazę odsłaniania. Jest możliwe, że złośliwy S lub źle skonfigurowane zdarzenie doprowadzi do
+sytuacji, gdzie większość K nie zdąży odsłonić swoich ofert, przez co zostaną one pochłonięte przez
+system. Można to rozwiązać nakładając na sztywno dodatkowe ograniczenie czasowe, ale dokłada
+to kolejny szczegół implementacyjny na wyższym poziomie abstrakcji.
 
 \newpage
 \subsubsection{Umowa A3.1}

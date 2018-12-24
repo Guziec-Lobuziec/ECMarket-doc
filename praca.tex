@@ -71,7 +71,7 @@ pozbawiona wad takich jak niska żywotność niepopularnych plików, egoistyczne
 
 Przełom nastąpił w 2009 w raz z prezentacją technologi Bitcoin\cite{work:BitcoinPaper}, która oferowała roziązanie wymienionych problemów, z którymi borykały się poprzednie rozwiązania. Zastosowanie mechanizmu PoW (Proof-of-Work), jako zabezpieczenia przed atakami DDos i Sybili, użycie nowej struktury --- blockchainu, jako rozproszonej bazy danych, a przede wszystki, innowacyjne jak na tamte czasy, zastosowanie zachęty finansowej dla klientów zbierających transakcje i przechowujących blockchain, by zachować żywotność sieci, storzyło mieszankę, która zagwarantowała sukces tej technologii. Dowodem tego jest osiągnięcie przez Bitcoina pod koniec listopada 2013 wartości 1200 USD/BTC.\\
 
-Te wydarzenia dały początek nowej dziedzinie wiedzy nazawanej krypto-ekonomią oraz zapoczątkowały eksplozję nowych kryptowalut i rozwiązań pochodnych. Jednym z nowych rozwiązań, które pojawiło się na horyzoncie na przełomie 2013 i 2014 jest Ethereum\cite{website:ethereum2018whitepaper}. Rozwiązanie zaproponowane przez Vitalika Buterina, Gavina Wooda oraz Josepha Lubina, oferuje rozproszoną platformę obliczeniową z systemem operacyjnym, obsługującym inteligentne kontrakty (smart contracts). Podobnie jak Bitcoin oferuje możliwość przesyłania wewnętrznych tokenów (w przypadku Ethereum nazywanych Etherem) między użytkownikami, a dzięki zmodyfikowanemu konsensusowi Nakamoto (Ethereum 2.0 będzie używać innych mechanizmów), daje podobne, a nawet silniejsze gwarancje bezpieczeństawa. Najbardziej istotna różnica występuje jednak w systemie skryptów (inteligentnych kontraktów), te oferowane przez Ethereum, w przeciwieństwie do Bitcoina, są kompletne w sensie Turinga i mogą posiadać bardziej skomplikowany stan.
+Te wydarzenia dały początek nowej dziedzinie wiedzy nazawanej krypto-ekonomią oraz zapoczątkowały eksplozję nowych kryptowalut i rozwiązań pochodnych. Jednym z nowych rozwiązań, które pojawiło się na horyzoncie na przełomie 2013 i 2014 jest Ethereum\cite{website:ethereum2018whitepaper}. Rozwiązanie zaproponowane przez Vitalika Buterina, Gavina Wooda oraz Josepha Lubina, oferuje rozproszoną platformę obliczeniową z systemem operacyjnym, obsługującym inteligentne kontrakty (smart contracts). Podobnie jak Bitcoin oferuje możliwość przesyłania wewnętrznych tokenów (w przypadku Ethereum nazywanych Etherem) między użytkownikami, a dzięki zmodyfikowanemu konsensusowi Nakamoto (Ethereum 2.0 będzie używać innych mechanizmów), daje podobne gwarancje bezpieczeństawa. Najbardziej istotna różnica występuje jednak w systemie skryptów (inteligentnych kontraktów), te oferowane przez Ethereum, w przeciwieństwie do Bitcoina, są kompletne w sensie Turinga i mogą posiadać bardziej skomplikowany stan.
 
 \subsection{Proponowane Rozwiązanie}
 
@@ -1391,9 +1391,24 @@ Umowa A1.1\\
 
 \subsubsection{Siec Ethereum}
 
-Ethereum jest projektem pragnącym stworzyć uogólnioną technologię, pozwalającą na zrealizowanie dowolnego rozwiązania opierającego się na transakcyjnej maszynie stanowej. Co więcej, jednym z jego celów jest dostarczenie deweloperom pełnego, zwartego systemu do budowy aplikacji, w wcześniej nie znanym szerszej publice paradygmacie "trustful object messaging compute framework".
+Ethereum jest projektem pragnącym stworzyć uogólnioną technologię, pozwalającą na zrealizowanie dowolnego rozwiązania opierającego się na transakcyjnej maszynie stanowej. Co więcej, jednym z jego celów jest dostarczenie deweloperom pełnego, zwartego systemu do budowy aplikacji, we wcześniej szerzej nie znanym paradygmacie "trustful object messaging compute framework".
+
+Innym kluczowym celem przyświecającym Ethereum, jest zestawienie kanału do interakcji między agentami, którzy w innych okolicznościach nie mieliby możliwości sobie zaufać, co do poprawności procedury. Źródłem nieufności może być geograficzna odległość, brak odpowiedniej wiedzy, niechęć, niepewność lub korupcja istniejącego systemu prawnego.\cite{work:ethereum2018yellowpaper}
 
 \subsubsection{Własności Sieci}
+
+Kontrakty budowane w takim systemie, posiadają rzadko spotykane w rzeczywistym świecie własności. Bezstronność algorytmicznego interpretera, w naturalny sposób gwarantuje odporne na korupcję wykonanie transakcji. Przejrzystość rozstrzygnięcia kontraktu pochodząca z historii interakcji, jak również z zasad rządzących kodem, nie istniejąca w systemach opartch o języki naturalne i ludzkie działania, które w swojej naturze są nieprecyzyjne\cite{work:ethereum2018yellowpaper}.
+
+Kontrakty są uruchamiane na EVM - Ethereum Virtual Machine, maszynie wykonującej ich byte-code (W Ethereum 2.0 będzie używany EWASM), której model programowy jest uważany za zupełny w sensie Turinga (nieformalnie, formalnie jest automatem liniowo ograniczonym). Pozwala to na oprogramowanie dowolnego algorytmu, który wykonałby domowy komputer\cite{wiki:Ethereum, website:EthTuringMedium}.
+
+Oprócz ekspresywnego zestawu instrukcji, kontrakty mają możliwość zapisywania lub odczytania swojego stanu bezpośrednio z blockchaina, potrzeby bez angażowania w ten proces użytkownika. Posiadają one również prawie pełną swobodę, co do modyfikacji treści swojego stanu, oraz ograniczoną mozliwość zmiany stanu innych kontraktów. Pozwala to na budowanie rozwiązań, które są niemożliwe lub trudne do zbudowania z pomocą bezstanowych UXTO\cite{wiki:Ethereum, website:EthTuringMedium, work:ethereum2018yellowpaper}.
+
+Poprawnie uformowane i podpisane transakcjie, wysłane przez klientów są zbierane i grupowane przez górników (w Ethereum 2.0 walidatorów) w , które stanowią wejście do algorytmu Ethash razem z (Ethereum 2.0 będzie używać PoS). Algorytm ten odpowiada za wydobywanie bloków. Górnik, który wydobędzie
+
+Ethereum 1.0 gwarantuje wykonanie kontraktów i poprawne przeprowadzenie transakcji, czyli bezpieczeństwo i żywotność sieci, przy założeniu, że więcej niż 50\% mocy hashującej działa zgodnie z protokołem, a wiadomości o stanie sieci docierają do innych klientów synchronicznie (istnieje znane maksymalne opóźnienie wiadomości). Jeśli, któreś z powyższych założeń jest nie spełnione, to tranasakcje lub wykonanie kodu może być cenzurowane (zignorowane, niewykonane), różni uczestnicy sieci mogą widzieć jej odmienny stan, kontrakty i mechanizmy nie opierające się na podpisach kryptograficznych mogą paść ofiarą "double spending attack" oraz historia już wykonanych transakcji może być zmieniana \cite{work:AnonByzConsBit}.
+
+
+
 
 \subsubsection{Środowisko wykonawcze kontraktów}
 

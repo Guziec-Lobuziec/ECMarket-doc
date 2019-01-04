@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[polish]{babel}
 \usepackage[T1]{fontenc}
-\usepackage[a4paper,width=170mm,top=18mm,bottom=22mm,includeheadfoot]{geometry}
+\usepackage[paper=A4,pagesize]{typearea}
 \usepackage{graphicx}
 \usepackage{comment}
 \usepackage{multirow}
@@ -1389,7 +1389,7 @@ Umowa A1.1\\
 
 \subsection{Ekosystem Ethereum}
 
-\subsubsection{Siec Ethereum}
+ciposzka\subsubsection{Siec Ethereum}
 
 Ethereum jest projektem pragnącym stworzyć uogólnioną technologię, pozwalającą na zrealizowanie dowolnego rozwiązania opierającego się na transakcyjnej maszynie stanowej. Co więcej, jednym z jego celów jest dostarczenie deweloperom pełnego, zwartego systemu do budowy aplikacji, we wcześniej szerzej nie znanym paradygmacie "trustful object messaging compute framework".
 
@@ -1403,18 +1403,55 @@ Kontrakty są uruchamiane na EVM - Ethereum Virtual Machine, maszynie wykonując
 
 Oprócz ekspresywnego zestawu instrukcji, kontrakty mają możliwość zapisywania lub odczytania swojego stanu bezpośrednio z blockchaina, potrzeby bez angażowania w ten proces użytkownika. Posiadają one również prawie pełną swobodę, co do modyfikacji treści swojego stanu, oraz ograniczoną mozliwość zmiany stanu innych kontraktów. Pozwala to na budowanie rozwiązań, które są niemożliwe lub trudne do zbudowania z pomocą bezstanowych UXTO\cite{wiki:Ethereum, website:EthTuringMedium, work:ethereum2018yellowpaper}.
 
-Poprawnie uformowane i podpisane transakcjie, wysłane przez klientów są zbierane i grupowane przez górników (w Ethereum 2.0 walidatorów) w , które stanowią wejście do algorytmu Ethash razem z (Ethereum 2.0 będzie używać PoS). Algorytm ten odpowiada za wydobywanie bloków. Górnik, który wydobędzie
+Klienci wchodzą w interakcję z siecią, z pomocą rozgłaszania transakcji do znanych węzłów. Poprawnie uformowane i podpisane transakcjie, są zbierane i grupowane, przez wyróżnioną grupę węzłów nazwywaną górnikami (w Ethereum 2.0 walidatorami), w bloki. Mają oni pewną swobodę w tym ile transakcji będzie się znajdować w bloku i w jaki sposób będą one w nim uporządkowane. To ile maksymalnie transakcji może być w jednym bloku jest określane przez zmienną \textit{block gas limit}.
+Kiedy górnik zbierze i przygotuję kolejkę transakcji, wykonuje w pętli funkcję tranzycji stanu, która przyjmuje obecny stan sieci i pierwszą transakcję z kolejki, a zwraca nowy stan sieci, dopóki kolejka nie jest pusta. W czasie wykonania pętli zbiera on informacje o tym jakie transakcjie zakończyły się powodzeniem i jakie logi one wygenerowały i zapisuje je w \textit{transaction reciepts trie}. Po wykonaniu wszystkich wybranych transakcji, górnik zapisuje nowy stan sieci w \textit{world state trie}, wykonane transakcje w \textit{transaction trie} i umieszcza je w bloku. Na tak przygotowanej strukturze wykonuje on algorytm Ethash (w Ethereum 2.0 ten mechanizm inaczej wygląda), czyli kopanie bloków. Po znalezieniu liczby spełniającej wymogi algorytmu, rozgłasza on nowy blok w sieci.
+Zostaje on zaakceptowany przez resztę węzłów, jeśli nowy stan jest poprawny i wynika z transakcji zawartych w bloku, wskazuje na historyczny poprawny blok, a łańcuch do którego należy spełnia warunki protokołu GHOST (w uproszczeniu wybieramy ten łańcuch, nad którym wykonano najwięcej pracy).\cite{work:ethereum2018yellowpaper} Jest jeszcze kilka innych warunków poprawności bloku, ale nie są one bardzo istotne z punktu widzenia tej pracy.
+
+
+\clearpage
+\KOMAoptions{paper=A3,pagesize}
+\KOMAoptions{paper=landscape}
+\recalctypearea
+
+\begin{center}
+
+\begin{figure}[h]
+\caption[Caption for LOF]{Formowanie bloków w Ethereum\footnotemark}
+\centering
+\includegraphics[width=1.0\textwidth, height=0.7\textheight]{blockchain}
+\end{figure}
+\footnotetext{Pobrano z \url{https://ethereum.stackexchange.com/questions/268/ethereum-block-architecture/6413#6413}}
+
+\end{center}
+
+\clearpage
+\KOMAoptions{paper=seascape}
+\KOMAoptions{paper=A4,pagesize}
+\recalctypearea
+
+
+Mechanizmem zachęcającym górników do zbierania i wykonywania transakcji jest obecność opłat za nie. Wykonanie każdej z nich kosztuje \textit{gas}; jednostkę wykonanej pracy, istniejącą tylko w kontekście danej transakcji. Użytkownik, w rozgłaszanej przez siebie transakcji, określia cenę w etherze za jednostkę gazu oraz maksymalną ilość gazu jaką może ona pobrać. Inną zachętą jest nagroda za wyprodukowanie poprawnego bloku, którą górnik może sam sobie przyznać. Takie mechanizmy wspierają żywotność sieci, jednak na ile chronią przed cenzurą i wzmacniają bezpieczeństwo sieci jest spornym tematem.\cite{work:ethereum2018yellowpaper}
 
 Ethereum 1.0 gwarantuje wykonanie kontraktów i poprawne przeprowadzenie transakcji, czyli bezpieczeństwo i żywotność sieci, przy założeniu, że więcej niż 50\% mocy hashującej działa zgodnie z protokołem, a wiadomości o stanie sieci docierają do innych klientów synchronicznie (istnieje znane maksymalne opóźnienie wiadomości). Jeśli, któreś z powyższych założeń jest nie spełnione, to tranasakcje lub wykonanie kodu może być cenzurowane (zignorowane, niewykonane), różni uczestnicy sieci mogą widzieć jej odmienny stan, kontrakty i mechanizmy nie opierające się na podpisach kryptograficznych mogą paść ofiarą "double spending attack" oraz historia już wykonanych transakcji może być zmieniana \cite{work:AnonByzConsBit}.
-
-
 
 
 \subsubsection{Środowisko wykonawcze kontraktów}
 
 \subsubsection{Klienci Ethereum}
 
+\begin{itemize}
+	\item Geth
+	\item Parity
+	\item aleth
+\end{itemize}
+
 \subsubsection{Technologie wspierające}
+
+\begin{itemize}
+	\item Web3
+	\item Swarm
+	\item Whisper
+\end{itemize}
 
 \subsubsection{Ograniczenia technologii}
 
@@ -1430,7 +1467,17 @@ Ethereum 1.0 gwarantuje wykonanie kontraktów i poprawne przeprowadzenie transak
 
 \subsubsection{Back-End}
 
-\includegraphics[width=1.0\textwidth]{Contract_Class_Diagram_Class_Diagram}
+\clearpage
+\KOMAoptions{paper=A3,pagesize}
+\KOMAoptions{paper=landscape}
+\recalctypearea
+
+\includegraphics[width=1.0\textwidth, height=0.9\textheight]{Contract_Class_Diagram_Class_Diagram}
+
+\clearpage
+\KOMAoptions{paper=seascape}
+\KOMAoptions{paper=A4,pagesize}
+\recalctypearea
 
 \subsubsection{Front-End}
 

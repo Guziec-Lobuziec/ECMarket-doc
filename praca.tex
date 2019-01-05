@@ -1389,7 +1389,7 @@ Umowa A1.1\\
 
 \subsection{Ekosystem Ethereum}
 
-ciposzka\subsubsection{Siec Ethereum}
+\subsubsection{Siec Ethereum}
 
 Ethereum jest projektem pragnącym stworzyć uogólnioną technologię, pozwalającą na zrealizowanie dowolnego rozwiązania opierającego się na transakcyjnej maszynie stanowej. Co więcej, jednym z jego celów jest dostarczenie deweloperom pełnego, zwartego systemu do budowy aplikacji, we wcześniej szerzej nie znanym paradygmacie "trustful object messaging compute framework".
 
@@ -1399,12 +1399,12 @@ Innym kluczowym celem przyświecającym Ethereum, jest zestawienie kanału do in
 
 Kontrakty budowane w takim systemie, posiadają rzadko spotykane w rzeczywistym świecie własności. Bezstronność algorytmicznego interpretera, w naturalny sposób gwarantuje odporne na korupcję wykonanie transakcji. Przejrzystość rozstrzygnięcia kontraktu pochodząca z historii interakcji, jak również z zasad rządzących kodem, nie istniejąca w systemach opartch o języki naturalne i ludzkie działania, które w swojej naturze są nieprecyzyjne\cite{work:ethereum2018yellowpaper}.
 
-Kontrakty są uruchamiane na EVM - Ethereum Virtual Machine, maszynie wykonującej ich byte-code (W Ethereum 2.0 będzie używany EWASM), której model programowy jest uważany za zupełny w sensie Turinga (nieformalnie, formalnie jest automatem liniowo ograniczonym). Pozwala to na oprogramowanie dowolnego algorytmu, który wykonałby domowy komputer\cite{wiki:Ethereum, website:EthTuringMedium}.
+Kontrakty są uruchamiane na EVM - Ethereum Virtual Machine, maszynie wykonującej ich byte-code (W Ethereum 2.0 będzie używany eWASM), której model programowy jest uważany za zupełny w sensie Turinga (nieformalnie, formalnie jest automatem liniowo ograniczonym). Pozwala to na oprogramowanie dowolnego algorytmu, który wykonałby domowy komputer\cite{wiki:Ethereum, website:EthTuringMedium}.
 
 Oprócz ekspresywnego zestawu instrukcji, kontrakty mają możliwość zapisywania lub odczytania swojego stanu bezpośrednio z blockchaina, potrzeby bez angażowania w ten proces użytkownika. Posiadają one również prawie pełną swobodę, co do modyfikacji treści swojego stanu, oraz ograniczoną mozliwość zmiany stanu innych kontraktów. Pozwala to na budowanie rozwiązań, które są niemożliwe lub trudne do zbudowania z pomocą bezstanowych UXTO\cite{wiki:Ethereum, website:EthTuringMedium, work:ethereum2018yellowpaper}.
 
-Klienci wchodzą w interakcję z siecią, z pomocą rozgłaszania transakcji do znanych węzłów. Poprawnie uformowane i podpisane transakcjie, są zbierane i grupowane, przez wyróżnioną grupę węzłów nazwywaną górnikami (w Ethereum 2.0 walidatorami), w bloki. Mają oni pewną swobodę w tym ile transakcji będzie się znajdować w bloku i w jaki sposób będą one w nim uporządkowane. To ile maksymalnie transakcji może być w jednym bloku jest określane przez zmienną \textit{block gas limit}.
-Kiedy górnik zbierze i przygotuję kolejkę transakcji, wykonuje w pętli funkcję tranzycji stanu, która przyjmuje obecny stan sieci i pierwszą transakcję z kolejki, a zwraca nowy stan sieci, dopóki kolejka nie jest pusta. W czasie wykonania pętli zbiera on informacje o tym jakie transakcjie zakończyły się powodzeniem i jakie logi one wygenerowały i zapisuje je w \textit{transaction reciepts trie}. Po wykonaniu wszystkich wybranych transakcji, górnik zapisuje nowy stan sieci w \textit{world state trie}, wykonane transakcje w \textit{transaction trie} i umieszcza je w bloku. Na tak przygotowanej strukturze wykonuje on algorytm Ethash (w Ethereum 2.0 ten mechanizm inaczej wygląda), czyli kopanie bloków. Po znalezieniu liczby spełniającej wymogi algorytmu, rozgłasza on nowy blok w sieci.
+Klienci wchodzą w interakcję z siecią, po przez rozgłaszanie transakcji do znanych węzłów. Poprawnie uformowane i podpisane transakcjie, są zbierane i grupowane, przez wyróżnioną grupę węzłów nazwywaną górnikami (w Ethereum 2.0 walidatorami), w bloki. Mają oni pewną swobodę w tym ile transakcji będzie się znajdować w bloku i w jaki sposób będą one w nim uporządkowane. To ile maksymalnie transakcji może być w jednym bloku jest określane przez zmienną \textit{block gas limit}.
+Kiedy górnik zbierze i przygotuję kolejkę transakcji, wykonuje w pętli funkcję tranzycji stanu, która przyjmuje obecny stan sieci i pierwszą transakcję z kolejki, a zwraca nowy stan sieci, dopóki kolejka nie jest pusta. W czasie wykonania pętli zbiera on informacje o tym jakie transakcjie zakończyły się powodzeniem i jakie logi one wygenerowały i zapisuje je w \textit{transaction reciepts trie}. Po wykonaniu wszystkich wybranych transakcji, górnik zapisuje nowy stan sieci w \textit{world state trie}, wykonane transakcje w \textit{transaction trie} i umieszcza je w bloku. Na tak przygotowanej strukturze wykonuje on algorytm Ethash (w Ethereum 2.0 ten mechanizm inaczej wygląda), czyli kopanie bloków. Po znalezieniu liczby spełniającej wymogi algorytmu, dołącza ją do nowo wykopanego bloku i rozgłasza go w sieci.
 Zostaje on zaakceptowany przez resztę węzłów, jeśli nowy stan jest poprawny i wynika z transakcji zawartych w bloku, wskazuje na historyczny poprawny blok, a łańcuch do którego należy spełnia warunki protokołu GHOST (w uproszczeniu wybieramy ten łańcuch, nad którym wykonano najwięcej pracy).\cite{work:ethereum2018yellowpaper} Jest jeszcze kilka innych warunków poprawności bloku, ale nie są one bardzo istotne z punktu widzenia tej pracy.
 
 
@@ -1425,7 +1425,7 @@ Zostaje on zaakceptowany przez resztę węzłów, jeśli nowy stan jest poprawny
 \end{center}
 
 \clearpage
-\KOMAoptions{paper=seascape}
+\KOMAoptions{paper=portrait}
 \KOMAoptions{paper=A4,pagesize}
 \recalctypearea
 
@@ -1436,6 +1436,24 @@ Ethereum 1.0 gwarantuje wykonanie kontraktów i poprawne przeprowadzenie transak
 
 
 \subsubsection{Środowisko wykonawcze kontraktów}
+
+Kontrakty są bytami posiadającymi kod, jak również stan, nazywany też pamięcią \textit{storage}. Są one zapisane pod pewnym adresem w przestrzeni kont. Iterakcję z kontraktem przeprowadza się poprzez wysłanie pod jego adres transakcji. Kontrakt dotknięty nią uruchamia swój kod, z zawartością transakcji jako danymi wejściowymi.
+
+Uruchomienie transakcji, jak i każdej wykonanej instrukcji w kodzie kontraktu pochłania pewną określoną ilość gazu. Inicjator transakcji określa cenę w etherze za jednostkę gazu i limit zużycia gazu. Cena za uruchomienie jest naliczana natychmiast, a kolejne opłaty, tylko w momencie wykonania instrukcji. Jeśli incjatorowi zabraknie funduszy na opłacenie gazu, zostanie osiągnięty limit zużycia gazu lub limit gazu na blok, wykonanie kończy się wyjątkiem \textit{out of gas} i zmiany wprowadzone w stanie sieci zostają wycofane. Jednak bez względu na wynik obliczeń, koszty zakupu gazu nie zostają cofnięte, jako że górnicy (lub walidatorzy) ponieśli już koszty z wiązane z ich wykonaniem. Poprawne wykonanie transakcji, czyli bez zwrócenia do inicjatora wyjątku, utrwala zmiany wprowadzone w sieci, a niezużyty gaz zostaje automatycznie odsprzedany i koszty jego zakupu zostają zwrócone do inicjatora, po takiej samej cenie jak zakupu.
+
+Uruchomienie transakcji tworzy kontekst transakcji, czli zbiór zmiennych środowiskowych dostępnych w kontrakcie istniejących, ale tylko dla tego jednego wywołania. Należą do nich adres wywołującego, adres docelowy, ilość przekazanego etheru, ilość przekazanego gazu, cena za jednostkę gazu, adres opłacający transakcję oraz tablicę dodatkowych danych.
+
+Szczególną uwagę należy poświęcić instrukcją \textit{REVERT}, \textit{INVALID}, \textit{CALL}, \textit{DELEGATECALL}, \textit{STATICCALL}, \textit{CREATE}, \textit{SELFDESTRUCT} i \textit{SSTORE}.
+\begin{itemize}
+	\item \textit{REVERT} kończy wykonanie wyjątkiem określony w kodzie przez jego autora, wycofuje wprowadzone zmiany w procedurze i zwraca niezużyty gaz do nadprocedury lub inicjatora transakcji.
+	\item \textit{INVALID} kończy wykonanie wyjątkiem i "spala" cały dostępny gaz w procedurze.
+	\item \textit{CALL} pozwala kontraktowi na uruchomienie podprocedury. Procedura wywołująca określa adres docelowy (może to być ten sam lub inny kontrakt), ile etheru chce przekazać, ile gazu chce dostarczyć oraz tablicę dodatkowych danych. Wyjątki wyrzucone w podprocedurze \textbf{nie kończą} automatycznie procedury wywołującej, jedynie zostaje do niej zwrócony kod błedu. Procedura może wysłać tylko tyle etheru, ile w danym momencie posiada kontrakt, podobnie w przypadku gazu; może przekazać maksymalnie 63/64 gazu, którego posiadała w momencie wykonania instrukcji \textit{CALL}. Wywołanie podprocedury, podobnie jak uruchomienie transakcji, tworzy nowy kontekst, jednak w przeciwieństwie do tej drugiej cena za jednostkę gazu i adres opłacającego nigdy nie ulega zmianie. Wynika to z tego, że w obecnej wersji Ethereum kontrakty nie mogą same opłacać swojego wykonania.
+	\item \textit{DELEGATECALL} przyjmuje takie same argumenty jak \textit{CALL} jednak nie zmienia w pełni kontekstu tzn.\ podprocedura ma dostęp do tych samych zmiennych środowiskowych i pamięci \textit{storage} co nadprocedura, z wyjątkiem wysłanego etheru i dostępnego gazu. Ta instrukcja jest najczęsciej wykorzystywana w implementacji bibliotek, kontraktów z możliwością aktualizacji, jak również w naszym modelu maszyny stanowej
+	\item \textit{STATICCALL} działa podobnie jak \textit{CALL}, jednka nie pozwala na przesyłanie etheru, a wszelkie próby wywołania instrukcji zmieniających stan sieci w podprocedurze, konczą ją i zwracają do nadprocedury kod błędu.
+	\item \textit{CREATE} tworzy nowy kontrakt
+	\item \textit{SELFDESTRUCT} usuwa z sieci kontrakt (zeruje kod i stan), w którego kontekście została ona wywołana, a cały ethere jaki był w nim zawarty przesyła pod wskazany adres. Jej wywołanie refunduje część zużytego gazu, co ma stanowić zachętę, by transakcje, jeśli to możliwe, usuwały nie potrzbne już kontrakty.
+	\item \textit{SSTORE} zapisuje 256-bitowe słowo we wskazane miejsce \textit{storage} kontraktu, w którego kontekście została wywołana. Jeśli w jej wyniku niezerowa wartość zostaje wyzerowana, to refunduje część gazu, jako zachętę by transakcje usuwały nie potrzebne fragmenty stanu sieci
+\end{itemize}
 
 \subsubsection{Klienci Ethereum}
 
@@ -1448,6 +1466,7 @@ Ethereum 1.0 gwarantuje wykonanie kontraktów i poprawne przeprowadzenie transak
 \subsubsection{Technologie wspierające}
 
 \begin{itemize}
+	\item Solidity
 	\item Web3
 	\item Swarm
 	\item Whisper
@@ -1475,7 +1494,7 @@ Ethereum 1.0 gwarantuje wykonanie kontraktów i poprawne przeprowadzenie transak
 \includegraphics[width=1.0\textwidth, height=0.9\textheight]{Contract_Class_Diagram_Class_Diagram}
 
 \clearpage
-\KOMAoptions{paper=seascape}
+\KOMAoptions{paper=portrait}
 \KOMAoptions{paper=A4,pagesize}
 \recalctypearea
 

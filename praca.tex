@@ -1474,7 +1474,15 @@ Szczególną uwagę należy poświęcić instrukcją \textit{REVERT}, \textit{IN
 
 \subsubsection{Ograniczenia technologii}
 
+Kontrakty "widzą" jedynie stan sieci. O jakiekolwiek informacje o świecie zewnętrznym muszą prosić swoich klientów, co może być wektorem ataku na nie odpowiednio przemyślany i zaprojektowany system.
+
+Obecna wersja Ethereum oferuje średnią przepustowość na poziomie 15 tx/s, co może utrudniać działanie aplikacji, w przypdaku dużego zainteresowania.
+
+Problem prywatności w Ethereum jest dalej tematem intensywnych badań i choć są proponowane działające rozwiązania, w obecnej wersji należy zakładać, że każdy może sprawdzić jaki adres wchodził w interkację z jakim kontraktem.
+
 \subsubsection{Zgodność z Ethereum 2.0}
+
+Znaczna cześć zaproponowanych przez nas rozwiązań, będzie musiała być ponownie przeanalizowana, a nawet zmieniona, w kolejnych wersjach Ethreum, głównie z powodu dodania mechanizmu naliczania "czynszu" za używanie pamięci \textit{storage}, jak również pamięci, w której jest przechowywany kod kontraktów. Kolejną istotną zmianą będzie wprowadzenie \textit{shardingu}, który pozwoli zwiększyć przepustowość sieci, jak również doda nowe mechanizmy asynchronicznego, wzajemnego wywoływania się kontraktów. Dodanie obsługi tych funkcjonalności będzie kluczowe, by zapewnić poprawne działanie systemu i zapewnić jak najwyższą wydajność naszych usług.
 
 \subsection{Podział systemu na podsystemy}
 

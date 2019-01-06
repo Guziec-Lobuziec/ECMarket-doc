@@ -1542,11 +1542,31 @@ Do testów potrzebujemy środowisko w którym możemy uruchomić kontrakty. Do t
 \newpage
 \section{Przyrost Trzeci}
 \subsection{Cele przyrostu}
-
+W trzecim przyroście za zadanie postawiliśmy sobie stworzenie wewnętrzengo Tokena w standradzie
+obowiązującym w środowisku Ethereum (ERC20).Głównym zadaniem było jednak stworzenie po stronie interfejsu wygodnego wyszukiwania umów,
+różnych widoków potrzebnych do tworzenia czy też przegląania umów.
+\subsection{Napotkane problemy}
+Na tym etapie podczas tworzenia implementacji umów, napotkaliśmy problem natury technologicznej.
+Każda umowa którą zaprojektowaliśmy ma różne wspólne cechy. W języku programowania w którym pracujemy nie jesteśmy w stanie uogólni tego w żadnej sposób 
+np. za pomocą dziedziczenia. Kontratky nie wspierają agregacji. Kolejnym problem również był samo tworzenie kontraktów jak standardowych obiektów który jest kosztowny, ponieważ każde
+stworzenie takiego kontraktu wymaga użycia gazu.  
 \subsection{Projektowanie back-end'u}
 \subsection{Projektowanie front-end'u}
 \subsection{Testy walidacyjne}
-\subsection{Testy integracyjne}
+\subsection{Scenariusze testowe}
+\begin{table}[H]
+    \begin{tabular}{|l|l|}
+\hline
+    \textit{Standard ECM Token transfer: }                 & \multicolumn{1}{m{13cm}|}{\textit{Sprawdzamy różne scenariusze przepływu tokenów pomiędzy kontami. Sprawdzamy poprawność transakcji.Sprawdzamy również czy nie możemy wysyłać tokentów do adresu danego tokenu}} \\ \hline
+    \textit{Standard ECM Token wpłata oraz wypłata pieniędzy: } & \multicolumn{1}{m{13cm}|}{\textit{Sprawdzamy poprawność wpłat i wypłat tokenów. Funkcje testowane są również na kilku użytkownikach oraz samego zdarzenia Transferu}}    \\ \hline
+    \textit{Maszyna stanowa: } & \multicolumn{1}{m{13cm}|}{\textit{W tym scenariuszu sprawdzamy poprawaność przejścia stanu.}}                                                \\ \hline
+    \textit{Maszyna stanowa z pamięcią:} & \multicolumn{1}{m{13cm}|}{\textit{Sprawdzamy w tym scenariuszu poprawność zapisywania różnych stanów w pamięci}}                                                \\ \hline
+	\textit{Obiekt Storage:} & \multicolumn{1}{m{13cm}|}{\textit{Testujemy inicjowanie obiektu Storage}} \\ \hline
+    \textit{Zakres pamięci: }    & \multicolumn{1}{m{13cm}|}{\textit{Testujemy zachowanie pamięci poza zakresem.    }} \\ \hline
+    \textit{Pamięc podstawy działania: }    & \multicolumn{1}{m{13cm}|}{\textit{Sprawdzamy poprawność funkcji których celem jest zapisywanie do danego slotu w pamięci.    }} \\ \hline
+                                    
+\end{tabular}
+\end{table}
 \subsection{Testy systemowe}
 \subsection{Implementacja}
 \subsection{Lista zmian}

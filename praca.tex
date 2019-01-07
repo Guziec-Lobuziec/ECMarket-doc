@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[polish]{babel}
 \usepackage[T1]{fontenc}
-\usepackage[a4paper,width=170mm,top=18mm,bottom=22mm,includeheadfoot]{geometry}
+\usepackage[paper=A4,pagesize]{typearea}
 \usepackage{graphicx}
 \usepackage{comment}
 \usepackage{multirow}
@@ -40,6 +40,7 @@
 \newpage
 
 \section{Wstęp}
+
 Na fali pojawiających się nowych zdecentralizowanych aplikacji,
 protokołów komunikacj p2p, algorytmów rozproszonego konsensusu i ideii Internetu 3.0,
 narodziła się w wśród nas koncepcja systemu wspierającego i nadzorującego szeroko rozumianą wymianę obiektów,
@@ -57,20 +58,26 @@ aplikacji zdecentralizowanych.
 \section{Opis Problemu}
 
 \subsection{Prezentacja Problemu}
+
 W związku z rosnącą centralizacją Internetu, problemem cenzury oraz spadkiem zaufania do
 instytucji państwa\cite{work:trustPOL,website:trustUSA} jak i korporacji, powstało wiele projektów mających
 na celu rozproszenie tej koncentracji władzy, jednak przez długi czas rozwiązania te nie zyskiwały
 duzej popularności poza specjalistycznymi dziedzinami.\\
+
 Odwilż w tej kwestii przyniósł protokół Kademila\cite{work:Kademila}, na której oparte zostały sieci wymiany plików takie
 jak BitTorrent, czy Kad Network. Ich funkcjonalność ograniczała się do wymiany plików, jednak nie była
 pozbawiona wad takich jak niska żywotność niepopularnych plików, egoistyczne zachowania klientów sieci
 (leeching), brak odporności na ataki DDoS (Distributed Denial-of-Service).\\
+
 Przełom nastąpił w 2009 w raz z prezentacją technologi Bitcoin\cite{work:BitcoinPaper}, która oferowała roziązanie wymienionych problemów, z którymi borykały się poprzednie rozwiązania. Zastosowanie mechanizmu PoW (Proof-of-Work), jako zabezpieczenia przed atakami DDos i Sybili, użycie nowej struktury --- blockchainu, jako rozproszonej bazy danych, a przede wszystki, innowacyjne jak na tamte czasy, zastosowanie zachęty finansowej dla klientów zbierających transakcje i przechowujących blockchain, by zachować żywotność sieci, storzyło mieszankę, która zagwarantowała sukces tej technologii. Dowodem tego jest osiągnięcie przez Bitcoina pod koniec listopada 2013 wartości 1200 USD/BTC.\\
-Te wydarzenia dały początek nowej dziedzinie wiedzy nazwanej krypto-ekonomią oraz zapoczątkowały eksplozję nowych kryptowalut i rozwiązań pochodnych. Jednym z nowych rozwiązań, które pojawiło się na horyzoncie na przełomie 2013 i 2014 jest Ethereum\cite{website:ethereum2018whitepaper}. Rozwiązanie zaproponowane przez Vitalika Buterina, Gavina Wooda oraz Josepha Lubina, oferuje rozproszoną platformę obliczeniową z systemem operacyjnym, obsługującym inteligentne kontrakty (smart contracts). Podobnie jak Bitcoin oferuje możliwość przesyłania wewnętrznych tokenów (w przypadku Ethereum nazywanych Etherem) między użytkownikami, a dzięki zmodyfikowanemu konsensusowi Nakamoto (Ethereum 2.0 będzie używać innych mechanizmów), daje podobne, a nawet silniejsze gwarancje bezpieczeństawa. Najbardziej istotna różnica występuje jednak w systemie skryptów (inteligentnych kontraktów) --- te oferowane przez Ethereum, w przeciwieństwie do Bitcoina, są kompletne w sensie Turinga i mogą posiadać bardziej skomplikowany stan.
+
+Te wydarzenia dały początek nowej dziedzinie wiedzy nazawanej krypto-ekonomią oraz zapoczątkowały eksplozję nowych kryptowalut i rozwiązań pochodnych. Jednym z nowych rozwiązań, które pojawiło się na horyzoncie na przełomie 2013 i 2014 jest Ethereum\cite{website:ethereum2018whitepaper}. Rozwiązanie zaproponowane przez Vitalika Buterina, Gavina Wooda oraz Josepha Lubina, oferuje rozproszoną platformę obliczeniową z systemem operacyjnym, obsługującym inteligentne kontrakty (smart contracts). Podobnie jak Bitcoin oferuje możliwość przesyłania wewnętrznych tokenów (w przypadku Ethereum nazywanych Etherem) między użytkownikami, a dzięki zmodyfikowanemu konsensusowi Nakamoto (Ethereum 2.0 będzie używać innych mechanizmów), daje podobne gwarancje bezpieczeństawa. Najbardziej istotna różnica występuje jednak w systemie skryptów (inteligentnych kontraktów), te oferowane przez Ethereum, w przeciwieństwie do Bitcoina, są kompletne w sensie Turinga i mogą posiadać bardziej skomplikowany stan.
 
 \subsection{Proponowane Rozwiązanie}
-Dzięki takiemu zestawowi cech, Ethereum stanowi dobrą platformę do budowania własnych, wyspecjalizowanych systemów, które są bezpieczne i niezależne od potencjalnie nieuczciwych stron trzecich. Szczególnym przypadkiem są tutaj platformy handlowe, które agregują oferty sprzedających, pośredniczą w wykonaniu opłat i dostarczają narzędzia do oceny kupujących i sprzedających. W przypadku scentralizowanych wersji takich platform, bardzo częstym problemem jest faworyzowanie pewnych grup sprzedawców, różne stopy opłat dla różnych uczestników i stronniczy moderatorzy.\\
-Mając na uwadze wymienione wcześniej fakty, proponowanym przez nas rozwiązaniem problemów z centralizacją i nieuczciwymi pośrednikami, przynajmniej w sferze platform handlowych, jest stworzenie takiej aplikacji w ekosystemie Ethereum i zapewnienie, że w późniejszych etapach rozwoju, będzie ona rozwijana w ścisłej współpracy ze społecznością sieci. Z tego powodu chcielibyśmy zaprezentować nasze autorskie podejście w postaci projektu \textit{ECMarket}.
+
+Dzięki takiemu zestawowi cech, Ethereum stanowi dobrą platformę, do budowania własnych, wyspecjalizowanych systemów, które są bezpieczne i niezależne od potencjalnie nieuczciwych stron trzecich. Szczególnym przypadkiem się tutaj platformy handlowe, które agregują oferty sprzedających, pośredniczą w wykonaniu opłat i dostarczają narzędzia od oceny kupujących i sprzedających. W przypadku scentralizowanych wersji takich platform, bardzo częstym problemem jest faworyzowanie pewnych grup sprzedawców, różne stopy opłat dla różnych uczestników i stronniczy moderatorzy.\\
+
+Mając na uwadze wymienione wcześniej fakty, proponowanym przez nas rozwiązaniem problemów z centralizacją i nieuczciwymi pośrednikami, przynajmniej w sferze platform handlowych, jest stworzenie takiej aplikacji w ekosystemie Ethereum i zapewnienie, że w późniejszych etapach rozwoju, będzie ona rozwijana w ścisłej współpracy ze społecznością sieci. Z tego powodu chcielibyśmy zaprezentować nasze autorskie podejście w postaci projektu ECMarket.
 
 
 \subsection{Rich Picture}
@@ -82,6 +89,7 @@ Mając na uwadze wymienione wcześniej fakty, proponowanym przez nas rozwiązani
 
 
 \subsection{Konkurencja}
+
 ECMarket ma na chwilę obecną kilka wartych uwagi konkurentów, którzy operują w trochę innych, ale pokrywających się z naszym obszarach.
 \subsubsection{Konkurencja zdecentralizowana}
 \begin{itemize}
@@ -104,6 +112,7 @@ ECMarket ma na chwilę obecną kilka wartych uwagi konkurentów, którzy operuj�
 \subsection{Cele i Zakres Projektu}
 
 Celem projektu jest dostarczenie odpornej na cenzurę, ogólnodostępnej, otwartej platformy, w ramach której możliwe jest przeprowadzanie kupna oraz sprzedaży dóbr w sposób niezależny od osób trzecich lub w ramach grup handlowych, tworzonych przez użytkowników systemu z określanymi przez nich zasadami.
+
 W pierwszym stadium systemu, realizowanym w ramach tego projektu, planujemy pobierać mały, stały procent od kwoty przesyłanej w transakcjach między użytkownikami, by zapewnić utrzymanie i dalszy rozwój projektu.
 Naszą platformę kierujemy do wszystkich pragnących niezależnego i otwartego systemu do handlu.
 
@@ -114,25 +123,22 @@ System będzie docelowo uruchomiony na Testnecie Ethereum i będzie dostarczał 
 Użytkownicy w pierwszym stadium rozwoju platformy będą się dzielić na Deweloperów i na Klientów. Zadaniem Deweloperów będzie dostarczanie kodu i jego deployment oraz ponoszenie kosztów tych operacji. Deweloperzy będą również beneficjentami oprocentowania transakcji. Klientami nazywamy wszystkich użytkowników, którzy dokonują transakcji. Klienci mogą zarządzać swoimi portfelami, oraz mogą wchodzić w interakcje z dostępnymi dla nich umowami.Liczba Klientów nie jest w żaden sposób ograniczona.
 
 \subsection{Analiza Biznesowa}
-Pierwsze wydanie systemu dostarczy klientom zestaw gotowych umów i system ocen, który będzie dawać nam przewagę nad konkurencją w takich kwestiach jak:
+
+Pierwsze wydanie systemu dostarczy klientom zestaw umów gotowych umów do użycia i system ocen, który będzie dawać nam przewagę nad konkurencją w takich kwestiach jak:
 \begin{itemize}
-\item Wiarygodny system ocen --- stanowiący kluczową wartość oferowaną przez nasze rozwiązanie. W naszym systemie nie występuje administrator, dlatego też niezwykle istotne było stworzenie środowiska promującego uczciwość. Podobne rozwiązania możemy zaobserwować w przeróżnych serwisach aukcyjnych, gdzie stanowią one informację dla kupującego o tym, czy może ufać sprzedającemu. Nasze rozwiązanie pozwala na ocenienie drugiej strony umowy --- takiej oceny dokonuje zarówno kupujący, jak i sprzedający. Dodatkowo, ocenom tym zostają nadane odpowiednie wagi tak, aby zapobiec próbom wpłynięcia na system ocen np.\ poprzez wchodzenie w małe transakcje z dużą ilością kont powiązanych ze sprzedającym. Wagi przyznawane są na podstawie ocen posiadanych przez stronę wystawiającą takową ocenę, a także jej wiarygodności dla społeczności platformy wyrażoną poprzez oceny pozytywne oraz ogólną ilość ocen.
-\item Niezależność od walut FIAT --- na platformie płatności odbywać się będą przy pomocy Ether'u (ETH) --- kryptowaluty, której wartość jest niezależna od każdego centralnego organu finansowego. Naszych środków nie da się zamrozić tak, jak np.\ w przypadku Peso Argentyńskiego (ARS) w 2001 roku podczas kryzysu finansowego. Nie grozi nam także hiperinflacja, pieniędzy nie da się po prostu dodrukować przez specyfikę pozyskiwania Ether'u (ETH). %jakis odnosnik do tego peso z 2001 roku? czy nie trzeba?
-\item Niezależność od stron trzecich --- transakcje odbywają się w ramach zdecentralizowanej sieci Ethereum, gdzie nie występuje żaden administrator czy instytucja będąca w stanie zablokować bądź cofnąć naszą transakcję. Gwarantuje to poczucie bezpieczeństwa i niezależności wyróżniające nas na tle konkurencyjnych serwisów nieopartych na technologii blockchain, gdzie strona trzecia już występuje. Zwiększa to także bezpieczeństwo naszych danych osobowych podczas zachowania większej anonimowości.
-% "niezależności wyróżniające nas na tle konkurencyjnych serwisów nieopartych na technologii blockchain, gdzie strona trzecia już występuje."
-% to jest niepoprawne językowo, ale nie wiem jaki miał być sens, więc nie jestem w stanie poprawić.
+\item Wiarygodny system ocen --- stanowiący kluczową wartość oferowaną przez nasze rozwiązanie. W naszym systemie nie występuje administrator, to też niezwykle istotne było stworzenie środowiska promującego bycie uczciwym. Podobne rozwiązania możemy zaobserwować w przeróżnych serwisach aukcyjnych, gdzie stanowią pewnego rodzaju informację dla kupującego o tym czy może ufać sprzedającemu. Nasze rozwiązanie pozwala na ocenienie drugiej strony umowy --- takowej oceny dokonuje także sprzedający, a nie tylko kupujący. Dodatkowo ocenom tym zostają nadane odpowiednie wagi tak by zapobiec próbom wpłynięcia na system ocen np.\ poprzez wchodzenie w małe transakcje z dużą ilością kont powiązanych ze sprzedającym. Wagi przyznawane są na podstawie ocen posiadanych przez stronę wystawiającą takową ocenę, a także jej wiarygodności dla społeczności platformy wyrażoną poprzez oceny pozytywne oraz ogólną ilość ocen.
+\item Niezależność od walut FIAT --- na platformie płatności odbywać się będą przy pomocy Ether'u (ETH), kryptowaluty, której wartość jest niezależna od żadnego centralnego organu finansowego. Naszych środków nie da się zamrozić tak jak np.\ w przypadku Peso Argentyńskiego (ARS) w 2001 roku podczas kryzysu finansowego. Nie grozi nam także hiperinflacja, pieniędzy nie da się po prostu dodrukować przez specyfikę pozyskiwania Ether'u (ETH).
+\item Niezależność od stron trzecich --- transakcje odbywają się w ramach zdecentralizowanej sieci Ethereum, gdzie nie występuje żaden administrator czy istytucja będąca w stanie zablokować bądź cofnąć naszą transakcję. Gwarantuje to poczucie bezpieczeństwa i niezależności wyróżniające nas na tle konkurencyjnych serwisów nieopartych na technologii blockchain, gdzie strona trzecia już występuje. Zwiększa to także bezpieczeństwo naszych danych osobowych zachowując większą anonimowość.
 \item Bezpieczne wykonanie umów --- ???
-
-%pamiętajmy, że tu trzeba uzupełnić
-
-\item Różnorodność umów i sposobów na przeprowadzenie transakcji --- Przygotowaliśmy 11 przykładowych modeli umów, z czego 2 znajdą się w pierwszym wydaniu systemu. Gwarantuje to dostosowanie systemu do potrzeb użytkowników. Dodatkowo ilość umów może się powiększyć wraz z powiększaniem się bazy użytkowników. 
-\item Globalny zasięg ofert --- sieć Ethereum wiąże się z brakiem ograniczeń co do lokalizacji na Ziemi. Korzystać z niej można z dowolnego jej zakątku, wystarczy jedynie połączenie z internetem. Ether stanowi jedyny wymóg by korzystać z naszej platformy i może zostać nabyty przez każdego. Pozwala to na o wiele większą wszechstronność od większości platform do handlu ograniczonych jedynie do rynku lokalnego. Konkurować z nami pod tym względem mogliby jedynie giganci, tacy jak np.\ \textit{Amazon} czy \textit{eBay}.
-\item Budowanie nowych rozwiązań --- unikalna cecha wyróżniająca nas na rynku. Jestemy otwarci na społeczność tworząca się wokół naszej platformy w znacznie szerszy sposób niż nie-blockchain'owa konkurencja. Po wypuszczeniu produktu żyłby on własnym życiem kontrolowany w całości przez społeczność posiadającą możliwość wprowadzania modyfikacji, które mogłyby zostać przez większość zaakceptowane, bądź odrzucone, co stanowi gwarancję dostosowania ECMarket'u do potrzeb potencjalnego użytkownika. Jednakże dodanie funkcjonalności związanych z tą cechą jest zaplanowane na przyszłe wydania.
+\item Różnorodność umów --- sposobów przeprowadzenia transakcji - Przygotowaliśmy 11 przykładowych modeli umów z czego 2 znajdą się w pierwszym wydaniu systemu. Gwarantuje to dostosowanie systemu do potrzeb użytkowników. Dodatkowo ilość ta mogłaby się powiększyć wraz z powiększeniem bazy użytkowników. 
+\item Globalny zasięg ofert --- sieć Ethereum wiąże się z brakiem ograniczenia co do lokalizacji na kuli ziemskiej. Korzystać z niej można z dowolnego zakątku, wystarczy jedynie połączenie z internetem. Ether może nabyć każdy co stanowi jedyny wymóg by korzystać z naszej platformy. Daje to o wiele większą wszechstronnoć od większości platform do handlu ograniczonych jedynie do rynku lokalnego. Konkurować z nami pod tym względem mogliby jedynie giganci tacy jak np.\ Amazon czy eBay.
+\item Budowanie nowych rozwiązań --- unikalna cecha wyróżniająca nas na rynku. Jestemy otwarci na społeczność tworząca się wokół naszej platformy w znacznie szerszy sposób niż nieblockchainowa konkurencja. Po wypuszczeniu produktu żyłby on własnym życiem kontrolowany w całości przez społeczność posiadającą możliwość wprowadzania modyfikacji, które mogłyby zostać przez większość zaakceptowane bądź odrzucone co stanowi gwarancję dostosowania ECMarket'u do potrzeb potencjalnego użytkownika. Jednakże dodanie funkcjonalności związanych z tą cechą, jest zaplanowane na przyszłe wydania
 \end{itemize}
 
 
 \subsection{Rozważane Strategie}
-Przy określaniu paradygmatu, metodologii i procesu wytwarzania oprogramowania, które zastosujemy w naszym projekcie rozważaliśmy następujące strategie:
+
+Przy określaniu paradygmatu, metodologii i procesu wytwarzania oprogramowania, które zastosujemy w naszym projekcie rozważaliśmy następujące strategie
 
 \begin{itemize}
 	\item Ewolucyjno-przyrostowy \\
@@ -141,7 +147,7 @@ Przy określaniu paradygmatu, metodologii i procesu wytwarzania oprogramowania, 
 		\item nie wymaga pełnej specyfikacji problemu
 		\item można regulować intensywność i czas przyrostów
 		\item pozwala na zmianę wymagań i dostosowywanie poprzednich przyrostów
-		\item funkcjonalności systemu muszą się nadawać do rozbicia na podfunkcjonalności
+		\item funkcjonalności systemu muszą dawać rozbić się na podfunkcjonalności
 		\item proces zajmuje dużo czasu
 	\end{itemize}
 	\item Scrum \\
@@ -149,7 +155,7 @@ Przy określaniu paradygmatu, metodologii i procesu wytwarzania oprogramowania, 
 	\begin{itemize}
 		\item szybka adaptacja do zmian wymagań
 		\item wymagana stała komunikacja w zespole
-		\item nieduże przyrosty w małych odstępach czasowych
+		\item nieduże przyrosty w małych odstępach
 		\item wymaga podobnych umiejętności wszystkich członków zespołu
 		\item samozarządzanie się zespołu
 		\item szybko tworzone oprogramowanie
@@ -169,9 +175,10 @@ Przy określaniu paradygmatu, metodologii i procesu wytwarzania oprogramowania, 
 
 \subsection{Wybór Strategii i Argumentacja}
 
-Metodologią, którą rozważaliśmy na początku był Scrum, jednak wymóg stałej komunikacji i intensywności pracy zdyskwalifikował ją dość szybko. Problemem również była bardzo mocno zróżnicowana wśród zespołu znajomość technologii (Ethereum). Wahaliśmy się, czy nie użyć protypowania, jednakże mieliśmy już na samym początku w pewnym stopniu określone wymagania, więc zdecydowaliśmy się na bardziej znaną nam metodę ewolucyjno-przyrostową.
+Metodologią, którą rozważaliśmy na początku był Scrum, jednak wymóg stałej komunikacji i intensywności pracy, zdyskwalifikował ją dość szybko. Problemem również była bardzo mocno zróżnicowana wśród zespołu znajomość technologii (Ethereum). Wahaliśmy się, czy nie użyć protypowania, jednakże mieliśmy już na samym początku, w pewnym stopniu określone wymagania, więc zdecydowaliśmy się na bardziej znaną nam metodę ewolucyjno-przyrostową.
 
 \subsection{Plan Zapewnienia Jakości}
+
 Jakość w naszym produkcie jest zapewniona dzięki wykorzystaniu metodyki zwinnej TDD (Test Driven Development). Zdecydowaliśmy się na taką metodykę, ponieważ nasz system operuje na kryptowalutach oraz na dobrach każdego użytkownika. Sama idea zdecentralizowanej platformy handlowej jest mało popularnym zagadnieniem, więc aby zapewnić użytkowników do zaufania nowej technologii i platformy, musimy dostarczyć wysoką jakość naszego produktu.
 
 \subsection{Udziałowcy}
@@ -249,9 +256,12 @@ Jakość w naszym produkcie jest zapewniona dzięki wykorzystaniu metodyki zwinn
 
 
 \subsection{Ograniczenia}
+
 Głównym ograniczeniem jest czas na wykonanie projektu, który wynosi niepełny rok.
 Każda instrukcja wykonana na Wirtualnej Maszynie Ethereum (EVM), kosztuje pewną ilość etheru, co stanowi ograniczenie jak bardzo skomplikowany kod może być na niej wykonywany. Ten problem można częściowo rozwiązać delegując wykonanie niektórych zadań do klientów, takich, które nie wymagają wiarygodności lub takie, dla których można skonstruować dowód poprawności obliczeń, którego weryfikacja jest tańsza niż sam kod.
+
 Pewnym ograniczeniem jest fakt, że nie opieramy się na żadnej stronie trzeciej, która byłaby w stanie stanowić autorytet i potwierdzać, że jakieś wydarzenie miało miejsce lub nie miało (np.\ dostarczenie produktu, który jednocześnie spełniałby pewne wymagania klienta lub innych stron). Te gwarancje próbujemy zbudować na podłożu teorii gier oraz społecznej teorii gier, by doprowadzić do sytuacji, gdzie strony nie wywiązujące się z umów tracą pieniądze lub/i ocenę, więc efektywnie zniechęcane do takich działań.
+
 Istotnym problemem, który chcemy przynajmniej od Siebie odsunąć są kwestie prawne, a więc rosnąca kontrola władzy państwowej nad różnymi aspektami życia. Chcielibyśmy rozwiązać ten problem po przez wydanie platformy na licencji z rodziny GPL, jak również zbudować w ramach naszej platformy system repozytoriów zarządzanych przez klientów. Jednak realizacja tego drugiego odbędzie się nie wcześniej, niż w drugim wydaniu aplikacji.
 
 
@@ -339,6 +349,7 @@ Istotnym problemem, który chcemy przynajmniej od Siebie odsunąć są kwestie p
 \subsection{Charakterystyka Zespołu}
 
 \subsection{Infrastruktura Komunikacyjna i Dokumentacyjna}
+
 W ramach infrastruktury komunikacyjnej wykorzysztaliśmy platformę https://www.discord.com, za pomocą której występowała komunikacja między członkami zespołami, ponieważ większość pracy została wykonywana zdalnie i był to nasz główny kanał komunikacji.  Do integracji kodu projektu oraz dokumentacji pomiędzy członkami grupy projektowej wykorzystaliśmy system kontroli wersji https://www.github.com.
 
 \subsection{Aspekty Społeczne}
@@ -1458,22 +1469,131 @@ Umowa A1.1\\
 \includegraphics[width=1.0\textwidth]{SM-A1_1}
 
 
+\subsection{Analiza Komercyjna}
+
+\newpage
+\section{Architektura}
+
+\subsection{Ekosystem Ethereum}
+
+\subsubsection{Siec Ethereum}
+
+Ethereum jest projektem pragnącym stworzyć uogólnioną technologię, pozwalającą na zrealizowanie dowolnego rozwiązania opierającego się na transakcyjnej maszynie stanowej. Co więcej, jednym z jego celów jest dostarczenie deweloperom pełnego, zwartego systemu do budowy aplikacji, we wcześniej szerzej nie znanym paradygmacie "trustful object messaging compute framework".
+
+Innym kluczowym celem przyświecającym Ethereum, jest zestawienie kanału do interakcji między agentami, którzy w innych okolicznościach nie mieliby możliwości sobie zaufać, co do poprawności procedury. Źródłem nieufności może być geograficzna odległość, brak odpowiedniej wiedzy, niechęć, niepewność lub korupcja istniejącego systemu prawnego.\cite{work:ethereum2018yellowpaper}
+
+\subsubsection{Własności Sieci}
+
+Kontrakty budowane w takim systemie, posiadają rzadko spotykane w rzeczywistym świecie własności. Bezstronność algorytmicznego interpretera, w naturalny sposób gwarantuje odporne na korupcję wykonanie transakcji. Przejrzystość rozstrzygnięcia kontraktu pochodząca z historii interakcji, jak również z zasad rządzących kodem, nie istniejąca w systemach opartch o języki naturalne i ludzkie działania, które w swojej naturze są nieprecyzyjne\cite{work:ethereum2018yellowpaper}.
+
+Kontrakty są uruchamiane na EVM - Ethereum Virtual Machine, maszynie wykonującej ich byte-code (W Ethereum 2.0 będzie używany eWASM), której model programowy jest uważany za zupełny w sensie Turinga (nieformalnie, formalnie jest automatem liniowo ograniczonym). Pozwala to na oprogramowanie dowolnego algorytmu, który wykonałby domowy komputer\cite{wiki:Ethereum, website:EthTuringMedium}.
+
+Oprócz ekspresywnego zestawu instrukcji, kontrakty mają możliwość zapisywania lub odczytania swojego stanu bezpośrednio z blockchaina, potrzeby bez angażowania w ten proces użytkownika. Posiadają one również prawie pełną swobodę, co do modyfikacji treści swojego stanu, oraz ograniczoną mozliwość zmiany stanu innych kontraktów. Pozwala to na budowanie rozwiązań, które są niemożliwe lub trudne do zbudowania z pomocą bezstanowych UXTO\cite{wiki:Ethereum, website:EthTuringMedium, work:ethereum2018yellowpaper}.
+
+Klienci wchodzą w interakcję z siecią, po przez rozgłaszanie transakcji do znanych węzłów. Poprawnie uformowane i podpisane transakcjie, są zbierane i grupowane, przez wyróżnioną grupę węzłów nazwywaną górnikami (w Ethereum 2.0 walidatorami), w bloki. Mają oni pewną swobodę w tym ile transakcji będzie się znajdować w bloku i w jaki sposób będą one w nim uporządkowane. To ile maksymalnie transakcji może być w jednym bloku jest określane przez zmienną \textit{block gas limit}.
+Kiedy górnik zbierze i przygotuję kolejkę transakcji, wykonuje w pętli funkcję tranzycji stanu, która przyjmuje obecny stan sieci i pierwszą transakcję z kolejki, a zwraca nowy stan sieci, dopóki kolejka nie jest pusta. W czasie wykonania pętli zbiera on informacje o tym jakie transakcjie zakończyły się powodzeniem i jakie logi one wygenerowały i zapisuje je w \textit{transaction reciepts trie}. Po wykonaniu wszystkich wybranych transakcji, górnik zapisuje nowy stan sieci w \textit{world state trie}, wykonane transakcje w \textit{transaction trie} i umieszcza je w bloku. Na tak przygotowanej strukturze wykonuje on algorytm Ethash (w Ethereum 2.0 ten mechanizm inaczej wygląda), czyli kopanie bloków. Po znalezieniu liczby spełniającej wymogi algorytmu, dołącza ją do nowo wykopanego bloku i rozgłasza go w sieci.
+Zostaje on zaakceptowany przez resztę węzłów, jeśli nowy stan jest poprawny i wynika z transakcji zawartych w bloku, wskazuje na historyczny poprawny blok, a łańcuch do którego należy spełnia warunki protokołu GHOST (w uproszczeniu wybieramy ten łańcuch, nad którym wykonano najwięcej pracy).\cite{work:ethereum2018yellowpaper} Jest jeszcze kilka innych warunków poprawności bloku, ale nie są one bardzo istotne z punktu widzenia tej pracy.
+
+
+\clearpage
+\KOMAoptions{paper=A3,pagesize}
+\KOMAoptions{paper=landscape}
+\recalctypearea
+
+\begin{center}
+
+\begin{figure}[h]
+\caption[Caption for LOF]{Formowanie bloków w Ethereum\footnotemark}
+\centering
+\includegraphics[width=1.0\textwidth, height=0.7\textheight]{blockchain}
+\end{figure}
+\footnotetext{Pobrano z \url{https://ethereum.stackexchange.com/questions/268/ethereum-block-architecture/6413#6413}}
+
+\end{center}
+
+\clearpage
+\KOMAoptions{paper=portrait}
+\KOMAoptions{paper=A4,pagesize}
+\recalctypearea
+
+
+Mechanizmem zachęcającym górników do zbierania i wykonywania transakcji jest obecność opłat za nie. Wykonanie każdej z nich kosztuje \textit{gas}; jednostkę wykonanej pracy, istniejącą tylko w kontekście danej transakcji. Użytkownik, w rozgłaszanej przez siebie transakcji, określia cenę w etherze za jednostkę gazu oraz maksymalną ilość gazu jaką może ona pobrać. Inną zachętą jest nagroda za wyprodukowanie poprawnego bloku, którą górnik może sam sobie przyznać. Takie mechanizmy wspierają żywotność sieci, jednak na ile chronią przed cenzurą i wzmacniają bezpieczeństwo sieci jest spornym tematem.\cite{work:ethereum2018yellowpaper}
+
+Ethereum 1.0 gwarantuje wykonanie kontraktów i poprawne przeprowadzenie transakcji, czyli bezpieczeństwo i żywotność sieci, przy założeniu, że więcej niż 50\% mocy hashującej działa zgodnie z protokołem, a wiadomości o stanie sieci docierają do innych klientów synchronicznie (istnieje znane maksymalne opóźnienie wiadomości). Jeśli, któreś z powyższych założeń jest nie spełnione, to tranasakcje lub wykonanie kodu może być cenzurowane (zignorowane, niewykonane), różni uczestnicy sieci mogą widzieć jej odmienny stan, kontrakty i mechanizmy nie opierające się na podpisach kryptograficznych mogą paść ofiarą "double spending attack" oraz historia już wykonanych transakcji może być zmieniana \cite{work:AnonByzConsBit}.
+
+
+\subsubsection{Środowisko wykonawcze kontraktów}
+
+Kontrakty są bytami posiadającymi kod, jak również stan, nazywany też pamięcią \textit{storage}. Są one zapisane pod pewnym adresem w przestrzeni kont. Iterakcję z kontraktem przeprowadza się poprzez wysłanie pod jego adres transakcji. Kontrakt dotknięty nią uruchamia swój kod, z zawartością transakcji jako danymi wejściowymi.
+
+Uruchomienie transakcji, jak i każdej wykonanej instrukcji w kodzie kontraktu pochłania pewną określoną ilość gazu. Inicjator transakcji określa cenę w etherze za jednostkę gazu i limit zużycia gazu. Cena za uruchomienie jest naliczana natychmiast, a kolejne opłaty, tylko w momencie wykonania instrukcji. Jeśli incjatorowi zabraknie funduszy na opłacenie gazu, zostanie osiągnięty limit zużycia gazu lub limit gazu na blok, wykonanie kończy się wyjątkiem \textit{out of gas} i zmiany wprowadzone w stanie sieci zostają wycofane. Jednak bez względu na wynik obliczeń, koszty zakupu gazu nie zostają cofnięte, jako że górnicy (lub walidatorzy) ponieśli już koszty z wiązane z ich wykonaniem. Poprawne wykonanie transakcji, czyli bez zwrócenia do inicjatora wyjątku, utrwala zmiany wprowadzone w sieci, a niezużyty gaz zostaje automatycznie odsprzedany i koszty jego zakupu zostają zwrócone do inicjatora, po takiej samej cenie jak zakupu.
+
+Uruchomienie transakcji tworzy kontekst transakcji, czli zbiór zmiennych środowiskowych dostępnych w kontrakcie istniejących, ale tylko dla tego jednego wywołania. Należą do nich adres wywołującego, adres docelowy, ilość przekazanego etheru, ilość przekazanego gazu, cena za jednostkę gazu, adres opłacający transakcję oraz tablicę dodatkowych danych.
+
+Szczególną uwagę należy poświęcić instrukcją \textit{REVERT}, \textit{INVALID}, \textit{CALL}, \textit{DELEGATECALL}, \textit{STATICCALL}, \textit{CREATE}, \textit{SELFDESTRUCT} i \textit{SSTORE}.
+\begin{itemize}
+	\item \textit{REVERT} kończy wykonanie wyjątkiem określony w kodzie przez jego autora, wycofuje wprowadzone zmiany w procedurze i zwraca niezużyty gaz do nadprocedury lub inicjatora transakcji.
+	\item \textit{INVALID} kończy wykonanie wyjątkiem i "spala" cały dostępny gaz w procedurze.
+	\item \textit{CALL} pozwala kontraktowi na uruchomienie podprocedury. Procedura wywołująca określa adres docelowy (może to być ten sam lub inny kontrakt), ile etheru chce przekazać, ile gazu chce dostarczyć oraz tablicę dodatkowych danych. Wyjątki wyrzucone w podprocedurze \textbf{nie kończą} automatycznie procedury wywołującej, jedynie zostaje do niej zwrócony kod błedu. Procedura może wysłać tylko tyle etheru, ile w danym momencie posiada kontrakt, podobnie w przypadku gazu; może przekazać maksymalnie 63/64 gazu, którego posiadała w momencie wykonania instrukcji \textit{CALL}. Wywołanie podprocedury, podobnie jak uruchomienie transakcji, tworzy nowy kontekst, jednak w przeciwieństwie do tej drugiej cena za jednostkę gazu i adres opłacającego nigdy nie ulega zmianie. Wynika to z tego, że w obecnej wersji Ethereum kontrakty nie mogą same opłacać swojego wykonania.
+	\item \textit{DELEGATECALL} przyjmuje takie same argumenty jak \textit{CALL} jednak nie zmienia w pełni kontekstu tzn.\ podprocedura ma dostęp do tych samych zmiennych środowiskowych i pamięci \textit{storage} co nadprocedura, z wyjątkiem wysłanego etheru i dostępnego gazu. Ta instrukcja jest najczęsciej wykorzystywana w implementacji bibliotek, kontraktów z możliwością aktualizacji, jak również w naszym modelu maszyny stanowej
+	\item \textit{STATICCALL} działa podobnie jak \textit{CALL}, jednka nie pozwala na przesyłanie etheru, a wszelkie próby wywołania instrukcji zmieniających stan sieci w podprocedurze, konczą ją i zwracają do nadprocedury kod błędu.
+	\item \textit{CREATE} tworzy nowy kontrakt
+	\item \textit{SELFDESTRUCT} usuwa z sieci kontrakt (zeruje kod i stan), w którego kontekście została ona wywołana, a cały ethere jaki był w nim zawarty przesyła pod wskazany adres. Jej wywołanie refunduje część zużytego gazu, co ma stanowić zachętę, by transakcje, jeśli to możliwe, usuwały nie potrzbne już kontrakty.
+	\item \textit{SSTORE} zapisuje 256-bitowe słowo we wskazane miejsce \textit{storage} kontraktu, w którego kontekście została wywołana. Jeśli w jej wyniku niezerowa wartość zostaje wyzerowana, to refunduje część gazu, jako zachętę by transakcje usuwały nie potrzebne fragmenty stanu sieci
+\end{itemize}
+
+\subsubsection{Klienci Ethereum}
+
+\begin{itemize}
+	\item Geth
+	\item Parity
+	\item aleth
+\end{itemize}
+
+\subsubsection{Technologie wspierające}
+
+\begin{itemize}
+	\item Solidity
+	\item Web3
+	\item Swarm
+	\item Whisper
+\end{itemize}
+
+\subsubsection{Ograniczenia technologii}
+
+Kontrakty "widzą" jedynie stan sieci. O jakiekolwiek informacje o świecie zewnętrznym muszą prosić swoich klientów, co może być wektorem ataku na nie odpowiednio przemyślany i zaprojektowany system.
+
+Obecna wersja Ethereum oferuje średnią przepustowość na poziomie 15 tx/s, co może utrudniać działanie aplikacji, w przypdaku dużego zainteresowania.
+
+Problem prywatności w Ethereum jest dalej tematem intensywnych badań i choć są proponowane działające rozwiązania, w obecnej wersji należy zakładać, że każdy może sprawdzić jaki adres wchodził w interkację z jakim kontraktem.
+
+\subsubsection{Zgodność z Ethereum 2.0}
+
+Znaczna cześć zaproponowanych przez nas rozwiązań, będzie musiała być ponownie przeanalizowana, a nawet zmieniona, w kolejnych wersjach Ethreum, głównie z powodu dodania mechanizmu naliczania "czynszu" za używanie pamięci \textit{storage}, jak również pamięci, w której jest przechowywany kod kontraktów. Kolejną istotną zmianą będzie wprowadzenie \textit{shardingu}, który pozwoli zwiększyć przepustowość sieci, jak również doda nowe mechanizmy asynchronicznego, wzajemnego wywoływania się kontraktów. Dodanie obsługi tych funkcjonalności będzie kluczowe, by zapewnić poprawne działanie systemu i zapewnić jak najwyższą wydajność naszych usług.
+
+\subsection{Podział systemu na podsystemy}
+
+\subsubsection{Back-End}
+
+\subsubsection{Front-End}
+
 \subsection{Model Obiektowy Systemu}
 
 \subsubsection{Back-End}
 
-\includegraphics[width=1.0\textwidth]{Contract_Class_Diagram_Class_Diagram}
+\clearpage
+\KOMAoptions{paper=A3,pagesize}
+\KOMAoptions{paper=landscape}
+\recalctypearea
+
+\includegraphics[width=1.0\textwidth, height=0.9\textheight]{Contract_Class_Diagram_Class_Diagram}
+
+\clearpage
+\KOMAoptions{paper=portrait}
+\KOMAoptions{paper=A4,pagesize}
+\recalctypearea
 
 \subsubsection{Front-End}
-
-\subsubsection{Sieć procesów}
-
-\subsection{Analiza Komercyjna}
-
-\newpage
-\section{Projektowanie}
-\newpage
-\section{Architektura}
 
 \newpage
 \section{Przyrost Pierwszy}

@@ -1502,17 +1502,15 @@ Umowa przedstawiona powyżej jest najprostszą dostępną umową w naszym system
 Umowa A1.2 jest ewolucją umowy A1.1. W tym przypadku sprzedający dodatkowo ustala zaliczkę oraz czas pozwalający na wycofanie się kupującego. Kolejną ważną cechą jest też możliwość ocenienia sprzedającego przez kupującego. W powyższej umowie dochodzi jedna dodatkowa alternatywna droga do zakończenia umowy. Kupujący może zrezygnować z kontynuowania procesu i może zażądać zwrotu wpłaconych pieniędzy, jednak może to zrobić tylko przed terminem pozwalającym na wycofanie się.
 
 \subsection{Projektowanie back-end'u}
-\subsection{Testy walidacyjne}
-\subsection{Implementacja}
 \subsection{Lista zmian}
 
 \newpage
 \section{Przyrost Drugi}
 \subsection{Cele przyrostu}
-Drugi przyrost to przede wszystkim implementacja pierwszej umowy A1.1, aby sprawdzić czy nie napotkamy żadnych problemów podczas tworzenia naszego systemu.
-Następnym istotnym celem było stworzenie wewnętrznego tokena, który byłby standardem implementacji ERC20, który definiuje podstawowe funkcjonalności, jakie są wspierane przez token.
-Tworzony system jest bardzo nowym i eksperymentalnym doświadczeniem, dlatego naszym zadaniem w tym przyroście był interfejs użytkownika, stworzony na podobieństwo stadnardowych rozwiązań.
-Kolejnym zadaniem, który sobie postawiliśmy na ten przyrost było stworzenie komponentów, w których znajdziemy wyszukiwanie umów, ich widoki, tworzenie czy też przeglądanie możliwych akcji danego adresu.
+Drugi przyrost to przede wszystkim implementacja pierwszej umowy A1.1 oraz AgreementManagera, odpowiedzialnego za rejestrowanie i tworzenie umów w systemie.
+Następnym istotnym celem było stworzenie kontraktu wewnętrznego tokena, który posiada możliwość wpłacania i wypłacania ethereu oraz przekazywania go do umów.
+W przyroście drugim została również przeprowadzona analiza zachęt do usuwania przetrminowanych umów.
+Również zostały przeprowadzona analiza scenariuszy innych bardziej złożonych typów umów.
 
 \subsection{Analiza front-end'u}
 \subsection{Projektowanie front-end'u}
@@ -1542,17 +1540,21 @@ Do testów potrzebujemy środowisko w którym możemy uruchomić kontrakty. Do t
 \newpage
 \section{Przyrost Trzeci}
 \subsection{Cele przyrostu}
-W trzecim przyroście postawiliśmy sobie za zadanie stworzenie wewnętrzengo Tokena w standardzie
-obowiązującym w środowisku Ethereum (ERC20).Głównym zadaniem było jednak stworzenie po stronie interfejsu wygodnego wyszukiwania umów,
-różnych widoków potrzebnych do tworzenia czy też przeglądania umów.
+
+Głównym zadaniem było stworzenie UI do wygodnego wyszukiwania umów oraz różnych widoków potrzebnych do tworzenia, czy też przeglądania umów.
+W trzecim przyroście również postawiliśmy sobie za zadanie przebudowanie wewnętrzengo tokena do standardu
+obowiązującego w środowisku Ethereum (ERC20).
+W tym przyroście również przygotowaliśmy system do dodania umowy A1.2.
+
 \subsection{Napotkane problemy}
-Na tym etapie podczas tworzenia implementacji umów, napotkaliśmy problem natury technologicznej.
-Każda umowa, którą zaprojektowaliśmy ma różne wspólne cechy. W języku programowania, w którym pracujemy, nie jesteśmy w stanie uogólnić tego w żadnej sposób 
-np. za pomocą dziedziczenia. Kontratky nie wspierają agregacji. Kolejnym problem było samo tworzenie kontraktów jako standardowych obiektów, który jest kosztowny, ponieważ każde
-stworzenie takiego kontraktu wymaga użycia gazu.  
+
+Na tym etapie podczas tworzenia implementacji umów, napotkaliśmy problem natury technicznej.
+Każda umowa, którą zaprojektowaliśmy ma różne wspólne cechy, które zgodnie z zasadami dobrego programowania, powinny być umieszczone w osobnych, uogólnionych komponentach, tak by zapewnić hermetyzację i uniknąć powtarzania kodu.
+Język programowania, którego używamy, wspiera dziedziczenie, jednak do zamodelowania umów bardziej adekwatne było użycie wzorca projektowgo \textit{Maszyna Stanowa}, który opiera się o agregację. Kontratky jednak nie wspierają agregacji, nie można stworzyć instancji kontraktu w kontrakcie, tak by ten wewnętrzny nie był wyeksponowany i dostępny dla potencjalnie złośliwych aktorów. Konieczne było więc opracowanie autorskiego rozwiązania, które realizuje ten wzorzec, z uwzględnieniem faktu, że stworzeni pojedynczego kontraktu kosztuje relatywnie dużą ilośc gazu.
+
 \subsection{Projektowanie back-end'u}
 \subsection{Projektowanie front-end'u}
-\subsection{Testy walidacyjne}
+\subsection{Testy}
 \subsection{Scenariusze testowe}
 \begin{table}[H]
     \begin{tabular}{|l|l|}

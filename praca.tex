@@ -1502,37 +1502,35 @@ Umowa przedstawiona powyżej jest najprostszą dostępną umową w naszym system
 Umowa A1.2 jest ewolucją umowy A1.1. W tym przypadku sprzedający dodatkowo ustala zaliczkę oraz czas pozwalający na wycofanie się kupującego. Kolejną ważną cechą jest też możliwość ocenienia sprzedającego przez kupującego. W powyższej umowie dochodzi jedna dodatkowa alternatywna droga do zakończenia umowy. Kupujący może zrezygnować z kontynuowania procesu i może zażądać zwrotu wpłaconych pieniędzy, jednak może to zrobić tylko przed terminem pozwalającym na wycofanie się.
 
 \subsection{Projektowanie back-end'u}
-\subsection{Testy walidacyjne}
-\subsection{Implementacja}
 \subsection{Lista zmian}
 
 \newpage
 \section{Przyrost Drugi}
 \subsection{Cele przyrostu}
-Drugi przyrost to przede wszystkim implementacja pierwszej umowy A1.1 by sprawdzić czy nie znajdziemy żadnych problemów podczas tworzenia naszego systemu.
-Następnym istotnym celem było stworzenie wewnętrzengo tokena który był o standard implementacji ERC20, który definiuje podstawowe funkcjonalnościm, jakie wspierdają przez token.
-Tworzony system jest bardzo nowym i eksperymentalnym doświadczeniem, dlatego naszym zadaniem w danym przyroscie był interfejs użytkownika, stworzony w podobieństwie do stadnardowych rozwiązań.
-Zadaniem który sobie postawiliśmy na ten przyrost było stworzenie komponentów, gdzie znajdziemy wyszukiwanie umów, widok umów, tworzenie umów czy też przeglądanie akcji danego adresu.
+Drugi przyrost to przede wszystkim implementacja pierwszej umowy A1.1 oraz AgreementManagera, odpowiedzialnego za rejestrowanie i tworzenie umów w systemie.
+Następnym istotnym celem było stworzenie kontraktu wewnętrznego tokena, który posiada możliwość wpłacania i wypłacania ethereu oraz przekazywania go do umów.
+W przyroście drugim została również przeprowadzona analiza zachęt do usuwania przetrminowanych umów.
+Również zostały przeprowadzona analiza scenariuszy innych bardziej złożonych typów umów.
 
 \subsection{Analiza front-end'u}
 \subsection{Projektowanie front-end'u}
 \subsection{Testy}
 \subsubsection{Środowisko testów}
-Aplikacja było testowana za pomocą środowiska developerskiego truffle w którym testy tworzoyny za pomocą javascriptowego środkowska testowego Mocha oraz Chai do tworzenia assercji.
+Aplikacja była testowana za pomocą środowiska developerskiego truffle w którym testy tworzoyny za pomocą javascriptowego środkowska testowego Mocha oraz Chai do tworzenia assercji.
 Do testów potrzebujemy środowisko w którym możemy uruchomić kontrakty. Do tych zadań używamy środowiska Ganache, który jest personalnym blockchainenm gdzie możemy uruchamiać kontrakty i testować je.
 \subsubsection{Scenariusze testowe}
 \begin{table}[H]
     \begin{tabular}{|l|l|}
 \hline
-    \textit{Umowa A1.1 Standardowa ściezka}                 & \multicolumn{1}{m{13cm}|}{\textit{Sprawdzamy stworzenie umowy A1.1 z daną ceną w początkowym stanie. Użytkownik wpłaca pieniądze do kontraktu. Twórca wypłaca pieniądze. Na koniec każdy z użytkowników zamyka umowę. Umowa zostaje zakończona.}} \\ \hline
-    \textit{Umowa A1.1 właściwości dołączania  :} & \multicolumn{1}{m{13cm}|}{\textit{Sprawdzamy rózne scenariusze dołączania do umowy. Sprawdzamy czy umowa posiada do trzech użytkowników maksymalnie. Sprawdzamy również czy twórca czy suplikant nie może dołączyć dwa razy do tej samej umowy.}}    \\ \hline
-    \textit{Umowa A1.1 ograniczenia akecptacji użytkowników: } & \multicolumn{1}{m{13cm}|}{\textit{Sprawdzamy możliwości akceptacji użytkowników. Sprawdzamy czy twórca nie może akcpetowac samego siebie do umowy. Sprawdzamy czy tylko twórca może akceptowa innych do dołączenia do umowy. Sprawdzamy również czy nie możemy akcepotwa kogoś gdy umowa jest w trakcie realizacji.}}                                                \\ \hline
-    \textit{Umowa A1.1 właściwości akceptacji zależne od stanu:} & \multicolumn{1}{m{13cm}|}{\textit{Sprawdzamy czy nie możemy podwójnie zaakceptowac tej samej osoby. Sprawdzamy również czy nie można dołączyc do umowa gdy jest ona zamknięta.}}                                                \\ \hline
-	\textit{Umowa A1.1 właściwości zamknięcia umowy:} & \multicolumn{1}{m{13cm}|}{\textit{Testujemy czy obce adresy nie mają możliwości zakończenia umowy. Sprawdzamy również czy niezaakceptowany adres nie może zamknąc umowy oraz czy nie możemy podówjnie zakończyć umowy.}} \\ \hline
-	\textit{Interkacja umowy z funkcją remove: }    & \multicolumn{1}{m{13cm}|}{\textit{Sprawdzamy czy różne funkcję takie jak join czy accept nie mają wpływu na usunięcie całego kontratktu. Sprawdzamy równiez czy nie możemy usunąć umowy gdy jest w stanie realizacji.}} \\ \hline
-	\textit{Umowa A1.1 właściwości wycofania: }  & \multicolumn{1}{m{13cm}|}{\textit{W tym scenraiuszu testujemy wycofywanie się użytkownika z umowy. Sprawdzamy  czy sprzedawca nie może wycofac się z umowy. Wraz z wycofywaniem sprawdzamy czy jest możliwość wypłacenia tokenów. Sprawdzamy czy po staniu się kupującym nie może wycofac się z umowy.}}                                          \\ \hline
-	\textit{AgreementManager tworzenie umów: }  & \multicolumn{1}{m{13cm}|}{\textit{Sprawdzamy czy AgreementManager pomyślnie tworzy umowę. Sprawdzamy również czy umowa istnieje pod danym adresem.}}                                          \\ \hline
-	\textit{AgreementManager właściwości wyszukiwania: }  & \multicolumn{1}{m{13cm}|}{\textit{Sprawdzamy właściwości wyszukiwania AgreementManagera. Sprawdzamy czy AgreementManager pomyślnie wyszukuje pomyślnie daną umowę.}}                                          \\ \hline
+    	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: Standardowa ścieżka}}                 & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy stworzenie umowy A1.1 z daną ceną w początkowym stanie. Użytkownik wpłaca pieniądze do kontraktu. Twórca wypłaca pieniądze. Każdy z użytkowników zamyka umowę. Umowa zostaje zakończona.}} \\ \hline
+    	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: właściwości dołączania}} & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy różne scenariusze dołączania do umowy. Sprawdzamy czy umowa posiada do trzech maksymalnie użytkowników. Sprawdzamy czy twórca lub suplikant nie próbuje dołączyć dwa razy do tej samej umowy.}}    \\ \hline
+    	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: ograniczenia akecptacji użytkowników}} & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy możliwość akceptacji użytkowników. Sprawdzamy czy twórca nie próbuje akceptować samego siebie do umowy. Sprawdzamy, czy tylko twórca ma możliwość akceptacji próśb o dołączenie do umowy. Sprawdzamy również czy nie ma możliwości akceptacji próśb, gdy umowa jest w trakcie realizacji.}}                                                \\ \hline
+   	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: właściwości akceptacji zależne od stanu}} & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy czy twórca nie ma możliwości podwójnie zaakceptować prośby o dołączenie od tej samej osoby. Sprawdzamy również, czy nie ma możliwości dołączania do umowa gdy jest ona zamknięta.}}                                                \\ \hline
+	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: właściwości zamknięcia umowy}} & \multicolumn{1}{m{11cm}|}{\textit{Testujemy, czy obce adresy nie mają możliwości zakończenia umowy. Sprawdzamy również, czy niezaakceptowany adres nie ma możliwości zamknięcia umowy oraz czy nie ma możliwości podówjnie zakończyć umowy.}} \\ \hline
+	\multicolumn{1}{|m{6,5cm}|}{\textit{Interkacja umowy z funkcją remove}}    & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy czy różne funkcje takie jak join czy accept nie mają wpływu na usunięcie całego kontratktu. Sprawdzamy równiez czy nie ma możliwości usunąć umowy gdy jest w stanie realizacji.}} \\ \hline
+	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: właściwości wycofania}}  & \multicolumn{1}{m{11cm}|}{\textit{W tym scenraiuszu testujemy wycofywanie się użytkownika z umowy. Sprawdzamy, czy sprzedawca nie może wycofać się z umowy. Wraz z wycofywaniem się, sprawdzamy czy jest możliwość wypłacenia tokenów. Sprawdzamy czy po staniu się kupującym nie może wycofać się z umowy.}}                                          \\ \hline
+	\multicolumn{1}{|m{6,5cm}|}{\textit{AgreementManager: Tworzenie umów}}  & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy czy AgreementManager pomyślnie tworzy umowę. Sprawdzamy również czy umowa istnieje pod danym adresem.}}                                          \\ \hline
+	\multicolumn{1}{|m{6,5cm}|}{\textit{AgreementManager: Właściwości wyszukiwania}}  & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy właściwości wyszukiwania AgreementManagera. Sprawdzamy czy AgreementManager pomyślnie wyszukuje pomyślnie daną umowę.}}                                          \\ \hline
 \end{tabular}
 \end{table}
 
@@ -1543,10 +1541,34 @@ Do testów potrzebujemy środowisko w którym możemy uruchomić kontrakty. Do t
 \section{Przyrost Trzeci}
 \subsection{Cele przyrostu}
 
+Głównym zadaniem było stworzenie UI do wygodnego wyszukiwania umów oraz różnych widoków potrzebnych do tworzenia, czy też przeglądania umów.
+W trzecim przyroście również postawiliśmy sobie za zadanie przebudowanie wewnętrzengo tokena do standardu
+obowiązującego w środowisku Ethereum (ERC20).
+W tym przyroście również przygotowaliśmy system do dodania umowy A1.2.
+
+\subsection{Napotkane problemy}
+
+Na tym etapie podczas tworzenia implementacji umów, napotkaliśmy problem natury technicznej.
+Każda umowa, którą zaprojektowaliśmy ma różne wspólne cechy, które zgodnie z zasadami dobrego programowania, powinny być umieszczone w osobnych, uogólnionych komponentach, tak by zapewnić hermetyzację i uniknąć powtarzania kodu.
+Język programowania, którego używamy, wspiera dziedziczenie, jednak do zamodelowania umów bardziej adekwatne było użycie wzorca projektowgo \textit{Maszyna Stanowa}, który opiera się o agregację. Kontratky jednak nie wspierają agregacji, nie można stworzyć instancji kontraktu w kontrakcie, tak by ten wewnętrzny nie był wyeksponowany i dostępny dla potencjalnie złośliwych aktorów. Konieczne było więc opracowanie autorskiego rozwiązania, które realizuje ten wzorzec, z uwzględnieniem faktu, że stworzeni pojedynczego kontraktu kosztuje relatywnie dużą ilośc gazu.
+
 \subsection{Projektowanie back-end'u}
 \subsection{Projektowanie front-end'u}
-\subsection{Testy walidacyjne}
-\subsection{Testy integracyjne}
+\subsection{Testy}
+\subsection{Scenariusze testowe}
+\begin{table}[H]
+    \begin{tabular}{|l|l|}
+\hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Standard ECM Token: transfer}}                 & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy różne scenariusze przepływu tokenów pomiędzy kontami. Sprawdzamy poprawność transakcji.Sprawdzamy również czy nie ma możliwości wysyłać tokenów do adresu danego tokenu.}} \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Standard ECM Token: wpłata oraz wypłata pieniędzy}} & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy poprawność wpłat i wypłat tokenów. Funkcje testowane są również na kilku użytkownikach oraz samego zdarzenia transferu.}}    \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Maszyna stanowa}} & \multicolumn{1}{m{11cm}|}{\textit{W tym scenariuszu sprawdzamy poprawaność przejścia stanu.}}                \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Maszyna stanowa z pamięcią}} & \multicolumn{1}{m{11cm}|}{\textit{W tym scenariuszu sprawdzamy poprawność zapisywania różnych stanów w pamięci}}                                                \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Obiekt Storage}} & \multicolumn{1}{m{11cm}|}{\textit{Testujemy inicjowanie obiektu Storage}} \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Zakres pamięci}}    & \multicolumn{1}{m{11cm}|}{\textit{Testujemy zachowanie pamięci poza zakresem.}} \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Pamięć: podstawy działania}}    & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy poprawność funkcji, których celem jest zapisywanie do danego slotu w pamięci.}} \\ \hline
+                                    
+\end{tabular}
+\end{table}
 \subsection{Testy systemowe}
 \subsection{Implementacja}
 \subsection{Lista zmian}

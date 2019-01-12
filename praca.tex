@@ -1572,6 +1572,296 @@ Znaczna cześć zaproponowanych przez nas rozwiązań, będzie musiała być pon
 
 \subsection{Model obiektowy systemu}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=.4\textwidth]{OMclass2}
+\caption{Interfejs AgreementManagera}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{IAgreementManager}}                                    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{Odpowiada za metody tworzenia, usuwania, szukania, potwierdzania i ustawiania umów w fabryce}} \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{create()} --- tworzy nowy kontrakt}}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{remove()} --- usuwa istniejący kontrakt}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{search()} --- szuka istniejącego kontraktu}} \\
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setAgreementFactory()} --- przypisuje fabrykę do managera}} \\
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{checkReg()} ---  sprawdza czy kontrakt znajduje się na liście managera}} \\ \hline
+\end{tabular}
+\end{table}
+\label{OMclass2}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.4\textwidth]{OMclass1}
+\caption{AgreementManager}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{AgreementManager}}                                    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{Odpowiada za nadzór fabryki kontraktów jak i tworzenia, usuwania i szukania ich za pomocą interfejsu IAgreementManager}} \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Zmienne}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{agreements} --- zbiór dostępnych konktraktów}}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{iAgreementFactory} --- interfejs fabryki umów}} \\ \hline
+\end{tabular}
+\end{table}
+\label{OMclass1}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.4\textwidth]{OMclass3}
+\caption{Kontrakt Agreement}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{Agreement}}                                    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{Kontrakt, z którego można utworzyć umowy.}} \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Zmienne}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{NAME\_SIZE} ---  stała, która mówi ile 256-bitowych słów zajmuje string}}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{DESCRIPTION\_SIZE} --- stała, która mówi ile 256-bitowych słów zajmuje string}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{SHARED\_STORAGE\_SIZE} --- zarezerwowana wielkość dla kontraktu}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{isInitialized} --- zmienna przechowująca informację czy Agreement został zapoczątkowany }} \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{init()} --- metoda rozpoczynająca AgreementManagera i standard IERC20}}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getSharedStoragePointer} --- metoda pobiera aktualny wskaźnik dla SharedStorage}} \\ \hline
+\end{tabular}
+\end{table}
+\label{OMclass3}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.4\textwidth]{OMclass4}
+\caption{Standard tokenów IERC20}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{AgreementManager}}                                    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{Standard tokenów dla Ethereum}} \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{totalSupply()} --- zbiór dostępnego zapasu tokenów}}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{balanceOf()} --- sprawdza stan konta innego adresu}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{transfer()} --- przesyła wskazaną ilość tokenów na podany adres}} \\
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{transferFrom()} ---  przesyła wskazaną ilość tokenów z podanego pierwszego adresu na podany drugi adres}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{approve()} --- pozwala wydającemu token wycofać się z konta wskazaną ilość razy. Jeśli funkcja jest wywołana ponownie nadpisuje ilość pozwoleń na wycofanie się.}} \\
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{allowance()} --- zwraca ilość jaką wydający wciąż może pobrać od właściciela.}} \\ \hline
+\end{tabular}
+\end{table}
+\label{OMclass4}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.4\textwidth]{OMclass6}
+\caption{Maszyna stanowa}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{StateMachine}}                                    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{ }} \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Zmienne}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{abstractStates} --- stany abstrakcyjne maszyny stanowej}}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{FORWARD\_GAS\_LIMIT} --- stała, która określa ile maszyna ma sobie zostawić gazu na funkcjonowanie}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{currentState} --- aktualny proces stanu maszyny stanowej.}} \\
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{hasBeenRegisteredForStateTransition} ---  przechowuje informację o dostępności tranzycji na inny stan.}} \\ \hline
+	\textit{\textbf{Metody}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{fallback()} --- }}    \\ \hline
+\end{tabular}
+\end{table}
+\label{OMclass6}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.4\textwidth]{OMclass7}
+\caption{Interfejs stanu}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{IState}}                                    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{Interfejs stanu maszyny stanowej }} \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{getMachineState()} --- zwraca identyfikator obecnego stanu}}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getMachine()} --- zwraca identyfikator obecnej maszyny stanowej}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getMachineReachableState()} --- zwraca identyfikatory osiągalnych stanów}} \\ \hline
+\end{tabular}
+\end{table}
+\label{OMclass7}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.4\textwidth]{OMclass8}
+\caption{Interfejs maszyny stanowej}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{IStateMachine}}                                    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{Interfejs maszyny stanowej.}} \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{getNewState()} --- zwraca identyfikator nowego stanu}}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getCurrentState()} --- zwraca identyfikator obecnego stanu maszyny stanowej}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getListOfReachableStates()} --- zwraca listę osiągalnych stanów}} \\ \hline
+\end{tabular}
+\end{table}
+\label{OMclass8}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.4\textwidth]{OMclass9}
+\caption{Interfejs bazowej maszyny stanowej}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{IStateMachineBase}}                                    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{ }} \\ \hline
+    \textit{\textbf{Metody}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{amIMachine()} --- zwraca true, jeśli metoda jest aktywna w kontekście maszyny stanowej, a false w przeciwnym wypadku.}}  \\ \hline
+\end{tabular}
+\end{table}
+\label{OMclass9}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.4\textwidth]{OMclass10}
+\caption{Stan wejściowy}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{EntryState}}                                    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{ }} \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{join()} --- zwraca identyfikator aplikanta próbującego dołączyć}}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{accept()} --- akceptuje aplikanta \_suplicant}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStatus()} --- zwraca stan aplikanta}} \\ \hline
+\end{tabular}
+\end{table}
+\label{OMclass10}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.4\textwidth]{OMclass11}
+\caption{Stany abstrakcyjne}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{AbstractState}}                                    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{}} \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{isMachine()} ---  zwraca true, jeśli metoda jest aktywna w kontekście maszyny stanowej, a false w przeciwnym wypadku.}}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setMachineNextState()} --- ustawia maszynę stanową na następny stan uprzednio przygotowany}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getMachineState()} --- zwraca identyfikator obecnego stanu}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getMachine()} --- zwraca identyfikator obecnego stanu}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getMachineReachableState()} --- zwraca identyfikator obecnego stanu}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{amIMachine()} --- zwraca identyfikator obecnego stanu}} \\ \hline
+\end{tabular}
+\end{table}
+\label{OMclass11}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.4\textwidth]{OMclass12}
+\caption{Stan aktywny kontraktu}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{RunningState}}                                    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{}} \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{conclude()} ---  zamyka aktywny kontrakt}}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStatus()} --- zwraca status stanu maszyny stanowej}} \\ \hline
+\end{tabular}
+\end{table}
+\label{OMclass12}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.4\textwidth]{OMclass13}
+\caption{Stan usuwania kontraktu}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{RemovingState}}                                    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{}} \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{remove()} ---  usuwa zamknięty kontrakt}}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStatus()} --- zwraca status stanu maszyny stanowej}} \\ \hline
+\end{tabular}
+\end{table}
+\label{OMclass13}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.4\textwidth]{OMclass14}
+\caption{?}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{StateCommons}}                                    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{}} \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{withdraw()} ---  }}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{expirationSensitive()} --- }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStatus()} --- zwraca status stanu maszyny stanowej}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getSharedStoragePointer()} --- zwraca wskaźnik na wspólnej pamięci}} \\ \hline
+\end{tabular}
+\end{table}
+\label{OMclass14}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.4\textwidth]{OMclass15}
+\caption{?}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{StorageUtil}}                                    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{}} \\ \hline
+    \textit{\textbf{Zmienne}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{SPOINTER\_SIZE} ---  ustawia wielkość wskaźnika}}    \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{setSlots()} ---  }}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getSlots()} --- }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setBytes32()} --- }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getBytes32()} --- }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setBytes()} --- }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getBytes()} --- }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setMapping()} --- }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getMapping()} --- }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setStoragePointer()} --- }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStoragePointer()} --- }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStoragePointerMapping()} --- }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setPositionAt()} --- }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{mapSPointerTo()} --- }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{relativeMove()} --- }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getAbsoluteSlotLocation()} --- }} \\ \hline
+\end{tabular}
+\end{table}
+\label{OMclass15}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.4\textwidth]{OMclass16}
+\caption{Client przechowywania pamięci}
+\begin{table}[H]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{StorageClient}}                                    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{}} \\ \hline
+    \textit{\textbf{Zmienne}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{storageManagers} --- }}    \\ \hline
+	\textit{\textbf{Metody}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStoragePointer()} --- zwraca id wskaźnika }}     \\ \hline
+\end{tabular}
+\end{table}
+\label{OMclass16}
+\end{figure}
+
 \subsubsection{Back-end}
 
 \clearpage

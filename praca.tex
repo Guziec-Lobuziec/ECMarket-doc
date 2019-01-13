@@ -1608,23 +1608,13 @@ Podczas pierwszego przyrostu postawiliśmy sobie za cel przeanalizowanie, jak po
 \subsection{Analiza back-end'u}
 Na samym początku zabraliśmy się za analizę naszego systemu. Postanowiliśmy że naszym głównym przedmiotem badań będzie przeanalizowanie sprawiedliwych kontraktów. Podczas analizowania różnych przypadków postanowiliśmy że system powinien dostarczać różne rodzaje kontraktów w zależności od potrzeb użytkowników którzy będą korzystać z naszego systemu. Podczas prac analizowaliśmy różnego przypadki umów, na koniec postanowiliśmy że w ramach naszej pracy inżynierskiej stworzymy dwa typy kontraktów.
 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.35\textwidth]{A1_1.png}
-\caption{Analiza umowy 1.1}
+\subsubsection{Umowa A1.1}
 \label{A1_1}
-\end{figure}
 
-Umowa przedstawiona powyżej jest najprostszą dostępną umową w naszym systemie. Umowę rozpoczyna Sprzedawca, który tworzy umowę (punkt 0 na rysunku \ref{A1_1}) . Potencjalny kupujący zainteresowany umową wpłaca pieniądze(1), a w następnym kroku Sprzedawca potwierdza transakcję(2). Na koniec kupujący ocenia sprzedającego(3). W umowie istnieją alternatywne scenariusze, ponieważ sprzedający może nie chcieć zawrzeć umowy z nisko ocenianym kupującym i odrzucić ofertę(2a), gdzie następnym krokiem jest wypłacenie tokenów przez kupującego(3a). Jeżeli dojdzie do porozumienia lub też nie, umowa zostaje zakończona(4a).
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.45\textwidth]{A1_2.png}
-\caption{Analiza umowy 1.2}
+Dokładny opis umowy został umieszczony w rozdziale \ref{Scenariusz A1.1}.
+\subsubsection{Umowa A1.2}
 \label{A1_2}
-\end{figure}
-
-Umowa A1.2 jest ewolucją umowy A1.1. W tym przypadku sprzedający dodatkowo ustala zaliczkę oraz czas pozwalający na wycofanie się kupującego. Kolejną ważną cechą jest też możliwość ocenienia sprzedającego przez kupującego. W powyższej umowie dochodzi jedna dodatkowa alternatywna droga do zakończenia umowy. Kupujący może zrezygnować z kontynuowania procesu i może zażądać zwrotu wpłaconych pieniędzy, jednak może to zrobić tylko przed terminem pozwalającym na wycofanie się.
+Dokładny opis umowy został umieszczony w rozdziale \ref{Scenariusz A1.2}.
 
 \subsection{Projektowanie back-end'u}
 \subsection{Lista zmian}
@@ -1714,7 +1704,7 @@ Język programowania, którego używamy, wspiera dziedziczenie, jednak do zamode
 	\item \textbf{solidity} w wersji 0.4.24
 	\item \textbf{ganache} w wersji 1.2.0
 \end{itemize}
-\\
+
 Po zainstalowaniu wymaganych programów, uruchomieniu klienta Ganache i przejściu
 do głównego katalogu projektu, mamy do dyspozycji następujące funkcje:
 \begin{itemize}
@@ -1724,6 +1714,38 @@ do głównego katalogu projektu, mamy do dyspozycji następujące funkcje:
 \end{itemize}
 
 \subsubsection{Front-end}
+Front-end tutaj przedstwaiony jest tylko przykładem który w przyszłości różni developerzy będą mogli modyfikowa i udoskanalac
+Środowsiko developerskie składa się z:
+\begin{itemize}
+	\item \textbf{npm} w wersji 6.1.0
+	\item \textbf{angular} w wersji 6.0.8
+\end{itemize}
+
+Po zainstalowaniu wymaganych programów i przejściu do głównego katalogu by korzystać z aplikacji potrzebujemy:
+\begin{itemize}
+	\item \textbf{npm install} -- komenda która pozwala do zainstalowana paczek oraz paczek zależnych od niej w celu uruchumienia apliakcji
+	\item \textbf{ng serve} -- buduje oraz dostarcza aplikację gotową do przeglądania
+	\item Po pomyślnym zbudowaniu aplikacji, otwieramy przeglądarke internetową np. \textbf{Google Chrome}.
+	\item W pasku adresu przeglądarki wpisujemy /textbf{http://localhost:4200/} w celu przejścia do naszej aplikacji.
+	\item \textbf{ng test} -- uruchamia zestaw testów. W celu poprawnego działania zalecane jest używanie jako domyślnej przeglądarki {Google Chrome}
+\end{itemize}
+
+Pierwszy z dostępnych paneli jest panel wyszukiwnia w którym możemy bez problemu wyszuka bez problemu interesującą nas umowę.
+W tym wydaniu możem wyszukać umowę wpisując rózne parametry tj.
+\begin{itemize}
+	\item \textbf{name:} aby wyszukać umowę po nazwie
+	\item \textbf{price:} aby wyszukać umowę po cenie
+	\item \textbf{expirationDate:} aby wyszukać po umowę po dacie wygaśniecia umowy
+\end{itemize}
+
+Drugim z dostępnych paneli jest panel użytkownika. W tym panelu możemy znaleźć adres portfelu na którym będziemy operować podczas użytkownia aplikacji. 
+Możemy tu również znaleźć własne stworzone umowy oraz umowy w których uczestniczymy.
+
+Trzecim panel jest panel tworzenia umów. W tym panelu możemy stworzyć umowę danego typu. W tym wydaniu dostępna będzie umowa A1.1. By stworzyć umowę należy podać datę,nazwę,opis oraz cenę.
+Następnie klikamy przycisk \textbf{Submit} aby dodać umowę do systemu.
+
+Przy każdym wyszukaniu umowy mamy możliwość spojrzeć na szczegółową stronę umowy. 
+Ta strona pozwala nam przejrzeć wszystkie detale umowy, widziwmy również adresy twórcy oraz petenta.
 
 \subsection{Obsługa aplikacji}
 

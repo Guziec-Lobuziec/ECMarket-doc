@@ -866,14 +866,18 @@ Faza wypłat jest kończona wraz z wypłaceniem wszystkich poprawnych wpłat. \n
 	N+M. async M .        & KM wysyła w postaci jawnej wartość pM, sól sM i znacznik prawdziwości fM
 \\ \hline 
 	N+M+1.        & Koniec aukcji – S wypłaca środki w ilości pI = max(S), gdzie
-\\ \hline
-			&  S = \{pK: 1=<K=<N \& wysłane(pK) \& fK \& pK <= kK \& hK == hasz(pK.fK.sK)\}
+\\ 
+			&  S = \{pK: 1=<K=<N \& wysłane(pK) \& fK \& pK <= kK \& hK ==
+\\ 
+			& ==  hasz(pK.fK.sK)\}
 \\ \hline     
 	N+M+2.        &  KI ocenia S i wypłaca kI – pI 
 \\ \hline  
 	N+M+3.        & Klienci ze zbioru
-\\ \hline
-			& R = \{KK: 1=<K=<N \& wysłane(pK) \& hK == hash(pK.fK.sK)\} wypłacają wpłacone k 
+\\ 
+			& R = \{KK: 1=<K=<N \& wysłane(pK) \& hK ==
+\\ 
+			& == hash(pK.fK.sK)\} wypłacają wpłacone k 
 \\   \hline  
 	N+M+4.        & Klienci spoza zbioru R tracą k na rzecz systemu
 \\ 
@@ -1144,17 +1148,17 @@ to kolejny szczegół implementacyjny na wyższym poziomie abstrakcji.
     0.        & S tworzy umowę i zgłasza zbiór świadków ŚS o rozmiarze 2t+1 
 \\ \hline
     1. async1       & K1 wpłaca depozyt k1 i wysyła kryptograficzny hasz h1
-\\ \hline
+\\ 
 		& Jeśli nie ma świadka, to zgłasza zbiór ŚK1 2t+1 świadków,
-\\ \hline 
+\\ 
 	& taki że ŚK1 n ŚS =/= O
 \\ \hline
     2. async1        &  S zatwierdza udział K1 przy pierwszej wpłacie
 \\ \hline
     3. async2        &  K2 wpłaca depozyt k2 i wysyła kryptograficzny hasz h2 
-\\ \hline
+\\ 
 		& Jeśli nie ma świadka, to zgłasza zbiór ŚK2 2t+1 świadków,
-\\ \hline 
+\\
 	&  taki że ŚK2 n ŚS =/= O
 \\ \hline
     4. async2        & S zatwierdza udział K2 przy pierwszej wpłacie
@@ -1176,9 +1180,9 @@ to kolejny szczegół implementacyjny na wyższym poziomie abstrakcji.
 	N+M+3. async M .        & KM wysyła w postaci jawnej wartość pM, sól sM i znacznik prawdziwości fM
 \\ \hline 
 	N+M+4.        & Koniec aukcji – wybieramy ŚKI i KI, takie że pI == max(S), gdzie 
-\\ \hline
+\\ 
 			&  S = \{pK: 1=<K=<N \& wysłane(pK) \& fK \& pK <= kK \& hK ==
-\\ \hline
+\\
 	& ==  hasz(pK.fK.sK)\}. 
 \\ \hline     
 	N+M+5.        & KI potwierdza poprawność 
@@ -1214,15 +1218,15 @@ to kolejny szczegół implementacyjny na wyższym poziomie abstrakcji.
 	\multicolumn{2}{l}{}
 \\  
 	N+M+9.a.        & ŚKI U ŚS (ci co zagłosowali) ocenia S i K (wypłacają prowizje)
-\\ \hline 
+\\ 
 	&	[następny N+M+9.]
 \\ 
 	\multicolumn{2}{l}{}
 \\  
 	N+M+9.        &  Klienci ze zbioru 
-\\ \hline
+\\ 
 			&  R=\{KK: 1=<K=<N\& wysłane(pK)\& hK== hash(pK.fK.sK)\} 
-\\ \hline
+\\ 
 	& 	wypłacają wpłacone k 
 \\ 
 	\multicolumn{2}{l}{}
@@ -1231,6 +1235,8 @@ to kolejny szczegół implementacyjny na wyższym poziomie abstrakcji.
 \\ 
 \end{tabular}
 \end{table}
+\end{figure}
+\begin{figure}[H]
 \textbf{Legenda:} \\
 K1-KM – klienci \\
 async[numer] – sąsiadujące kroki oznaczone async o różnych numerach wykonują się w dowolnej kolejności \\
@@ -1238,7 +1244,6 @@ Klienci mogą dokonać więcej niż jednej wpłaty \\ \\
 \label{Scenariusz A4.2}
 \end{figure}
 
-\newpage
 \subsubsection{Umowa A4.3}
 \begin{figure}[H]
 \textbf{Scenariusz:} \\
@@ -1248,22 +1253,30 @@ Klienci mogą dokonać więcej niż jednej wpłaty \\ \\
     0.        & S tworzy umowę i zgłasza zbiór świadków ŚS o rozmiarze 2t+1 
 \\ \hline
     1. async1       &  K1 wpłaca depozyt k1 i wysyła kryptograficzny hasz h1 (opcjonalnie opłaty dla Ś)
-\\ \hline
-		& Jeśli nie ma świadka, to zgłasza zbiór ŚK1 2t+1 świadków, taki że ŚK1 n ŚS =/= O
+\\ 
+		& Jeśli nie ma świadka, to zgłasza zbiór ŚK1 2t+1 świadków,
+\\
+		& taki, że ŚK1 n ŚS =/= O
 \\ \hline
     2. async1        &   S zatwierdza udział K1 przy pierwszej wpłacie 
 \\ \hline
     3. async2        &  K2 wpłaca depozyt k2 i wysyła kryptograficzny hasz h2 (opcjonalnie opłaty dla Ś)
-\\ \hline
-		& Jeśli nie ma świadka, to zgłasza zbiór ŚK2 2t+1 świadków, taki że ŚK2 n ŚS =/= O
+\\ 
+		& Jeśli nie ma świadka, to zgłasza zbiór ŚK2 2t+1 świadków,
+\\ 
+		& taki, że ŚK2 n ŚS =/= O
 \\ \hline
     4. async2        & S zatwierdza udział K2 przy pierwszej wpłacie
 \\ 
 	\multicolumn{2}{l}{}
 \\        
-	N. async N        &  KM wpłaca depozyt kM i wysyła kryptograficzny hasz hM (opcjonalnie opłaty dla Ś)
-\\ \hline 
-			& Jeśli nie ma świadka, to zgłasza zbiór ŚKM 2t+1 świadków, taki że ŚKM n ŚS =/= O
+	N. async N        &  KM wpłaca depozyt kM i wysyła kryptograficzny hasz hM
+\\ 
+			&  (opcjonalnie opłaty dla Ś)
+\\ 
+			& Jeśli nie ma świadka, to zgłasza zbiór ŚKM 2t+1 świadków, 
+\\
+			& taki, że ŚKM n ŚS =/= O
 \\ \hline  
 	N+2. async N         & S zatwierdza udział KM przy pierwszej wpłacie 
 \\ \hline     
@@ -1278,8 +1291,10 @@ Klienci mogą dokonać więcej niż jednej wpłaty \\ \\
 	N+M+3. async M .        & KM wysyła w postaci jawnej wartość pM, sól sM i znacznik prawdziwości fM
 \\ \hline 
 	N+M+4.        & Koniec aukcji – wybieramy ŚKI i KI, takie że pI == max(S), gdzie 
-\\ \hline
-			&  S = \{pK: 1=<K=<N \& wysłane(pK) \& fK \& pK <= kK \& hK == hasz(pK.fK.sK)\}.  
+\\ 
+			&  S = \{pK: 1=<K=<N \& wysłane(pK) \& fK \& pK <= kK \& hK ==
+\\ 
+			& == hasz(pK.fK.sK)\}.  
 \\ \hline     
 	N+M+5.        &  Głosowanie – większość za 
 \\ \hline  
@@ -1287,11 +1302,15 @@ Klienci mogą dokonać więcej niż jednej wpłaty \\ \\
 \\ \hline  
 	N+M+7.        &  KI ocenia S i ŚS i wypłaca kI – pI 
 \\  \hline  
-	N+M+8.        &  ŚKI U ŚS (ci co zagłosowali) oceniają KI i S (opcjonalnie wypłacają swoje prowizje) 
+	N+M+8.        &  ŚKI U ŚS (ci co zagłosowali) oceniają KI i S 
+\\ 
+			& (opcjonalnie wypłacają swoje prowizje) 
 \\  \hline  
 	N+M+9.        & Klienci ze zbioru
-\\ \hline
-			&  R=\{KK: 1=<K=<N\& wysłane(pK)\& hK== hash(pK.fK.sK)\} wypłacają wpłacone k 
+\\ 
+			&  R=\{KK: 1=<K=<N\& wysłane(pK)\& hK== hash(pK.fK.sK)\}
+\\ 
+			& wypłacają wpłacone k 
 \\  \hline  
 	N+M+10.        &  Klienci spoza zbioru R tracą k na rzecz systemu
 \\  
@@ -1309,6 +1328,9 @@ Klienci mogą dokonać więcej niż jednej wpłaty \\ \\
 \\ 
 \end{tabular}
 \end{table}
+\end{figure}
+
+\begin{figure}[H]
 \textbf{Legenda:} \\
 K1-KM – klienci \\
 async[numer] – sąsiadujące kroki oznaczone async o różnych numerach wykonują się w dowolnej kolejności \\
@@ -1419,7 +1441,9 @@ dane dodatkowe: licznik zgłoszonych umów I \\ \\
 \\ \hline 
 	1a.        &  Świadkowie wypłacają prowizja + kaucja jeśli uczestniczyli we wszystkich
 \\
-		& umowach, do których zostali wytypowani. Nie wytypowani do żadnych wypłacają samą kaucję
+		& umowach, do których zostali wytypowani. 
+\\ 
+		& Nie wytypowani do żadnych wypłacają samą kaucję
 \\ \hline     
 	2a.        &  U wypłaca resztę. Kaucje świadków, którzy nie wywiązali się, 
 \\
@@ -1655,7 +1679,7 @@ Do testów potrzebujemy środowisko w którym możemy uruchomić kontrakty. Do t
     \begin{tabular}{|l|l|}
 \hline
     	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: Standardowa ścieżka}}                 & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy stworzenie umowy A1.1 z daną ceną w początkowym stanie. Użytkownik wpłaca pieniądze do kontraktu. Twórca wypłaca pieniądze. Każdy z użytkowników zamyka umowę. Umowa zostaje zakończona.}} \\ \hline
-    	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: Właściwości dołączania}} & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy różne scenariusze dołączania do umowy. Sprawdzamy czy umowa posiada do maksymalnie trzech użytkowników. Sprawdzamy czy twórca lub suplikant nie próbuje dołączyć dwa razy do tej samej umowy.}}    \\ \hline
+    	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: Właściwości dołączania}} & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy różne scenariusze dołączania do umowy. Sprawdzamy czy umowa posiada do maksymalnie trzech użytkowników. Sprawdzamy czy twórca lub suplikant nie próbuje dołączyć dwa razy do tej samej umowy.}}    \\ \hline
     	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: Ograniczenia akecptacji użytkowników}} & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy możliwość akceptacji użytkowników. Sprawdzamy czy twórca nie próbuje akceptować samego siebie do umowy. Sprawdzamy, czy tylko twórca ma możliwość akceptacji próśb o dołączenie do umowy. Sprawdzamy również czy nie ma możliwości akceptacji próśb, gdy umowa jest w trakcie realizacji.}}                                                \\ \hline
    	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: Właściwości akceptacji zależne od stanu}} & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy czy twórca nie ma możliwości podwójnie zaakceptować prośby o dołączenie od tej samej osoby. Sprawdzamy również, czy nie ma możliwości dołączania do umowy gdy jest ona zamknięta.}}                                                \\ \hline
 	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: właściwości zamknięcia umowy}} & \multicolumn{1}{m{9cm}|}{\textit{Testujemy, czy obce adresy nie mają możliwości zakończenia umowy. Sprawdzamy również, czy niezaakceptowany adres nie ma możliwości zamknięcia umowy oraz czy nie ma możliwości podówjnie zakończyć umowy.}} \\ \hline
@@ -1691,13 +1715,13 @@ Język programowania którego używamy wspiera dziedziczenie, jednak do zamodelo
 \begin{table}[H]
     \begin{tabular}{|l|l|}
 \hline
-    \multicolumn{1}{|m{6,5cm}|}{\textit{Standard ECM Token: transfer}}                 & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy różne scenariusze przepływu tokenów pomiędzy kontami. Sprawdzamy poprawność transakcji.Sprawdzamy również czy nie ma możliwości wysyłać tokenów do adresu danego tokenu.}} \\ \hline
-    \multicolumn{1}{|m{6,5cm}|}{\textit{Standard ECM Token: wpłata oraz wypłata pieniędzy}} & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy poprawność wpłat i wypłat tokenów. Funkcje testowane są również na kilku użytkownikach oraz samego zdarzenia transferu.}}    \\ \hline
-    \multicolumn{1}{|m{6,5cm}|}{\textit{Maszyna stanowa}} & \multicolumn{1}{m{11cm}|}{\textit{W tym scenariuszu sprawdzamy poprawaność przejścia stanu.}}                \\ \hline
-    \multicolumn{1}{|m{6,5cm}|}{\textit{Maszyna stanowa z pamięcią}} & \multicolumn{1}{m{11cm}|}{\textit{W tym scenariuszu sprawdzamy poprawność zapisywania różnych stanów w pamięci}}                                                \\ \hline
-    \multicolumn{1}{|m{6,5cm}|}{\textit{Obiekt Storage}} & \multicolumn{1}{m{11cm}|}{\textit{Testujemy inicjowanie obiektu Storage}} \\ \hline
-    \multicolumn{1}{|m{6,5cm}|}{\textit{Zakres pamięci}}    & \multicolumn{1}{m{11cm}|}{\textit{Testujemy zachowanie pamięci poza zakresem.}} \\ \hline
-    \multicolumn{1}{|m{6,5cm}|}{\textit{Pamięć: podstawy działania}}    & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy poprawność funkcji, których celem jest zapisywanie do danego slotu w pamięci.}} \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Standard ECM Token: transfer}}                 & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy różne scenariusze przepływu tokenów pomiędzy kontami. Sprawdzamy poprawność transakcji.Sprawdzamy również czy nie ma możliwości wysyłać tokenów do adresu danego tokenu.}} \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Standard ECM Token: wpłata oraz wypłata pieniędzy}} & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy poprawność wpłat i wypłat tokenów. Funkcje testowane są również na kilku użytkownikach oraz samego zdarzenia transferu.}}    \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Maszyna stanowa}} & \multicolumn{1}{m{9cm}|}{\textit{W tym scenariuszu sprawdzamy poprawaność przejścia stanu.}}                \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Maszyna stanowa z pamięcią}} & \multicolumn{1}{m{9cm}|}{\textit{W tym scenariuszu sprawdzamy poprawność zapisywania różnych stanów w pamięci}}                                                \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Obiekt Storage}} & \multicolumn{1}{m{9cm}|}{\textit{Testujemy inicjowanie obiektu Storage}} \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Zakres pamięci}}    & \multicolumn{1}{m{9cm}|}{\textit{Testujemy zachowanie pamięci poza zakresem.}} \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Pamięć: podstawy działania}}    & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy poprawność funkcji, których celem jest zapisywanie do danego slotu w pamięci.}} \\ \hline
                                     
 \end{tabular}
 \end{table}

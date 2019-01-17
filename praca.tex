@@ -174,7 +174,7 @@ Przy określaniu paradygmatu, metodologii i procesu wytwarzania oprogramowania, 
 	\end{itemize}
 \end{itemize}
 
-\nocite{academy:BYT, wiki:Scrum, wiki:SoftPrototyping}
+\nocite{academy:BYT, website:Scrum}
 
 \subsection{Wybór strategii i argumentacja}
 
@@ -1494,12 +1494,13 @@ Ethereum jest projektem pragnącym stworzyć uogólnioną technologię, pozwalaj
 Innym kluczowym celem przyświecającym Ethereum, jest zestawienie kanału do interakcji między agentami, którzy w innych okolicznościach nie mieliby możliwości sobie zaufać, co do poprawności procedury. Źródłem nieufności może być geograficzna odległość, brak odpowiedniej wiedzy, niechęć, niepewność lub korupcja istniejącego systemu prawnego.\cite{work:ethereum2018yellowpaper}
 
 \subsubsection{Własności sieci}
+\label{sec:WlasnosciSieci}
 
 Kontrakty budowane w takim systemie, posiadają rzadko spotykane w rzeczywistym świecie własności. Bezstronność algorytmicznego interpretera, w naturalny sposób gwarantuje odporne na korupcję wykonanie transakcji. Przejrzystość rozstrzygnięcia kontraktu pochodząca z historii interakcji, jak również z zasad rządzących kodem, nie istniejąca w systemach opartch o języki naturalne i ludzkie działania, które w swojej naturze są nieprecyzyjne\cite{work:ethereum2018yellowpaper}.
 
-Kontrakty są uruchamiane na EVM - Ethereum Virtual Machine, maszynie wykonującej ich byte-code (W Ethereum 2.0 będzie używany eWASM), której model programowy jest uważany za zupełny w sensie Turinga (nieformalnie, formalnie jest automatem liniowo ograniczonym). Pozwala to na oprogramowanie dowolnego algorytmu, który wykonałby domowy komputer\cite{wiki:Ethereum, website:EthTuringMedium}.
+Kontrakty są uruchamiane na EVM - Ethereum Virtual Machine, maszynie wykonującej ich byte-code (W Ethereum 2.0 będzie używany eWASM), której model programowy jest uważany za zupełny w sensie Turinga (nieformalnie, formalnie jest automatem liniowo ograniczonym). Pozwala to na oprogramowanie dowolnego algorytmu, który wykonałby domowy komputer\cite{website:EthTuringMedium,work:ethereum2018yellowpaper}.
 
-Oprócz ekspresywnego zestawu instrukcji, kontrakty mają możliwość zapisywania lub odczytania swojego stanu bezpośrednio z blockchaina, bez potrzeby angażowania w ten proces użytkownika. Posiadają one również prawie pełną swobodę, co do modyfikacji treści swojego stanu, oraz ograniczoną mozliwość zmiany stanu innych kontraktów. Pozwala to na budowanie rozwiązań, które są niemożliwe lub trudne do zbudowania z pomocą bezstanowych UXTO\cite{wiki:Ethereum, website:EthTuringMedium, work:ethereum2018yellowpaper}.
+Oprócz ekspresywnego zestawu instrukcji, kontrakty mają możliwość zapisywania lub odczytania swojego stanu bezpośrednio z blockchaina, bez potrzeby angażowania w ten proces użytkownika. Posiadają one również prawie pełną swobodę, co do modyfikacji treści swojego stanu, oraz ograniczoną mozliwość zmiany stanu innych kontraktów. Pozwala to na budowanie rozwiązań, które są niemożliwe lub trudne do zbudowania z pomocą bezstanowych UXTO\cite{website:EthTuringMedium, work:ethereum2018yellowpaper}.
 
 
 Klienci wchodzą w interakcję z siecią, po przez rozgłaszanie transakcji do znanych węzłów. Poprawnie uformowane i podpisane transakcje, są zbierane i grupowane, przez wyróżnioną grupę węzłów nazywaną górnikami (w Ethereum 2.0 walidatorami), w bloki. Mają oni pewną swobodę w tym ile transakcji będzie się znajdować w bloku i w jaki sposób będą one w nim uporządkowane. To ile maksymalnie transakcji może być w jednym bloku jest określane przez zmienną \textit{block gas limit}.
@@ -1540,7 +1541,7 @@ Kontrakty są bytami posiadającymi kod, jak również stan, nazywany też pami�
 
 Uruchomienie transakcji, jak i każdej wykonanej instrukcji w kodzie kontraktu pochłania pewną określoną ilość gazu. Inicjator transakcji określa cenę w etherze za jednostkę gazu i limit zużycia gazu. Cena za uruchomienie jest naliczana natychmiast, a kolejne opłaty, tylko w momencie wykonania instrukcji. Jeśli incjatorowi zabraknie funduszy na opłacenie gazu, zostanie osiągnięty limit zużycia gazu lub limit gazu na blok, wykonanie kończy się wyjątkiem \textit{out of gas} i zmiany wprowadzone w stanie sieci zostają wycofane. Jednak bez względu na wynik obliczeń, koszty zakupu gazu nie zostają cofnięte, jako że górnicy (lub walidatorzy) ponieśli już koszty z wiązane z ich wykonaniem. Poprawne wykonanie transakcji, czyli bez zwrócenia do inicjatora wyjątku, utrwala zmiany wprowadzone w sieci, a niezużyty gaz zostaje automatycznie odsprzedany i koszty jego zakupu zostają zwrócone do inicjatora, po takiej samej cenie jak zakupu.
 
-Uruchomienie transakcji tworzy kontekst transakcji, czli zbiór zmiennych środowiskowych dostępnych w kontrakcie istniejących, ale tylko dla tego jednego wywołania. Należą do nich adres wywołującego, adres docelowy, ilość przekazanego etheru, ilość przekazanego gazu, cena za jednostkę gazu, adres opłacający transakcję oraz tablicę dodatkowych danych.
+Uruchomienie transakcji tworzy kontekst transakcji, czli zbiór zmiennych środowiskowych dostępnych w kontrakcie istniejących, ale tylko dla tego jednego wywołania. Należą do nich adres wywołującego, adres docelowy, ilość przekazanego etheru, ilość przekazanego gazu, cena za jednostkę gazu, adres opłacający transakcję oraz tablicę dodatkowych danych\cite{work:ethereum2018yellowpaper,website:solidityDocs}.
 
 Szczególną uwagę należy poświęcić instrukcjom \textit{REVERT}, \textit{INVALID}, \textit{CALL}, \textit{DELEGATECALL}, \textit{STATICCALL}, \textit{CREATE}, \textit{SELFDESTRUCT} i \textit{SSTORE}.
 \begin{itemize}
@@ -1570,14 +1571,15 @@ Szczególną uwagę należy poświęcić instrukcjom \textit{REVERT}, \textit{IN
 \end{itemize}
 
 \subsubsection{Ograniczenia technologii}
+\label{sec:OgraniczeniaTechnologii}
 
-Złożoność kontraktów jest ograniczona przez limit gazu na blok, jak również maksymalny rozmiar kodu pojedynczego kontraktu, czyli ~24kB. Możliwe jest obejście tych problemów, przez rozbijanie dużych transakcji i kontraktów na mniejsze, lecz komplikuje to interakcje z tak zbudowanym systemem.
+Złożoność kontraktów jest ograniczona przez limit gazu na blok, jak również maksymalny rozmiar kodu pojedynczego kontraktu, czyli ~24kB. Możliwe jest obejście tych problemów, przez rozbijanie dużych transakcji i kontraktów na mniejsze, lecz komplikuje to interakcje z tak zbudowanym systemem\cite{work:ethereum2018yellowpaper,website:solidityDocs}.
 
-Kontrakty ,,widzą'' jedynie stan sieci. O jakiekolwiek informacje o świecie zewnętrznym muszą prosić swoich klientów, co może być wektorem ataku na nie odpowiednio przemyślany i zaprojektowany system.
+Kontrakty ,,widzą'' jedynie stan sieci. O jakiekolwiek informacje o świecie zewnętrznym muszą prosić swoich klientów, co może być wektorem ataku na nie odpowiednio przemyślany i zaprojektowany system\cite{work:ethereum2018yellowpaper,website:solidityDocs}.
 
-Obecna wersja Ethereum oferuje średnią przepustowość na poziomie 15 tx/s, co może utrudniać działanie aplikacji, w przypdaku dużego zainteresowania.
+Obecna wersja Ethereum oferuje średnią przepustowość na poziomie 15 tx/s, co może utrudniać działanie aplikacji, w przypdaku dużego zainteresowania\cite{website:ethereum2018whitepaper}.
 
-Problem prywatności w Ethereum jest dalej tematem intensywnych badań i choć są proponowane działające rozwiązania, w obecnej wersji należy zakładać, że każdy może sprawdzić jaki adres wchodził w interkację z jakim kontraktem. Również umieszczając jakiekolwiek dane w kontraktach, należy zakładać, że są w pełni publiczne, jeśli nie zostały wcześniej zaszyfrowane.
+Problem prywatności w Ethereum jest dalej tematem intensywnych badań i choć są proponowane działające rozwiązania, w obecnej wersji należy zakładać, że każdy może sprawdzić jaki adres wchodził w interkację z jakim kontraktem. Również umieszczając jakiekolwiek dane w kontraktach, należy zakładać, że są w pełni publiczne, jeśli nie zostały wcześniej zaszyfrowane\cite[Problems]{website:ethereum2018whitepaper}.
 
 \subsubsection{Znane podatności kontraktów}
 \label{sec:ZnanePodatnościKontraktów}
@@ -1590,11 +1592,26 @@ Problem prywatności w Ethereum jest dalej tematem intensywnych badań i choć s
 	\item Front-Running -- klasa ataków z rodziny race-condition. Występuje ona, kiedy wcześniej niewybrani użytkownicy mają przekazać do kontraktu jakiś sekret, by uzyskać np.\ ether z gry hazardowej. Polega ona na tym, że górnik lub inny użytkownik przechwytuje transakcję z sekretem i sam, we własnym imieniu, ją wysyła do kontraktu. Najprostrzą metodą ochrony przed tym rodzajem ataków, jest konstruowanie kontraktów by najpierw zbierały hashe sekretów, a dopiero poźniej same sekrety.
 	\item DoS -- najprostrzym przykładem ataku z tej klasy jest sytuacja, kiedy kontrakt napisany w Solidity rozsyła ether, w pętli do pewnej grupy użytkowników, z pomocą funkcij \textit{transfer}, która to wykonuje \textit{REVERT}, jeśli przesyłanie zakończy się nie powodzeniem. Niech jeden z użytkowników będzie złośliwym kontraktem, który przy próbie wysłania mu etheru wykonuje \textit{REVERT} lub \textit{INVALID}. Wtedy każda próba rozesłania etheru do użytkowników zakończy się niepowodzeniem, czyli DoSem. Najprostszą metodą ochrony przed tym atakiem jest użycie wzorca \textit{withdraw}, który wymusza na użytkownikach samodzielne pobranie należnych im środków.
 \end{itemize}
+\nocite{website:ethereumVulnerabilities}
 
 \subsubsection{Problem centralizacji}
 \label{sec:ProblemCentralizacji}
 
+Ethereum składa swoim użytkownikom obietnicę platformy do tworzenia zdecentralizowanych aplikacji\cite[Ethereum]{website:ethereum2018whitepaper}, która jest obwarowana pewnymi ,,oczywistymi'', już omawianymi warunkami i ograniczeniami (patrz rozdział \ref{sec:WlasnosciSieci} i \ref{sec:OgraniczeniaTechnologii}). Jednak okazuje się, że ,,oczywiste'' warunki mają swoją głębszą naturę, a oprócz nich odkrywane są nowe problemy, których wpływ na Ethereum i inne kryptowaluty jest przedmiotem intensywnych debat.
+
+Celem tego podrozdziału będzie określenie pojęcia decentralizacji, oraz omówienie zagadnień potencjalnie zagrażających jej zapewnieniu w Ethereum, jak również dyskusja, na ile przedstawione zjawiska są niebezpieczne, bez budowania formalnej miary.
+
+Pojęcie decentralizacji będziemy rozważać pod kątem defenicji przedstawionych w artykule Vitalika Buterina \cite{website:decentralizationMeaning}, jak i innch źródłach \cite{work:Decentralization}. Dlatego będziemy ją rozważać na płaszczyźnie architektury, zarządzania i struktury logicznej.
+
+Przed analizą wspomnianych problemów, należy zwrócić uwagę jakie rodzaje decentralizacji są pożadane w ekosystemie Ethereum i jakie są potencjalne konsekwencje ich zatracenia. Platforma ta promuje rozproszenie architektury, rozumiane jako rozproszenie wykonania kodu między różne maszyny, w idealnym wypadku w różnych lokacjach na świecie, rozproszenie zarządzania/podejmowania decyzji, definiowane jako podejmowanie decyzji, jaka wersja kodu będzie wykonywana na sprzęcie, przez niezależnych, rozsianych po świecie aktorów. Ethereum, w najbardziej pożądanej sytuacji, ulega centralizacji tylko na płaszczyźnie struktury logicznej, określanej jako spójny stan sieci, czli identyczny dla wszystkich jej uczestników.
+
+
+
+PoW sam w sobie stanowi tylko mechanizm zabezpieczający przed spamem i atakami Sybili, jednak w kryptowalutach, poruszanych w tej pracy, jest połączny z mechanizmem wyboru bloków, tworząc algorytm rozproszonego konsensusu. 
+
 PoW a centralizacja
+
+
 Ethereum PoW a inne kryptowaluty PoW
 Ethereum PoS a centralizacja
 Infura

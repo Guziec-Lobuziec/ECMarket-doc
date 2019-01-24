@@ -44,8 +44,7 @@
 \section{Wstęp}
 
 Na fali pojawiających się nowych zdecentralizowanych aplikacji,
-protokołów komunikacj p2p, algorytmów rozproszonego konsensusu i ideii Internetu 3.0,
-narodziła się w wśród nas koncepcja systemu wspierającego i nadzorującego szeroko rozumianą wymianę obiektów,
+protokołów komunikacj p2p i algorytmów rozproszonego konsensusu, narodziła się w wśród nas koncepcja systemu wspierającego i nadzorującego szeroko rozumianą wymianę obiektów,
 w szczególności dóbr fizycznych, który wpasowywałby się do tego nowego, wspaniałego świata.
 Porwani przez tę wizję, poświęcamy tę pracą pierwszemu podstawowemu wydaniu systemu ECMarket,
 ktore będzie wstępem do stworzenia analogu do serwisów aukcyjnych typu Allegro czy Ebay w uniwersum
@@ -1498,14 +1497,14 @@ Innym kluczowym celem przyświecającym Ethereum, jest zestawienie kanału do in
 
 Kontrakty budowane w takim systemie, posiadają rzadko spotykane w rzeczywistym świecie własności. Bezstronność algorytmicznego interpretera, w naturalny sposób gwarantuje odporne na korupcję wykonanie transakcji. Przejrzystość rozstrzygnięcia kontraktu pochodząca z historii interakcji, jak również z zasad rządzących kodem, nie istniejąca w systemach opartch o języki naturalne i ludzkie działania, które w swojej naturze są nieprecyzyjne\cite{work:ethereum2018yellowpaper}.
 
-Kontrakty są uruchamiane na EVM - Ethereum Virtual Machine, maszynie wykonującej ich byte-code (W Ethereum 2.0 będzie używany eWASM), której model programowy jest uważany za zupełny w sensie Turinga (nieformalnie, formalnie jest automatem liniowo ograniczonym). Pozwala to na oprogramowanie dowolnego algorytmu, który wykonałby domowy komputer\cite{website:EthTuringMedium,work:ethereum2018yellowpaper}.
+Kontrakty są uruchamiane na EVM - Ethereum Virtual Machine, maszynie wykonującej ich byte-code (W Ethereum 2.0 będzie używany eWASM), której model programowy jest uważany za zupełny w sensie Turinga (nieformalnie, formalnie jest automatem liniowo ograniczonym). Pozwala to na oprogramowanie dowolnego algorytmu, który wykonałby domowy komputer\cite{website:EthHubCFTC,website:EthTuringMedium,work:ethereum2018yellowpaper}.
 
-Oprócz ekspresywnego zestawu instrukcji, kontrakty mają możliwość zapisywania lub odczytania swojego stanu bezpośrednio z blockchaina, bez potrzeby angażowania w ten proces użytkownika. Posiadają one również prawie pełną swobodę, co do modyfikacji treści swojego stanu, oraz ograniczoną mozliwość zmiany stanu innych kontraktów. Pozwala to na budowanie rozwiązań, które są niemożliwe lub trudne do zbudowania z pomocą bezstanowych UXTO\cite{website:EthTuringMedium, work:ethereum2018yellowpaper}.
+Oprócz ekspresywnego zestawu instrukcji, kontrakty mają możliwość zapisywania lub odczytania swojego stanu bezpośrednio z blockchaina, bez potrzeby angażowania w ten proces użytkownika. Posiadają one również prawie pełną swobodę, co do modyfikacji treści swojego stanu, oraz ograniczoną mozliwość zmiany stanu innych kontraktów. Pozwala to na budowanie rozwiązań, które są niemożliwe lub trudne do zbudowania z pomocą bezstanowych UXTO\cite{website:EthHubCFTC,website:EthTuringMedium, work:ethereum2018yellowpaper}.
 
 
 Klienci wchodzą w interakcję z siecią, po przez rozgłaszanie transakcji do znanych węzłów. Poprawnie uformowane i podpisane transakcje, są zbierane i grupowane, przez wyróżnioną grupę węzłów nazywaną górnikami (w Ethereum 2.0 walidatorami), w bloki. Mają oni pewną swobodę w tym ile transakcji będzie się znajdować w bloku i w jaki sposób będą one w nim uporządkowane. To ile maksymalnie transakcji może być w jednym bloku jest określane przez zmienną \textit{block gas limit}.
 Kiedy górnik zbierze i przygotuję kolejkę transakcji, wykonuje w pętli funkcję tranzycji stanu, która przyjmuje obecny stan sieci i pierwszą transakcję z kolejki, a zwraca nowy stan sieci, dopóki kolejka nie jest pusta. W czasie wykonania pętli zbiera on informacje o tym jakie transakcje zakończyły się powodzeniem i jakie logi one wygenerowały i zapisuje je w \textit{transaction receipts tree}. Po wykonaniu wszystkich wybranych transakcji, górnik zapisuje nowy stan sieci w \textit{world state tree}, wykonane transakcje w \textit{transaction tree} i umieszcza je w bloku. Na tak przygotowanej strukturze wykonuje on algorytm Ethash (w Ethereum 2.0 ten mechanizm inaczej wygląda), czyli kopanie bloków. Po znalezieniu liczby spełniającej wymogi algorytmu, dołącza ją do nowo wykopanego bloku i rozgłasza go w sieci.
-Zostaje on zaakceptowany przez resztę węzłów, jeśli nowy stan jest poprawny i wynika z transakcji zawartych w bloku, wskazuje na historyczny poprawny blok, a łańcuch do którego należy spełnia warunki protokołu GHOST (w uproszczeniu wybieramy ten łańcuch, nad którym wykonano najwięcej pracy).\cite{work:ethereum2018yellowpaper} Jest jeszcze kilka innych warunków poprawności bloku, ale nie są one bardzo istotne z punktu widzenia tej pracy.
+Zostaje on zaakceptowany przez resztę węzłów, jeśli nowy stan jest poprawny i wynika z transakcji zawartych w bloku, wskazuje na historyczny poprawny blok, a łańcuch do którego należy spełnia warunki protokołu GHOST (w uproszczeniu wybieramy ten łańcuch, nad którym wykonano najwięcej pracy).\cite{work:ethereum2018yellowpaper,website:EthHubCFTC} Jest jeszcze kilka innych warunków poprawności bloku, ale nie są one bardzo istotne z punktu widzenia tej pracy.
 
 
 \clearpage
@@ -1530,7 +1529,7 @@ Zostaje on zaakceptowany przez resztę węzłów, jeśli nowy stan jest poprawny
 \recalctypearea
 
 
-Mechanizmem zachęcającym górników do zbierania i wykonywania transakcji jest obecność opłat za nie. Wykonanie każdej z nich kosztuje \textit{gas}; jednostkę wykonanej pracy, istniejącą tylko w kontekście danej transakcji. Użytkownik, w rozgłaszanej przez siebie transakcji, określia cenę w etherze za jednostkę gazu oraz maksymalną ilość gazu jaką może ona pobrać. Inną zachętą jest nagroda za wyprodukowanie poprawnego bloku, którą górnik może sam sobie przyznać. Takie mechanizmy wspierają żywotność sieci, jednak na ile chronią przed cenzurą i wzmacniają bezpieczeństwo sieci jest spornym tematem.\cite{work:ethereum2018yellowpaper}
+Mechanizmem zachęcającym górników do zbierania i wykonywania transakcji jest obecność opłat za nie. Wykonanie każdej z nich kosztuje \textit{gas}; jednostkę wykonanej pracy, istniejącą tylko w kontekście danej transakcji. Użytkownik, w rozgłaszanej przez siebie transakcji, określia cenę w etherze za jednostkę gazu oraz maksymalną ilość gazu jaką może ona pobrać. Inną zachętą jest nagroda za wyprodukowanie poprawnego bloku, którą górnik może sam sobie przyznać. Takie mechanizmy wspierają żywotność sieci, jednak na ile chronią przed cenzurą i wzmacniają bezpieczeństwo sieci jest spornym tematem\cite{work:ethereum2018yellowpaper}.
 
 Ethereum 1.0 gwarantuje wykonanie kontraktów i poprawne przeprowadzenie transakcji, czyli bezpieczeństwo i żywotność sieci, przy założeniu, że więcej niż 50\% mocy hashującej działa zgodnie z protokołem, a wiadomości o stanie sieci docierają do innych klientów synchronicznie (istnieje znane maksymalne opóźnienie wiadomości). Jeśli, któreś z powyższych założeń jest niespełnione, to tranasakcje lub wykonanie kodu może być cenzurowane (zignorowane, niewykonane), różni uczestnicy sieci mogą widzieć jej odmienny stan, kontrakty i mechanizmy nie opierające się na podpisach kryptograficznych mogą paść ofiarą ,,double spending attac'' oraz historia już wykonanych transakcji może być zmieniana \cite{work:AnonByzConsBit}.
 
@@ -1577,7 +1576,7 @@ Złożoność kontraktów jest ograniczona przez limit gazu na blok, jak równie
 
 Kontrakty ,,widzą'' jedynie stan sieci. O jakiekolwiek informacje o świecie zewnętrznym muszą prosić swoich klientów, co może być wektorem ataku na nie odpowiednio przemyślany i zaprojektowany system\cite{work:ethereum2018yellowpaper,website:solidityDocs}.
 
-Obecna wersja Ethereum oferuje średnią przepustowość na poziomie 15 tx/s, co może utrudniać działanie aplikacji, w przypdaku dużego zainteresowania\cite{website:ethereum2018whitepaper}.
+Obecna wersja Ethereum oferuje średnią przepustowość na poziomie 15 tx/s, co może utrudniać działanie aplikacji, w przypdaku dużego zainteresowania\cite{website:ethereum2018whitepaper,website:EthHubCFTC}.
 
 Problem prywatności w Ethereum jest dalej tematem intensywnych badań i choć są proponowane działające rozwiązania, w obecnej wersji należy zakładać, że każdy może sprawdzić jaki adres wchodził w interkację z jakim kontraktem. Również umieszczając jakiekolwiek dane w kontraktach, należy zakładać, że są w pełni publiczne, jeśli nie zostały wcześniej zaszyfrowane\cite[Problems]{website:ethereum2018whitepaper}.
 
@@ -1597,27 +1596,35 @@ Problem prywatności w Ethereum jest dalej tematem intensywnych badań i choć s
 \subsubsection{Problem centralizacji}
 \label{sec:ProblemCentralizacji}
 
-Ethereum składa swoim użytkownikom obietnicę platformy do tworzenia zdecentralizowanych aplikacji\cite[Ethereum]{website:ethereum2018whitepaper}, która jest obwarowana pewnymi ,,oczywistymi'', już omawianymi warunkami i ograniczeniami (patrz rozdział \ref{sec:WlasnosciSieci} i \ref{sec:OgraniczeniaTechnologii}). Jednak okazuje się, że ,,oczywiste'' warunki mają swoją głębszą naturę, a oprócz nich odkrywane są nowe problemy, których wpływ na Ethereum i inne kryptowaluty jest przedmiotem intensywnych debat.
+Ethereum składa swoim użytkownikom obietnicę platformy do tworzenia zdecentralizowanych aplikacji\cite{website:ethereum2018whitepaper, website:EthHubCFTC}, która jest obwarowana pewnymi ,,oczywistymi'', już omawianymi warunkami i ograniczeniami (patrz rozdział \ref{sec:WlasnosciSieci} i \ref{sec:OgraniczeniaTechnologii}). Jednak okazuje się, że ,,oczywiste'' warunki mają swoją głębszą naturę, a oprócz nich odkrywane są nowe problemy, których wpływ na Ethereum i inne kryptowaluty jest przedmiotem intensywnych debat.
 
 Celem tego podrozdziału będzie określenie pojęcia decentralizacji, oraz omówienie zagadnień potencjalnie zagrażających jej zapewnieniu w Ethereum, jak również dyskusja, na ile przedstawione zjawiska są niebezpieczne, bez budowania formalnej miary.
 
-Pojęcie decentralizacji będziemy rozważać pod kątem defenicji przedstawionych w artykule Vitalika Buterina \cite{website:decentralizationMeaning}, jak i innch źródłach \cite{work:Decentralization}. Dlatego będziemy ją rozważać na płaszczyźnie architektury, zarządzania i struktury logicznej.
+Pojęcie decentralizacji będziemy rozważać pod kątem defenicji przedstawionych w artykule Vitalika Buterina \cite{website:decentralizationMeaning}, jak i innch źródłach \cite{work:Decentralization}. Dlatego będziemy ją analizować na płaszczyźnie architektury, zarządzania i struktury logicznej.
 
-Przed analizą wspomnianych problemów, należy zwrócić uwagę jakie rodzaje decentralizacji są pożadane w ekosystemie Ethereum i jakie są potencjalne konsekwencje ich zatracenia. Platforma ta promuje rozproszenie architektury, rozumiane jako rozproszenie wykonania kodu między różne maszyny, w idealnym wypadku w różnych lokacjach na świecie, rozproszenie zarządzania/podejmowania decyzji, definiowane jako podejmowanie decyzji, jaka wersja kodu będzie wykonywana na sprzęcie, przez niezależnych, rozsianych po świecie aktorów. Ethereum, w najbardziej pożądanej sytuacji, ulega centralizacji tylko na płaszczyźnie struktury logicznej, określanej jako spójny stan sieci, czli identyczny dla wszystkich jej uczestników.
+Przed analizą wspomnianych problemów, należy zwrócić uwagę jakie rodzaje decentralizacji są pożadane w ekosystemie Ethereum i jakie są potencjalne konsekwencje ich zatracenia. Platforma ta promuje rozproszenie architektury, rozumiane jako rozproszenie wykonania kodu między różne maszyny, w idealnym wypadku w różnych lokacjach na świecie, rozproszenie zarządzania/podejmowania decyzji, definiowane jako podejmowanie decyzji, jaka wersja kodu będzie wykonywana na sprzęcie, przez niezależnych, rozsianych po świecie aktorów. Ethereum, w najbardziej pożądanej sytuacji, ulega centralizacji tylko na płaszczyźnie struktury logicznej, określanej jako spójny stan i interfejs sieci, czli identyczny dla wszystkich jej uczestników.
+
+Utrata decentralizacji architektonicznej, więc sytuacja, w ktorej stan i obliczenia wykonywane są na jednej lub kilku maszynach, wiąże się przede wszystkim ze spadkiem niezawodności, co może mieć też wpływ na dostępność. Zanik rozproszenia zarządzania, czyli jeden lub kilku aktorów decyduje, co może być zapisane w sieci i co inni widzą, może uderzać w dostępność, gwarancje poprawności stanu sieci, jak również jej spójność. Decentralizacja struktury logicznej może być rozumiana, w kontekście Ethereum, jako rozłam sieci, czyli utrata spójności stanu.\\
+
+PoW sam w sobie stanowi tylko mechanizm zabezpieczający przed spamem i atakami Sybili, jednak w kryptowalutach, poruszanych w tej pracy, jest połączny z mechanizmem wyboru bloków, tworząc algorytm rozproszonego konsensusu. Wynika z tego, że górnicy posiadający więcej mocy obliczeniowej, mają większą szansę na zadecydowanie jaki blok będzie następnym, z czym zazwyczaj wiąże się możliwość wypłacania sobie honorarium. Kreuje to rynek, w którym górnicy konkurują z sobą, próbując uzyskać jak największą ilość hashy na sekundę, jak najmniejszym kosztem. Liczne obserwacje i badania wskazują, że kopanie podlega zjawisku ,,korzyści skali''(\textit{Economies of scale}), które pozwala zmniejszyć koszty przez tworzenie dedykowanych centrów obliczeniowych do wydobycia kryptowalut. Takie mechanizmy sprzyjają centralizacji architektonicznej i decyzyjnej. Jednak czy te zjawiska doprowadzą do wystąpenia spadku niezawodności, czy nawet złośliwego zmianu stanu sieci oraz jakie kryptowaluty zostaną nimi dotknięte jest tematem licznych sporów\cite{website:PoWDatacenter, website:PoolCentralization, work:DecentralizationInBitAndEth}.
+
+Teoretycznym limitem zanim kryptowaluta oparta o PoW utraci decentralizację zarządzania, jest przejęcie przez jednego aktora (lub kilku współpracujących) ponad 50\% mocy obliczeniowej\cite{work:AnonByzConsBit}. Praktyczny limit jest jednak niższy i zależy od czasu powstawania nowych bloków, ich rozmiaru, szybkości propagacji danych, ilości agentów, których praca została wzięta pod uwagę przy wyborze nowego bloku oraz wysokości wypłacanych honorariów. Symulacje potencjalnych ataków (\textit{Double-spending}) i złośliwych zachowań górników (\textit{eclipse attacks}, \textit{selfish mining}), wskazują że koszty ataku na Ethereum są niższe niż na Bitcoina, jednak inne badania sugerują, że obecnie używany mechanizm wyboru bloków GHOST z ,,wujkami'', podnosi ten poziom do porównywalnego z Bitcoinem\cite{work:PoWSecurity, work:GHOST, website:EthGHOSTAndUncles}.
 
 
 
-PoW sam w sobie stanowi tylko mechanizm zabezpieczający przed spamem i atakami Sybili, jednak w kryptowalutach, poruszanych w tej pracy, jest połączny z mechanizmem wyboru bloków, tworząc algorytm rozproszonego konsensusu. 
 
-PoW a centralizacja
-
-
-Ethereum PoW a inne kryptowaluty PoW
 Ethereum PoS a centralizacja
 Infura
 System rządów Ethereum
 
-https://smartereum.com/3681/90-of-the-mining-power-is-owned-by-16-miners-in-bitcoin-and-11-miners-in-ethereum-says-emin-gun-sirer-el33th4xor/
+selfish
+https://arxiv.org/pdf/1311.0243v2.pdf
+
+eclipse
+https://eprint.iacr.org/2015/263.pdf
+
+
+https://www.coindesk.com/bitcoin-mining-detente-ghash-io-51-issue
 
 https://forum.blockstack.org/t/pos-blockchains-require-subjectivity-to-reach-consensus/762?u=muneeb
 
@@ -1629,8 +1636,6 @@ https://medium.com/@VitalikButerin/the-meaning-of-decentralization-a0c92b76a274
 
 https://cointelegraph.com/news/6-myths-about-ethereum-decentralization
 
-https://chainsecurity.com/assets/files/pow.pdf
-
 jeszcze więcej rzeczy
 
 https://www.ccn.com/dev-ethereum-may-fail-if-it-relies-on-infura-to-run-nodes-potential-solution/
@@ -1640,11 +1645,13 @@ https://hackernoon.com/the-ethereum-blockchain-size-has-exceeded-1tb-and-yes-its
 
 Znaczna cześć zaproponowanych przez nas rozwiązań, będzie musiała być ponownie przeanalizowana, a nawet zmieniona, w kolejnych wersjach Ethreum, głównie z powodu dodania mechanizmu naliczania ,,czynszu'' za używanie pamięci \textit{storage}, jak również pamięci w której przechowywany jest kod kontraktów. Kolejną istotną zmianą będzie wprowadzenie \textit{shardingu}, który pozwoli zwiększyć przepustowość sieci, jak również doda nowe mechanizmy asynchronicznego, wzajemnego wywoływania się kontraktów. Dodanie obsługi tych funkcjonalności będzie kluczowe, by zapewnić poprawne działanie systemu i zapewnić jak najwyższą wydajność naszych usług.
 
-\subsection{Podział systemu na podsystemy}
+\subsection{Zaimplementowane rozwiązania}
 
-\subsubsection{Back-end}
+\subsubsection{Umowa jako maszyna stanowa}
 
-\subsubsection{Front-end}
+\subsubsection{Maszyna stanowa}
+
+\subsubsection{Abstrakcja nad pamięcią \textit{storage}}
 
 \subsection{Model obiektowy systemu}
 
@@ -1832,7 +1839,6 @@ Ta strona pozwala nam przejrzeć wszystkie detale umowy, widziwmy również adre
 \newpage
 \section{Słownik pojęć}
 \begin{itemize}
-	\item Internetu 3.0 -- 
 	\item Platforma Handlowa -- aplikacje agregujące oferty handlowe, pośredniczące w wykonaniu opłat i dostarczające narzędzia od oceny kupujących i sprzedających. 
 	\item Ekosystem Ethereum (zespół technologii Ethereum) -- Ethereum jako środowisko wykonawcze oparte na blockchainie, rozproszona przestrzeń dyskowa Swarm, system komunikatów Whisper, biblioteki web3 i aplikacje klienckie Ethereum.
 	\item  Ethereum -- środowisko wykonawcze oparte na blockchainie dla inteligentnych kontraktów.

@@ -113,11 +113,9 @@ ECMarket ma na chwilę obecną kilka wartych uwagi konkurentów, którzy operuj�
 
 \subsection{Cele i zakres projektu}
 
-Celem projektu jest dostarczenie odpornej na cenzurę, ogólnodostępnej i otwartej platformy, w ramach której możliwe jest przeprowadzanie kupna oraz sprzedaży dóbr w sposób niezależny od osób trzecich lub w ramach grup handlowych tworzonych przez użytkowników systemu z określanymi przez nich zasadami.
+Celem projektu jest dostarczenie odpornej na cenzurę, ogólnodostępnej, otwartej platformy, w ramach której możliwe jest przeprowadzanie kupna oraz sprzedaży dóbr w sposób niezależny od osób trzecich lub w ramach grup handlowych, tworzonych przez użytkowników systemu z określanymi przez nich zasadami.
 
-W pierwszym stadium systemu -- realizowanym w ramach tego projektu -- planujemy pobierać mały, stały procent od kwoty przesyłanej w transakcjach między użytkownikami, by zapewnić utrzymanie i dalszy rozwój projektu.
-Naszą platformę kierujemy do wszystkich pragnących niezależnego i otwartego systemu do handlu.
-
+W pierwszym stadium systemu, realizowanym w ramach tej pracy, planujemy przeprowadzić analizę różnych aspektów przedstawionego zdecentralizowanego systemu, by zdiagnozować możliwości i zagrożenia płynące z tego typu rozwiązań. Oprócz tego, pragniemy również dostarczyć demo technologiczne, implementujące kilka podstawowych umów, którego celem jest sprawdzenie, jakie cechy posiada ekosystem Ethereum, jak również zbadanie potencjalnych problemów, które mogą wystąpić przy wytwarzaniu i projektowaniu tego typu oprogramowania.
 
 \subsection{Kontekst projektu}
 
@@ -255,15 +253,14 @@ Jakość w naszym produkcie jest zapewniona dzięki wykorzystaniu metodyki zwinn
 \subsection{Ograniczenia}
 
 Głównym ograniczeniem jest czas na wykonanie projektu, który wynosi niepełny rok.
-Każda instrukcja wykonana na Wirtualnej Maszynie Ethereum (EVM), kosztuje pewną ilość etheru, co stanowi ograniczenie jak bardzo skomplikowany kod może być na niej wykonywany. Ten problem można częściowo rozwiązać delegując wykonanie do klientów niektórych zadań, które nie wymagają wiarygodności lub dla których można skonstruować dowód poprawności obliczeń, którego weryfikacja jest tańsza niż sam kod.
 
-Pewnym ograniczeniem jest fakt, że nie opieramy się na żadnej stronie trzeciej, która byłaby w stanie stanowić autorytet i potwierdzać, że jakieś wydarzenie miało miejsce lub nie miało (np.\ dostarczenie produktu, który jednocześnie spełniałby pewne wymagania klienta lub innych stron). Te gwarancje próbujemy zbudować na podłożu teorii gier oraz społecznej teorii gier, by doprowadzić do sytuacji, gdzie strony nie wywiązujące się z umów tracą pieniądze lub/i ocenę, więc efektywnie zniechęcane do takich działań.
+Każda instrukcja wykonana na Wirtualnej Maszynie Ethereum (EVM), kosztuje pewną ilość etheru, co stanowi ograniczenie jak bardzo skomplikowany kod może być na niej wykonywany\cite{work:ethereum2018yellowpaper} . Ten problem można częściowo rozwiązać delegując wykonanie do klientów niektórych zadań, które nie wymagają wiarygodności lub dla których można skonstruować dowód poprawności obliczeń, którego weryfikacja jest tańsza niż sam kod.
 
-Istotnym problemem, którego chcielibyśmy są kwestie prawne, a więc rosnąca kontrola władzy państwowej nad różnymi aspektami życia. Rozwiązanie stanowi wydanie platformy na licencji z rodziny GPL po docelowym uzyskaniu praw autorskich od uczelni. 
-
-
+Nasz projekt, by mógł spełnić pokładane w nim nadzieje, będzie potrzebować licencji z rodziny GPL lub pochodnych. Jednak kwestia wydania go pod taką licencją, jest zależna od zgody uczelni.
 
 \subsection{Zagrożenia}
+
+Pełna analiza zagrożeń płynących z użycia technologii Ethereum została przeprowadzona w rozdziale \ref{sec:EkosystemEthereum}. Oprócz nich rozważamy problemy płynące ze specyfiki kontraktów i języka Solidity w rozdziale \ref{sec:ZidentyfikowaneProblemy}
 
 \subsection{Harmonogram prac}
 
@@ -1484,9 +1481,10 @@ Umowa A1.1\\
 \newpage
 \section{Architektura}
 
-\subsection{Ekosystem ethereum}
+\subsection{Ekosystem Ethereum}
+\label{sec:EkosystemEthereum}
 
-\subsubsection{Siec ethereum}
+\subsubsection{Siec Ethereum}
 
 Ethereum jest projektem pragnącym stworzyć uogólnioną technologię, pozwalającą na zrealizowanie dowolnego rozwiązania opierającego się na transakcyjnej maszynie stanowej. Co więcej, jednym z jego celów jest dostarczenie deweloperom pełnego, zwartego systemu do budowy aplikacji, we wcześniej szerzej nie znanym paradygmacie "trustful object messaging compute framework".
 
@@ -1610,48 +1608,84 @@ PoW sam w sobie stanowi tylko mechanizm zabezpieczający przed spamem i atakami 
 
 Teoretycznym limitem zanim kryptowaluta oparta o PoW utraci decentralizację zarządzania, jest przejęcie przez jednego aktora (lub kilku współpracujących) ponad 50\% mocy obliczeniowej\cite{work:AnonByzConsBit}. Praktyczny limit jest jednak niższy i zależy od czasu powstawania nowych bloków, ich rozmiaru, szybkości propagacji danych, ilości agentów, których praca została wzięta pod uwagę przy wyborze nowego bloku oraz wysokości wypłacanych honorariów. Symulacje potencjalnych ataków (\textit{Double-spending}) i złośliwych zachowań górników (\textit{eclipse attacks}, \textit{selfish mining}), wskazują że koszty ataku na Ethereum są niższe niż na Bitcoina, jednak inne badania sugerują, że obecnie używany mechanizm wyboru bloków GHOST z ,,wujkami'', podnosi ten poziom do porównywalnego z Bitcoinem\cite{work:PoWSecurity, work:GHOST, website:EthGHOSTAndUncles}.
 
+\\dalej będa poruszane kwestie: Ethereum PoS a centralizacja, Infura, System rządów Ethereum (Ethereum governance)\\
 
 
+%   Ethereum PoS a centralizacja
+%   Infura
+%   System rządów Ethereum
 
-Ethereum PoS a centralizacja
-Infura
-System rządów Ethereum
+%   selfish
+%   https://arxiv.org/pdf/1311.0243v2.pdf
 
-selfish
-https://arxiv.org/pdf/1311.0243v2.pdf
-
-eclipse
-https://eprint.iacr.org/2015/263.pdf
+%   eclipse
+%   https://eprint.iacr.org/2015/263.pdf
 
 
-https://www.coindesk.com/bitcoin-mining-detente-ghash-io-51-issue
+%   https://www.coindesk.com/bitcoin-mining-detente-ghash-io-51-issue
 
-https://forum.blockstack.org/t/pos-blockchains-require-subjectivity-to-reach-consensus/762?u=muneeb
+%   https://forum.blockstack.org/t/pos-blockchains-require-subjectivity-to-reach-consensus/762?u=muneeb
 
-https://bitcoinexchangeguide.com/bringing-true-decentralization-to-ethereum-eth-infura-has-got-to-go/
+%   https://bitcoinexchangeguide.com/bringing-true-decentralization-to-ethereum-eth-infura-has-got-to-go/
 
-https://www.journaltranscript.com/2018/12/infura-is-solely-contradicting-ethereums-decentralization-reputation/
+%   https://www.journaltranscript.com/2018/12/infura-is-solely-contradicting-ethereums-decentralization-reputation/
 
-https://medium.com/@VitalikButerin/the-meaning-of-decentralization-a0c92b76a274
+%   https://medium.com/@VitalikButerin/the-meaning-of-decentralization-a0c92b76a274
 
-https://cointelegraph.com/news/6-myths-about-ethereum-decentralization
+%   https://cointelegraph.com/news/6-myths-about-ethereum-decentralization
 
-jeszcze więcej rzeczy
+%   jeszcze więcej rzeczy
 
-https://www.ccn.com/dev-ethereum-may-fail-if-it-relies-on-infura-to-run-nodes-potential-solution/
-https://hackernoon.com/the-ethereum-blockchain-size-has-exceeded-1tb-and-yes-its-an-issue-2b650b5f4f62
+%   https://www.ccn.com/dev-ethereum-may-fail-if-it-relies-on-infura-to-run-nodes-potential-solution/
+%   https://hackernoon.com/the-ethereum-blockchain-size-has-exceeded-1tb-and-yes-its-an-issue-2b650b5f4f62
 
 \subsubsection{Zgodność z Ethereum 2.0}
 
 Znaczna cześć zaproponowanych przez nas rozwiązań, będzie musiała być ponownie przeanalizowana, a nawet zmieniona, w kolejnych wersjach Ethreum, głównie z powodu dodania mechanizmu naliczania ,,czynszu'' za używanie pamięci \textit{storage}, jak również pamięci w której przechowywany jest kod kontraktów. Kolejną istotną zmianą będzie wprowadzenie \textit{shardingu}, który pozwoli zwiększyć przepustowość sieci, jak również doda nowe mechanizmy asynchronicznego, wzajemnego wywoływania się kontraktów. Dodanie obsługi tych funkcjonalności będzie kluczowe, by zapewnić poprawne działanie systemu i zapewnić jak najwyższą wydajność naszych usług.
 
+\subsection{Zidentyfikowane problemy}
+\label{sec:ZidentyfikowaneProblemy}
+
+\subsubsection{Model pamięci Solidity}
+
+Nasz projekt ze swojej natury wymaga implementacji podstawowych elementów bazo-danowych i zapisywania stanu. Najbardziej naturalnym rodzajem pamięci w kontraktach, który nadaje się do tego zadania jest \textit{storage}. Jednak Solidity nie pozwala traktować tej pamięci jak analogu pliku, do którego można arbitralnie pisać i odczytywać, tylko jak pola obiektu, o zdefiniowanym typie, lokalizacji i zasadach dostępu. Takie rozwiązanie, nie wątpliwie pomaga zaznajomić się z językiem i ułatwia pisanie niedużych projektów, ale utrudnia konstruowanie bardziej skomplikowanych modeli stanu kontraktów.
+
+\subsubsection{Modularyzacja systemu}
+
+Kontrakty nie pozwalają na agregację lub kompozycję innych kontraktów, czyli nie jest możliwe utworzenie jednego wewnątrz drugiego, tak by pierwszy nie był w pełni widoczny i dostępny dla całej reszty sieci. Ten fakt sprawia, że pomimo obiektowego charakteru Solidity, nie jest możliwe zastosowanie części wzorców projektowych, takich jak np.\ kompozyt, strategia, czy stan. Brak prostych odpowiedników, znacząco skomplikował budowę rozwiązań w naszym systemie.
+
 \subsection{Zaimplementowane rozwiązania}
+
+\subsubsection{Generyczna maszyna stanowa}
+
+Jako odpowiedź na brak prostego odpowiednika wzorca stanu, zaprojektowaliśmy i zaimplementowaliśmy autorską generyczną maszynę stanową. Jej mechanizm działania opiera się na zbieraniu wywołań na głownym kontrakcie i przekazywaniu ich z pomocą \textit{DELEGATECALL} do innch kontraktów, w zależności od obecnego stanu.
+
+Jej implementacja obejmuje kontrakty:
+\begin{itemize}
+	\item \textit{StateMachine} -- centralny w tym rozwiązaniu kontrakt, który przechowuje obecny stan, adresy kolejnych stanów oraz inne dane zapisane do pamięci \textit{storage}. Wykorzystuje on \textit{fallback}, czyli funkcję bez nazwy, do zbierania wszystkich wywołań, a następnie używa mechanizmu \textit{DELEGATECALL}, by przekazać sterowanie do odpowiedniego kodu.
+	\item \textit{AbstractState} -- abstrakcyjny kontrakt, po którym dziedziczą stany używane w maszynie stanowej. Kod pochodnych do niego kontraktów jest ładowany w czasie wywołania \textit{DELEGATECALL}.
+	\item \textit{IState} -- interfejs stanów.
+	\item \textit{IStateMachineBase} -- interfejs maszyny stanowej.
+	\item\textit{IStateMachineBase} -- wspólny interfejs dla maszyn i stanów.
+\end{itemize}
+
+ , \textit{AbstractState}, 
+
+\subsubsection{Abstrakcja nad pamięcią \textit{storage}}
+
+Zestaw bibliotek i abstrakcyjnych kontraktów, które konstruują warstwę abstrakcji, omijającą mechanizmy zarządzania \textit{storage} przez Solidity. Pozwalają one traktować omawianą pamięc, jak plik do którego można swobodnie pisać. Pozwala to konstruować kontrakty wywoływane z pomocą \textit{DELEGATECALL}, które mogą bezpiecznie posiadać stan.
+
+Implementacja jest zawarta w:
+\begin{itemize}
+	\item \textit{StorageUtils} -- biblioteka z zestawem funkcji pozwalających na zapis i odczyt arbitralnych danych oraz struktur implementujących ,,wskaźnik'' na elementy \textit{storage}.
+	\item \textit{StorageManagement} -- biblioteka implementująca ,,strony'' pamięci \textit{storage}, które moga być bezpiecznie używane przez kontrakty wywoływane z pomocą \textit{DELEGATECALL}.
+	\item \textit{StorageController} -- kontrakt abstrakcyjny, po którym dziedziczą kontrakty będące donorami pamięci \textit{storage}.
+	\item \textit{StorageClient} -- kontrakt abstrakcyjny, dziedziczą po nim kontrakty klienckie, które używają \textit{storage} \textit{StorageControllera}, przy wywołaniu z pomocą \textit{DELEGATECALL}.
+\end{itemize}
 
 \subsubsection{Umowa jako maszyna stanowa}
 
-\subsubsection{Maszyna stanowa}
-
-\subsubsection{Abstrakcja nad pamięcią \textit{storage}}
+Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktów realizującycj umowę, który jest modularny i względnie łatwy w rozszerzaniu. Nie mniej rozwiąznie wymaga przetestowania, z większą ilością zaimplementowanych scenariuszy, by w pełni zdiagnozować inne potencjalne problemy takiej architektury.
 
 \subsection{Model obiektowy systemu}
 

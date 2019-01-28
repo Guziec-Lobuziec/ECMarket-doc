@@ -1480,7 +1480,7 @@ Umowa A1.1\\
 ECMarket stanowi demo technologiczne, które w przyszłych wydaniach miałoby przyjąć formę pełnoprawnego produktu opartego o Open Source. Wymagałoby to uzyskania praw autoriskich od uczelnii, co mamy zamiar zrobić. Naszym celem jest uczłowieczenie technologii Ethereum tak by stała sie ona zrozumiała dla przeciętnego użytkownika.  Kluczową rolę pełni tutaj frontend znacznie zwiększając przystępność dla przeciętnego użytkownika, który niekoniecznie musi być ekspertem z dziedziny IT.  Początkowo mamy zamiar działać na portalu reddit uderzając do osób zainteresowanych technologią Ethereum jak i nieco szerszą rodziną kryptowalut opartych o blockchain w ten sposób pozyskując pierwszych użytkowników. Następnym celem byłyby portale społecznościowe na których staralibyśmy się promować nasze rozwiązanie jak i zalety technologii Ethereum. 
 
 \newpage
-\section{Architektura}
+\section{Analiza i krytyka zastosowanej architektury}
 
 \subsection{Ekosystem Ethereum}
 \label{sec:EkosystemEthereum}
@@ -1708,38 +1708,43 @@ Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktó
 \subsubsection{Front-end}
 
 \newpage
-\section{Przyrost pierwszy}
-\subsection{Cele przyrostu}
+\section{Przyrosty}
+
+\subsection{Szablon przyrostów}
+
+\subsection{Przyrost pierwszy}
+\subsubsection{Cele przyrostu}
 Podczas pierwszego przyrostu postawiliśmy sobie za cel przeanalizowanie, jak powinny wyglądać sprawiedliwe kontrakty, tak aby każda ze stron nie czuła się w żaden sposób oszukana. Naszym kolejnym celem było zaproponowanie jak system powinien wyglądać, jakich akcji może podejmować się użytkownik, jakie powinien mieć ograniczenia w danych przypadkach oraz ustalenie wstępnej architektury systemu. Oprócz tego, wykonaliśmy wstępny harmonogram prac do monitorowania postępów.
 
-\subsection{Analiza back-end'u}
+\subsubsection{Analiza back-end'u}
 Na samym początku zabraliśmy się za analizę naszego systemu. Postanowiliśmy że naszym głównym przedmiotem badań będzie przeanalizowanie sprawiedliwych kontraktów. Podczas analizowania różnych przypadków postanowiliśmy że system powinien dostarczać różne rodzaje kontraktów w zależności od potrzeb użytkowników którzy będą korzystać z naszego systemu. Podczas prac analizowaliśmy różne przypadki umów, na koniec postanowiliśmy że w ramach naszej pracy inżynierskiej stworzymy dwa typy kontraktów.
 
-\subsubsection{Umowa A1.1}
+\subsubsubsection{Umowa A1.1}
 \label{A1_1}
 Dokładny opis umowy został umieszczony w rozdziale \ref{Scenariusz A1.1}.
-\subsubsection{Umowa A1.2}
+\subsubsubsection{Umowa A1.2}
 \label{A1_2}
 Dokładny opis umowy został umieszczony w rozdziale \ref{Scenariusz A1.2}.
 
-\subsection{Projektowanie back-end'u}
-\subsection{Lista zmian}
+\subsubsection{Projektowanie back-end'u}
+\subsubsection{Lista zmian}
 
-\newpage
-\section{Przyrost drugi}
-\subsection{Cele przyrostu}
+\subsection{Przyrost drugi}
+\subsubsection{Cele przyrostu}
 Drugi przyrost to przede wszystkim implementacja pierwszej umowy A1.1 oraz AgreementManagera, odpowiedzialnego za rejestrowanie i tworzenie umów w systemie.
 Następnym istotnym celem było stworzenie kontraktu wewnętrznego tokena, który posiada możliwość wpłacania i wypłacania ethereu oraz przekazywania go do umów.
 W przyroście drugim została również przeprowadzona analiza zachęt do usuwania przetrminowanych umów.
 Została przeprowadzona także analiza scenariuszy innych, bardziej złożonych typów umów.
 
-\subsection{Analiza front-end'u}
-\subsection{Projektowanie front-end'u}
-\subsection{Testy}
-\subsubsection{Środowisko testów}
+\subsubsection{Analiza front-end'u}
+\subsubsection{Projektowanie front-end'u}
+\subsubsection{Testy}
+
+\textbf{Środowisko testów}
+
 Aplikacja była testowana za pomocą środowiska developerskiego truffle w którym testy tworzymy za pomocą javascriptowego środkowska testowego Mocha oraz Chai do tworzenia assercji.
-Do testów potrzebujemy środowisko w którym możemy uruchomić kontrakty. Do tych zadań używamy środowiska Ganache, który jest personalnym blockchainenm gdzie możemy uruchamiać kontrakty i testować je.
-\subsubsection{Scenariusze testowe}
+Do testów potrzebujemy środowisko w którym możemy uruchomić kontrakty. Do tych zadań używamy środowiska Ganache, który jest personalnym blockchainenm gdzie możemy uruchamiać kontrakty i testować je.\\
+\textbf{Scenariusze testowe}
 \begin{table}[H]
     \begin{tabular}{|l|l|}
 \hline
@@ -1755,28 +1760,27 @@ Do testów potrzebujemy środowisko w którym możemy uruchomić kontrakty. Do t
 \end{tabular}
 \end{table}
 
-\subsection{Implementacja}
-\subsection{Lista zmian}
+\subsubsection{Implementacja}
+\subsubsection{Lista zmian}
 
-\newpage
-\section{Przyrost trzeci}
-\subsection{Cele przyrostu}
+\subsection{Przyrost trzeci}
+\subsubsection{Cele przyrostu}
 
 Głównym zadaniem było stworzenie UI do wygodnego wyszukiwania umów oraz różnych widoków potrzebnych do tworzenia, czy też przeglądania umów.
 W trzecim przyroście również postawiliśmy sobie za zadanie przebudowanie wewnętrzengo tokena do standardu
 obowiązującego w środowisku Ethereum (ERC20).
 W tym przyroście również przygotowaliśmy system do dodania umowy A1.2.
 
-\subsection{Napotkane problemy}
+\subsubsection{Napotkane problemy}
 
 Na tym etapie podczas tworzenia implementacji umów, napotkaliśmy problem natury technicznej.
 Każda umowa, którą zaprojektowaliśmy ma różne wspólne cechy, które zgodnie z zasadami dobrego programowania, powinny być umieszczone w osobnych, uogólnionych komponentach, tak by zapewnić hermetyzację i uniknąć powtarzania kodu.
 Język programowania którego używamy wspiera dziedziczenie, jednak do zamodelowania umów bardziej adekwatne było użycie wzorca projektowgo \textit{Maszyna Stanowa}, który opiera się o agregację. Kontratky jednak nie wspierają agregacji, nie można stworzyć instancji kontraktu w kontrakcie, tak by ten wewnętrzny nie był wyeksponowany i dostępny dla potencjalnie złośliwych aktorów. Konieczne było więc opracowanie autorskiego rozwiązania, które realizuje ten wzorzec z uwzględnieniem faktu, że stworzenie pojedynczego kontraktu kosztuje relatywnie dużą ilość gazu.
 
-\subsection{Projektowanie back-end'u}
-\subsection{Projektowanie front-end'u}
-\subsection{Testy}
-\subsection{Scenariusze testowe}
+\subsubsection{Projektowanie back-end'u}
+\subsubsection{Projektowanie front-end'u}
+\subsubsection{Testy}
+\subsubsection{Scenariusze testowe}
 \begin{table}[H]
     \begin{tabular}{|l|l|}
 \hline
@@ -1791,9 +1795,9 @@ Język programowania którego używamy wspiera dziedziczenie, jednak do zamodelo
 \end{tabular}
 \end{table}
 
-\subsection{Testy systemowe}
-\subsection{Implementacja}
-\subsection{Lista zmian}
+\subsubsection{Testy systemowe}
+\subsubsection{Implementacja}
+\subsubsection{Lista zmian}
 
 \newpage
 \section{Instrukcja obsługi}

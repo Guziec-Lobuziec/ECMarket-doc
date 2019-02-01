@@ -1644,16 +1644,19 @@ Znaczna cześć zaproponowanych przez nas rozwiązań, będzie musiała być pon
 \label{sec:ZidentyfikowaneProblemy}
 
 \subsubsection{Model pamięci Solidity}
+\label{sec:ModelPamięciSolidity}
 
 Nasz projekt ze swojej natury wymaga implementacji podstawowych elementów bazo-danowych i zapisywania stanu. Najbardziej naturalnym rodzajem pamięci w kontraktach, który nadaje się do tego zadania jest \textit{storage}. Jednak Solidity nie pozwala traktować tej pamięci jak analogu pliku, do którego można arbitralnie pisać i odczytywać, tylko jak pola obiektu, o zdefiniowanym typie, lokalizacji i zasadach dostępu. Takie rozwiązanie, nie wątpliwie pomaga zaznajomić się z językiem i ułatwia pisanie niedużych projektów, ale utrudnia konstruowanie bardziej skomplikowanych modeli stanu kontraktów.
 
 \subsubsection{Modularyzacja systemu}
+\label{sec:ModularyzacjaSystemu}
 
 Kontrakty nie pozwalają na agregację lub kompozycję innych kontraktów, czyli nie jest możliwe utworzenie jednego wewnątrz drugiego, tak by pierwszy nie był w pełni widoczny i dostępny dla całej reszty sieci. Ten fakt sprawia, że pomimo obiektowego charakteru Solidity, nie jest możliwe zastosowanie części wzorców projektowych, takich jak np.\ kompozyt, strategia, czy stan. Brak prostych odpowiedników, znacząco skomplikował budowę rozwiązań w naszym systemie.
 
 \subsection{Zaimplementowane rozwiązania}
 
 \subsubsection{Generyczna maszyna stanowa}
+\label{sec:GenerycznaMaszynaStanowa}
 
 Jako odpowiedź na brak prostego odpowiednika wzorca stanu, zaprojektowaliśmy i zaimplementowaliśmy autorską generyczną maszynę stanową. Jej mechanizm działania opiera się na zbieraniu wywołań na głownym kontrakcie i przekazywaniu ich z pomocą \textit{DELEGATECALL} do innch kontraktów, w zależności od obecnego stanu.
 
@@ -1669,6 +1672,7 @@ Jej implementacja obejmuje kontrakty:
  , \textit{AbstractState}, 
 
 \subsubsection{Abstrakcja nad pamięcią \textit{storage}}
+\label{sec:AbstrakcjaNadPamięciąStorage}
 
 Zestaw bibliotek i abstrakcyjnych kontraktów, które konstruują warstwę abstrakcji, omijającą mechanizmy zarządzania \textit{storage} przez Solidity. Pozwalają one traktować omawianą pamięc, jak plik do którego można swobodnie pisać. Pozwala to konstruować kontrakty wywoływane z pomocą \textit{DELEGATECALL}, które mogą bezpiecznie posiadać stan.
 
@@ -1681,6 +1685,7 @@ Implementacja jest zawarta w:
 \end{itemize}
 
 \subsubsection{Umowa jako maszyna stanowa}
+\label{sec:UmowaJakoMaszynaStanowa}
 
 Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktów realizującycj umowę, który jest modularny i względnie łatwy w rozszerzaniu. Nie mniej rozwiąznie wymaga przetestowania, z większą ilością zaimplementowanych scenariuszy, by w pełni zdiagnozować inne potencjalne problemy takiej architektury.
 
@@ -2033,7 +2038,7 @@ Zadaniami postawionymi w przyroście drugim była, implementacja pierwszej umowy
 
 \subsubsection{Analiza}
 
-Pierwotne rozwiązanie by umowy wprost pobierały depozyt etheru i same nim zarządzały, nie było zgodne z dobrymi praktykami programowania, jak również wprowadzało problemy z modularnością i przenośnością systemu, dlatego wprowadziliśmy token zgodny ze standardem ERC20, który wymienia się w stosunku 1:1 z etherem oraz prowadzi listę bilansów każdego adresu w sieci Ethereum. Pozwoliło to przenieść do krytyczną funkcjonalnośc przesyłania tokenów z umów do osobnego kontraktu, który można było niezależnie testować pod kątem bezpieczeństwa.
+Pierwotne rozwiązanie by umowy wprost pobierały depozyt etheru i same nim zarządzały, nie było zgodne z dobrymi praktykami programowania, jak również wprowadzało problemy z modularnością i przenośnością systemu, dlatego wprowadziliśmy token zgodny ze standardem ERC20, który wymienia się w stosunku 1:1 z etherem oraz prowadzi listę bilansów każdego adresu w sieci Ethereum. Pozwoliło to przenieść krytyczną funkcjonalnośc przesyłania tokenów z umów do osobnego kontraktu, który można było niezależnie testować pod kątem bezpieczeństwa.
 
 W tym przyroście prezentujemy dalszy ciąg naszych rozważań na temat konstrukcji umów, których wynikiem są scenariusze umów \ref{Scenariusz A3.1}, \ref{Scenariusz A3.2}, \ref{Scenariusz A3.3}, \ref{Scenariusz A4.1}, \ref{Scenariusz A4.2}, \ref{Scenariusz PA1}, \ref{Scenariusz PA2}, \ref{Scenariusz glosowania swiadkow}
 
@@ -2063,9 +2068,9 @@ Do testów potrzebujemy środowisko w którym możemy uruchomić kontrakty. Do t
 
 Produkty:
 \begin{itemize}
-	\item \textit{StandardECMToken}
-	\item \textit{AgreementManager}
-	\item \textit{Agreement}
+	\item \textit{StandardECMToken} -- klasa w \ref{OMclass4}
+	\item \textit{AgreementManager} -- klasy w \ref{OMclass1}, \ref{OMclass2}
+	\item \textit{Agreement} -- klasa w \ref{OMclass3}, jednak z czasem uległa zmianie
 \end{itemize}
 
 
@@ -2075,11 +2080,15 @@ Produkty:
 Głównym zadaniem było stworzenie UI do wygodnego wyszukiwania umów oraz różnych widoków potrzebnych do tworzenia, czy też przeglądania umów.
 W tym przyroście również przygotowaliśmy system do dodania umowy A1.2.
 
+\subsubsection{Analiza}
+
+W celu bardziej przystępnej prezentacji naszych rozwiązań, przygotowaliśmy prosty graficzny interfejs użytkownika, możliwy do uruchomienia lokalnie na maszynie użytkownika, który z pomocą biblioteki \textit{Web3js} komunikuje się z klientem Ethereum, a do celowo z naszym systemem.
+
+W celu zwiększenia możliwości naszego systemu rozpoczeliśmy implementację umowy A1.2 (\ref{Scenariusz A1.2}).
+
 \subsubsection{Napotkane problemy}
 
-Na tym etapie podczas tworzenia implementacji umów, napotkaliśmy problem natury technicznej.
-Każda umowa, którą zaprojektowaliśmy ma różne wspólne cechy, które zgodnie z zasadami dobrego programowania, powinny być umieszczone w osobnych, uogólnionych komponentach, tak by zapewnić hermetyzację i uniknąć powtarzania kodu.
-Język programowania którego używamy wspiera dziedziczenie, jednak do zamodelowania umów bardziej adekwatne było użycie wzorca projektowgo \textit{Maszyna Stanowa}, który opiera się o agregację. Kontratky jednak nie wspierają agregacji, nie można stworzyć instancji kontraktu w kontrakcie, tak by ten wewnętrzny nie był wyeksponowany i dostępny dla potencjalnie złośliwych aktorów. Konieczne było więc opracowanie autorskiego rozwiązania, które realizuje ten wzorzec z uwzględnieniem faktu, że stworzenie pojedynczego kontraktu kosztuje relatywnie dużą ilość gazu.
+Próba implementacji umowy A1.2, przy zapewnieniu modularności i rozszerzalności systemu, skonfrontowała nas z nigdzie nie poruszanymi własnościami języka Solidity i kontraktami Ethereum. Problemy wynikające z nich orbitowały one w okół narzucanego przez Solidity modelu pamięci \textit{storage} i niemożliwości kompozycji lub agregacji kontraktów. Zostały one opisane w rozdziałach \ref{sec:ModelPamięciSolidity} i \ref{sec:ModularyzacjaSystemu},a ich rozwiązania w \ref{sec:GenerycznaMaszynaStanowa}, \ref{sec:AbstrakcjaNadPamięciąStorage} i \ref{sec:UmowaJakoMaszynaStanowa}.
 
 \subsubsection{Testy}
 \begin{table}[H]
@@ -2096,9 +2105,17 @@ Język programowania którego używamy wspiera dziedziczenie, jednak do zamodelo
 \end{tabular}
 \end{table}
 
-\subsubsection{Testy systemowe}
 \subsubsection{Implementacja}
-\subsubsection{Lista zmian}
+Produkty:
+\begin{itemize}
+	\item Abstrakcja na pamięcią \textit{storage} -- rozdział \ref{sec:AbstrakcjaNadPamięciąStorage}
+	\item Generyczna maszyna stanowa -- rozdział \ref{sec:GenerycznaMaszynaStanowa}
+	\item Umowa jako maszyna stanowa -- rozdział \ref{sec:UmowaJakoMaszynaStanowa}
+	\item Widok i serwis wyszukiwania umów
+	\item Widok i serwis do komunikacji z umowami
+	\item widok domowy
+	\item widok do tworzenia umów
+\end{itemize}
 
 \newpage
 \section{Instrukcja obsługi}

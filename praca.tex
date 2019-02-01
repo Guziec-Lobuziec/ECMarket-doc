@@ -44,8 +44,7 @@
 \section{Wstęp}
 
 Na fali pojawiających się nowych zdecentralizowanych aplikacji,
-protokołów komunikacj p2p, algorytmów rozproszonego konsensusu i ideii Internetu 3.0,
-narodziła się w wśród nas koncepcja systemu wspierającego i nadzorującego szeroko rozumianą wymianę obiektów,
+protokołów komunikacj p2p i algorytmów rozproszonego konsensusu, narodziła się w wśród nas koncepcja systemu wspierającego i nadzorującego szeroko rozumianą wymianę obiektów,
 w szczególności dóbr fizycznych, który wpasowywałby się do tego nowego, wspaniałego świata.
 Porwani przez tę wizję, poświęcamy tę pracą pierwszemu podstawowemu wydaniu systemu ECMarket,
 ktore będzie wstępem do stworzenia analogu do serwisów aukcyjnych typu Allegro czy Ebay w uniwersum
@@ -71,7 +70,8 @@ jak BitTorrent, czy Kad Network. Ich funkcjonalność ograniczała się do wymia
 pozbawiona wad takich jak niska żywotność niepopularnych plików, egoistyczne zachowania klientów sieci
 (leeching), brak odporności na ataki DDoS (Distributed Denial-of-Service).\\
 
-Przełom nastąpił w 2009 w raz z prezentacją technologi Bitcoin\cite{work:BitcoinPaper}, która oferowała roziązanie wymienionych problemów, z którymi borykały się poprzednie rozwiązania. Zastosowanie mechanizmu PoW (Proof-of-Work), jako zabezpieczenia przed atakami DDos i Sybili, użycie nowej struktury --- blockchainu, jako rozproszonej bazy danych, a przede wszystkim, innowacyjne jak na tamte czasy, zastosowanie zachęty finansoDowodem tego jest osiągnięciewej dla klientów zbierających transakcje i przechowujących blockchain by zachować żywotność sieci. Stworzyło to mieszankę, która zagwarantowała sukces tej technologii.  przez Bitcoina pod koniec listopada 2013 wartości 1200 USD/BTC.\\
+
+Przełom nastąpił w 2009 wraz z prezentacją technologi Bitcoin\cite{work:BitcoinPaper}, która oferowała roziązanie wymienionych problemów z którymi borykały się poprzednie rozwiązania. Zastosowanie mechanizmu PoW (Proof-of-Work), jako zabezpieczenia przed atakami DDos i Sybili, użycie nowej struktury -- blockchainu, jako rozproszonej bazy danych, a przede wszystkim zastosowanie zachęty finansowej dla użytkowników przetwarzająchych dane, stworzyło pierwszą tego typu wirtualną walutę odnoszącą sukcesy. Dowodem tego jest osiągnięcie przez Bitcoina pod koniec listopada 2013 wartości ponad 1200 USD/BTC\cite{website:BitcoinPrice}.\\
 
 Te wydarzenia dały początek nowej dziedzinie wiedzy nazwanej krypto-ekonomią, rozpoczynając eksplozję nowych kryptowalut i rozwiązań pochodnych. Jednym z nowych rozwiązań, które pojawiło się na horyzoncie na przełomie 2013 i 2014 jest Ethereum\cite{website:ethereum2018whitepaper}. Rozwiązanie zaproponowane przez Vitalika Buterina, Gavina Wooda oraz Josepha Lubina oferuje rozproszoną platformę obliczeniową z systemem operacyjnym obsługującym inteligentne kontrakty (smart contracts). Podobnie jak Bitcoin oferuje możliwość przesyłania wewnętrznych tokenów (w przypadku Ethereum nazywanych Etherem) między użytkownikami, a dzięki zmodyfikowanemu konsensusowi Nakamoto (Ethereum 2.0 będzie używać innych mechanizmów), daje podobne gwarancje bezpieczeństawa. Najbardziej istotna różnica występuje jednak w systemie skryptów (inteligentnych kontraktów), te oferowane przez Ethereum, w przeciwieństwie do Bitcoina, są kompletne w sensie Turinga i mogą posiadać bardziej skomplikowany stan.
 
@@ -95,15 +95,15 @@ Mając na uwadze wymienione wcześniej fakty, proponowanym przez nas rozwiązani
 ECMarket ma na chwilę obecną kilka wartych uwagi konkurentów, którzy operują w nieco innych, ale pokrywających się z naszym obszarach.
 \subsubsection{Konkurencja zdecentralizowana}
 \begin{itemize}
-	\item \textit{uPort} --- Pozwala użytkownikom tylko zarejestrować własną tożsamość w Ethereum i zarządzać własnymi kluczami i danymi w bezpiecznym portfelu \cite{website:uPort}.
-	\item \textit{Ujo Music} --- Handluje tylko utworami muzycznymi, nie posiada również rozbudowanego systemu konktraktów \cite{website:UjoMusic}.
-	\item \textit{IDEX} --- Oferuje tylko usługi wymiany tokenów ERC20 \cite{website:IDEX}.
-	\item \textit{OpenBazaar} --- Oferuje tylko jeden rozdaj umowy (umowa między dwiema stronami z depozytem)\cite{website:openbazaar}. 
+	\item \textit{uPort} -- Pozwala użytkownikom tylko zarejestrować własną tożsamość w Ethereum i zarządzać własnymi kluczami i danymi w bezpiecznym portfelu \cite{website:uPort}.
+	\item \textit{Ujo Music} -- Handluje tylko utworami muzycznymi, nie posiada również rozbudowanego systemu konktraktów \cite{website:UjoMusic}.
+	\item \textit{IDEX} -- Oferuje tylko usługi wymiany tokenów ERC20 \cite{website:IDEX}.
+	\item \textit{OpenBazaar} -- Oferuje tylko jeden rozdaj umowy (umowa między dwiema stronami z depozytem)\cite{website:openbazaar}. 
 \end{itemize}
 \subsubsection{Konkurencja scentralizowana}
 \begin{itemize}
-    \item \textit{eBay} --- Największy serwis aukcyjny na świecie. Każdy zarejestrowany użytkownik może stworzyć aukcję lub wziąć udział w niej udział. Na eBayu możemy płacić tylko w standardowy sposób, czyli kartą kredytową, debetową lub za pośrednictwem PayPala. Strona nie oferuje żadnych płatności za pomocą kryptowalut. eBay posiada regulamin, w którym jest jasno określone jakie przedmioty mogą być obiektem sprzedaży. Definiuje on również sytuacje, w ktorych administracja podejmie kroki, by zamknąć aukcję. Dodatkowo eBay oferuje biuro obsługi klienta dla każdego, kto potrzebuje pomocy w sprawie oszustw, czy też problemu z płatnościami.
-    \item \textit{Allegro} --- Polski odpowiednik amerykańskiej platfromy eBay. Jest to portal, który oprócz standardowych transakcji pomiedzy użytkowikami, pozwala na umieszczanie ofert przez profesjonalnych handlarzy. Allegro posiada system ocen który ma za zadanie weryfikować każdego użytkownika, jednak w trudnych przypadkach również oferuje pomoc w ich rozwiązaniu. Tak samo jak amerykański odpowiednik, nie oferuje płatności za pomocą kryptowalut. 
+    \item \textit{eBay} -- Największy serwis aukcyjny na świecie. Każdy zarejestrowany użytkownik może stworzyć aukcję lub wziąć udział w niej udział. Na eBayu możemy płacić tylko w standardowy sposób, czyli kartą kredytową, debetową lub za pośrednictwem PayPala. Strona nie oferuje żadnych płatności za pomocą kryptowalut. eBay posiada regulamin, w którym jest jasno określone jakie przedmioty mogą być obiektem sprzedaży. Definiuje on również sytuacje, w ktorych administracja podejmie kroki, by zamknąć aukcję. Dodatkowo eBay oferuje biuro obsługi klienta dla każdego, kto potrzebuje pomocy w sprawie oszustw, czy też problemu z płatnościami.
+    \item \textit{Allegro} -- Polski odpowiednik amerykańskiej platfromy eBay. Jest to portal, który oprócz standardowych transakcji pomiedzy użytkowikami, pozwala na umieszczanie ofert przez profesjonalnych handlarzy. Allegro posiada system ocen który ma za zadanie weryfikować każdego użytkownika, jednak w trudnych przypadkach również oferuje pomoc w ich rozwiązaniu. Tak samo jak amerykański odpowiednik, nie oferuje płatności za pomocą kryptowalut. 
 \end{itemize}
     Nasza oferta stanowi swoiste połączenie i wariację niektórych własności oferowanych przez wyżej wymienionych konkurentów, dlatego sądzimy, że mamy szansę wypromować się na tym rynku.
 
@@ -113,11 +113,7 @@ ECMarket ma na chwilę obecną kilka wartych uwagi konkurentów, którzy operuj�
 
 \subsection{Cele i zakres projektu}
 
-Celem projektu jest dostarczenie odpornej na cenzurę, ogólnodostępnej i otwartej platformy, w ramach której możliwe jest przeprowadzanie kupna oraz sprzedaży dóbr w sposób niezależny od osób trzecich lub w ramach grup handlowych tworzonych przez użytkowników systemu z określanymi przez nich zasadami.
-
-W pierwszym stadium systemu --- realizowanym w ramach tego projektu --- planujemy pobierać mały, stały procent od kwoty przesyłanej w transakcjach między użytkownikami, by zapewnić utrzymanie i dalszy rozwój projektu.
-Naszą platformę kierujemy do wszystkich pragnących niezależnego i otwartego systemu do handlu.
-
+Celem projektu jest dostarczenie odpornej na cenzurę, ogólnodostępnej, otwartej platformy, w ramach której możliwe jest przeprowadzanie kupna oraz sprzedaży dóbr w sposób niezależny od osób trzecich lub w ramach grup handlowych, tworzonych przez użytkowników systemu z określanymi przez nich zasadami.
 
 \subsection{Kontekst projektu}
 
@@ -127,13 +123,12 @@ System będzie docelowo uruchomiony na Testnecie Ethereum i będzie dostarczał 
 
 System dostarczy klientom zestaw gotowych do użycia umów i system ocen (w drugim wydaniu), który będzie dawać nam przewagę nad konkurencją w takich kwestiach jak:
 \begin{itemize}
-\item Wiarygodny system ocen --- W naszym systemie nie występuje administrator, to też niezwykle istotne jest stworzenie środowiska promującego bycie uczciwym. Podobne rozwiązania możemy zaobserwować w przeróżnych serwisach aukcyjnych, gdzie stanowią pewnego rodzaju informację dla kupującego o tym czy może ufać sprzedającemu. Nasze rozwiązanie pozwalać będzie na ocenienie drugiej strony umowy --- takowej oceny dokonuje także sprzedający, a nie tylko kupujący. Dodatkowo ocenom tym zostaną nadane odpowiednie wagi tak by zapobiec próbom wpłynięcia na system ocen np.\ poprzez wchodzenie w małe transakcje z dużą ilością kont powiązanych ze sprzedającym. Wagi przyznawane byłyby na podstawie ocen posiadanych przez stronę wystawiającą takową ocenę, a także jej wiarygodności dla społeczności platformy wyrażoną poprzez oceny pozytywne oraz ogólną ilość ocen.
-\newpage
-\item Niezależność od walut FIAT --- na platformie płatności odbywać się będą przy pomocy Ether'u (ETH), kryptowaluty której wartość jest niezależna od jakiegokolwiek centralnego organu finansowego. Naszych środków nie da się zamrozić tak jak np.\ w przypadku Peso Argentyńskiego (ARS) w 2001 roku podczas kryzysu finansowego. Nie grozi nam także hiperinflacja, pieniędzy nie da się po prostu dodrukować przez specyfikę pozyskiwania Ether'u (ETH).
-\item Niezależność od stron trzecich --- transakcje odbywają się w ramach zdecentralizowanej sieci Ethereum, gdzie nie występuje żaden administrator czy istytucja będąca w stanie zablokować bądź cofnąć naszą transakcję. Gwarantuje to poczucie bezpieczeństwa i niezależności wyróżniające nas na tle konkurencyjnych serwisów nieopartych na technologii blockchain, gdzie strona trzecia już występuje. Zwiększa to także bezpieczeństwo naszych danych osobowych zachowując większą anonimowość.
-\item Różnorodność umów --- sposobów przeprowadzenia transakcji - Przygotowaliśmy 11 przykładowych modeli umów z czego 2 znajdą się w pierwszym wydaniu systemu. Gwarantuje to dostosowanie systemu do potrzeb użytkowników. Dodatkowo ilość ta mogłaby się powiększyć wraz z powiększeniem bazy użytkowników. 
-\item Globalny zasięg ofert --- sieć Ethereum wiąże się z brakiem ograniczenia co do lokalizacji na kuli ziemskiej. Korzystać z niej można z dowolnego zakątku, wystarczy jedynie połączenie z internetem. Ether może nabyć każdy co stanowi jedyny wymóg by korzystać z naszej platformy. Daje to o wiele większą wszechstronnoć w porównadniu do innych platform handlowych ograniczonych jedynie do rynku lokalnego. Konkurować z nami pod tym względem mogliby jedynie giganci tacy jak np.\ Amazon czy eBay.
-\item Budowanie nowych rozwiązań --- unikalna cecha wyróżniająca nas na rynku. Jestemy otwarci na społeczność tworząca się wokół naszej platformy w znacznie szerszy sposób niż nieblockchainowa konkurencja. Po wypuszczeniu produktu żyłby on własnym życiem kontrolowany w całości przez społeczność posiadającą możliwość wprowadzania modyfikacji, które mogłyby zostać przez większość zaakceptowane bądź odrzucone co stanowi gwarancję dostosowania ECMarket'u do potrzeb potencjalnego użytkownika. Jednakże dodanie funkcjonalności związanych z tą cechą, jest zaplanowane na przyszłe wydania
+\item Niezależność od walut FIAT -- na platformie płatności odbywać się będą przy pomocy Ether'u (ETH), kryptowaluty której wartość jest niezależna od jakiegokolwiek centralnego organu finansowego. Naszych środków nie da się zamrozić (z pewnymi szczególnymi wyjątkami opisanymi w \ref{sec:ZnanePodatnościKontraktów}) tak jak np.\ w przypadku Peso Argentyńskiego (ARS) w 2001 roku podczas kryzysu finansowego. Nie grozi nam także hiperinflacja, pieniędzy nie da się po prostu dodrukować przez specyfikę pozyskiwania Ether'u (ETH).
+\item Niezależność od stron trzecich -- transakcje odbywają się w ramach zdecentralizowanej (kwestia ta jest poruszana w \ref{sec:ProblemCentralizacji}) sieci Ethereum, gdzie nie występuje żaden administrator czy istytucja będąca w stanie zablokować bądź cofnąć naszą transakcję. Daje to poczucie bezpieczeństwa i niezależności wyróżniające nas na tle konkurencyjnych serwisów nieopartych na technologii blockchain, gdzie strona trzecia już występuje. Zwiększa to także bezpieczeństwo naszych danych osobowych zachowując większą anonimowość.
+\item Różnorodność umów -- sposobów przeprowadzenia transakcji - Przygotowaliśmy 11 przykładowych modeli umów z czego 2 znajdą się w pierwszym wydaniu systemu. Gwarantuje to dostosowanie systemu do potrzeb użytkowników. Dodatkowo ilość ta mogłaby się powiększyć wraz z powiększeniem bazy użytkowników. 
+\item Globalny zasięg ofert -- sieć Ethereum wiąże się z brakiem ograniczenia co do lokalizacji na kuli ziemskiej. Korzystać z niej można z dowolnego zakątku, wystarczy jedynie połączenie z internetem. Ether może nabyć każdy co stanowi jedyny wymóg by korzystać z naszej platformy. Daje to o wiele większą wszechstronnoć w porównadniu do innych platform handlowych ograniczonych jedynie do rynku lokalnego. Konkurować z nami pod tym względem mogliby jedynie giganci tacy jak np.\ Amazon czy eBay.
+\item Wiarygodny system ocen -- W naszym systemie nie występuje administrator, to też niezwykle istotne jest stworzenie środowiska promującego bycie uczciwym. Podobne rozwiązania możemy zaobserwować w przeróżnych serwisach aukcyjnych, gdzie stanowią pewnego rodzaju informację dla kupującego o tym czy może ufać sprzedającemu. Nasze rozwiązanie pozwalać będzie na ocenienie drugiej strony umowy -- takowej oceny dokonuje także sprzedający, a nie tylko kupujący. Dodatkowo ocenom tym zostaną nadane odpowiednie wagi tak by zapobiec próbom wpłynięcia na system ocen np.\ poprzez wchodzenie w małe transakcje z dużą ilością kont powiązanych ze sprzedającym. Wagi przyznawane byłyby na podstawie ocen posiadanych przez stronę wystawiającą takową ocenę, a także jej wiarygodności dla społeczności platformy wyrażoną poprzez oceny pozytywne oraz ogólną ilość ocen. Jednakże dodanie funkcjonalności związanych z tą cechą, jest zaplanowane na przyszłe wydania
+\item Budowanie nowych rozwiązań -- unikalna cecha wyróżniająca nas na rynku. Jestemy otwarci na społeczność tworząca się wokół naszej platformy w znacznie szerszy sposób niż nieblockchainowa konkurencja. Po wypuszczeniu produktu żyłby on własnym życiem kontrolowany w całości przez społeczność posiadającą możliwość wprowadzania modyfikacji, które mogłyby zostać przez większość zaakceptowane bądź odrzucone co stanowi gwarancję dostosowania ECMarket'u do potrzeb potencjalnego użytkownika. Jednakże dodanie funkcjonalności związanych z tą cechą, jest zaplanowane na przyszłe wydania.
 \end{itemize}
 
 \nocite{website:CyfrowaEkonomia}
@@ -174,7 +169,7 @@ Przy określaniu paradygmatu, metodologii i procesu wytwarzania oprogramowania, 
 	\end{itemize}
 \end{itemize}
 
-\nocite{academy:BYT, wiki:Scrum, wiki:SoftPrototyping}
+\nocite{academy:BYT, website:Scrum}
 
 \subsection{Wybór strategii i argumentacja}
 
@@ -247,8 +242,8 @@ Jakość w naszym produkcie jest zapewniona dzięki wykorzystaniu metodyki zwinn
 \textit{Nazwa:}          & \textit{Regulacje prawne}                                              \\ \hline
 \textit{Opis:}           & \textit{Prawo ma duży wpływ na możliwości naszego systemu.} \\ \hline
 \textit{Typ udziałowca:} & \textit{Nieożywiony pośredni}                               \\ \hline
-\textit{Punkt widzenia:} & \textit{prawny}                                       \\ \hline
-\textit{Ograniczenia:}   & \textit{}                                               \\ \hline
+\textit{Punkt widzenia:} & \textit{Prawny}                                       \\ \hline
+\textit{Ograniczenia:}   & \textit{Brak}                                               \\ \hline
 \end{tabular}
 \end{table}
 
@@ -256,38 +251,35 @@ Jakość w naszym produkcie jest zapewniona dzięki wykorzystaniu metodyki zwinn
 \subsection{Ograniczenia}
 
 Głównym ograniczeniem jest czas na wykonanie projektu, który wynosi niepełny rok.
-Każda instrukcja wykonana na Wirtualnej Maszynie Ethereum (EVM), kosztuje pewną ilość etheru, co stanowi ograniczenie jak bardzo skomplikowany kod może być na niej wykonywany. Ten problem można częściowo rozwiązać delegując wykonanie do klientów niektórych zadań, które nie wymagają wiarygodności lub dla których można skonstruować dowód poprawności obliczeń, którego weryfikacja jest tańsza niż sam kod.
 
-Pewnym ograniczeniem jest fakt, że nie opieramy się na żadnej stronie trzeciej, która byłaby w stanie stanowić autorytet i potwierdzać, że jakieś wydarzenie miało miejsce lub nie miało (np.\ dostarczenie produktu, który jednocześnie spełniałby pewne wymagania klienta lub innych stron). Te gwarancje próbujemy zbudować na podłożu teorii gier oraz społecznej teorii gier, by doprowadzić do sytuacji, gdzie strony nie wywiązujące się z umów tracą pieniądze lub/i ocenę, więc efektywnie zniechęcane do takich działań.
+Każda instrukcja wykonana na Wirtualnej Maszynie Ethereum (EVM), kosztuje pewną ilość etheru, co stanowi ograniczenie jak bardzo skomplikowany kod może być na niej wykonywany\cite{work:ethereum2018yellowpaper} . Ten problem można częściowo rozwiązać delegując wykonanie do klientów niektórych zadań, które nie wymagają wiarygodności lub dla których można skonstruować dowód poprawności obliczeń, którego weryfikacja jest tańsza niż sam kod.
 
-Istotnym problemem, którego chcielibyśmy są kwestie prawne, a więc rosnąca kontrola władzy państwowej nad różnymi aspektami życia. Rozwiązanie stanowi wydanie platformy na licencji z rodziny GPL po docelowym uzyskaniu praw autorskich od uczelni. 
-
-
+Nasz projekt, by mógł spełnić pokładane w nim nadzieje, będzie potrzebować licencji z rodziny GPL lub pochodnych. Jednak kwestia wydania go pod taką licencją, jest zależna od zgody uczelni.
 
 \subsection{Zagrożenia}
+
+Pełna analiza zagrożeń płynących z użycia technologii Ethereum została przeprowadzona w rozdziale \ref{sec:EkosystemEthereum}. Oprócz nich rozważamy problemy płynące ze specyfiki kontraktów i języka Solidity w rozdziale \ref{sec:ZidentyfikowaneProblemy}
 
 \subsection{Harmonogram prac}
 
 \textbf{Przyrost Pierwszy}
 \renewcommand{\labelenumii}{\textendash}
 \begin{enumerate}
-	\item analiza potencjalnych umów do zrealizowania w naszym systemie:
+	\item Analiza potencjalnych umów do zrealizowania w naszym systemie:
 	\begin{enumerate}
 		\item analiza umowy A1.1
 		\item analiza umowy A1.2
 		\item analiza umowy A1.3
 		\item analiza umowy A2.1
 		\item analiza umowy A2.2
-		\item analiza umowy A3.1
 	\end{enumerate}
-	\item pierwsza analiza systemu ocen --- szkic własności
-	\item propozycja pierwszej architektury systemu
-	\item stworzenie wstępnego harmonogramu 
-	\item rozważanie strategii
-	\item dokument założeń wstępnych
-	\item pierwsza specyfikacja wymagań systemowych
-	\item wstępny diagram przypadków użycia
-	\item nauka obsługi ekosystemu Ethereum
+	\item Propozycja pierwszej architektury systemu
+	\item Stworzenie wstępnego harmonogramu 
+	\item Rozważanie strategii
+	\item Dokument założeń wstępnych
+	\item Pierwsza specyfikacja wymagań systemowych
+	\item Wstępny diagram przypadków użycia
+	\item Nauka obsługi ekosystemu Ethereum
 \end{enumerate}
 
 \vspace{6mm}
@@ -296,11 +288,11 @@ Istotnym problemem, którego chcielibyśmy są kwestie prawne, a więc rosnąca 
 \renewcommand{\labelenumii}{\textendash}
 	\begin{enumerate}
         \item Implementacja umowy A1.1
-        \item Implementacja wewnętrznych tokenów
-        \item Analiza metody zachęcania użytkowników do usuwania zakończonych / przeterminowanych umów
+        \item Implementacja tokenu ERC20
         \item Implementacja AgreementManagera
         \item Analiza scenariuszy umów:
         \begin{enumerate}
+        	\item analiza umowy A3.1
             \item analiza umowy A3.2
             \item analiza umowy A3.3
             \item analiza umowy A3.4
@@ -314,11 +306,11 @@ Istotnym problemem, którego chcielibyśmy są kwestie prawne, a więc rosnąca 
 \end{enumerate}
 %\newline aby oddzielic przyrost 2 i 3
 
+\newpage
 \textbf{Przyrost trzeci}
 \renewcommand{\labelenumii}{\textendash}
 \begin{enumerate}
-    \item Problem z rozbudową umów - migracja do maszyn stanowych
-    \item Migracja tokenów systemowych do formatu zgodnego z ERC20
+    \item Implementacja umowy A1.2
     \item Implementacja serwisu do wyszukiwania umów:
     \item Implementacja widoków dla systemu:
     \begin{enumerate}    
@@ -333,25 +325,18 @@ Istotnym problemem, którego chcielibyśmy są kwestie prawne, a więc rosnąca 
     \item Pełna implementacja interfejsu użytkownika do wyszukiwania umów
 \end{enumerate}
 
-\textbf{Przyrost czwarty}
-\renewcommand{\labelenumii}{\textendash}
-\begin{enumerate}
-    \item Implementacja umowy A1.2
-    \item Implementacja zdarzeń dla umów
-    \item Wdrożenie systemu ocen
-    \item Ujednolicenie interfejsu użytkownika
-\end{enumerate}
-
 \subsection{Przebieg etapów pracy}
 
 \subsection{Charakterystyka zespołu}
 
 \subsection{Infrastruktura komunikacyjna i dokumentacyjna}
 
-W ramach infrastruktury komunikacyjnej wykorzysztaliśmy platformę https://www.discord.com, za pomocą której występowała komunikacja między członkami zespołami, ponieważ większość pracy została wykonywana zdalnie i był to nasz główny kanał komunikacji.  Do integracji kodu projektu oraz dokumentacji pomiędzy członkami grupy projektowej wykorzystaliśmy system kontroli wersji https://www.github.com.
+W ramach infrastruktury komunikacyjnej wykorzysztaliśmy platformę \url{https://www.discord.com}, za pomocą której występowała komunikacja między członkami zespołu -- większość pracy została wykonywana zdalnie i był to nasz główny kanał komunikacji.  Do integracji kodu projektu oraz dokumentacji pomiędzy członkami grupy projektowej wykorzystaliśmy system kontroli wersji \url{https://www.github.com}.
 
 \subsection{Aspekty społeczne}
-Charakterystyczną cechą naszej platfmormy jest niezmienność początkowych warunków użytkowania bez zgody społeczności. Kontrastuje to z coraz częstszą polityką dużych firm na rynku zmieniających nieustannie regulamin tak by móc np. wykorzystywać nasze dane w większym zakresie niż często byśmy chcieli, aczkolwiek z powodu nieświadomości, lenistwa czy też potrzeby korzystania z danego rozwiązania na takowe zmiany się godzimy. Odpowiedź na tego typu politykę stanowi charakterytyka działania Ethereum na której opiera się nasza platfmorma - przy jakiejkolwiek zmianie w kodzie, który stanowi w pewnym rozumieniu odpowiednik regulaminu np. przetwarzania naszych danych musimy wyrazić zgodę na to by korzystać z "nowszej" wersji. W przeciwnym wypadku posiadamy możliwość zrobienia fork'a i korzystania z wersji, która nam odpowiadała tak jak i cała społeczność. Sprawia to że przy odpowiedniej świadomości społeczności nieosiągalne są praktyki takie jak np. sprzedaż danych osobowych do firm zewnętrznych w celach marketingowych. Społeczność skupiona wokół platformy nie wyrazi na to zgody i korzystać będzie ze starszej wersji przed zmianami w kodzie. Zdecentralizowana specyfika platfmormy uniemożliwia brzydkie praktyki stosowane przez serwisy aukcyjne - śledzenie trendów w sprzedaży i wypuszczanie własnych linii produktów okradając innych z własności intelektualnej w zupełnie legalny sposób promując swój produkt na własnej platformie co nie jest zbyt trudne i w ten sposób odbierając potencjalne zyski osobie która oryginalnie wpadła na wyjście z nowatorską inicjatywą. W przypadku naszej platfmormy coś takiego jest nie do pomyślenia przez uczciwość pierwszego wydania jak i zdecentralizowaną strukturę uniemożliwiającą ingerencję "góry" w to co dzieje się w serwisie a tym samym promowanie własnego produktu na lepszych warunkach niż konkurencji. Jakiekolwiek zmiany w kodzie wpływające na naszą korzyść musiałyby zostać zaakceptowane przez społeczność, a co za tym idzie byłyby niemal nieosiągalne. Wszystko to składa się na zupełnie nową jakość w relacjach użytkownik serwisu - jego twóry. Brak nieuczciwych bądź nieetycznych praktyk, których wiele serwisów w swoim początkowym stadium także nie stosowało. Różnica polega na tym, że tu ich nie będzie tam się pojawiły z czasem.
+Charakterystyczną cechą naszej platfmormy jest niezmienność początkowych warunków użytkowania bez zgody społeczności. Kontrastuje to z coraz częściej spotykaną polityką dużych firm nieustannie zmieniających regulamin tak by móc np. wykorzystywać nasze dane w większym zakresie niż często byśmy tego chcieli. Z powodu nieświadomości, lenistwa czy też potrzeby korzystania z danego rozwiązania na takowe zmiany się godzimy. Odpowiedź na tego typu politykę stanowi charakterytyka działania Ethereum na której opiera się nasza platfmorma -- przy jakiejkolwiek zmianie w kodzie, który stanowi w pewnym rozumieniu odpowiednik regulaminu np. przetwarzania naszych danych, musimy wyrazić zgodę na to by korzystać z nowszej wersji. W przeciwnym wypadku posiadamy możliwość zrobienia fork'a i korzystania z wersji, która nam odpowiadała. Sprawia to że przy odpowiedniej świadomości społeczności nieosiągalne są praktyki takie jak np. sprzedaż danych osobowych do firm zewnętrznych w celach marketingowych. Społeczność skupiona wokół platformy nie wyrazi na to zgody i korzystać będzie ze starszej wersji przed zmianami w kodzie. 
+
+Zdecentralizowana specyfika platfmormy uniemożliwia nieuczciwe praktyki stosowane przez serwisy aukcyjne - śledzenie trendów w sprzedaży i wypuszczanie własnych linii produktów okradając innych z własności intelektualnej w zupełnie legalny sposób. Odbywa się poprzez promocję swojego produktu na własnej platformie w ten sposób odbierając potencjalne zyski osobie która oryginalnie wpadła na wyjście z nowatorską inicjatywą. W przypadku naszej platfmormy coś takiego jest nie do pomyślenia przez uczciwość pierwszego wydania jak i zdecentralizowaną strukturę uniemożliwiającą ingerencję ,,góry'' w to co dzieje się w serwisie a tym samym promowanie własnego produktu na lepszych warunkach niż konkurencji. Jakiekolwiek zmiany w kodzie wpływające na naszą korzyść musiałyby zostać zaakceptowane przez społeczność, a co za tym idzie byłyby niemal nieosiągalne. Wszystko to składa się na zupełnie nową jakość w relacjach użytkownik serwisu -- jego twóry. Brak nieuczciwych bądź nieetycznych praktyk, których wiele serwisów w swoim początkowym stadium także nie stosowało. Różnica polega na tym, że tu ich nie będzie tam się pojawiły z czasem.
 
 \newpage
 \section{Analiza}
@@ -388,12 +373,12 @@ Charakterystyczną cechą naszej platfmormy jest niezmienność początkowych wa
     \hline
     \multicolumn{4}{|l|}{\textit{\textbf{Karta Wymagania}}}                                                           \\ \hline
     \textit{Identyfikator:}        & \textit{F01}            & \textit{\textbf{Priorytet:}}            & M            \\ \hline
-    \textit{Nazwa:}                & \multicolumn{3}{l|}{\textit{Dostęp do podstawowych pól umowy.}}                                    \\ \hline
-    \textit{Opis:}                 & \multicolumn{3}{m{11cm}|}{\textit{Każda umowa stworzona w systemie powinna dawać każdemu dostęp do takich podstawowych pól jak: lista uczestników umowy, numer bloku utworzenia, timestamp stworzenia, status umowy}} \\ \hline
+    \textit{Nazwa:}                & \multicolumn{3}{l|}{\textit{Dostęp do podstawowych pól umowy}}                                    \\ \hline
+    \textit{Opis:}                 & \multicolumn{3}{m{11cm}|}{\textit{Każda umowa stworzona w systemie powinna dawać dostęp do takich podstawowych pól jak: lista uczestników umowy, numer bloku utworzenia, timestamp stworzenia, status umowy}} \\ \hline
     \textit{Kryteria akceptacji :} & \multicolumn{3}{l|}{\textit{Umowy posiadają metody zwracające żądane pola}}     \\ \hline
-    \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{brak}}                                                \\ \hline
+    \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{Brak}}                                                \\ \hline
     \textit{Warunki początkowe :} & \multicolumn{3}{l|}{\textit{Umowa musi istnieć}}                                                \\ \hline
-    \textit{Warunki końcowe :} & \multicolumn{3}{l|}{\textit{strona wywołująca otrzymuje żądane pole}}                                                \\ \hline
+    \textit{Warunki końcowe :} & \multicolumn{3}{l|}{\textit{Strona wywołująca otrzymuje żądane pole}}                                                \\ \hline
 \end{tabular}
 \end{table}
 
@@ -403,12 +388,12 @@ Charakterystyczną cechą naszej platfmormy jest niezmienność początkowych wa
     \multicolumn{4}{|l|}{\textit{\textbf{Karta Wymagania}}}                                                           \\ \hline
     \textit{Identyfikator:}        & \textit{F02}            & \textit{\textbf{Priorytet:}}            & M            \\ \hline
     \textit{Nazwa:}                & \multicolumn{3}{l|}{\textit{Możliwość wpłacania, wypłacania i sprawdzenia bilansu etheru}}                                    \\ \hline
-    \textit{Opis:}                 & \multicolumn{3}{m{11cm}|}{\textit{Każdy użytkownik sieci ma możliwość wpłacenia dowolnej ilość Etheru do \"Standard ECM Token\"-a oraz wpłacenia dowolnej ilości etheru, nie większej niż bilans danego użytkownika . Zmiana bilansu danego użytkownika, pokrywa się jeden-do-jednego z ilością wpłaconego lub wypłaconego przez niego etheru. Jeśli użytkownik nie brał udziału w umowie, ani nie wpłacał etheru jego bilans wynosi 0.  }} \\ \hline
+    \textit{Opis:}                 & \multicolumn{3}{m{11cm}|}{\textit{Każdy użytkownik sieci ma możliwość wpłacenia dowolnej ilości Etheru do Standard ,,ECM Tokena'' oraz wpłacenia dowolnej ilości etheru -- nie większej niż bilans danego użytkownika. Zmiana bilansu pokrywa się jeden-do-jednego z ilością wpłaconego lub wypłaconego przez niego etheru. Jeśli użytkownik nie brał udziału w umowie, ani nie wpłacał etheru jego bilans wynosi 0.  }} \\ \hline
     \textit{Kryteria akceptacji :} & \multicolumn{3}{m{11cm}|}{\textit{Każdy użytkownik może niezależnie od innych wpłacać lub wypłacać ether. Jeśli użytkownik wpłacił pewne x i nie brał udziału w żadnej umowie, może maksymalnie wypłacić x.}}    \\ \hline
-    \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{brak}}                                                \\ \hline
-    \textit{Warunki początkowe :} & \multicolumn{3}{l|}{\textit{posiadanie etheru}}                                                \\ \hline
-    \textit{Warunki końcowe :} & \multicolumn{3}{l|}{\textit{zmiana bilansu}}                                                \\ \hline
-    \textit{Sytuacje wyjątkowe :} & \multicolumn{3}{m{11cm}|}{\textit{Jeśli użytkownik żąda wypłaty większej ilości etheru niż posiada go w VirtualWallet, zostaje wyrzucony wyjątek.}}                                                \\ \hline
+    \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{Brak}}                                                \\ \hline
+    \textit{Warunki początkowe :} & \multicolumn{3}{l|}{\textit{Posiadanie etheru}}                                                \\ \hline
+    \textit{Warunki końcowe :} & \multicolumn{3}{l|}{\textit{Zmiana bilansu}}                                                \\ \hline
+    \textit{Sytuacje wyjątkowe :} & \multicolumn{3}{m{11cm}|}{\textit{Jeśli użytkownik żąda wypłaty większej ilości etheru niż posiada go w kontrakcie StandardVirtualToken, zostaje wyrzucony wyjątek.}}                                                \\ \hline
 \end{tabular}
 \end{table}
 
@@ -417,12 +402,12 @@ Charakterystyczną cechą naszej platfmormy jest niezmienność początkowych wa
     \hline
     \multicolumn{4}{|l|}{\textit{\textbf{Karta Wymagania}}}                                                           \\ \hline
     \textit{Identyfikator:}        & \textit{F03}            & \textit{\textbf{Priorytet:}}            & M            \\ \hline
-    \textit{Nazwa:}                & \multicolumn{3}{l|}{\textit{Możliwość stworzenia umowy}}                                    \\ \hline
+    \textit{Nazwa:}                & \multicolumn{3}{l|}{\textit{Możliwość tworzenia umów}}                                    \\ \hline
     \textit{Opis:}                 & \multicolumn{3}{m{11cm}|}{\textit{AgreementManager pozwala na stworzenie umowy z parametrami i typem określonym przez użytkownika. Użytkownik otrzymuje adres stworzonej umowy jako wartość zwrotną z funkcji lub jako wydarzenie o nazwie AgreementCreation z dodatkowym polem zawierającym adres utworzonej umowy. Poprawnie utworzona umowa zostaje zarejestrowana przez AgreementManagera.}} \\ \hline
     \textit{Kryteria akceptacji :} & \multicolumn{3}{m{11cm}|}{\textit{AgreementManager przy poprawnych danych tworzy poprawne umowy. Wydarzenie powinno być wygenerowane, tylko wtedy, gdy tworzenie umowy się powiodło.}}    \\ \hline
     \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{Adres, data stworzenia, data przeterminowania, cena, nazwa, opis}}                                                \\ \hline
-    \textit{Warunki początkowe :} & \multicolumn{3}{l|}{\textit{brak}}                                                \\ \hline
-    \textit{Warunki końcowe :} & \multicolumn{3}{m{11cm}|}{\textit{utworzenie nowej umowy i możliwość zarządzania nią z pomocą innych funkcji AgreementManagera}}                                                \\ \hline
+    \textit{Warunki początkowe :} & \multicolumn{3}{l|}{\textit{Brak}}                                                \\ \hline
+    \textit{Warunki końcowe :} & \multicolumn{3}{m{11cm}|}{\textit{Utworzenie nowej umowy i możliwość zarządzania nią z pomocą innych funkcji AgreementManagera}}                                                \\ \hline
 \end{tabular}
 \end{table}
 
@@ -431,12 +416,12 @@ Charakterystyczną cechą naszej platfmormy jest niezmienność początkowych wa
     \hline
     \multicolumn{4}{|l|}{\textit{\textbf{Karta Wymagania}}}                                                           \\ \hline
     \textit{Identyfikator:}        & \textit{F04}            & \textit{\textbf{Priorytet:}}            & M            \\ \hline
-    \textit{Nazwa:}                & \multicolumn{3}{l|}{\textit{Możliwość wyszukania umowy}}                                    \\ \hline
+    \textit{Nazwa:}                & \multicolumn{3}{l|}{\textit{Możliwość wyszukiwania umów}}                                    \\ \hline
     \textit{Opis:}                 & \multicolumn{3}{m{11cm}|}{\textit{AgreementManager powinien mieć możliwość zwrócenia strony z ostatnio stworzonymi umowami.}} \\ \hline
     \textit{Kryteria akceptacji :} & \multicolumn{3}{m{11cm}|}{\textit{AgreementManager przy poprawnych danych tworzy poprawne umowy. Wydarzenie powinno być wygenerowane, tylko wtedy, gdy tworzenie umowy się powiodło.}}    \\ \hline
-    \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{brak}}                                                \\ \hline
+    \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{Brak}}                                                \\ \hline
     \textit{Warunki początkowe :} & \multicolumn{3}{l|}{\textit{AgreementManager musi posiadać zarejestrowane umowy}}                                                \\ \hline
-    \textit{Warunki końcowe :} & \multicolumn{3}{m{11cm}|}{\textit{utworzenie nowej umowy i możliwość zarządzania nią z pomocą innych funkcji AgreementManagera}}                                                \\ \hline
+    \textit{Warunki końcowe :} & \multicolumn{3}{m{11cm}|}{\textit{Utworzenie nowej umowy i możliwość zarządzania nią z pomocą innych funkcji AgreementManagera}}                                                \\ \hline
     \textit{Sytuacje wyjątkowe :} & \multicolumn{3}{m{11cm}|}{\textit{W przypadku braku jakichkolwiek umów zostaje zwrócona tablica z samymi zerami}} \\ \hline
 \end{tabular}
 \end{table}
@@ -449,10 +434,10 @@ Charakterystyczną cechą naszej platfmormy jest niezmienność początkowych wa
     \textit{Nazwa:}                & \multicolumn{3}{l|}{\textit{Możliwość usunięcia nowo-stworzonej umowy A1.1.}}                                    \\ \hline
     \textit{Opis:}                 & \multicolumn{3}{m{11cm}|}{\textit{Umowy stworzone przez użytkowników mogą być przez nich usuwane}} \\ \hline
     \textit{Kryteria akceptacji :} & \multicolumn{3}{m{11cm}|}{\textit{Tylko wskazana umowa ulega usunięciu}}    \\ \hline
-    \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{brak}}                                                \\ \hline
+    \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{Brak}}                                                \\ \hline
     \textit{Warunki początkowe :} & \multicolumn{3}{m{11cm}|}{\textit{Umowa jest w stanie New, ważna (nie przekroczyła daty ważności), a stroną wywołująca jest jest twórca}}                                                \\ \hline
     \textit{Warunki końcowe :} & \multicolumn{3}{m{11cm}|}{\textit{Kontrakt umowy zostaje zniszczony, wyrejestrowany z AgreementManagera, a środki wpłacone przez petentów zostają do nich odesłane}}                                                \\ \hline
-    \textit{Sytuacje wyjątkowe :} & \multicolumn{3}{m{11cm}|}{\textit{brak}} \\ \hline
+    \textit{Sytuacje wyjątkowe :} & \multicolumn{3}{m{11cm}|}{\textit{Brak}} \\ \hline
 \end{tabular}
 \end{table}
 
@@ -464,10 +449,10 @@ Charakterystyczną cechą naszej platfmormy jest niezmienność początkowych wa
     \textit{Nazwa:}                & \multicolumn{3}{l|}{\textit{Możliwość usunięcia przeterminowanej umowy A1.1.}}                                    \\ \hline
     \textit{Opis:}                 & \multicolumn{3}{m{11cm}|}{\textit{Przeterminowane umowy mogą być usunięte przez każdego.}} \\ \hline
     \textit{Kryteria akceptacji :} & \multicolumn{3}{m{11cm}|}{\textit{Tylko wskazana umowa ulega usunięciu}}    \\ \hline
-    \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{brak}}                                                \\ \hline
-    \textit{Warunki początkowe :} & \multicolumn{3}{l|}{\textit{umowa przekroczyła swoją datę ważności}}                                                \\ \hline
+    \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{Brak}}                                                \\ \hline
+    \textit{Warunki początkowe :} & \multicolumn{3}{l|}{\textit{Umowa przekroczyła swoją datę ważności}}                                                \\ \hline
     \textit{Warunki końcowe :} & \multicolumn{3}{m{11cm}|}{\textit{Kontrakt umowy zostaje zniszczony, wyrejestrowany z AgreementManagera, a środki wpłacone przez petentów zostają do nich odesłane}}                                                \\ \hline
-    \textit{Sytuacje wyjątkowe :} & \multicolumn{3}{m{11cm}|}{\textit{brak}} \\ \hline
+    \textit{Sytuacje wyjątkowe :} & \multicolumn{3}{m{11cm}|}{\textit{Brak}} \\ \hline
 \end{tabular}
 \end{table}
 
@@ -482,7 +467,7 @@ Charakterystyczną cechą naszej platfmormy jest niezmienność początkowych wa
     \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{Umowa A1.1}}                                                \\ \hline
     \textit{Warunki początkowe :} & \multicolumn{3}{m{11cm}|}{\textit{Umowa jest w stanie Done, ważna (nie przekroczyła daty ważności), a stroną wywołująca jest jest twórca}}                                                \\ \hline
     \textit{Warunki końcowe :} & \multicolumn{3}{m{11cm}|}{\textit{Kontrakt umowy zostaje zniszczony, wyrejestrowany z AgreementManagera, a środki wpłacone przez petentów zostają do nich odesłane}}                                                \\ \hline
-    \textit{Sytuacje wyjątkowe :} & \multicolumn{3}{m{11cm}|}{\textit{brak}} \\ \hline
+    \textit{Sytuacje wyjątkowe :} & \multicolumn{3}{m{11cm}|}{\textit{Brak}} \\ \hline
 \end{tabular}
 \end{table}
 
@@ -492,12 +477,12 @@ Charakterystyczną cechą naszej platfmormy jest niezmienność początkowych wa
     \multicolumn{4}{|l|}{\textit{\textbf{Karta Wymagania}}}                                                           \\ \hline
     \textit{Identyfikator:}        & \textit{F08}            & \textit{\textbf{Priorytet:}}            & M            \\ \hline
     \textit{Nazwa:}                & \multicolumn{3}{l|}{\textit{Wykonanie umowy A1.1}}                                    \\ \hline
-    \textit{Opis:}                 & \multicolumn{3}{m{11cm}|}{\textit{Umowa A1.1 posiada funkcje join, accept i conclude. Strony chętne do uczestnictwa w umowie wykonują join jednocześnie przekazując środki określone w polu cena na konto umowy. Właściciel umowy może wykonać accept wskazując z kim chce przeprowadzić transakcję, jednocześnie pobierając środki z konta umowy. Po tym fakcie obie strony mogą się ocenić z pomocą conclude}} \\ \hline
+    \textit{Opis:}                 & \multicolumn{3}{m{11cm}|}{\textit{Umowa A1.1 posiada funkcje join, accept i conclude. Strony chętne do uczestnictwa w umowie wykonują join jednocześnie przekazując środki określone w polu cena na konto umowy. Właściciel umowy może wykonać accept wskazując z kim chce przeprowadzić transakcję, jednocześnie pobierając środki z konta umowy.}} \\ \hline
     \textit{Kryteria akceptacji :} & \multicolumn{3}{m{11cm}|}{\textit{AgreementManager zarejestrował wykonanie umowy}}    \\ \hline
     \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{Kontrakt został zapoczątkowany}}                                                \\ \hline
-    \textit{Warunki początkowe :} & \multicolumn{3}{l|}{\textit{brak}}                                                \\ \hline
+    \textit{Warunki początkowe :} & \multicolumn{3}{l|}{\textit{Brak}}                                                \\ \hline
     \textit{Warunki końcowe :} & \multicolumn{3}{m{11cm}|}{\textit{Kontrakt zostaje zakończony, oczekuje na usunięcie przez twórce.}}                                                \\ \hline
-    \textit{Sytuacje wyjątkowe :} & \multicolumn{3}{m{11cm}|}{\textit{brak}} \\ \hline
+    \textit{Sytuacje wyjątkowe :} & \multicolumn{3}{m{11cm}|}{\textit{Brak}} \\ \hline
 \end{tabular}
 \end{table}
 
@@ -507,12 +492,12 @@ Charakterystyczną cechą naszej platfmormy jest niezmienność początkowych wa
     \multicolumn{4}{|l|}{\textit{\textbf{Karta Wymagania}}}                                                           \\ \hline
     \textit{Identyfikator:}        & \textit{F09}            & \textit{\textbf{Priorytet:}}            & M            \\ \hline
     \textit{Nazwa:}                & \multicolumn{3}{l|}{\textit{Możliwość wypłacania środków z kontraktu}}                                    \\ \hline
-    \textit{Opis:}                 & \multicolumn{3}{m{11cm}|}{\textit{Petent powinien mieć możliwość wypłacenia środków.}} \\ \hline
-    \textit{Kryteria akceptacji :} & \multicolumn{3}{m{11cm}|}{\textit{Brak przecieków środków lub innych problemów podczas wypłaty.}}    \\ \hline
+    \textit{Opis:}                 & \multicolumn{3}{m{11cm}|}{\textit{Petent powinien mieć możliwość wypłacenia środków}} \\ \hline
+    \textit{Kryteria akceptacji :} & \multicolumn{3}{m{11cm}|}{\textit{Brak przecieków środków lub innych problemów podczas wypłaty}}    \\ \hline
     \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{Adres portfela, ilość}}                                                \\ \hline
     \textit{Warunki początkowe :} & \multicolumn{3}{l|}{\textit{Wpłacenie środków do kontraktu.}}                                                \\ \hline
     \textit{Warunki końcowe :} & \multicolumn{3}{m{11cm}|}{\textit{Wypłacone środki}}                                                \\ \hline
-    \textit{Sytuacje wyjątkowe :} & \multicolumn{3}{m{11cm}|}{\textit{brak}} \\ \hline
+    \textit{Sytuacje wyjątkowe :} & \multicolumn{3}{m{11cm}|}{\textit{Brak}} \\ \hline
 \end{tabular}
 \end{table}
 
@@ -526,8 +511,8 @@ Charakterystyczną cechą naszej platfmormy jest niezmienność początkowych wa
     \textit{Kryteria akceptacji :} & \multicolumn{3}{m{11cm}|}{\textit{Bezkonfliktowe utworzenie daty kontraktu.}}    \\ \hline
     \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{Ilość bloków}}                                                \\ \hline
     \textit{Warunki początkowe :} & \multicolumn{3}{l|}{\textit{Etap tworzenia kontraktu}}                                                \\ \hline
-    \textit{Warunki końcowe :} & \multicolumn{3}{m{11cm}|}{\textit{Ostatni termin ważności umowy jest ustalony.}}                                                \\ \hline
-    \textit{Sytuacje wyjątkowe :} & \multicolumn{3}{m{11cm}|}{\textit{brak}} \\ \hline
+    \textit{Warunki końcowe :} & \multicolumn{3}{m{11cm}|}{\textit{Została ustawiona ilość bloków do wygaśnięcia umowy}}                                                \\ \hline
+    \textit{Sytuacje wyjątkowe :} & \multicolumn{3}{m{11cm}|}{\textit{Brak}} \\ \hline
 \end{tabular}
 \end{table}
 
@@ -584,7 +569,7 @@ Charakterystyczną cechą naszej platfmormy jest niezmienność początkowych wa
     \textit{Identyfikator:}        & \textit{PW02}            & \textit{\textbf{Status:}}            & M            \\ \hline
     \textit{Nazwa:}                & \multicolumn{3}{l|}{\textit{Określony git-flow}}                                    \\ \hline
     \textit{Opis:}                 & \multicolumn{3}{m{11cm}|}{\textit{Każda nowa funkcjonalność lub ich zbiór powinien być opisany w Issue. Branche z implementacją danego Issue powinny mieć postać ‘feature/IS\%numer\_issue\%/\%dodatkowy\_opis\%’. Zmianny do testów i do kodu powinny być zawarte w osobnych commitach. Wiadomość w commitach powinny mieć postać ‘IS\%numer\_issue\% test/code - \%opis\_commitu\%’.}} \\ \hline
-    \textit{Kryteria akceptacji :} & \multicolumn{3}{m{11cm}|}{\textit{brak}}    \\ \hline
+    \textit{Kryteria akceptacji :} & \multicolumn{3}{m{11cm}|}{\textit{Brak}}    \\ \hline
 \end{tabular}
 \end{table}
 
@@ -595,7 +580,7 @@ Charakterystyczną cechą naszej platfmormy jest niezmienność początkowych wa
 \textbf{Scenariusz:} \\
 \begin{table}[H]
     \begin{tabular}{ll}
-    \multicolumn{2}{l}{\textit{\textbf{Umowa A1.1 --- umowa prosta}}}                                                           \\ \hline
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A1.1 -- umowa prosta}}}                                                           \\ \hline
     0.        & S tworzy
 \\ \hline
     1.        & K wpłaca
@@ -615,8 +600,8 @@ Charakterystyczną cechą naszej platfmormy jest niezmienność początkowych wa
 \end{tabular}
 \end{table}
 \textbf{Legenda:} \\
-S --- Sprzedający \\
-K --- Kupujący \\ \\
+S -- Sprzedający \\
+K -- Kupujący \\ \\
 \label{Scenariusz A1.1}
 \end{figure}
 
@@ -626,8 +611,8 @@ K --- Kupujący \\ \\
 \textbf{Scenariusz:} \\
 \begin{table}[H]
     \begin{tabular}{ll}
-    \multicolumn{2}{l}{\textit{\textbf{Umowa A1.2 --- umowa z zaliczką}}}                                                           \\ \hline
-    0.        & S tworzy i ustala cenę, zaliczkę i czas do wycofania się
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A1.2 -- umowa z zaliczką}}}                                                           \\ \hline
+    0.        & S tworzy i ustala cenę, zaliczkę oraz czas do wycofania się
 \\ \hline
     1.        & K wpłaca cenę
 \\ \hline
@@ -658,8 +643,8 @@ K --- Kupujący \\ \\
 \end{tabular}
 \end{table}
 \textbf{Legenda:} \\
-S --- Sprzedający \\
-K --- Kupujący \\ \\
+S -- Sprzedający \\
+K -- Kupujący \\ \\
 \label{Scenariusz A1.2}
 \end{figure}
 
@@ -671,7 +656,7 @@ K --- Kupujący \\ \\
 \textbf{Scenariusz:} \\
 \begin{table}[H]
     \begin{tabular}{ll}
-    \multicolumn{2}{l}{\textit{\textbf{Umowa A1.3 --- umowa z kaucjami}}}                                                           \\ \hline
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A1.3 -- umowa z kaucjami}}}                                                           \\ \hline
     0.        & S tworzy
 \\ \hline
     1.        & K wpłaca k1 + cena
@@ -692,19 +677,19 @@ K --- Kupujący \\ \\
 \\   
 	\multicolumn{2}{l}{}
 \\        
-	3b.        & K odrzuca --- nowa\_cena
+	3b.        & K odrzuca -- nowa\_cena
 \\ \hline 
-	4ba.        & S ugoda --- wypłaca nowa\_cena + k2 i ocenia
+	4ba.        & S ugoda -- wypłaca nowa\_cena + k2 i ocenia
 \\ \hline     
-	5ba.        & K wypłata cena - cena\_nowa + k1 i ocenia
+	5ba.        & K wypłata cena -- cena\_nowa + k1 i ocenia
 \\ \hline  
 	6ba.        & Koniec
 \\   
 	\multicolumn{2}{l}{}
 \\        
-	4bb.        & S odrzuca --- nowa\_cena\_2
+	4bb.        & S odrzuca -- nowa\_cena\_2
 \\ \hline     
-	5bb.        & K ugoda --- wypłaca cena - nowa\_cena\_2 + k1 i ocenia
+	5bb.        & K ugoda -- wypłaca cena - nowa\_cena\_2 + k1 i ocenia
 \\ \hline  
 	6bb.        & S wypłaca nowa\_cena\_2 + k2 i ocenia   
 \\ \hline  
@@ -714,7 +699,7 @@ K --- Kupujący \\ \\
 \\   
 	\multicolumn{2}{l}{\textit{(liczba odrzuceń > max liczba odrzuceń)}}
 \\                
-    3+l. odrzuceń.b.*.        & S/K odrzuca --- k1+k2 zostają zabrane przez system
+    3+l. odrzuceń.b.*.        & S/K odrzuca -- k1+k2 zostają zabrane przez system
 \\ \hline  
 	4+l. odrzuceń.b.*.        & S i K oceniają. S wypłaca cenę  
 \\ \hline  
@@ -723,9 +708,9 @@ K --- Kupujący \\ \\
 \end{tabular}
 \end{table}
 \textbf{Legenda:} \\
-S --- Sprzedający \\
-K --- Kupujący \\
-k1, k2 --- kaucje\\ \\
+S -- Sprzedający \\
+K -- Kupujący \\
+k1, k2 -- kaucje\\ \\
 \label{Scenariusz A1.3}
 \end{figure}
 
@@ -733,24 +718,24 @@ k1, k2 --- kaucje\\ \\
 \subsubsection{Umowa A2.1}
 \begin{figure}[H]
 \textbf{Abstrakt}\\
-Umowa prostej jawnej aukcji, podobnie jak umowa A1.1, wymaga wpłacenia środków przez
+Umowa prostej, jawnej aukcji -- podobnie jak umowa A1.1 wymaga wpłacenia środków przez
 klienta (dalej nazywanego K[numer]) na portfel umowy, w celu jej zawarcia (może być dodana
-opcja zatwierdzenia K przy pierwszej wpłacie), jednak w przeciwieństwie do niej na początku
-następuje sekwencja licytacji. W trakcie jej K1-Km obserwują kwoty wpłacane przez innych
+opcja zatwierdzenia K przy pierwszej wpłacie). W przeciwieństwie do niej na początku
+następuje sekwencja licytacji. W jej trakcie  K1-Km obserwują kwoty wpłacane przez innych
 uczestników i przebijają ostatnią najwyższą ofertę. Faza licytacji kończy się pod wpływem decyzji
 sprzedającego (dalej nazywany S) lub innego zdarzenia [wymagane jest określenie jakie
 wydarzenia mogą zakończyć aukcję i jakie potencjalne pod-umowy mogą generować].\\ \\
 \textbf{Scenariusz:} \\
 \begin{table}[H]
     \begin{tabular}{ll}
-    \multicolumn{2}{l}{\textit{\textbf{Umowa A2.1 --- aukcja prosta jawna}}}                                                           \\ \hline
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A2.1 -- aukcja prosta jawna}}}                                                           \\ \hline
     0.        & S tworzy umowę
 \\ \hline
     1.        & K1 wpłaca kwotę k1
 \\ \hline
     2.        & \textit{opcjonalnie S zatwierdza udział K1}
 \\ \hline
-    3.        & Aukcja się kończy --- S wypłaca k1
+    3.        & Aukcja się kończy -- S wypłaca k1
 \\ \hline
     4.        & K1 ocenia S
 \\ 
@@ -766,40 +751,39 @@ wydarzenia mogą zakończyć aukcję i jakie potencjalne pod-umowy mogą generow
 \\        
 	Na.        & Km wpłaca kwotę kN (kN > k(N-1))
 \\ \hline 
-	(N+1)a.        & Aukcja się kończy --- S wypłaca kN
+	(N+1)a.        & Aukcja się kończy -- S wypłaca kN
 \\ \hline     
 	5ba.        & Km ocenia S
 \\ 
 	\multicolumn{2}{l}{}
 \\        
-	2b.        & \textit{Opcjonalne --- S odrzuca K1}
+	2b.        & \textit{Opcjonalne -- S odrzuca K1}
 \\ \hline     
-	3b.        & \textit{Opcjonalne --- K1 wypłaca k1}
+	3b.        & \textit{Opcjonalne -- K1 wypłaca k1}
 \\ 
 \end{tabular}
 \end{table}
 \textbf{Legenda:} \\
 K1, K2, …, Km – klienci biorący udział w aukcji (m <= N) \\
 S – sprzedawca \\ \\
-Zatwierdzanie powinno nastąpić tylko raz przy pierwszej wpłacie. W przeciwnym wypadku sprzedający może mieć za dużą kontrolę nad aukcją (potencjalne skutki wymagają weryfikacji) \\
-Aukcja się kończy, pod wpływem decyzji S lub innego zdarzenia \\ \\
+Zatwierdzanie powinno nastąpić tylko raz przy pierwszej wpłacie. W przeciwnym wypadku sprzedający może mieć za dużą kontrolę nad aukcją (potencjalne skutki wymagają weryfikacji). Aukcja się kończy, pod wpływem decyzji S lub innego zdarzenia \\ \\
 \label{Scenariusz A2.1}
 \end{figure}
 \textbf{Analiza}\\
 Jawna aukcja posiada tę zaletę, że dają możliwość K1-Km między sobą konkurować, a
-przede wszystkim obserwować jak kształtuje się ostateczna cena, jednak tylko wtedy, gdy
+przede wszystkim obserwować jak kształtuje się ostateczna cena, jednak tylko wtedy gdy
 sprzedawca jest uczciwy. Nieuczciwy sprzedawca nie może bezpośrednio ingerować w przebieg
-aukcji, jednak z pomocą multi-konta lub wspólników może windować cenę, nieproporcjonalnie do
+aukcji, aczkolwiek z pomocą multi-konta lub wspólników może windować cenę, nieproporcjonalnie do
 wartości oferowanego produktu. Jedyną ochroną w tej sytuacji dla Kn jest system ocen,
 pozwalający sprawdzić sprzedawcę przed zawiązaniem umowy lub go ukarać po jej zakończeniu.
 
-Należy mieć jednak na uwadze przy ocenianiu „sprawiedliwości” tej transakcji, że cała idea
-aukcji opiera się na tym, że daje sprzedającemu przewagę, tzn. klienci konkurują między sobą
+Przy ocenianiu ,,sprawiedliwości'' transakcji należy mieć na uwadze, że cała idea
+aukcji daje sprzedającemu przewagę, tzn. klienci konkurują między sobą
 oferując wyższe kwoty za towar. Ten problem może być rozwiązany z pomocą grup handlowych,
 które mogą kontrolować i narzucać dodatkowe zasady na przebieg umowy i jej kontrahentów.
 
-Rola trolli jest ograniczona, głównie przez ich portfel (windowanie ceny wymaga posiadania
-funduszy, poza tym troll ryzykuje „wygranie” aukcji) i jest tym bardziej ograniczona im jest
+Rola złośliwych użytkowników jest ograniczona, głównie przez ich portfel (windowanie ceny wymaga posiadania
+funduszy, poza tym troll ryzykuje ,,wygranie'' aukcji) i jest tym bardziej ograniczona im jest
 większa cena wejścia do aukcji, a pozostali gracze dysponują duża ilością środków. Jednak nie
 eliminuje to całkowicie problemu i prosta aukcja jawna w obecnej postaci może nie być
 odpowiednia do transakcji, które wymagają dużej odporności na ataki zamożnych adwersarzy.
@@ -837,7 +821,7 @@ Faza wypłat jest kończona wraz z wypłaceniem wszystkich poprawnych wpłat. \n
 \textbf{Scenariusz:} \\
 \begin{table}[H]
     \begin{tabular}{ll}
-    \multicolumn{2}{l}{\textit{\textbf{Umowa A2.2 ---  aukcja prosta niejawna}}}                                                           \\ \hline
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A2.2 --  aukcja prosta niejawna}}}                                                           \\ \hline
     0.        & S tworzy umowę
 \\ \hline
     1. async1       & K1 wpłaca depozyt k1 i wysyła kryptograficzny hasz h1
@@ -866,14 +850,18 @@ Faza wypłat jest kończona wraz z wypłaceniem wszystkich poprawnych wpłat. \n
 	N+M. async M .        & KM wysyła w postaci jawnej wartość pM, sól sM i znacznik prawdziwości fM
 \\ \hline 
 	N+M+1.        & Koniec aukcji – S wypłaca środki w ilości pI = max(S), gdzie
-\\ \hline
-			&  S = \{pK: 1=<K=<N \& wysłane(pK) \& fK \& pK <= kK \& hK == hasz(pK.fK.sK)\}
+\\ 
+			&  S = \{pK: 1=<K=<N \& wysłane(pK) \& fK \& pK <= kK \& hK ==
+\\ 
+			& ==  hasz(pK.fK.sK)\}
 \\ \hline     
 	N+M+2.        &  KI ocenia S i wypłaca kI – pI 
 \\ \hline  
 	N+M+3.        & Klienci ze zbioru
-\\ \hline
-			& R = \{KK: 1=<K=<N \& wysłane(pK) \& hK == hash(pK.fK.sK)\} wypłacają wpłacone k 
+\\ 
+			& R = \{KK: 1=<K=<N \& wysłane(pK) \& hK ==
+\\ 
+			& == hash(pK.fK.sK)\} wypłacają wpłacone k 
 \\   \hline  
 	N+M+4.        & Klienci spoza zbioru R tracą k na rzecz systemu
 \\ 
@@ -891,18 +879,19 @@ W aukcji niejawnej sprzedawca i klienci mogą jedynie dowiedzieć się jaki jest
 potencjalnych ofert, bez gwarancji że wszystkie będą brać udział w wyznaczaniu ostatecznej ceny.
 Taki system utrudnia konkurowanie między K, ale też ogranicza nieuczciwe praktyki ze strony S. K
 muszą polegać głównie na własnej ocenie produktu i swoich możliwości przy składaniu propozycji
-ceny. S nie zna prawdziwych kwot obstawianych przez K, więc nie ma jaki ich skutecznie
+ceny. S nie zna prawdziwych kwot obstawianych przez K, więc nie ma jak ich skutecznie
 windować. Jedyne co może zrobić to podwyższać potencjalny górny limit ofert, co nie gwarantuje,
 że K podniosą prawdziwe stawki.
 
-Działania trolli w tym rodzaju aukcji nie są szkodliwe, wręcz przeciwnie, mogą być
+Działania złośliwych użytkowników w tym rodzaju aukcji nie są szkodliwe, wręcz przeciwnie, mogą być
 pożądane, np. K wystawiają fałszywe oferty, by wystraszyć innych kupców.
 
 Klienci w fazie odsłaniania mają już wgląd do szczegółów ofert innych K, którzy ujawnili o
 nich dane, co może rodzić chęć do nie ujawniania części swoich ofert, np. pewien KX złożył dwie
 propozycje, jedna opiewająca na relatywnie niską kwotę, a drugą na znacznie większą. Po
 odczekaniu, aż pozostali uczestnicy aukcji ujawnią swoje oferty, odkrył, że pierwsza niższa jest
-wystarczająca do zwycięstwa, co może zrodzić chęć nie ujawnienia drugiej mniej opłacalnej.Takie działanie kłóci się z ideą tej umowy i by zniechęcać do takich działań, wpłaty które nie
+wystarczająca do zwycięstwa, co może zrodzić chęć nie ujawnienia drugiej mniej opłacalnej. 
+Takie działanie kłóci się z ideą tej umowy i by zniechęcać do takich działań, wpłaty które nie
 zostały poprawnie odsłonięte, będą rekwirowane przez system.
 
 Problemem do dalszej analizy jest dokładne określenie ograniczeń na zdarzenie kończące
@@ -917,7 +906,7 @@ to kolejny szczegół implementacyjny na wyższym poziomie abstrakcji.
 \textbf{Scenariusz:} \\
 \begin{table}[H]
     \begin{tabular}{ll}
-    \multicolumn{2}{l}{\textit{\textbf{Umowa A3.1 ---  prosta umowa z świadkami (pasywna)}}}                                                           \\ \hline
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A3.1 --  prosta umowa z świadkami (pasywna)}}}                                                           \\ \hline
     0.        & S tworzy umowę
 \\ \hline
     1.       & K zawiera umowę i wpłaca cenę – zgłasza zbiór ŚK 2t+1 świadków 
@@ -971,7 +960,7 @@ to kolejny szczegół implementacyjny na wyższym poziomie abstrakcji.
 \textbf{Scenariusz:} \\
 \begin{table}[H]
     \begin{tabular}{ll}
-    \multicolumn{2}{l}{\textit{\textbf{Umowa A3.2 ---  prosta umowa z losowaniem świadków (pasywna)}}}                                                           \\ \hline
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A3.2 --  prosta umowa z losowaniem świadków (pasywna)}}}                                                           \\ \hline
     0.        & S tworzy umowę i zgłasza swoją połowę zbioru świadków 
 \\ \hline
     1.        &  K zawiera umowę, wpłaca cenę
@@ -1029,7 +1018,7 @@ to kolejny szczegół implementacyjny na wyższym poziomie abstrakcji.
 \textbf{Scenariusz:} \\
 \begin{table}[H]
     \begin{tabular}{ll}
-    \multicolumn{2}{l}{\textit{\textbf{Umowa A3.3 ---  umowa z zaliczką i świadkami (pasywna)}}}                                                           \\ \hline
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A3.3 --  umowa z zaliczką i świadkami (pasywna)}}}                                                           \\ \hline
     0.        & S tworzy umowę oraz ustala cenę i zaliczkę 
 \\ \hline
     1.        &   K zawiera, wpłaca cenę i zgłasza zbiór ŚK 2t+1 świadków 
@@ -1093,7 +1082,7 @@ to kolejny szczegół implementacyjny na wyższym poziomie abstrakcji.
 \textbf{Scenariusz:} \\
 \begin{table}[H]
     \begin{tabular}{ll}
-    \multicolumn{2}{l}{\textit{\textbf{Umowa A3.4 ---   prosta umowa z świadkami (aktywna)}}}                                                           \\ \hline
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A3.4 --   prosta umowa z świadkami (aktywna)}}}                                                           \\ \hline
     0.        &  S tworzy umowę 
 \\ \hline
     1.        &    K zawiera umowę i wpłaca cenę – zgłasza zbiór ŚK 2t+1 świadków 
@@ -1139,21 +1128,21 @@ to kolejny szczegół implementacyjny na wyższym poziomie abstrakcji.
 \textbf{Scenariusz:} \\
 \begin{table}[H]
     \begin{tabular}{ll}
-    \multicolumn{2}{l}{\textit{\textbf{Umowa A4.2 ---   aukcja prosta niejawna ze świadkami (pasywna)}}}                                                           \\ \hline
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A4.2 --   aukcja prosta niejawna ze świadkami (pasywna)}}}                                                           \\ \hline
     0.        & S tworzy umowę i zgłasza zbiór świadków ŚS o rozmiarze 2t+1 
 \\ \hline
     1. async1       & K1 wpłaca depozyt k1 i wysyła kryptograficzny hasz h1
-\\ \hline
+\\ 
 		& Jeśli nie ma świadka, to zgłasza zbiór ŚK1 2t+1 świadków,
-\\ \hline 
+\\ 
 	& taki że ŚK1 n ŚS =/= O
 \\ \hline
     2. async1        &  S zatwierdza udział K1 przy pierwszej wpłacie
 \\ \hline
     3. async2        &  K2 wpłaca depozyt k2 i wysyła kryptograficzny hasz h2 
-\\ \hline
+\\ 
 		& Jeśli nie ma świadka, to zgłasza zbiór ŚK2 2t+1 świadków,
-\\ \hline 
+\\
 	&  taki że ŚK2 n ŚS =/= O
 \\ \hline
     4. async2        & S zatwierdza udział K2 przy pierwszej wpłacie
@@ -1175,9 +1164,9 @@ to kolejny szczegół implementacyjny na wyższym poziomie abstrakcji.
 	N+M+3. async M .        & KM wysyła w postaci jawnej wartość pM, sól sM i znacznik prawdziwości fM
 \\ \hline 
 	N+M+4.        & Koniec aukcji – wybieramy ŚKI i KI, takie że pI == max(S), gdzie 
-\\ \hline
+\\ 
 			&  S = \{pK: 1=<K=<N \& wysłane(pK) \& fK \& pK <= kK \& hK ==
-\\ \hline
+\\
 	& ==  hasz(pK.fK.sK)\}. 
 \\ \hline     
 	N+M+5.        & KI potwierdza poprawność 
@@ -1213,15 +1202,15 @@ to kolejny szczegół implementacyjny na wyższym poziomie abstrakcji.
 	\multicolumn{2}{l}{}
 \\  
 	N+M+9.a.        & ŚKI U ŚS (ci co zagłosowali) ocenia S i K (wypłacają prowizje)
-\\ \hline 
+\\ 
 	&	[następny N+M+9.]
 \\ 
 	\multicolumn{2}{l}{}
 \\  
 	N+M+9.        &  Klienci ze zbioru 
-\\ \hline
+\\ 
 			&  R=\{KK: 1=<K=<N\& wysłane(pK)\& hK== hash(pK.fK.sK)\} 
-\\ \hline
+\\ 
 	& 	wypłacają wpłacone k 
 \\ 
 	\multicolumn{2}{l}{}
@@ -1230,6 +1219,8 @@ to kolejny szczegół implementacyjny na wyższym poziomie abstrakcji.
 \\ 
 \end{tabular}
 \end{table}
+\end{figure}
+\begin{figure}[H]
 \textbf{Legenda:} \\
 K1-KM – klienci \\
 async[numer] – sąsiadujące kroki oznaczone async o różnych numerach wykonują się w dowolnej kolejności \\
@@ -1237,32 +1228,39 @@ Klienci mogą dokonać więcej niż jednej wpłaty \\ \\
 \label{Scenariusz A4.2}
 \end{figure}
 
-\newpage
 \subsubsection{Umowa A4.3}
 \begin{figure}[H]
 \textbf{Scenariusz:} \\
 \begin{table}[H]
     \begin{tabular}{ll}
-    \multicolumn{2}{l}{\textit{\textbf{Umowa A4.3 ---   aukcja prosta niejawna ze świadkami (aktywna)}}}                                                           \\ \hline
+    \multicolumn{2}{l}{\textit{\textbf{Umowa A4.3 --   aukcja prosta niejawna ze świadkami (aktywna)}}}                                                           \\ \hline
     0.        & S tworzy umowę i zgłasza zbiór świadków ŚS o rozmiarze 2t+1 
 \\ \hline
     1. async1       &  K1 wpłaca depozyt k1 i wysyła kryptograficzny hasz h1 (opcjonalnie opłaty dla Ś)
-\\ \hline
-		& Jeśli nie ma świadka, to zgłasza zbiór ŚK1 2t+1 świadków, taki że ŚK1 n ŚS =/= O
+\\ 
+		& Jeśli nie ma świadka, to zgłasza zbiór ŚK1 2t+1 świadków,
+\\
+		& taki, że ŚK1 n ŚS =/= O
 \\ \hline
     2. async1        &   S zatwierdza udział K1 przy pierwszej wpłacie 
 \\ \hline
     3. async2        &  K2 wpłaca depozyt k2 i wysyła kryptograficzny hasz h2 (opcjonalnie opłaty dla Ś)
-\\ \hline
-		& Jeśli nie ma świadka, to zgłasza zbiór ŚK2 2t+1 świadków, taki że ŚK2 n ŚS =/= O
+\\ 
+		& Jeśli nie ma świadka, to zgłasza zbiór ŚK2 2t+1 świadków,
+\\ 
+		& taki, że ŚK2 n ŚS =/= O
 \\ \hline
     4. async2        & S zatwierdza udział K2 przy pierwszej wpłacie
 \\ 
 	\multicolumn{2}{l}{}
 \\        
-	N. async N        &  KM wpłaca depozyt kM i wysyła kryptograficzny hasz hM (opcjonalnie opłaty dla Ś)
-\\ \hline 
-			& Jeśli nie ma świadka, to zgłasza zbiór ŚKM 2t+1 świadków, taki że ŚKM n ŚS =/= O
+	N. async N        &  KM wpłaca depozyt kM i wysyła kryptograficzny hasz hM
+\\ 
+			&  (opcjonalnie opłaty dla Ś)
+\\ 
+			& Jeśli nie ma świadka, to zgłasza zbiór ŚKM 2t+1 świadków, 
+\\
+			& taki, że ŚKM n ŚS =/= O
 \\ \hline  
 	N+2. async N         & S zatwierdza udział KM przy pierwszej wpłacie 
 \\ \hline     
@@ -1277,8 +1275,10 @@ Klienci mogą dokonać więcej niż jednej wpłaty \\ \\
 	N+M+3. async M .        & KM wysyła w postaci jawnej wartość pM, sól sM i znacznik prawdziwości fM
 \\ \hline 
 	N+M+4.        & Koniec aukcji – wybieramy ŚKI i KI, takie że pI == max(S), gdzie 
-\\ \hline
-			&  S = \{pK: 1=<K=<N \& wysłane(pK) \& fK \& pK <= kK \& hK == hasz(pK.fK.sK)\}.  
+\\ 
+			&  S = \{pK: 1=<K=<N \& wysłane(pK) \& fK \& pK <= kK \& hK ==
+\\ 
+			& == hasz(pK.fK.sK)\}.  
 \\ \hline     
 	N+M+5.        &  Głosowanie – większość za 
 \\ \hline  
@@ -1286,11 +1286,15 @@ Klienci mogą dokonać więcej niż jednej wpłaty \\ \\
 \\ \hline  
 	N+M+7.        &  KI ocenia S i ŚS i wypłaca kI – pI 
 \\  \hline  
-	N+M+8.        &  ŚKI U ŚS (ci co zagłosowali) oceniają KI i S (opcjonalnie wypłacają swoje prowizje) 
+	N+M+8.        &  ŚKI U ŚS (ci co zagłosowali) oceniają KI i S 
+\\ 
+			& (opcjonalnie wypłacają swoje prowizje) 
 \\  \hline  
 	N+M+9.        & Klienci ze zbioru
-\\ \hline
-			&  R=\{KK: 1=<K=<N\& wysłane(pK)\& hK== hash(pK.fK.sK)\} wypłacają wpłacone k 
+\\ 
+			&  R=\{KK: 1=<K=<N\& wysłane(pK)\& hK== hash(pK.fK.sK)\}
+\\ 
+			& wypłacają wpłacone k 
 \\  \hline  
 	N+M+10.        &  Klienci spoza zbioru R tracą k na rzecz systemu
 \\  
@@ -1308,6 +1312,9 @@ Klienci mogą dokonać więcej niż jednej wpłaty \\ \\
 \\ 
 \end{tabular}
 \end{table}
+\end{figure}
+
+\begin{figure}[H]
 \textbf{Legenda:} \\
 K1-KM – klienci \\
 async[numer] – sąsiadujące kroki oznaczone async o różnych numerach wykonują się w dowolnej kolejności \\
@@ -1322,7 +1329,7 @@ Klient może zgłosić tylko jednego U. Robi to przy pierwszej zaakceptowanej wp
 \textbf{Scenariusz:} \\
 \begin{table}[H]
     \begin{tabular}{ll}
-    \multicolumn{2}{l}{\textit{\textbf{Umowa PA1 ---  proste wiązanie świadków prowizją}}}                                                           \\ \hline
+    \multicolumn{2}{l}{\textit{\textbf{Umowa PA1 --  proste wiązanie świadków prowizją}}}                                                           \\ \hline
     1.       &  Udziałowiec U tworzy umowę 
 \\ \hline
     2.       &    Świadek Ś1 zgłasza się 
@@ -1379,7 +1386,7 @@ dane dodatkowe: licznik zgłoszonych umów I \\ \\
 \textbf{Scenariusz:} \\
 \begin{table}[H]
     \begin{tabular}{ll}
-    \multicolumn{2}{l}{\textit{\textbf{Umowa PA2 ---  proste wiązanie świadków prowizją i kaucją}}}                                                           \\ \hline
+    \multicolumn{2}{l}{\textit{\textbf{Umowa PA2 --  proste wiązanie świadków prowizją i kaucją}}}                                                           \\ \hline
     1.       &  Udziałowiec U tworzy umowę 
 \\ \hline
     2.       &    Świadek Ś1 zgłasza się i wpłaca kaucję
@@ -1418,7 +1425,9 @@ dane dodatkowe: licznik zgłoszonych umów I \\ \\
 \\ \hline 
 	1a.        &  Świadkowie wypłacają prowizja + kaucja jeśli uczestniczyli we wszystkich
 \\
-		& umowach, do których zostali wytypowani. Nie wytypowani do żadnych wypłacają samą kaucję
+		& umowach, do których zostali wytypowani. 
+\\ 
+		& Nie wytypowani do żadnych wypłacają samą kaucję
 \\ \hline     
 	2a.        &  U wypłaca resztę. Kaucje świadków, którzy nie wywiązali się, 
 \\
@@ -1445,7 +1454,7 @@ wejście: zbiór Ś, K, S, maksymalny czas trwania, zdarzenie kończące fazę g
 1. wysyłanie haszy kryptograficznych h \\
 2. wysyłanie głosów v i soli s \\
 wyjście: wynik, kto oddał ważny głos (h == hash(v.s))\\ \\
-\label{Scenariusz glosowania swiadkuw}
+\label{Scenariusz glosowania swiadkow}
 \end{figure}
 
 \subsection{Specyfikacja przypadków użycia}
@@ -1463,29 +1472,33 @@ Umowa A1.1\\
 
 
 \subsection{Analiza komercyjna}
+ECMarket stanowi demo technologiczne, które w przyszłych wydaniach miałoby przyjąć formę pełnoprawnego produktu opartego o Open Source. Wymagałoby to uzyskania praw autoriskich od uczelnii, co mamy zamiar zrobić. Naszym celem jest uczłowieczenie technologii Ethereum tak by stała sie ona zrozumiała dla przeciętnego użytkownika.  Kluczową rolę pełni tutaj frontend znacznie zwiększając przystępność dla przeciętnego użytkownika, który niekoniecznie musi być ekspertem z dziedziny IT.  Początkowo mamy zamiar działać na portalu reddit uderzając do osób zainteresowanych technologią Ethereum jak i nieco szerszą rodziną kryptowalut opartych o blockchain w ten sposób pozyskując pierwszych użytkowników. Następnym celem byłyby portale społecznościowe na których staralibyśmy się promować nasze rozwiązanie jak i zalety technologii Ethereum. 
 
 \newpage
-\section{Architektura}
+\section{Analiza i krytyka zastosowanej architektury}
 
-\subsection{Ekosystem ethereum}
+\subsection{Ekosystem Ethereum}
+\label{sec:EkosystemEthereum}
 
-\subsubsection{Siec ethereum}
+\subsubsection{Siec Ethereum}
 
 Ethereum jest projektem pragnącym stworzyć uogólnioną technologię, pozwalającą na zrealizowanie dowolnego rozwiązania opierającego się na transakcyjnej maszynie stanowej. Co więcej, jednym z jego celów jest dostarczenie deweloperom pełnego, zwartego systemu do budowy aplikacji, we wcześniej szerzej nie znanym paradygmacie "trustful object messaging compute framework".
 
 Innym kluczowym celem przyświecającym Ethereum, jest zestawienie kanału do interakcji między agentami, którzy w innych okolicznościach nie mieliby możliwości sobie zaufać, co do poprawności procedury. Źródłem nieufności może być geograficzna odległość, brak odpowiedniej wiedzy, niechęć, niepewność lub korupcja istniejącego systemu prawnego.\cite{work:ethereum2018yellowpaper}
 
 \subsubsection{Własności sieci}
+\label{sec:WlasnosciSieci}
 
 Kontrakty budowane w takim systemie, posiadają rzadko spotykane w rzeczywistym świecie własności. Bezstronność algorytmicznego interpretera, w naturalny sposób gwarantuje odporne na korupcję wykonanie transakcji. Przejrzystość rozstrzygnięcia kontraktu pochodząca z historii interakcji, jak również z zasad rządzących kodem, nie istniejąca w systemach opartch o języki naturalne i ludzkie działania, które w swojej naturze są nieprecyzyjne\cite{work:ethereum2018yellowpaper}.
 
-Kontrakty są uruchamiane na EVM - Ethereum Virtual Machine, maszynie wykonującej ich byte-code (W Ethereum 2.0 będzie używany eWASM), której model programowy jest uważany za zupełny w sensie Turinga (nieformalnie, formalnie jest automatem liniowo ograniczonym). Pozwala to na oprogramowanie dowolnego algorytmu, który wykonałby domowy komputer\cite{wiki:Ethereum, website:EthTuringMedium}.
+Kontrakty są uruchamiane na EVM - Ethereum Virtual Machine, maszynie wykonującej ich byte-code (W Ethereum 2.0 będzie używany eWASM), której model programowy jest uważany za zupełny w sensie Turinga (nieformalnie, formalnie jest automatem liniowo ograniczonym). Pozwala to na oprogramowanie dowolnego algorytmu, który wykonałby domowy komputer\cite{website:EthHubCFTC,website:EthTuringMedium,work:ethereum2018yellowpaper}.
 
-Oprócz ekspresywnego zestawu instrukcji, kontrakty mają możliwość zapisywania lub odczytania swojego stanu bezpośrednio z blockchaina, potrzeby bez angażowania w ten proces użytkownika. Posiadają one również prawie pełną swobodę, co do modyfikacji treści swojego stanu, oraz ograniczoną mozliwość zmiany stanu innych kontraktów. Pozwala to na budowanie rozwiązań, które są niemożliwe lub trudne do zbudowania z pomocą bezstanowych UXTO\cite{wiki:Ethereum, website:EthTuringMedium, work:ethereum2018yellowpaper}.
+Oprócz ekspresywnego zestawu instrukcji, kontrakty mają możliwość zapisywania lub odczytania swojego stanu bezpośrednio z blockchaina, bez potrzeby angażowania w ten proces użytkownika. Posiadają one również prawie pełną swobodę, co do modyfikacji treści swojego stanu, oraz ograniczoną mozliwość zmiany stanu innych kontraktów. Pozwala to na budowanie rozwiązań, które są niemożliwe lub trudne do zbudowania z pomocą bezstanowych UXTO\cite{website:EthHubCFTC,website:EthTuringMedium, work:ethereum2018yellowpaper}.
 
-Klienci wchodzą w interakcję z siecią, po przez rozgłaszanie transakcji do znanych węzłów. Poprawnie uformowane i podpisane transakcjie, są zbierane i grupowane, przez wyróżnioną grupę węzłów nazwywaną górnikami (w Ethereum 2.0 walidatorami), w bloki. Mają oni pewną swobodę w tym ile transakcji będzie się znajdować w bloku i w jaki sposób będą one w nim uporządkowane. To ile maksymalnie transakcji może być w jednym bloku jest określane przez zmienną \textit{block gas limit}.
-Kiedy górnik zbierze i przygotuję kolejkę transakcji, wykonuje w pętli funkcję tranzycji stanu, która przyjmuje obecny stan sieci i pierwszą transakcję z kolejki, a zwraca nowy stan sieci, dopóki kolejka nie jest pusta. W czasie wykonania pętli zbiera on informacje o tym jakie transakcjie zakończyły się powodzeniem i jakie logi one wygenerowały i zapisuje je w \textit{transaction reciepts trie}. Po wykonaniu wszystkich wybranych transakcji, górnik zapisuje nowy stan sieci w \textit{world state trie}, wykonane transakcje w \textit{transaction trie} i umieszcza je w bloku. Na tak przygotowanej strukturze wykonuje on algorytm Ethash (w Ethereum 2.0 ten mechanizm inaczej wygląda), czyli kopanie bloków. Po znalezieniu liczby spełniającej wymogi algorytmu, dołącza ją do nowo wykopanego bloku i rozgłasza go w sieci.
-Zostaje on zaakceptowany przez resztę węzłów, jeśli nowy stan jest poprawny i wynika z transakcji zawartych w bloku, wskazuje na historyczny poprawny blok, a łańcuch do którego należy spełnia warunki protokołu GHOST (w uproszczeniu wybieramy ten łańcuch, nad którym wykonano najwięcej pracy).\cite{work:ethereum2018yellowpaper} Jest jeszcze kilka innych warunków poprawności bloku, ale nie są one bardzo istotne z punktu widzenia tej pracy.
+
+Klienci wchodzą w interakcję z siecią, po przez rozgłaszanie transakcji do znanych węzłów. Poprawnie uformowane i podpisane transakcje, są zbierane i grupowane, przez wyróżnioną grupę węzłów nazywaną górnikami (w Ethereum 2.0 walidatorami), w bloki. Mają oni pewną swobodę w tym ile transakcji będzie się znajdować w bloku i w jaki sposób będą one w nim uporządkowane. To ile maksymalnie transakcji może być w jednym bloku jest określane przez zmienną \textit{block gas limit}.
+Kiedy górnik zbierze i przygotuję kolejkę transakcji, wykonuje w pętli funkcję tranzycji stanu, która przyjmuje obecny stan sieci i pierwszą transakcję z kolejki, a zwraca nowy stan sieci, dopóki kolejka nie jest pusta. W czasie wykonania pętli zbiera on informacje o tym jakie transakcje zakończyły się powodzeniem i jakie logi one wygenerowały i zapisuje je w \textit{transaction receipts tree}. Po wykonaniu wszystkich wybranych transakcji, górnik zapisuje nowy stan sieci w \textit{world state tree}, wykonane transakcje w \textit{transaction tree} i umieszcza je w bloku. Na tak przygotowanej strukturze wykonuje on algorytm Ethash (w Ethereum 2.0 ten mechanizm inaczej wygląda), czyli kopanie bloków. Po znalezieniu liczby spełniającej wymogi algorytmu, dołącza ją do nowo wykopanego bloku i rozgłasza go w sieci.
+Zostaje on zaakceptowany przez resztę węzłów, jeśli nowy stan jest poprawny i wynika z transakcji zawartych w bloku, wskazuje na historyczny poprawny blok, a łańcuch do którego należy spełnia warunki protokołu GHOST (w uproszczeniu wybieramy ten łańcuch, nad którym wykonano najwięcej pracy).\cite{work:ethereum2018yellowpaper,website:EthHubCFTC} Jest jeszcze kilka innych warunków poprawności bloku, ale nie są one bardzo istotne z punktu widzenia tej pracy.
 
 
 \clearpage
@@ -1510,28 +1523,28 @@ Zostaje on zaakceptowany przez resztę węzłów, jeśli nowy stan jest poprawny
 \recalctypearea
 
 
-Mechanizmem zachęcającym górników do zbierania i wykonywania transakcji jest obecność opłat za nie. Wykonanie każdej z nich kosztuje \textit{gas}; jednostkę wykonanej pracy, istniejącą tylko w kontekście danej transakcji. Użytkownik, w rozgłaszanej przez siebie transakcji, określia cenę w etherze za jednostkę gazu oraz maksymalną ilość gazu jaką może ona pobrać. Inną zachętą jest nagroda za wyprodukowanie poprawnego bloku, którą górnik może sam sobie przyznać. Takie mechanizmy wspierają żywotność sieci, jednak na ile chronią przed cenzurą i wzmacniają bezpieczeństwo sieci jest spornym tematem.\cite{work:ethereum2018yellowpaper}
+Mechanizmem zachęcającym górników do zbierania i wykonywania transakcji jest obecność opłat za nie. Wykonanie każdej z nich kosztuje \textit{gas}; jednostkę wykonanej pracy, istniejącą tylko w kontekście danej transakcji. Użytkownik, w rozgłaszanej przez siebie transakcji, określia cenę w etherze za jednostkę gazu oraz maksymalną ilość gazu jaką może ona pobrać. Inną zachętą jest nagroda za wyprodukowanie poprawnego bloku, którą górnik może sam sobie przyznać. Takie mechanizmy wspierają żywotność sieci, jednak na ile chronią przed cenzurą i wzmacniają bezpieczeństwo sieci jest spornym tematem\cite{work:ethereum2018yellowpaper}.
 
-Ethereum 1.0 gwarantuje wykonanie kontraktów i poprawne przeprowadzenie transakcji, czyli bezpieczeństwo i żywotność sieci, przy założeniu, że więcej niż 50\% mocy hashującej działa zgodnie z protokołem, a wiadomości o stanie sieci docierają do innych klientów synchronicznie (istnieje znane maksymalne opóźnienie wiadomości). Jeśli, któreś z powyższych założeń jest nie spełnione, to tranasakcje lub wykonanie kodu może być cenzurowane (zignorowane, niewykonane), różni uczestnicy sieci mogą widzieć jej odmienny stan, kontrakty i mechanizmy nie opierające się na podpisach kryptograficznych mogą paść ofiarą "double spending attack" oraz historia już wykonanych transakcji może być zmieniana \cite{work:AnonByzConsBit}.
+Ethereum 1.0 gwarantuje wykonanie kontraktów i poprawne przeprowadzenie transakcji, czyli bezpieczeństwo i żywotność sieci, przy założeniu, że więcej niż 50\% mocy hashującej działa zgodnie z protokołem, a wiadomości o stanie sieci docierają do innych klientów synchronicznie (istnieje znane maksymalne opóźnienie wiadomości). Jeśli, któreś z powyższych założeń jest niespełnione, to tranasakcje lub wykonanie kodu może być cenzurowane (zignorowane, niewykonane), różni uczestnicy sieci mogą widzieć jej odmienny stan, kontrakty i mechanizmy nie opierające się na podpisach kryptograficznych mogą paść ofiarą ,,double spending attac'' oraz historia już wykonanych transakcji może być zmieniana \cite{work:AnonByzConsBit}.
 
 
 \subsubsection{Środowisko wykonawcze kontraktów}
 
-Kontrakty są bytami posiadającymi kod, jak również stan, nazywany też pamięcią \textit{storage}. Są one zapisane pod pewnym adresem w przestrzeni kont. Iterakcję z kontraktem przeprowadza się poprzez wysłanie pod jego adres transakcji. Kontrakt dotknięty nią uruchamia swój kod, z zawartością transakcji jako danymi wejściowymi.
+Kontrakty są bytami posiadającymi kod, jak również stan, nazywany też pamięcią \textit{storage}. Są one zapisane pod pewnym adresem w przestrzeni kont. Interakcję z kontraktem przeprowadza się poprzez wysłanie pod jego adres transakcji. Kontrakt dotknięty nią uruchamia swój kod, z zawartością transakcji jako danymi wejściowymi.
 
 Uruchomienie transakcji, jak i każdej wykonanej instrukcji w kodzie kontraktu pochłania pewną określoną ilość gazu. Inicjator transakcji określa cenę w etherze za jednostkę gazu i limit zużycia gazu. Cena za uruchomienie jest naliczana natychmiast, a kolejne opłaty, tylko w momencie wykonania instrukcji. Jeśli incjatorowi zabraknie funduszy na opłacenie gazu, zostanie osiągnięty limit zużycia gazu lub limit gazu na blok, wykonanie kończy się wyjątkiem \textit{out of gas} i zmiany wprowadzone w stanie sieci zostają wycofane. Jednak bez względu na wynik obliczeń, koszty zakupu gazu nie zostają cofnięte, jako że górnicy (lub walidatorzy) ponieśli już koszty z wiązane z ich wykonaniem. Poprawne wykonanie transakcji, czyli bez zwrócenia do inicjatora wyjątku, utrwala zmiany wprowadzone w sieci, a niezużyty gaz zostaje automatycznie odsprzedany i koszty jego zakupu zostają zwrócone do inicjatora, po takiej samej cenie jak zakupu.
 
-Uruchomienie transakcji tworzy kontekst transakcji, czli zbiór zmiennych środowiskowych dostępnych w kontrakcie istniejących, ale tylko dla tego jednego wywołania. Należą do nich adres wywołującego, adres docelowy, ilość przekazanego etheru, ilość przekazanego gazu, cena za jednostkę gazu, adres opłacający transakcję oraz tablicę dodatkowych danych.
+Uruchomienie transakcji tworzy kontekst transakcji, czli zbiór zmiennych środowiskowych dostępnych w kontrakcie istniejących, ale tylko dla tego jednego wywołania. Należą do nich adres wywołującego, adres docelowy, ilość przekazanego etheru, ilość przekazanego gazu, cena za jednostkę gazu, adres opłacający transakcję oraz tablicę dodatkowych danych\cite{work:ethereum2018yellowpaper,website:solidityDocs}.
 
-Szczególną uwagę należy poświęcić instrukcją \textit{REVERT}, \textit{INVALID}, \textit{CALL}, \textit{DELEGATECALL}, \textit{STATICCALL}, \textit{CREATE}, \textit{SELFDESTRUCT} i \textit{SSTORE}.
+Szczególną uwagę należy poświęcić instrukcjom \textit{REVERT}, \textit{INVALID}, \textit{CALL}, \textit{DELEGATECALL}, \textit{STATICCALL}, \textit{CREATE}, \textit{SELFDESTRUCT} i \textit{SSTORE}.
 \begin{itemize}
-	\item \textit{REVERT} kończy wykonanie wyjątkiem określony w kodzie przez jego autora, wycofuje wprowadzone zmiany w procedurze i zwraca niezużyty gaz do nadprocedury lub inicjatora transakcji.
-	\item \textit{INVALID} kończy wykonanie wyjątkiem i "spala" cały dostępny gaz w procedurze.
+	\item \textit{REVERT} kończy wykonanie wyjątkiem określonym w kodzie przez jego autora, wycofuje wprowadzone zmiany w procedurze i zwraca niezużyty gaz do nadprocedury lub inicjatora transakcji. Zwykle używany jako reakcja na niepoprawne dane wejściowe.
+	\item \textit{INVALID} kończy wykonanie wyjątkiem i ,,spala'' cały dostępny gaz w procedurze. Zazwyczaj używany jako reakcja na błąd wewnętrzny lub złamanie niezmienników.
 	\item \textit{CALL} pozwala kontraktowi na uruchomienie podprocedury. Procedura wywołująca określa adres docelowy (może to być ten sam lub inny kontrakt), ile etheru chce przekazać, ile gazu chce dostarczyć oraz tablicę dodatkowych danych. Wyjątki wyrzucone w podprocedurze \textbf{nie kończą} automatycznie procedury wywołującej, jedynie zostaje do niej zwrócony kod błedu. Procedura może wysłać tylko tyle etheru, ile w danym momencie posiada kontrakt, podobnie w przypadku gazu; może przekazać maksymalnie 63/64 gazu, którego posiadała w momencie wykonania instrukcji \textit{CALL}. Wywołanie podprocedury, podobnie jak uruchomienie transakcji, tworzy nowy kontekst, jednak w przeciwieństwie do tej drugiej cena za jednostkę gazu i adres opłacającego nigdy nie ulega zmianie. Wynika to z tego, że w obecnej wersji Ethereum kontrakty nie mogą same opłacać swojego wykonania.
 	\item \textit{DELEGATECALL} przyjmuje takie same argumenty jak \textit{CALL} jednak nie zmienia w pełni kontekstu tzn.\ podprocedura ma dostęp do tych samych zmiennych środowiskowych i pamięci \textit{storage} co nadprocedura, z wyjątkiem wysłanego etheru i dostępnego gazu. Ta instrukcja jest najczęsciej wykorzystywana w implementacji bibliotek, kontraktów z możliwością aktualizacji, jak również w naszym modelu maszyny stanowej
 	\item \textit{STATICCALL} działa podobnie jak \textit{CALL}, jednka nie pozwala na przesyłanie etheru, a wszelkie próby wywołania instrukcji zmieniających stan sieci w podprocedurze, konczą ją i zwracają do nadprocedury kod błędu.
 	\item \textit{CREATE} tworzy nowy kontrakt
-	\item \textit{SELFDESTRUCT} usuwa z sieci kontrakt (zeruje kod i stan), w którego kontekście została ona wywołana, a cały ethere jaki był w nim zawarty przesyła pod wskazany adres. Jej wywołanie refunduje część zużytego gazu, co ma stanowić zachętę, by transakcje, jeśli to możliwe, usuwały nie potrzbne już kontrakty.
+	\item \textit{SELFDESTRUCT} usuwa z sieci kontrakt (zeruje kod i stan), w którego kontekście została ona wywołana, a cały ether jaki był w nim zawarty przesyła pod wskazany adres. Jej wywołanie refunduje część zużytego gazu, co ma stanowić zachętę, by transakcje, jeśli to możliwe, usuwały nie potrzbne już kontrakty.
 	\item \textit{SSTORE} zapisuje 256-bitowe słowo we wskazane miejsce \textit{storage} kontraktu, w którego kontekście została wywołana. Jeśli w jej wyniku niezerowa wartość zostaje wyzerowana, to refunduje część gazu, jako zachętę by transakcje usuwały nie potrzebne fragmenty stanu sieci
 \end{itemize}
 
@@ -1546,29 +1559,130 @@ Szczególną uwagę należy poświęcić instrukcją \textit{REVERT}, \textit{IN
 \subsubsection{Technologie wspierające}
 
 \begin{itemize}
-	\item Solidity
-	\item Web3
-	\item Swarm
-	\item Whisper
+	\item Solidity -- język programowania wysokiego poziomu, zorientowany kontraktowo. Kompiluje się do byte-codu EVM. Zawiera w sobie mechanizmy zarządzania pamięcią \textit{storage} i pamięcią \textit{memory}.
+	\item Web3 -- biblioteki dla różnych języków programowania, pomagające aplikacją współpracującym z siecią Ethereum na wchodzenie w interakcje kontraktami.
 \end{itemize}
 
 \subsubsection{Ograniczenia technologii}
+\label{sec:OgraniczeniaTechnologii}
 
-Kontrakty "widzą" jedynie stan sieci. O jakiekolwiek informacje o świecie zewnętrznym muszą prosić swoich klientów, co może być wektorem ataku na nie odpowiednio przemyślany i zaprojektowany system.
+Złożoność kontraktów jest ograniczona przez limit gazu na blok, jak również maksymalny rozmiar kodu pojedynczego kontraktu, czyli ~24kB. Możliwe jest obejście tych problemów, przez rozbijanie dużych transakcji i kontraktów na mniejsze, lecz komplikuje to interakcje z tak zbudowanym systemem\cite{work:ethereum2018yellowpaper,website:solidityDocs}.
 
-Obecna wersja Ethereum oferuje średnią przepustowość na poziomie 15 tx/s, co może utrudniać działanie aplikacji, w przypdaku dużego zainteresowania.
+Kontrakty ,,widzą'' jedynie stan sieci. O jakiekolwiek informacje o świecie zewnętrznym muszą prosić swoich klientów, co może być wektorem ataku na nie odpowiednio przemyślany i zaprojektowany system\cite{work:ethereum2018yellowpaper,website:solidityDocs}.
 
-Problem prywatności w Ethereum jest dalej tematem intensywnych badań i choć są proponowane działające rozwiązania, w obecnej wersji należy zakładać, że każdy może sprawdzić jaki adres wchodził w interkację z jakim kontraktem.
+Obecna wersja Ethereum oferuje średnią przepustowość na poziomie 15 tx/s, co może utrudniać działanie aplikacji, w przypdaku dużego zainteresowania\cite{website:ethereum2018whitepaper,website:EthHubCFTC}.
+
+Problem prywatności w Ethereum jest dalej tematem intensywnych badań i choć są proponowane działające rozwiązania, w obecnej wersji należy zakładać, że każdy może sprawdzić jaki adres wchodził w interkację z jakim kontraktem. Również umieszczając jakiekolwiek dane w kontraktach, należy zakładać, że są w pełni publiczne, jeśli nie zostały wcześniej zaszyfrowane\cite[Problems]{website:ethereum2018whitepaper}.
+
+\subsubsection{Znane podatności kontraktów}
+\label{sec:ZnanePodatnościKontraktów}
+\begin{itemize}
+	\item Re-Entrancy -- klasa podatności opierająca się o race-condition, która występuje kiedy kontrakt A wywołuje (np.\ po przez wysłanie etheru) kontrakt B, a ten nieoczekiwanie wywołuje z powrotem A. Takie działanie może wprowadzić A w niepoprawny stan, pozwalający np.\ na kradzież zawartego w nim etheru lub jego zamrożenie\cite{website:TheDAOHack}. Obrona przed tymi atakami polega głównie na użyciu mutexów lub użycie wzorca \textit{checks-effects-interactions}. 
+	\item Nieoczekiwany ether -- kiedy kontrakt otrzymuje dowolną transakcję/wywołanie, również taką/ie z etherem, może ją/go odrzucić, np.\ przez wywołanie instrukcji \textit{REVERT} lub \textit{INVALID}. Jednak istnieją sposoby wysłania ethereu nie pozwalające kontraktowi na reakcję, należą do nich wysłanie ethereu z pomocą \textit{SELFDESTRUCT}, wskazanie adresu kontraktu jako beneficjenta nagrody za wykopany blok i wysłanie etheru na adres, przed umieszczeniem w nim kodu. Główną strategią ochronną jest nie używanie stanu konta kontraktu, np.\ do kontrolowania ile ethereu użytkownicy wpłacili do kontraktu zgodnie z jego zastosowaniem.
+	\item Wywołanie funkcji bibliotecznej z \textit{SELFDESTRUCT} -- kontrakty używają \textit{DELEGATECALL}, by używać bibliotek, mieć możliwość aktualizacji swojego kodu lub by zmniejszyć jego redundancję. W szczególności dwa ostatnie przypdaki mogą posiadać różne instrukcje zmieniające stan, jak choćby \textit{SELFDESTRUCT}. Rozważmy przypadek,który w poprawnym wykonaniu przebiega naspępująco. Kontrakt beneficjenta A wykonuje \textit{DELEGATECALL} do kontraktu dostarczającego kod B z chęcią wywołania funkcji, która uruchamia instrukcję \textit{SELFDESTRUCT}, jako że zostaje ona wykonana w kontekście A, to on ulega usunięciu. Jeśli teraz wywołamy bezpośrednio B z pomocą transakcji lub \textit{CALL}, a on sam nie posiada mechanizmów pozwalających mu sprawdzić, w jaki został wykonany, to \textit{SELFDESTRUCT} zostanie wykonany w kontekście B i on ulegnie usunięciu. Wynikiem takiej akcji będzie najprawdopodobniej DoS systemów korzystających z B. Rozwiązaniem tego problemu jest unikanie instrukcji zmieniających stan w kontraktach wywoływanych z pomocą \textit{DELEGATECALL} lub przygotowanie innych zabezpieczeń, które pozwolą rozróżnić sposób wywołania kontraktu.
+	\item Hash bloku jako źródło entropii -- klasa ataków wynikająca z błędnego założenia, że hash bloków jest dobrym generatorem liczb pseudolosowych. Nie istnieją proste strategie pozwalające ominąc ten problem. Na obecną chwilę najlepszym rozwiązaniem jest korzystanie z kontraktów z rodziny RANDAO, które z pewnymi ograniczeniami, pozwalają generować liczby pseudolosowe w Ethereum.
+	\item Skrócony adres -- jest to błąd po stronie klientów Ethereum, który wnika w ogólności z błędów w przekazywaniu argumentów do kontraktów.
+	\item Front-Running -- klasa ataków z rodziny race-condition. Występuje ona, kiedy wcześniej niewybrani użytkownicy mają przekazać do kontraktu jakiś sekret, by uzyskać np.\ ether z gry hazardowej. Polega ona na tym, że górnik lub inny użytkownik przechwytuje transakcję z sekretem i sam, we własnym imieniu, ją wysyła do kontraktu. Najprostrzą metodą ochrony przed tym rodzajem ataków, jest konstruowanie kontraktów by najpierw zbierały hashe sekretów, a dopiero poźniej same sekrety.
+	\item DoS -- najprostrzym przykładem ataku z tej klasy jest sytuacja, kiedy kontrakt napisany w Solidity rozsyła ether, w pętli do pewnej grupy użytkowników, z pomocą funkcij \textit{transfer}, która to wykonuje \textit{REVERT}, jeśli przesyłanie zakończy się nie powodzeniem. Niech jeden z użytkowników będzie złośliwym kontraktem, który przy próbie wysłania mu etheru wykonuje \textit{REVERT} lub \textit{INVALID}. Wtedy każda próba rozesłania etheru do użytkowników zakończy się niepowodzeniem, czyli DoSem. Najprostszą metodą ochrony przed tym atakiem jest użycie wzorca \textit{withdraw}, który wymusza na użytkownikach samodzielne pobranie należnych im środków.
+\end{itemize}
+\nocite{website:ethereumVulnerabilities}
+
+\subsubsection{Problem centralizacji}
+\label{sec:ProblemCentralizacji}
+
+Ethereum składa swoim użytkownikom obietnicę platformy do tworzenia zdecentralizowanych aplikacji\cite{website:ethereum2018whitepaper, website:EthHubCFTC}, która jest obwarowana pewnymi ,,oczywistymi'', już omawianymi warunkami i ograniczeniami (patrz rozdział \ref{sec:WlasnosciSieci} i \ref{sec:OgraniczeniaTechnologii}). Jednak okazuje się, że ,,oczywiste'' warunki mają swoją głębszą naturę, a oprócz nich odkrywane są nowe problemy, których wpływ na Ethereum i inne kryptowaluty jest przedmiotem intensywnych debat.
+
+Celem tego podrozdziału będzie określenie pojęcia decentralizacji, oraz omówienie zagadnień potencjalnie zagrażających jej zapewnieniu w Ethereum, jak również dyskusja, na ile przedstawione zjawiska są niebezpieczne, bez budowania formalnej miary.
+
+Pojęcie decentralizacji będziemy rozważać pod kątem defenicji przedstawionych w artykule Vitalika Buterina \cite{website:decentralizationMeaning}, jak i innch źródłach \cite{work:Decentralization}. Dlatego będziemy ją analizować na płaszczyźnie architektury, zarządzania i struktury logicznej.
+
+Przed analizą wspomnianych problemów, należy zwrócić uwagę jakie rodzaje decentralizacji są pożadane w ekosystemie Ethereum i jakie są potencjalne konsekwencje ich zatracenia. Platforma ta promuje rozproszenie architektury, rozumiane jako rozproszenie wykonania kodu między różne maszyny, w idealnym wypadku w różnych lokacjach na świecie, rozproszenie zarządzania/podejmowania decyzji, definiowane jako podejmowanie decyzji, jaka wersja kodu będzie wykonywana na sprzęcie, przez niezależnych, rozsianych po świecie aktorów. Ethereum, w najbardziej pożądanej sytuacji, ulega centralizacji tylko na płaszczyźnie struktury logicznej, określanej jako spójny stan i interfejs sieci, czli identyczny dla wszystkich jej uczestników.
+
+Utrata decentralizacji architektonicznej, więc sytuacja, w ktorej stan i obliczenia wykonywane są na jednej lub kilku maszynach, wiąże się przede wszystkim ze spadkiem niezawodności, co może mieć też wpływ na dostępność. Zanik rozproszenia zarządzania, czyli jeden lub kilku aktorów decyduje, co może być zapisane w sieci i co inni widzą, może uderzać w dostępność, gwarancje poprawności stanu sieci, jak również jej spójność. Decentralizacja struktury logicznej może być rozumiana, w kontekście Ethereum, jako rozłam sieci, czyli utrata spójności stanu.\\
+
+PoW sam w sobie stanowi tylko mechanizm zabezpieczający przed spamem i atakami Sybili, jednak w kryptowalutach, poruszanych w tej pracy, jest połączny z mechanizmem wyboru bloków, tworząc algorytm rozproszonego konsensusu. Wynika z tego, że górnicy posiadający więcej mocy obliczeniowej, mają większą szansę na zadecydowanie jaki blok będzie następnym, z czym zazwyczaj wiąże się możliwość wypłacania sobie honorarium. Kreuje to rynek, w którym górnicy konkurują z sobą, próbując uzyskać jak największą ilość hashy na sekundę, jak najmniejszym kosztem. Liczne obserwacje i badania wskazują, że kopanie podlega zjawisku ,,korzyści skali''(\textit{Economies of scale}), które pozwala zmniejszyć koszty przez tworzenie dedykowanych centrów obliczeniowych do wydobycia kryptowalut. Takie mechanizmy sprzyjają centralizacji architektonicznej i decyzyjnej. Jednak czy te zjawiska doprowadzą do wystąpenia spadku niezawodności, czy nawet złośliwego zmianu stanu sieci oraz jakie kryptowaluty zostaną nimi dotknięte jest tematem licznych sporów\cite{website:PoWDatacenter, website:PoolCentralization, work:DecentralizationInBitAndEth}.
+
+Teoretycznym limitem zanim kryptowaluta oparta o PoW utraci decentralizację zarządzania, jest przejęcie przez jednego aktora (lub kilku współpracujących) ponad 50\% mocy obliczeniowej\cite{work:AnonByzConsBit}. Praktyczny limit jest jednak niższy i zależy od czasu powstawania nowych bloków, ich rozmiaru, szybkości propagacji danych, ilości agentów, których praca została wzięta pod uwagę przy wyborze nowego bloku oraz wysokości wypłacanych honorariów. Symulacje potencjalnych ataków (\textit{Double-spending}) i złośliwych zachowań górników (\textit{eclipse attacks}, \textit{selfish mining}), wskazują że koszty ataku na Ethereum są niższe niż na Bitcoina, jednak inne badania sugerują, że obecnie używany mechanizm wyboru bloków GHOST z ,,wujkami'', podnosi ten poziom do porównywalnego z Bitcoinem\cite{work:PoWSecurity, work:GHOST, website:EthGHOSTAndUncles}.\\
+
+dalej będa poruszane kwestie: Ethereum PoS a centralizacja, Infura, System rządów Ethereum (Ethereum governance)
+\\
+
+
+%   Ethereum PoS a centralizacja
+%   Infura
+%   System rządów Ethereum
+
+%   selfish
+%   https://arxiv.org/pdf/1311.0243v2.pdf
+
+%   eclipse
+%   https://eprint.iacr.org/2015/263.pdf
+
+
+%   https://www.coindesk.com/bitcoin-mining-detente-ghash-io-51-issue
+
+%   https://forum.blockstack.org/t/pos-blockchains-require-subjectivity-to-reach-consensus/762?u=muneeb
+
+%   https://bitcoinexchangeguide.com/bringing-true-decentralization-to-ethereum-eth-infura-has-got-to-go/
+
+%   https://www.journaltranscript.com/2018/12/infura-is-solely-contradicting-ethereums-decentralization-reputation/
+
+%   https://medium.com/@VitalikButerin/the-meaning-of-decentralization-a0c92b76a274
+
+%   https://cointelegraph.com/news/6-myths-about-ethereum-decentralization
+
+%   jeszcze więcej rzeczy
+
+%   https://www.ccn.com/dev-ethereum-may-fail-if-it-relies-on-infura-to-run-nodes-potential-solution/
+%   https://hackernoon.com/the-ethereum-blockchain-size-has-exceeded-1tb-and-yes-its-an-issue-2b650b5f4f62
 
 \subsubsection{Zgodność z Ethereum 2.0}
 
-Znaczna cześć zaproponowanych przez nas rozwiązań, będzie musiała być ponownie przeanalizowana, a nawet zmieniona, w kolejnych wersjach Ethreum, głównie z powodu dodania mechanizmu naliczania "czynszu" za używanie pamięci \textit{storage}, jak również pamięci, w której jest przechowywany kod kontraktów. Kolejną istotną zmianą będzie wprowadzenie \textit{shardingu}, który pozwoli zwiększyć przepustowość sieci, jak również doda nowe mechanizmy asynchronicznego, wzajemnego wywoływania się kontraktów. Dodanie obsługi tych funkcjonalności będzie kluczowe, by zapewnić poprawne działanie systemu i zapewnić jak najwyższą wydajność naszych usług.
+Znaczna cześć zaproponowanych przez nas rozwiązań, będzie musiała być ponownie przeanalizowana, a nawet zmieniona, w kolejnych wersjach Ethreum, głównie z powodu dodania mechanizmu naliczania ,,czynszu'' za używanie pamięci \textit{storage}, jak również pamięci w której przechowywany jest kod kontraktów. Kolejną istotną zmianą będzie wprowadzenie \textit{shardingu}, który pozwoli zwiększyć przepustowość sieci, jak również doda nowe mechanizmy asynchronicznego, wzajemnego wywoływania się kontraktów. Dodanie obsługi tych funkcjonalności będzie kluczowe, by zapewnić poprawne działanie systemu i zapewnić jak najwyższą wydajność naszych usług.
 
-\subsection{Podział systemu na podsystemy}
+\subsection{Zidentyfikowane problemy}
+\label{sec:ZidentyfikowaneProblemy}
 
-\subsubsection{Back-end}
+\subsubsection{Model pamięci Solidity}
 
-\subsubsection{Front-end}
+Nasz projekt ze swojej natury wymaga implementacji podstawowych elementów bazo-danowych i zapisywania stanu. Najbardziej naturalnym rodzajem pamięci w kontraktach, który nadaje się do tego zadania jest \textit{storage}. Jednak Solidity nie pozwala traktować tej pamięci jak analogu pliku, do którego można arbitralnie pisać i odczytywać, tylko jak pola obiektu, o zdefiniowanym typie, lokalizacji i zasadach dostępu. Takie rozwiązanie, nie wątpliwie pomaga zaznajomić się z językiem i ułatwia pisanie niedużych projektów, ale utrudnia konstruowanie bardziej skomplikowanych modeli stanu kontraktów.
+
+\subsubsection{Modularyzacja systemu}
+
+Kontrakty nie pozwalają na agregację lub kompozycję innych kontraktów, czyli nie jest możliwe utworzenie jednego wewnątrz drugiego, tak by pierwszy nie był w pełni widoczny i dostępny dla całej reszty sieci. Ten fakt sprawia, że pomimo obiektowego charakteru Solidity, nie jest możliwe zastosowanie części wzorców projektowych, takich jak np.\ kompozyt, strategia, czy stan. Brak prostych odpowiedników, znacząco skomplikował budowę rozwiązań w naszym systemie.
+
+\subsection{Zaimplementowane rozwiązania}
+
+\subsubsection{Generyczna maszyna stanowa}
+
+Jako odpowiedź na brak prostego odpowiednika wzorca stanu, zaprojektowaliśmy i zaimplementowaliśmy autorską generyczną maszynę stanową. Jej mechanizm działania opiera się na zbieraniu wywołań na głownym kontrakcie i przekazywaniu ich z pomocą \textit{DELEGATECALL} do innch kontraktów, w zależności od obecnego stanu.
+
+Jej implementacja obejmuje kontrakty:
+\begin{itemize}
+	\item \textit{StateMachine} -- centralny w tym rozwiązaniu kontrakt, który przechowuje obecny stan, adresy kolejnych stanów oraz inne dane zapisane do pamięci \textit{storage}. Wykorzystuje on \textit{fallback}, czyli funkcję bez nazwy, do zbierania wszystkich wywołań, a następnie używa mechanizmu \textit{DELEGATECALL}, by przekazać sterowanie do odpowiedniego kodu.
+	\item \textit{AbstractState} -- abstrakcyjny kontrakt, po którym dziedziczą stany używane w maszynie stanowej. Kod pochodnych do niego kontraktów jest ładowany w czasie wywołania \textit{DELEGATECALL}.
+	\item \textit{IState} -- interfejs stanów.
+	\item \textit{IStateMachineBase} -- interfejs maszyny stanowej.
+	\item\textit{IStateMachineBase} -- wspólny interfejs dla maszyn i stanów.
+\end{itemize}
+
+ , \textit{AbstractState}, 
+
+\subsubsection{Abstrakcja nad pamięcią \textit{storage}}
+
+Zestaw bibliotek i abstrakcyjnych kontraktów, które konstruują warstwę abstrakcji, omijającą mechanizmy zarządzania \textit{storage} przez Solidity. Pozwalają one traktować omawianą pamięc, jak plik do którego można swobodnie pisać. Pozwala to konstruować kontrakty wywoływane z pomocą \textit{DELEGATECALL}, które mogą bezpiecznie posiadać stan.
+
+Implementacja jest zawarta w:
+\begin{itemize}
+	\item \textit{StorageUtils} -- biblioteka z zestawem funkcji pozwalających na zapis i odczyt arbitralnych danych oraz struktur implementujących ,,wskaźnik'' na elementy \textit{storage}.
+	\item \textit{StorageManagement} -- biblioteka implementująca ,,strony'' pamięci \textit{storage}, które moga być bezpiecznie używane przez kontrakty wywoływane z pomocą \textit{DELEGATECALL}.
+	\item \textit{StorageController} -- kontrakt abstrakcyjny, po którym dziedziczą kontrakty będące donorami pamięci \textit{storage}.
+	\item \textit{StorageClient} -- kontrakt abstrakcyjny, dziedziczą po nim kontrakty klienckie, które używają \textit{storage} \textit{StorageControllera}, przy wywołaniu z pomocą \textit{DELEGATECALL}.
+\end{itemize}
+
+\subsubsection{Umowa jako maszyna stanowa}
+
+Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktów realizującycj umowę, który jest modularny i względnie łatwy w rozszerzaniu. Nie mniej rozwiąznie wymaga przetestowania, z większą ilością zaimplementowanych scenariuszy, by w pełni zdiagnozować inne potencjalne problemy takiej architektury.
 
 \subsection{Model obiektowy systemu}
 
@@ -1877,108 +1991,174 @@ Znaczna cześć zaproponowanych przez nas rozwiązań, będzie musiała być pon
 \recalctypearea
 
 \subsubsection{Front-end}
+\clearpage
+\KOMAoptions{paper=A3,pagesize}
+\KOMAoptions{paper=landscape}
+\recalctypearea
 
+\includegraphics[width=1.0\textwidth, height=0.9\textheight]{FrontEnd_Class_Diagram}
+
+\clearpage
+\KOMAoptions{paper=portrait}
+\KOMAoptions{paper=A4,pagesize}
+\recalctypearea
 \newpage
-\section{Przyrost pierwszy}
-\subsection{Cele przyrostu}
-Podczas pierwszego przyrostu postawiliśmy sobie za cel przeanalizowanie, jak powinny wyglądać sprawiedliwe kontrakty, tak, aby każda ze stron nie czuła się w żaden sposób oszukana. Naszym kolejnym celem było zaproponowanie, jak system powinien wyglądać, jakich akcji może podejmować się użytkownik, jakie powinien mieć ograniczenia w danych przypadkach, oraz ustalić wstępną architekturę systemu. Oprócz tego, wykonaliśmy wstępny harmonogram prac do monitorowania postępów.
+\section{Przyrosty}
 
-\subsection{Analiza back-end'u}
-Na samym początku zabraliśmy się za analizę naszego systemu. Postanowiliśmy że naszym głównym przedmiotem badań będzie przeanalizowanie sprawiedliwych kontraktów. Podczas analizowania różnych przypadków postanowiliśmy że system powinien dostarczać różne rodzaje kontraktów w zależności od potrzeb użytkowników którzy będą korzystać z naszego systemu. Podczas prac analizowaliśmy różnego przypadki umów, na koniec postanowiliśmy że w ramach naszej pracy inżynierskiej stworzymy dwa typy kontraktów.
+\subsection{Szablon przyrostów}
 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.35\textwidth]{A1_1.png}
-\caption{Analiza umowy 1.1}
-\label{A1_1}
-\end{figure}
+Każdy z przyrostów zawiera krótki opis celów jakie chcielismy osiągnąć w czesie jego trwania, analizę zadań i wymagań oraz wytworzone produkty lub zidentyfikowane problemy. Ich gównym zadaniem jest chronologiczna prezentacja wcześniejszych rozdziałów, w których został zawarty pełny opis analizy, architektury, problemów i ich rozwiązań, dlatego zawierają one tylko odnośniki i zwięzłe komentarze.
 
-Umowa przedstawiona powyżej jest najprostszą dostępną umową w naszym systemie. Umowę rozpoczyna Sprzedawca, który tworzy umowę (punkt 0 na rysunku \ref{A1_1}) . Potencjalny kupujący zainteresowany umową wpłaca pieniądze(1), a w następnym kroku Sprzedawca potwierdza transakcję(2). Na koniec kupujący ocenia sprzedającego(3). W umowie istnieją alternatywne scenariusze, ponieważ sprzedający może nie chcieć zawrzeć umowy z nisko ocenianym kupującym i odrzucić ofertę(2a), gdzie następnym krokiem jest wypłacenie tokenów przez kupującego(3a). Jeżeli dojdzie do porozumienia lub też nie, umowa zostaje zakończona(4a).
+\subsection{Przyrost pierwszy}
+\subsubsection{Cele przyrostu}
 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.45\textwidth]{A1_2.png}
-\caption{Analiza umowy 1.2}
-\label{A1_2}
-\end{figure}
+Podczas pierwszego przyrostu przygotowaliśmy analizę, jak powinny być zbudowane umowy, by wspierać możliwość wymiany dowolnymi dobrami oraz jakie gwarancje prezentują takie modele. Dokonaliśmy wyboru frameworków do testowania i wgrywania kontraktów do sieci oraz klienta sieci deweloperskiej. Przygotowaliśmy krótkie materiały szkoleniowe z pisania kontraktów w \textit{Solidity} ze wsparciem wybranych technologii. Kolejnym postawionym celem było przygotowanie wstępnej architektury naszego rozwiązania. Oprócz tego, wykonaliśmy wstępny harmonogram prac do monitorowania postępów. 
 
-Umowa A1.2 jest ewolucją umowy A1.1. W tym przypadku sprzedający dodatkowo ustala zaliczkę oraz czas pozwalający na wycofanie się kupującego. Kolejną ważną cechą jest też możliwość ocenienia sprzedającego przez kupującego. W powyższej umowie dochodzi jedna dodatkowa alternatywna droga do zakończenia umowy. Kupujący może zrezygnować z kontynuowania procesu i może zażądać zwrotu wpłaconych pieniędzy, jednak może to zrobić tylko przed terminem pozwalającym na wycofanie się.
+\subsubsection{Analiza}
 
-\subsection{Projektowanie back-end'u}
-\subsection{Lista zmian}
+Wynikiem rozważań na temat konstrukcji umów, są scenariusze \ref{Scenariusz A1.1}, \ref{Scenariusz A1.2}, \ref{Scenariusz A1.3}, \ref{Scenariusz A2.1}, \ref{Scenariusz A2.2}.
 
-\newpage
-\section{Przyrost drugi}
-\subsection{Cele przyrostu}
-Drugi przyrost to przede wszystkim implementacja pierwszej umowy A1.1 oraz AgreementManagera, odpowiedzialnego za rejestrowanie i tworzenie umów w systemie.
-Następnym istotnym celem było stworzenie kontraktu wewnętrznego tokena, który posiada możliwość wpłacania i wypłacania ethereu oraz przekazywania go do umów.
-W przyroście drugim została również przeprowadzona analiza zachęt do usuwania przetrminowanych umów.
-Również zostały przeprowadzona analiza scenariuszy innych bardziej złożonych typów umów.
+Jako framework do testowania i wgrywania kontraktów wybraliśmy \textit{Truffle}, ze względu na to, że było to najbardziej rozwinięte i udokumentowane tego typu rozwiązanie, jak na początek roku 2018.
 
-\subsection{Analiza front-end'u}
-\subsection{Projektowanie front-end'u}
-\subsection{Testy}
-\subsubsection{Środowisko testów}
-Aplikacja była testowana za pomocą środowiska developerskiego truffle w którym testy tworzoyny za pomocą javascriptowego środkowska testowego Mocha oraz Chai do tworzenia assercji.
-Do testów potrzebujemy środowisko w którym możemy uruchomić kontrakty. Do tych zadań używamy środowiska Ganache, który jest personalnym blockchainenm gdzie możemy uruchamiać kontrakty i testować je.
-\subsubsection{Scenariusze testowe}
+Klientem sieci deweloperskiej zostało \textit{Ganache}, ze względu na prostotę obsługi oraz silne gwarancje interoperacyjności z \textit{Truffle} (są tworzone przez tę samą organizację). Niektóre z naszych rozwiązań testowaliśmy z pomocą klienta \textit{Parity}, ale ze względu na wcześniej wymienione kwestie, w pełni przenieśliśmy proces wytwórczy na \textit{Ganache}.
+
+W czasie trwania tego przyrostu przygotowaliśmy ćwiczenia pozwalające dokonać rozpoznania możliwości wybranych przez nas technologii, wstępnego zapoznania się z językiem \textit{Solidity}. Więcej szczegółów znajduje się w załączniku \textit{SmartContracts}.
+
+Na wstępny szkic architektury składał się \textit{AgreementManager} służacy do tworzenia i nadzorowania umów oraz autorskiego portfela z tokenami. Również ustaliliśmy wstepny model danych przechowywanych przez umowy. Przeprowadziliśmy również rozpoznanie niektórych ataków na kontrakty oraz sposobów zabezpieczania się przed nimi (patrz rodział \ref{sec:ZnanePodatnościKontraktów} punkt \textit{Re-Entrancy} i \testit{Nieoczekiwany ether}).
+
+
+\subsection{Przyrost drugi}
+\subsubsection{Cele przyrostu}
+Zadaniami postawionymi w przyroście drugim była, implementacja pierwszej umowy A1.1 (\ref{Scenariusz A1.1}), AgreementManagera, odpowiedzialnego za rejestrowanie i tworzenie umów w systemie oraz kontraktu tokenów zgodnych ze standardem ERC20. Została przeprowadzona także analiza scenariuszy innych, bardziej złożonych typów umów.
+
+\subsubsection{Analiza}
+
+Pierwotne rozwiązanie by umowy wprost pobierały depozyt etheru i same nim zarządzały, nie było zgodne z dobrymi praktykami programowania, jak również wprowadzało problemy z modularnością i przenośnością systemu, dlatego wprowadziliśmy token zgodny ze standardem ERC20, który wymienia się w stosunku 1:1 z etherem oraz prowadzi listę bilansów każdego adresu w sieci Ethereum. Pozwoliło to przenieść do krytyczną funkcjonalnośc przesyłania tokenów z umów do osobnego kontraktu, który można było niezależnie testować pod kątem bezpieczeństwa.
+
+W tym przyroście prezentujemy dalszy ciąg naszych rozważań na temat konstrukcji umów, których wynikiem są scenariusze umów \ref{Scenariusz A3.1}, \ref{Scenariusz A3.2}, \ref{Scenariusz A3.3}, \ref{Scenariusz A4.1}, \ref{Scenariusz A4.2}, \ref{Scenariusz PA1}, \ref{Scenariusz PA2}, \ref{Scenariusz glosowania swiadkow}
+
+\subsubsection{Testy}
+
+\textbf{Środowisko testów}
+
+Aplikacja była testowana za pomocą środowiska developerskiego \textit{Truffle} w którym testy tworzymy za pomocą javascriptowego środkowska testowego \textit{Mocha} oraz \textit{Chai} do tworzenia assercji.
+Do testów potrzebujemy środowisko w którym możemy uruchomić kontrakty. Do tych zadań używamy środowiska \textit{Ganache}.\\
+\textbf{Scenariusze testowe}
 \begin{table}[H]
     \begin{tabular}{|l|l|}
 \hline
     	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: Standardowa ścieżka}}                 & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy stworzenie umowy A1.1 z daną ceną w początkowym stanie. Użytkownik wpłaca pieniądze do kontraktu. Twórca wypłaca pieniądze. Każdy z użytkowników zamyka umowę. Umowa zostaje zakończona.}} \\ \hline
-    	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: właściwości dołączania}} & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy różne scenariusze dołączania do umowy. Sprawdzamy czy umowa posiada do trzech maksymalnie użytkowników. Sprawdzamy czy twórca lub suplikant nie próbuje dołączyć dwa razy do tej samej umowy.}}    \\ \hline
-    	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: ograniczenia akecptacji użytkowników}} & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy możliwość akceptacji użytkowników. Sprawdzamy czy twórca nie próbuje akceptować samego siebie do umowy. Sprawdzamy, czy tylko twórca ma możliwość akceptacji próśb o dołączenie do umowy. Sprawdzamy również czy nie ma możliwości akceptacji próśb, gdy umowa jest w trakcie realizacji.}}                                                \\ \hline
-   	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: właściwości akceptacji zależne od stanu}} & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy czy twórca nie ma możliwości podwójnie zaakceptować prośby o dołączenie od tej samej osoby. Sprawdzamy również, czy nie ma możliwości dołączania do umowa gdy jest ona zamknięta.}}                                                \\ \hline
+    	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: Właściwości dołączania}} & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy różne scenariusze dołączania do umowy. Sprawdzamy czy umowa posiada do maksymalnie trzech użytkowników. Sprawdzamy czy twórca lub suplikant nie próbuje dołączyć dwa razy do tej samej umowy.}}    \\ \hline
+    	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: Ograniczenia akecptacji użytkowników}} & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy możliwość akceptacji użytkowników. Sprawdzamy czy twórca nie próbuje akceptować samego siebie do umowy. Sprawdzamy, czy tylko twórca ma możliwość akceptacji próśb o dołączenie do umowy. Sprawdzamy również czy nie ma możliwości akceptacji próśb, gdy umowa jest w trakcie realizacji.}}                                                \\ \hline
+   	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: Właściwości akceptacji zależne od stanu}} & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy czy twórca nie ma możliwości podwójnie zaakceptować prośby o dołączenie od tej samej osoby. Sprawdzamy również, czy nie ma możliwości dołączania do umowy gdy jest ona zamknięta.}}                                                \\ \hline
 	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: właściwości zamknięcia umowy}} & \multicolumn{1}{m{9cm}|}{\textit{Testujemy, czy obce adresy nie mają możliwości zakończenia umowy. Sprawdzamy również, czy niezaakceptowany adres nie ma możliwości zamknięcia umowy oraz czy nie ma możliwości podówjnie zakończyć umowy.}} \\ \hline
 	\multicolumn{1}{|m{6,5cm}|}{\textit{Interkacja umowy z funkcją remove}}    & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy czy różne funkcje takie jak join czy accept nie mają wpływu na usunięcie całego kontratktu. Sprawdzamy równiez czy nie ma możliwości usunąć umowy gdy jest w stanie realizacji.}} \\ \hline
-	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: właściwości wycofania}}  & \multicolumn{1}{m{9cm}|}{\textit{W tym scenraiuszu testujemy wycofywanie się użytkownika z umowy. Sprawdzamy, czy sprzedawca nie może wycofać się z umowy. Wraz z wycofywaniem się, sprawdzamy czy jest możliwość wypłacenia tokenów. Sprawdzamy czy po staniu się kupującym nie może wycofać się z umowy.}}                                          \\ \hline
+	\multicolumn{1}{|m{6,5cm}|}{\textit{Umowa A1.1: Właściwości wycofania}}  & \multicolumn{1}{m{9cm}|}{\textit{W tym scenraiuszu testujemy wycofywanie się użytkownika z umowy. Sprawdzamy, czy sprzedawca nie może wycofać się z umowy. Wraz z wycofywaniem się, sprawdzamy czy jest możliwość wypłacenia tokenów. Sprawdzamy czy po staniu się kupującym nie może wycofać się z umowy.}}                                          \\ \hline
 	\multicolumn{1}{|m{6,5cm}|}{\textit{AgreementManager: Tworzenie umów}}  & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy czy AgreementManager pomyślnie tworzy umowę. Sprawdzamy również czy umowa istnieje pod danym adresem.}}                                          \\ \hline
 	\multicolumn{1}{|m{6,5cm}|}{\textit{AgreementManager: Właściwości wyszukiwania}}  & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy właściwości wyszukiwania AgreementManagera. Sprawdzamy czy AgreementManager pomyślnie wyszukuje pomyślnie daną umowę.}}                                          \\ \hline
 \end{tabular}
 \end{table}
 
-\subsection{Implementacja}
-\subsection{Lista zmian}
+\subsubsection{Implementacja}
 
-\newpage
-\section{Przyrost trzeci}
-\subsection{Cele przyrostu}
+Produkty:
+\begin{itemize}
+	\item \textit{StandardECMToken}
+	\item \textit{AgreementManager}
+	\item \textit{Agreement}
+\end{itemize}
+
+
+\subsection{Przyrost trzeci}
+\subsubsection{Cele przyrostu}
 
 Głównym zadaniem było stworzenie UI do wygodnego wyszukiwania umów oraz różnych widoków potrzebnych do tworzenia, czy też przeglądania umów.
-W trzecim przyroście również postawiliśmy sobie za zadanie przebudowanie wewnętrzengo tokena do standardu
-obowiązującego w środowisku Ethereum (ERC20).
 W tym przyroście również przygotowaliśmy system do dodania umowy A1.2.
 
-\subsection{Napotkane problemy}
+\subsubsection{Napotkane problemy}
 
 Na tym etapie podczas tworzenia implementacji umów, napotkaliśmy problem natury technicznej.
 Każda umowa, którą zaprojektowaliśmy ma różne wspólne cechy, które zgodnie z zasadami dobrego programowania, powinny być umieszczone w osobnych, uogólnionych komponentach, tak by zapewnić hermetyzację i uniknąć powtarzania kodu.
-Język programowania, którego używamy, wspiera dziedziczenie, jednak do zamodelowania umów bardziej adekwatne było użycie wzorca projektowgo \textit{Maszyna Stanowa}, który opiera się o agregację. Kontratky jednak nie wspierają agregacji, nie można stworzyć instancji kontraktu w kontrakcie, tak by ten wewnętrzny nie był wyeksponowany i dostępny dla potencjalnie złośliwych aktorów. Konieczne było więc opracowanie autorskiego rozwiązania, które realizuje ten wzorzec, z uwzględnieniem faktu, że stworzeni pojedynczego kontraktu kosztuje relatywnie dużą ilośc gazu.
+Język programowania którego używamy wspiera dziedziczenie, jednak do zamodelowania umów bardziej adekwatne było użycie wzorca projektowgo \textit{Maszyna Stanowa}, który opiera się o agregację. Kontratky jednak nie wspierają agregacji, nie można stworzyć instancji kontraktu w kontrakcie, tak by ten wewnętrzny nie był wyeksponowany i dostępny dla potencjalnie złośliwych aktorów. Konieczne było więc opracowanie autorskiego rozwiązania, które realizuje ten wzorzec z uwzględnieniem faktu, że stworzenie pojedynczego kontraktu kosztuje relatywnie dużą ilość gazu.
 
-\subsection{Projektowanie back-end'u}
-\subsection{Projektowanie front-end'u}
-\subsection{Testy}
-\subsection{Scenariusze testowe}
+\subsubsection{Testy}
 \begin{table}[H]
     \begin{tabular}{|l|l|}
 \hline
-    \multicolumn{1}{|m{6,5cm}|}{\textit{Standard ECM Token: transfer}}                 & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy różne scenariusze przepływu tokenów pomiędzy kontami. Sprawdzamy poprawność transakcji.Sprawdzamy również czy nie ma możliwości wysyłać tokenów do adresu danego tokenu.}} \\ \hline
-    \multicolumn{1}{|m{6,5cm}|}{\textit{Standard ECM Token: wpłata oraz wypłata pieniędzy}} & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy poprawność wpłat i wypłat tokenów. Funkcje testowane są również na kilku użytkownikach oraz samego zdarzenia transferu.}}    \\ \hline
-    \multicolumn{1}{|m{6,5cm}|}{\textit{Maszyna stanowa}} & \multicolumn{1}{m{11cm}|}{\textit{W tym scenariuszu sprawdzamy poprawaność przejścia stanu.}}                \\ \hline
-    \multicolumn{1}{|m{6,5cm}|}{\textit{Maszyna stanowa z pamięcią}} & \multicolumn{1}{m{11cm}|}{\textit{W tym scenariuszu sprawdzamy poprawność zapisywania różnych stanów w pamięci}}                                                \\ \hline
-    \multicolumn{1}{|m{6,5cm}|}{\textit{Obiekt Storage}} & \multicolumn{1}{m{11cm}|}{\textit{Testujemy inicjowanie obiektu Storage}} \\ \hline
-    \multicolumn{1}{|m{6,5cm}|}{\textit{Zakres pamięci}}    & \multicolumn{1}{m{11cm}|}{\textit{Testujemy zachowanie pamięci poza zakresem.}} \\ \hline
-    \multicolumn{1}{|m{6,5cm}|}{\textit{Pamięć: podstawy działania}}    & \multicolumn{1}{m{11cm}|}{\textit{Sprawdzamy poprawność funkcji, których celem jest zapisywanie do danego slotu w pamięci.}} \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Standard ECM Token: transfer}}                 & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy różne scenariusze przepływu tokenów pomiędzy kontami. Sprawdzamy poprawność transakcji.Sprawdzamy również czy nie ma możliwości wysyłać tokenów do adresu danego tokenu.}} \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Standard ECM Token: wpłata oraz wypłata pieniędzy}} & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy poprawność wpłat i wypłat tokenów. Funkcje testowane są również na kilku użytkownikach oraz samego zdarzenia transferu.}}    \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Maszyna stanowa}} & \multicolumn{1}{m{9cm}|}{\textit{W tym scenariuszu sprawdzamy poprawaność przejścia stanu.}}                \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Maszyna stanowa z pamięcią}} & \multicolumn{1}{m{9cm}|}{\textit{W tym scenariuszu sprawdzamy poprawność zapisywania różnych stanów w pamięci}}                                                \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Obiekt Storage}} & \multicolumn{1}{m{9cm}|}{\textit{Testujemy inicjowanie obiektu Storage}} \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Zakres pamięci}}    & \multicolumn{1}{m{9cm}|}{\textit{Testujemy zachowanie pamięci poza zakresem.}} \\ \hline
+    \multicolumn{1}{|m{6,5cm}|}{\textit{Pamięć: podstawy działania}}    & \multicolumn{1}{m{9cm}|}{\textit{Sprawdzamy poprawność funkcji, których celem jest zapisywanie do danego slotu w pamięci.}} \\ \hline
                                     
 \end{tabular}
 \end{table}
 
-\subsection{Testy systemowe}
-\subsection{Implementacja}
-\subsection{Lista zmian}
+\subsubsection{Testy systemowe}
+\subsubsection{Implementacja}
+\subsubsection{Lista zmian}
 
 \newpage
 \section{Instrukcja obsługi}
+
+\subsection{Konfiguracja środowiska deweloperskiego}
+
+\subsubsection{Back-end}
+
+Środowisko deweloperskie składa się z:
+\begin{itemize}
+	\item \textbf{npm} w wersji 6.1.0
+	\item \textbf{nodejs} w wersji 8.15.0
+	\item \textbf{truffle} w wersji 4.1.14
+	\item \textbf{solidity} w wersji 0.4.24
+	\item \textbf{ganache} w wersji 1.2.0
+\end{itemize}
+
+Po zainstalowaniu wymaganych programów, uruchomieniu klienta Ganache i przejściu
+do głównego katalogu projektu, mamy do dyspozycji następujące funkcje:
+\begin{itemize}
+	\item \textbf{truffle test} -- uruchamia zestaw testów
+	\item \textbf{truffle compile} -- kompiluje kontrakty do byte-codu i generuje ich ABI
+	\item \textbf{truffle migrate} -- wykonuje skrypt deployujący skompilowane kontrakty do wskazanej w konfiguracji sieci
+\end{itemize}
+
+\subsubsection{Front-end}
+Front-end tutaj przedstwaiony jest tylko przykładem który w przyszłości różni developerzy będą mogli modyfikowa i udoskanalac
+Środowsiko developerskie składa się z:
+\begin{itemize}
+	\item \textbf{npm} w wersji 6.1.0
+	\item \textbf{angular} w wersji 6.0.8
+\end{itemize}
+
+Po zainstalowaniu wymaganych programów i przejściu do głównego katalogu by korzystać z aplikacji potrzebujemy:
+\begin{itemize}
+	\item \textbf{npm install} -- komenda która pozwala do zainstalowana paczek oraz paczek zależnych od niej w celu uruchumienia apliakcji
+	\item \textbf{ng serve} -- buduje oraz dostarcza aplikację gotową do przeglądania
+	\item Po pomyślnym zbudowaniu aplikacji, otwieramy przeglądarke internetową np. \textbf{Google Chrome}.
+	\item W pasku adresu przeglądarki wpisujemy /textbf{http://localhost:4200/} w celu przejścia do naszej aplikacji.
+	\item \textbf{ng test} -- uruchamia zestaw testów. W celu poprawnego działania zalecane jest używanie jako domyślnej przeglądarki {Google Chrome}
+\end{itemize}
+
+\subsection{Obsługa aplikacji}
+
+Pierwszy z dostępnych paneli jest panel wyszukiwnia w którym możemy bez problemu wyszuka bez problemu interesującą nas umowę.
+W tym wydaniu możem wyszukać umowę wpisując rózne parametry tj.
+\begin{itemize}
+	\item \textbf{name:} aby wyszukać umowę po nazwie
+	\item \textbf{price:} aby wyszukać umowę po cenie
+	\item \textbf{expirationDate:} aby wyszukać po umowę po dacie wygaśniecia umowy
+\end{itemize}
+
+Drugim z dostępnych paneli jest panel użytkownika. W tym panelu możemy znaleźć adres portfelu na którym będziemy operować podczas użytkownia aplikacji. 
+Możemy tu również znaleźć własne stworzone umowy oraz umowy w których uczestniczymy.
+
+Trzecim panel jest panel tworzenia umów. W tym panelu możemy stworzyć umowę danego typu. W tym wydaniu dostępna będzie umowa A1.1. By stworzyć umowę należy podać datę,nazwę,opis oraz cenę.
+Następnie klikamy przycisk \textbf{Submit} aby dodać umowę do systemu.
+
+Przy każdym wyszukaniu umowy mamy możliwość spojrzeć na szczegółową stronę umowy. 
+Ta strona pozwala nam przejrzeć wszystkie detale umowy, widziwmy również adresy twórcy oraz petenta.
 
 \newpage
 \section{Prezentacja projektu}
@@ -1995,19 +2175,22 @@ Język programowania, którego używamy, wspiera dziedziczenie, jednak do zamode
 \newpage
 \section{Podsumowanie}
 
+
+
 \newpage
 \section{Słownik pojęć}
 \begin{itemize}
-	\item Platforma Handlowa --- aplikacje agregujące oferty handlowe, pośredniczące w wykonaniu opłat i dostarczające narzędzia od oceny kupujących i sprzedających. 
-	\item Ekosystem Ethereum (zespół technologii Ethereum) --- Ethereum jako środowisko wykonawcze oparte na blockchainie, rozproszona przestrzeń dyskowa Swarm, system komunikatów Whisper, biblioteki web3 i aplikacje klienckie Ethereum.
-	\item  Ethereum --- środowisko wykonawcze oparte na blockchainie dla inteligentnych kontraktów.
-	\item  Blockchain --- struktura danych mogąca przechowywać dowolne dane w postaci bloków, skonstruowana na zasadzie listy (lub w pewnym stopniu drzewa), gdzie wskaźnikami do poprzednich bloków są ich kryptograficzne hasze.
-	\item Drzewa Merkle --- struktura danych mogąca przechowywać dowolne dane, skonstruowana na zasadzie drzewa, gdzie wskaźnikami na rodziców są ich kryptograficzne hasze.
-	\item Mainnet --- główna sieć Ethereum o id równym 1. Na niej odbywają się transakcje z użyciem etheru posiadającym wartość dla użytkowników.
-	\item Swarm --- zdecentralizowana przestrzeń dyskowa oparta na drzewach Merkle, zintegrowana z Ethereum. 
-	\item Whisper --- zdecentralizowany, wysoce anonimowy system komunikatów zintegrowany z Ethereum.
-	\item Wirtualna Maszyna Ethereum --- część Ethereum wykonująca bytecode skompilowanych kontraktów.
-	\item Ether --- jednostka płatności/możliwości wykonania kodu. Jest podstawową walutą w ekosystemie Ethereum. 1 ether dzieli się na $10$\textsuperscript{18} wei.
+	\item Platforma Handlowa -- aplikacje agregujące oferty handlowe, pośredniczące w wykonaniu opłat i dostarczające narzędzia od oceny kupujących i sprzedających. 
+	\item Ekosystem Ethereum (zespół technologii Ethereum) -- Ethereum jako środowisko wykonawcze oparte na blockchainie, rozproszona przestrzeń dyskowa Swarm, system komunikatów Whisper, biblioteki web3 i aplikacje klienckie Ethereum.
+	\item  Ethereum -- środowisko wykonawcze oparte na blockchainie dla inteligentnych kontraktów.
+	\item  Blockchain -- struktura danych mogąca przechowywać dowolne dane w postaci bloków, skonstruowana na zasadzie listy (lub w pewnym stopniu drzewa), gdzie wskaźnikami do poprzednich bloków są ich kryptograficzne hasze.
+	\item Patricia Merkle Trie -- struktura danych mogąca przechowywać dowolne dane, skonstruowana na zasadzie drzewa, gdzie wskaźnikami na rodziców są ich kryptograficzne hasze.
+	\item Mainnet -- główna sieć Ethereum o id równym 1. Na niej odbywają się transakcje z użyciem etheru posiadającym wartość dla użytkowników.
+	\item Swarm -- zdecentralizowana przestrzeń dyskowa oparta na drzewach Merkle, zintegrowana z Ethereum. 
+	\item Whisper -- zdecentralizowany, wysoce anonimowy system komunikatów zintegrowany z Ethereum.
+	\item Wirtualna Maszyna Ethereum -- część Ethereum wykonująca bytecode skompilowanych kontraktów.
+	\item Ether -- jednostka płatności/możliwości wykonania kodu. Jest podstawową walutą w ekosystemie Ethereum. 1 ether dzieli się na $10$\textsuperscript{18} wei.
+	\item Grupa handlowa --
 \end{itemize}
 
 \newpage

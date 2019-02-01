@@ -115,8 +115,6 @@ ECMarket ma na chwilę obecną kilka wartych uwagi konkurentów, którzy operuj�
 
 Celem projektu jest dostarczenie odpornej na cenzurę, ogólnodostępnej, otwartej platformy, w ramach której możliwe jest przeprowadzanie kupna oraz sprzedaży dóbr w sposób niezależny od osób trzecich lub w ramach grup handlowych, tworzonych przez użytkowników systemu z określanymi przez nich zasadami.
 
-W pierwszym stadium systemu, realizowanym w ramach tej pracy, planujemy przeprowadzić analizę różnych aspektów przedstawionego zdecentralizowanego systemu, by zdiagnozować możliwości i zagrożenia płynące z tego typu rozwiązań. Oprócz tego, pragniemy również dostarczyć demo technologiczne, implementujące kilka podstawowych umów, którego celem jest sprawdzenie, jakie cechy posiada ekosystem Ethereum, jak również zbadanie potencjalnych problemów, które mogą wystąpić przy wytwarzaniu i projektowaniu tego typu oprogramowania.
-
 \subsection{Kontekst projektu}
 
 System będzie docelowo uruchomiony na Testnecie Ethereum i będzie dostarczał rozproszoną, odporną na cenzurę, na ile pozwala na to protokół Ethereum \cite{website:TheDAOHack, website:ethereum2018whitepaper} platformę do handlu. Użytkownicy w pierwszym stadium rozwoju platformy będą się dzielić na deweloperów i klientów. Zadaniem deweloperów będzie dostarczanie kodu i jego deployment oraz ponoszenie kosztów tych operacji. Developerzy będą również beneficjentami oprocentowania transakcji. Klientami nazywamy wszystkich użytkowników, którzy dokonują transakcji, mogą oni zarządzać swoimi portfelami, oraz wchodzić w interakcje z dostępnymi dla nich umowami. Liczba klientów nie jest w żaden sposób ograniczona.
@@ -274,9 +272,7 @@ Pełna analiza zagrożeń płynących z użycia technologii Ethereum została pr
 		\item analiza umowy A1.3
 		\item analiza umowy A2.1
 		\item analiza umowy A2.2
-		\item analiza umowy A3.1
 	\end{enumerate}
-	\item Pierwsza analiza systemu ocen -- szkic własności
 	\item Propozycja pierwszej architektury systemu
 	\item Stworzenie wstępnego harmonogramu 
 	\item Rozważanie strategii
@@ -292,11 +288,11 @@ Pełna analiza zagrożeń płynących z użycia technologii Ethereum została pr
 \renewcommand{\labelenumii}{\textendash}
 	\begin{enumerate}
         \item Implementacja umowy A1.1
-        \item Implementacja wewnętrznych tokenów
-        \item Analiza metody zachęcania użytkowników do usuwania zakończonych / przeterminowanych umów
+        \item Implementacja tokenu ERC20
         \item Implementacja AgreementManagera
         \item Analiza scenariuszy umów:
         \begin{enumerate}
+        	\item analiza umowy A3.1
             \item analiza umowy A3.2
             \item analiza umowy A3.3
             \item analiza umowy A3.4
@@ -314,8 +310,7 @@ Pełna analiza zagrożeń płynących z użycia technologii Ethereum została pr
 \textbf{Przyrost trzeci}
 \renewcommand{\labelenumii}{\textendash}
 \begin{enumerate}
-    \item Problem z rozbudową umów - migracja do maszyn stanowych
-    \item Migracja tokenów systemowych do formatu zgodnego z ERC20
+    \item Implementacja umowy A1.2
     \item Implementacja serwisu do wyszukiwania umów:
     \item Implementacja widoków dla systemu:
     \begin{enumerate}    
@@ -1459,7 +1454,7 @@ wejście: zbiór Ś, K, S, maksymalny czas trwania, zdarzenie kończące fazę g
 1. wysyłanie haszy kryptograficznych h \\
 2. wysyłanie głosów v i soli s \\
 wyjście: wynik, kto oddał ważny głos (h == hash(v.s))\\ \\
-\label{Scenariusz glosowania swiadkuw}
+\label{Scenariusz glosowania swiadkow}
 \end{figure}
 
 \subsection{Specyfikacja przypadków użycia}
@@ -1722,38 +1717,42 @@ Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktó
 
 \subsection{Szablon przyrostów}
 
+Każdy z przyrostów zawiera krótki opis celów jakie chcielismy osiągnąć w czesie jego trwania, analizę zadań i wymagań oraz wytworzone produkty lub zidentyfikowane problemy. Ich gównym zadaniem jest chronologiczna prezentacja wcześniejszych rozdziałów, w których został zawarty pełny opis analizy, architektury, problemów i ich rozwiązań, dlatego zawierają one tylko odnośniki i zwięzłe komentarze.
+
 \subsection{Przyrost pierwszy}
 \subsubsection{Cele przyrostu}
-Podczas pierwszego przyrostu postawiliśmy sobie za cel przeanalizowanie, jak powinny wyglądać sprawiedliwe kontrakty, tak aby każda ze stron nie czuła się w żaden sposób oszukana. Naszym kolejnym celem było zaproponowanie jak system powinien wyglądać, jakich akcji może podejmować się użytkownik, jakie powinien mieć ograniczenia w danych przypadkach oraz ustalenie wstępnej architektury systemu. Oprócz tego, wykonaliśmy wstępny harmonogram prac do monitorowania postępów.
 
-\subsubsection{Analiza back-end'u}
-Na samym początku zabraliśmy się za analizę naszego systemu. Postanowiliśmy że naszym głównym przedmiotem badań będzie przeanalizowanie sprawiedliwych kontraktów. Podczas analizowania różnych przypadków postanowiliśmy że system powinien dostarczać różne rodzaje kontraktów w zależności od potrzeb użytkowników którzy będą korzystać z naszego systemu. Podczas prac analizowaliśmy różne przypadki umów, na koniec postanowiliśmy że w ramach naszej pracy inżynierskiej stworzymy dwa typy kontraktów.
+Podczas pierwszego przyrostu przygotowaliśmy analizę, jak powinny być zbudowane umowy, by wspierać możliwość wymiany dowolnymi dobrami oraz jakie gwarancje prezentują takie modele. Dokonaliśmy wyboru frameworków do testowania i wgrywania kontraktów do sieci oraz klienta sieci deweloperskiej. Przygotowaliśmy krótkie materiały szkoleniowe z pisania kontraktów w \textit{Solidity} ze wsparciem wybranych technologii. Kolejnym postawionym celem było przygotowanie wstępnej architektury naszego rozwiązania. Oprócz tego, wykonaliśmy wstępny harmonogram prac do monitorowania postępów. 
 
-\textbf{Umowa A1.1}
-\label{A1_1}
-Dokładny opis umowy został umieszczony w rozdziale \ref{Scenariusz A1.1}.
-\textbf{Umowa A1.2}
-\label{A1_2}
-Dokładny opis umowy został umieszczony w rozdziale \ref{Scenariusz A1.2}.
+\subsubsection{Analiza}
 
-\subsubsection{Projektowanie back-end'u}
-\subsubsection{Lista zmian}
+Wynikiem rozważań na temat konstrukcji umów, są scenariusze \ref{Scenariusz A1.1}, \ref{Scenariusz A1.2}, \ref{Scenariusz A1.3}, \ref{Scenariusz A2.1}, \ref{Scenariusz A2.2}.
+
+Jako framework do testowania i wgrywania kontraktów wybraliśmy \textit{Truffle}, ze względu na to, że było to najbardziej rozwinięte i udokumentowane tego typu rozwiązanie, jak na początek roku 2018.
+
+Klientem sieci deweloperskiej zostało \textit{Ganache}, ze względu na prostotę obsługi oraz silne gwarancje interoperacyjności z \textit{Truffle} (są tworzone przez tę samą organizację). Niektóre z naszych rozwiązań testowaliśmy z pomocą klienta \textit{Parity}, ale ze względu na wcześniej wymienione kwestie, w pełni przenieśliśmy proces wytwórczy na \textit{Ganache}.
+
+W czasie trwania tego przyrostu przygotowaliśmy ćwiczenia pozwalające dokonać rozpoznania możliwości wybranych przez nas technologii, wstępnego zapoznania się z językiem \textit{Solidity}. Więcej szczegółów znajduje się w załączniku \textit{SmartContracts}.
+
+Na wstępny szkic architektury składał się \textit{AgreementManager} służacy do tworzenia i nadzorowania umów oraz autorskiego portfela z tokenami. Również ustaliliśmy wstepny model danych przechowywanych przez umowy. Przeprowadziliśmy również rozpoznanie niektórych ataków na kontrakty oraz sposobów zabezpieczania się przed nimi (patrz rodział \ref{sec:ZnanePodatnościKontraktów} punkt \textit{Re-Entrancy} i \testit{Nieoczekiwany ether}).
+
 
 \subsection{Przyrost drugi}
 \subsubsection{Cele przyrostu}
-Drugi przyrost to przede wszystkim implementacja pierwszej umowy A1.1 oraz AgreementManagera, odpowiedzialnego za rejestrowanie i tworzenie umów w systemie.
-Następnym istotnym celem było stworzenie kontraktu wewnętrznego tokena, który posiada możliwość wpłacania i wypłacania ethereu oraz przekazywania go do umów.
-W przyroście drugim została również przeprowadzona analiza zachęt do usuwania przetrminowanych umów.
-Została przeprowadzona także analiza scenariuszy innych, bardziej złożonych typów umów.
+Zadaniami postawionymi w przyroście drugim była, implementacja pierwszej umowy A1.1 (\ref{Scenariusz A1.1}), AgreementManagera, odpowiedzialnego za rejestrowanie i tworzenie umów w systemie oraz kontraktu tokenów zgodnych ze standardem ERC20. Została przeprowadzona także analiza scenariuszy innych, bardziej złożonych typów umów.
 
-\subsubsection{Analiza front-end'u}
-\subsubsection{Projektowanie front-end'u}
+\subsubsection{Analiza}
+
+Pierwotne rozwiązanie by umowy wprost pobierały depozyt etheru i same nim zarządzały, nie było zgodne z dobrymi praktykami programowania, jak również wprowadzało problemy z modularnością i przenośnością systemu, dlatego wprowadziliśmy token zgodny ze standardem ERC20, który wymienia się w stosunku 1:1 z etherem oraz prowadzi listę bilansów każdego adresu w sieci Ethereum. Pozwoliło to przenieść do krytyczną funkcjonalnośc przesyłania tokenów z umów do osobnego kontraktu, który można było niezależnie testować pod kątem bezpieczeństwa.
+
+W tym przyroście prezentujemy dalszy ciąg naszych rozważań na temat konstrukcji umów, których wynikiem są scenariusze umów \ref{Scenariusz A3.1}, \ref{Scenariusz A3.2}, \ref{Scenariusz A3.3}, \ref{Scenariusz A4.1}, \ref{Scenariusz A4.2}, \ref{Scenariusz PA1}, \ref{Scenariusz PA2}, \ref{Scenariusz glosowania swiadkow}
+
 \subsubsection{Testy}
 
 \textbf{Środowisko testów}
 
-Aplikacja była testowana za pomocą środowiska developerskiego truffle w którym testy tworzymy za pomocą javascriptowego środkowska testowego Mocha oraz Chai do tworzenia assercji.
-Do testów potrzebujemy środowisko w którym możemy uruchomić kontrakty. Do tych zadań używamy środowiska Ganache, który jest personalnym blockchainenm gdzie możemy uruchamiać kontrakty i testować je.\\
+Aplikacja była testowana za pomocą środowiska developerskiego \textit{Truffle} w którym testy tworzymy za pomocą javascriptowego środkowska testowego \textit{Mocha} oraz \textit{Chai} do tworzenia assercji.
+Do testów potrzebujemy środowisko w którym możemy uruchomić kontrakty. Do tych zadań używamy środowiska \textit{Ganache}.\\
 \textbf{Scenariusze testowe}
 \begin{table}[H]
     \begin{tabular}{|l|l|}
@@ -1771,14 +1770,19 @@ Do testów potrzebujemy środowisko w którym możemy uruchomić kontrakty. Do t
 \end{table}
 
 \subsubsection{Implementacja}
-\subsubsection{Lista zmian}
+
+Produkty:
+\begin{itemize}
+	\item \textit{StandardECMToken}
+	\item \textit{AgreementManager}
+	\item \textit{Agreement}
+\end{itemize}
+
 
 \subsection{Przyrost trzeci}
 \subsubsection{Cele przyrostu}
 
 Głównym zadaniem było stworzenie UI do wygodnego wyszukiwania umów oraz różnych widoków potrzebnych do tworzenia, czy też przeglądania umów.
-W trzecim przyroście również postawiliśmy sobie za zadanie przebudowanie wewnętrzengo tokena do standardu
-obowiązującego w środowisku Ethereum (ERC20).
 W tym przyroście również przygotowaliśmy system do dodania umowy A1.2.
 
 \subsubsection{Napotkane problemy}
@@ -1787,10 +1791,7 @@ Na tym etapie podczas tworzenia implementacji umów, napotkaliśmy problem natur
 Każda umowa, którą zaprojektowaliśmy ma różne wspólne cechy, które zgodnie z zasadami dobrego programowania, powinny być umieszczone w osobnych, uogólnionych komponentach, tak by zapewnić hermetyzację i uniknąć powtarzania kodu.
 Język programowania którego używamy wspiera dziedziczenie, jednak do zamodelowania umów bardziej adekwatne było użycie wzorca projektowgo \textit{Maszyna Stanowa}, który opiera się o agregację. Kontratky jednak nie wspierają agregacji, nie można stworzyć instancji kontraktu w kontrakcie, tak by ten wewnętrzny nie był wyeksponowany i dostępny dla potencjalnie złośliwych aktorów. Konieczne było więc opracowanie autorskiego rozwiązania, które realizuje ten wzorzec z uwzględnieniem faktu, że stworzenie pojedynczego kontraktu kosztuje relatywnie dużą ilość gazu.
 
-\subsubsection{Projektowanie back-end'u}
-\subsubsection{Projektowanie front-end'u}
 \subsubsection{Testy}
-\subsubsection{Scenariusze testowe}
 \begin{table}[H]
     \begin{tabular}{|l|l|}
 \hline

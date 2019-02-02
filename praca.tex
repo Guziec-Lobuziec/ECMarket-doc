@@ -1507,7 +1507,7 @@ Zostaje on zaakceptowany przez resztę węzłów, jeśli nowy stan jest poprawny
 \begin{figure}[h]
 \caption[Caption for LOF]{Formowanie bloków w Ethereum\footnotemark}
 \centering
-\includegraphics[width=1.0\textwidth, height=0.7\textheight]{blockchain}
+\includegraphics[width=1.0\textwidth, height=0.742\textheight]{blockchain}
 \end{figure}
 \footnotetext{Pobrano z \url{https://ethereum.stackexchange.com/questions/268/ethereum-block-architecture/6413#6413}}
 
@@ -1687,7 +1687,21 @@ Implementacja jest zawarta w:
 
 Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktów realizującycj umowę, który jest modularny i względnie łatwy w rozszerzaniu. Nie mniej rozwiąznie wymaga przetestowania, z większą ilością zaimplementowanych scenariuszy, by w pełni zdiagnozować inne potencjalne problemy takiej architektury.
 
+\clearpage
+\KOMAoptions{paper=A3,pagesize}
+\KOMAoptions{paper=landscape}
+\recalctypearea
+
 \subsection{Model obiektowy systemu}
+\subsubsection{Back-end}
+\includegraphics[width=1.0\textwidth, height=0.9\textheight]{Contract_Class_Diagram_Class_Diagram}
+
+\clearpage
+\KOMAoptions{paper=portrait}
+\KOMAoptions{paper=A4,pagesize}
+\recalctypearea
+
+\subsubsection{Opis kontraktów}
 
 \begin{figure}[H]
 \centering
@@ -1979,26 +1993,12 @@ Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktó
 \label{OMclass16}
 \end{figure}
 
-\subsubsection{Back-end}
-
 \clearpage
 \KOMAoptions{paper=A3,pagesize}
 \KOMAoptions{paper=landscape}
-\recalctypearea
-
-\includegraphics[width=1.0\textwidth, height=0.9\textheight]{Contract_Class_Diagram_Class_Diagram}
-
-\clearpage
-\KOMAoptions{paper=portrait}
-\KOMAoptions{paper=A4,pagesize}
 \recalctypearea
 
 \subsubsection{Front-end}
-\clearpage
-\KOMAoptions{paper=A3,pagesize}
-\KOMAoptions{paper=landscape}
-\recalctypearea
-
 \includegraphics[width=1.0\textwidth, height=0.9\textheight]{FrontEnd_Class_Diagram}
 
 \clearpage
@@ -2180,7 +2180,7 @@ Ta strona pozwala nam przejrzeć wszystkie detale umowy, widziwmy również adre
 
 W ramach tej pracy udało nam się przygotować:
 \begin{itemize}
-	\itme analizę scenariuszy umów
+	\item analizę scenariuszy umów
 	\item implementację podsystemu zarządzającą umowami
 	\item implementację umowy A1.1
 	\item implementacja prostego interfejsu graficznego do prezentacji możliwości naszego systemu

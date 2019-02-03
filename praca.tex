@@ -1600,17 +1600,8 @@ PoW sam w sobie stanowi tylko mechanizm zabezpieczający przed spamem i atakami 
 
 Teoretycznym limitem zanim kryptowaluta oparta o PoW utraci decentralizację zarządzania, jest przejęcie przez jednego aktora (lub kilku współpracujących) ponad 50\% mocy obliczeniowej\cite{work:AnonByzConsBit}. Praktyczny limit jest jednak niższy i zależy od czasu powstawania nowych bloków, ich rozmiaru, szybkości propagacji danych, ilości agentów, których praca została wzięta pod uwagę przy wyborze nowego bloku oraz wysokości wypłacanych honorariów. Symulacje potencjalnych ataków (\textit{Double-spending}) i złośliwych zachowań górników (\textit{eclipse attacks}, \textit{selfish mining}), wskazują że koszty ataku na Ethereum są niższe niż na Bitcoina, jednak inne badania sugerują, że obecnie używany mechanizm wyboru bloków GHOST z ,,wujkami'', podnosi ten poziom do porównywalnego z Bitcoinem\cite{work:PoWSecurity, work:GHOST, website:EthGHOSTAndUncles}.\\
 
-dalej będa poruszane kwestie: Ethereum PoS a centralizacja, Infura, System rządów Ethereum (Ethereum governance)
-\\
-
-
-%   Ethereum PoS a centralizacja
-%   Infura
-\subsubsection{System rządów Ethereum}
-\label{sec:SystemRzadowEthereum}
-
-Intencją Ethereum jest dostarczenie zróżnicowanego zestawu kompromisów. Ethereum osiąga to budując coś, co jest zasadniczo ostateczną, abstrakcyjną warstwą fundamentalną: blockchain z wbudowanym językiem programowania Turinga pozwalając każdemu pisać inteligentne kontrakty i zdecentralizowane aplikacje, w których mogą tworzyć własne, dowolne reguły własności, formaty transakcji i funkcje zmiany stanu. \\
-Projekt Ethereum jest zgodny z następującymi zasadami: \\
+% System rządów Ethereum
+Innym problemem jest obecny system aktualiazcji/przyjmowania zmian w protokole Ethereum, który może wpływać na centralizację sieci. Projekt Ethereum miał być zgodny z następującymi zasadami: \\
 \begin{itemize}
 	\item Prostota -- protokół Ethereum powinien być tak prosty, jak to tylko możliwe, nawet kosztem miejsca przechowywania danych lub nieefektywności czasowej działania.
 	\item Uniwersalność -- podstawową częścią filozofii projektowania Ethereum jest to, że Ethereum nie ma funkcjonalności.
@@ -1618,7 +1609,20 @@ Projekt Ethereum jest zgodny z następującymi zasadami: \\
 	\item Obrotność -- szczegóły protokołu Ethereum nie są niezmienne.
 	\item Brak dyskryminacji bądź cenzury -- protokół nie powinien aktywnie ograniczać lub zapobiegać określonym kategoriom użycia.
 \end{itemize}
-Wiele z systemu rządów Ethereum to zamiary Vlada Zamfira do przygotowania sceny dla faktycznego systemu rządów Ethereum, które opisał w ,,Blockchain Governance 101\cite{website:Gov101}''. Napomina o przyświecających mu celach i w jaki sposób zamierza ich dopiąć w swoim wystąpieniu\cite{website:VladGovIntentions}.
+Wiele z systemu rządów Ethereum to zamiary Vlada Zamfira do przygotowania sceny dla faktycznego systemu rządów Ethereum, które opisał w ,,Blockchain Governance 101\cite{website:Gov101}''. \\
+Jendak problem oscyluje wokół osób mających wpływ na zmiany zachodzące w sieci. Na obecną chwilę w ekosystemie jest liczba  wpływowych graczy (Fundacja Ethereum, Consensys itp.), ale istnieją również konkurencyjne implementacje Ethereum (około 50\% Geth, 40\% Parity)(Parity jest niezależne od EF i Consensys). Dodatkowo istnieje 7 języków programowania kompilujących się w EVM (dodatkowe 3 dla ZK-SNARK Circuits and Proofs) oraz 10 analizatorów kodu. Biorąc pod uwagę zakres techniczny, nie można z pewnością stwierdzić, że wszystko to może zostać umieszczone pod garstką firm, które mogłyby zaszkodzić decentralizacji Ethereum. \\
+Prawdopodobnie istnienie Ethereum Enterprise Alliance (EEA), które posiada ponad 100 członków wskazuje na większą liczbę organizacji zaangażowanych, wykorzystujących i prawdopodobnie przyczyniających się do rozwoju Ethereum. Ethereum mogło być uzależnione od niewielkiej liczby firm w 2015 r., ale sytuacja jest znacznie inna w 2019 r. \\
+
+To rodzi jednak problem możliwości pozornego uzgodnienia cięć nagród wykopywania bloków przez ,,górników'' bez sprzeciwu. Biorąc pod uwagę program spotkań Ethereum Core Dev w Konstantynopolu, istnieją faktycznie trzy konkurencyjne EIP do redukcji nagród blokowych (\#858\cite{website:reduce858}, \#1234\cite{website:reduce1234}, \#1295\cite{website:reduce1295}). \\
+Patrząc na każdy z wyżej wymienionych EIP, wydaje się, że po drodze odbywa się wiele dyskusji, wiele porozumień i nieporozumień. Odbyło się również głosowanie - na temat trudności korekty nagród blokowych (podsumowanie głosowania: 170 głosów; 151,170.1 Ether głosów). Nic z tego nie sugeruje, że decyzje w sprawie nagród blokowych odbyły się "pozornie bez zastrzeżeń". \\
+
+Większość przyjmowanych zmian jest poprzedzane wieloma dyskusjami przez wiele osób wnoszące wkład w Ethereum. Projekt Ethereum, mimo tego, wciąż jest zgodny z zasadami, które Vlad Zamfir widział dla Ethereum, więc na obecną chwilę, mimo iż centralizacja nie jest głównym problemem, może się nim okazać w przyszłych latach rządów Ethereum, kiedy więcej osób będzie skłonnych do wprowadzenia zmian centralizacyjnych sieć. \\
+
+dalej będa poruszane kwestie: Ethereum PoS a centralizacja, Infura, System rządów Ethereum (Ethereum governance)
+\\
+%   Ethereum PoS a centralizacja
+%   Infura
+
 %   selfish
 %   https://arxiv.org/pdf/1311.0243v2.pdf
 

@@ -372,6 +372,50 @@ Pełna analiza zagrożeń płynących z użycia technologii Ethereum została pr
 
 W ramach infrastruktury komunikacyjnej wykorzysztaliśmy platformę \url{https://www.discord.com}, za pomocą której występowała komunikacja między członkami zespołu -- większość pracy została wykonywana zdalnie i był to nasz główny kanał komunikacji.  Do integracji kodu projektu oraz dokumentacji pomiędzy członkami grupy projektowej wykorzystaliśmy system kontroli wersji \url{https://www.github.com}.
 
+\subsection{Podział obowiązków}
+
+\begin{itemize}
+	\item Wspólne: \begin{itemize}
+		\item analiza scenariuszy umów
+	\end{itemize}
+	\item Oliver Śliwonik -Basista: \begin{itemize}
+		\item analiza ograniczeń i własności Ethereum
+		\item przygotowanie wstępnej architektury projektu
+		\item omówienie problemu centralizacji Ethereum oraz inncy kryptowalut, czynników wpływających na to zjawisko, jak również potencjalnych rozwiązań tej kwestii
+		\item przygotowanie wykazu zanych wektorów ataków na kontrakty
+		\item zdiagnozowanie wpływu braku możliwości agregacji lub kompozycji kontraktów na sposób projektowania systemów w Ethereum
+		\item zdiagnozowanie wpływu modelu pamięci \textit{storage} w języku Solidity na sposób projektowania systemów w Ethereum
+		\item rozwiązanie problemu braku kompozycji i agregacji kontraktów w postaci autorskiej architektury maszyny stanowej
+		\item rozwiązanie problemu modelu pamięci \textit{storage} w języku Solidity przez skonstruowanie abstrakcji pozwalającej do niej pisać jak do pliku
+	\end{itemize}
+	\item Paweł Dering: \begin{itemize}
+		\item Zaimplementowanie umowy A 1.1
+		\item Pomoc przy implementacji podsystemu zarządzającego umowami
+		\item Implementacja serwisu do wyszukiwania umów 
+		\item Współtworzenie przy implementacji interfejsu graficznego
+		\item Stworzenie testów do wyszukiwania umów
+		\item Stworzenie testów przy implementacji umowy A1.1
+		\item Stworzenie testów do podsystemu zarządzania umowami
+	\end{itemize}
+	\item Bartosz Rychlewski: \begin{itemize}
+		\item stworzenie komponentu panelu bocznego
+		\item stworzenie widoku wyszukiwania umów
+		\item implementacja routingu w komponentach
+		\item udokumentowanie wszystkich tabelek, drugiego przyrostu, proponowanego rozwiązania, planu zapewnienia jakości, infrastruktury komunikacyjnej i dokumentacyjnej
+		\item współudokumentowanie opisu klas, raportu końcowego
+		\item poprawki interpunkcyjne i literowe dokumentacji
+	\end{itemize}
+\newpage
+	\item Dominik Dopka: \begin{itemize}
+		\item Stworzenie komponentu do tworzenia umów
+		\item Zaprojektowanie i ostylowanie interfejsu graficznego
+		\item Implementacja routingu w komponentach
+		\item Stworzenie testów przy implementacji umowy A1.1
+		\item Stworzenie testów do podsystemu zarządzania umowami
+		\item Dokonanie analizy biznesowej i społecznej platformy2
+	\end{itemize}
+\end{itemize}
+
 \newpage
 \section{Analiza}
 
@@ -422,7 +466,7 @@ W ramach infrastruktury komunikacyjnej wykorzysztaliśmy platformę \url{https:/
     \multicolumn{4}{|l|}{\textit{\textbf{Karta Wymagania}}}                                                           \\ \hline
     \textit{Identyfikator:}        & \textit{F02}            & \textit{\textbf{Priorytet:}}            & M            \\ \hline
     \textit{Nazwa:}                & \multicolumn{3}{l|}{\textit{Możliwość wpłacania, wypłacania i sprawdzenia bilansu etheru}}                                    \\ \hline
-    \textit{Opis:}                 & \multicolumn{3}{m{11cm}|}{\textit{Każdy użytkownik sieci ma możliwość wpłacenia dowolnej ilości Etheru do Standard ,,ECM Tokena'' oraz wpłacenia dowolnej ilości etheru -- nie większej niż bilans danego użytkownika. Zmiana bilansu pokrywa się jeden-do-jednego z ilością wpłaconego lub wypłaconego przez niego etheru. Jeśli użytkownik nie brał udziału w umowie, ani nie wpłacał etheru jego bilans wynosi 0.  }} \\ \hline
+    \textit{Opis:}                 & \multicolumn{3}{m{11cm}|}{\textit{Każdy użytkownik sieci ma możliwość wpłacenia dowolnej ilości Etheru do StandardECMTokena oraz wypłacenia dowolnej ilości etheru -- nie większej niż bilans danego użytkownika. Zmiana bilansu pokrywa się jeden-do-jednego z ilością wpłaconego lub wypłaconego przez niego etheru. Jeśli użytkownik nie brał udziału w umowie, ani nie wpłacał etheru jego bilans wynosi 0.  }} \\ \hline
     \textit{Kryteria akceptacji :} & \multicolumn{3}{m{11cm}|}{\textit{Każdy użytkownik może niezależnie od innych wpłacać lub wypłacać ether. Jeśli użytkownik wpłacił pewne x i nie brał udziału w żadnej umowie, może maksymalnie wypłacić x.}}    \\ \hline
     \textit{Dane wejściowe :} & \multicolumn{3}{l|}{\textit{Brak}}                                                \\ \hline
     \textit{Warunki początkowe :} & \multicolumn{3}{l|}{\textit{Posiadanie etheru}}                                                \\ \hline
@@ -1630,7 +1674,7 @@ Przed analizą wspomnianych problemów, należy zwrócić uwagę jakie rodzaje d
 
 Utrata decentralizacji architektonicznej, więc sytuacja, w której stan i obliczenia wykonywane są na jednej lub kilku maszynach, wiąże się przede wszystkim ze spadkiem niezawodności, co może mieć też wpływ na dostępność. Zanik rozproszenia zarządzania, czyli jeden lub kilku aktorów decyduje, co może być zapisane w sieci i co inni widzą, może uderzać w dostępność, gwarancje poprawności stanu sieci, jak również jej spójność. Decentralizacja struktury logicznej może być rozumiana, w kontekście Ethereum, jako rozłam sieci, czyli utrata spójności stanu.\\
 
-PoW sam w sobie stanowi tylko mechanizm zabezpieczający przed spamem i atakami Sybili, jednak w kryptowalutach, poruszanych w tej pracy, jest połączny z mechanizmem wyboru bloków, tworząc algorytm rozproszonego konsensusu. Wynika z tego, że górnicy posiadający więcej mocy obliczeniowej, mają większą szansę na zadecydowanie jaki blok będzie następnym, z czym zazwyczaj wiąże się możliwość wypłacania sobie honorarium. Kreuje to rynek, w którym górnicy konkurują z sobą, próbując uzyskać jak największą ilość hashy na sekundę, jak najmniejszym kosztem. Liczne obserwacje i badania wskazują, że kopanie podlega zjawisku ,,korzyści skali''(\textit{Economies of scale}), które pozwala zmniejszyć koszty przez tworzenie dedykowanych centrów obliczeniowych do wydobycia kryptowalut. Takie mechanizmy sprzyjają centralizacji architektonicznej i decyzyjnej. Jednak czy te zjawiska doprowadzą do wystąpenia spadku niezawodności, czy nawet złośliwego zmianu stanu sieci oraz jakie kryptowaluty zostaną nimi dotknięte jest tematem licznych sporów\cite{website:PoWDatacenter, website:PoolCentralization, work:DecentralizationInBitAndEth}.
+PoW sam w sobie stanowi tylko mechanizm zabezpieczający przed spamem i atakami Sybili, jednak w kryptowalutach, poruszanych w tej pracy, jest połączny z mechanizmem wyboru bloków, tworząc algorytm rozproszonego konsensusu. Wynika z tego, że górnicy posiadający więcej mocy obliczeniowej, mają większą szansę na zadecydowanie jaki blok będzie następnym, z czym zazwyczaj wiąże się możliwość wypłacania sobie honorarium. Kreuje to rynek, w którym górnicy konkurują z sobą, próbując uzyskać jak największą ilość hashy na sekundę, jak najmniejszym kosztem. Liczne obserwacje i badania wskazują, że kopanie podlega zjawisku ,,korzyści skali''(\textit{Economies of scale}), które pozwala zmniejszyć koszty przez tworzenie dedykowanych centrów obliczeniowych do wydobycia kryptowalut. Takie mechanizmy sprzyjają centralizacji architektonicznej i decyzyjnej. Jednak czy te zjawiska doprowadzą do wystąpenia spadku niezawodności, czy nawet złośliwego przejęcia sieci oraz jakie kryptowaluty zostaną nimi dotknięte, jest tematem licznych sporów\cite{website:PoWDatacenter, website:PoolCentralization, work:DecentralizationInBitAndEth}.
 
 Teoretycznym limitem zanim kryptowaluta oparta o PoW utraci decentralizację zarządzania, jest przejęcie przez jednego aktora (lub kilku współpracujących) ponad 50\% mocy obliczeniowej\cite{work:AnonByzConsBit}. Praktyczny limit jest jednak niższy i zależy od czasu powstawania nowych bloków, ich rozmiaru, szybkości propagacji danych, ilości agentów, których praca została wzięta pod uwagę przy wyborze nowego bloku, wysokości wypłacanych honorariów oraz ich wartość poza systemem. Symulacje potencjalnych ataków (\textit{Double-spending}) i złośliwych zachowań górników (\textit{eclipse attacks}, \textit{selfish mining}), wskazują że koszty ataku na Ethereum są niższe niż na Bitcoina, jednak inne badania sugerują, że obecnie używany mechanizm wyboru bloków GHOST z ,,wujkami'', podnosi ten poziom do porównywalnego z Bitcoinem\cite{work:PoWSecurity, work:GHOST, website:EthGHOSTAndUncles}.\\
 
@@ -2239,47 +2283,7 @@ W ramach tej pracy udało nam się przygotować:
 \newpage
 \section{Wkład własny w projekt}
 
-\begin{itemize}
-	\item Wspólne: \begin{itemize}
-		\item analiza scenariuszy umów
-	\end{itemize}
-	\item Oliver Śliwonik -Basista: \begin{itemize}
-		\item analiza ograniczeń i własności Ethereum
-		\item przygotowanie wstępnej architektury projektu
-		\item omówienie problemu centralizacji Ethereum oraz inncy kryptowalut, czynników wpływających na to zjawisko, jak również potencjalnych rozwiązań tej kwestii
-		\item przygotowanie wykazu zanych wektorów ataków na kontrakty
-		\item zdiagnozowanie wpływu braku możliwości agregacji lub kompozycji kontraktów na sposób projektowania systemów w Ethereum
-		\item zdiagnozowanie wpływu modelu pamięci \textit{storage} w języku Solidity na sposób projektowania systemów w Ethereum
-		\item rozwiązanie problemu braku kompozycji i agregacji kontraktów w postaci autorskiej architektury maszyny stanowej
-		\item rozwiązanie problemu modelu pamięci \textit{storage} w języku Solidity przez skonstruowanie abstrakcji pozwalającej do niej pisać jak do pliku
-	\end{itemize}
-	\item Paweł Dering: \begin{itemize}
-		\item Zaimplementowanie umowy A 1.1
-		\item Pomoc przy implementacji podsystemu zarządzającego umowami
-		\item Implementacja serwisu do wyszukiwania umów 
-		\item Współtworzenie przy implementacji interfejsu graficznego
-		\item Stworzenie testów do wyszukiwania umów
-		\item Stworzenie testów przy implementacji umowy A1.1
-		\item Stworzenie testów do podsystemu zarządzania umowami
-	\end{itemize}
-	\item Bartosz Rychlewski: \begin{itemize}
-		\item stworzenie komponentu panelu bocznego
-		\item stworzenie widoku wyszukiwania umów
-		\item implementacja routingu w komponentach
-		\item udokumentowanie wszystkich tabelek, drugiego przyrostu, proponowanego rozwiązania, planu zapewnienia jakości, infrastruktury komunikacyjnej i dokumentacyjnej
-		\item współudokumentowanie opisu klas, raportu końcowego
-		\item poprawki interpunkcyjne i literowe dokumentacji
-	\end{itemize}
-\newpage
-	\item Dominik Dopka: \begin{itemize}
-		\item Stworzenie komponentu do tworzenia umów
-		\item Zaprojektowanie i ostylowanie interfejsu graficznego
-		\item Implementacja routingu w komponentach
-		\item Stworzenie testów przy implementacji umowy A1.1
-		\item Stworzenie testów do podsystemu zarządzania umowami
-		\item Dokonanie analizy biznesowej i społecznej platformy2
-	\end{itemize}
-\end{itemize}
+% w osobnym branchu dajcie swójw wkład
 
 \newpage
 \section{Podsumowanie}

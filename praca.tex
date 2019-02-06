@@ -1895,7 +1895,7 @@ Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktó
 		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{FORWARD\_GAS\_LIMIT} --- stała, która określa ile maszyna ma sobie zostawić gazu na funkcjonowanie}} \\ 
 		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{currentState} --- aktualny proces stanu maszyny stanowej.}} \\
 		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{hasBeenRegisteredForStateTransition} ---  przechowuje informację o dostępności tranzycji na inny stan.}} \\ \hline
-	\textit{\textbf{Metody}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{fallback()} --- }}    \\ \hline
+	\textit{\textbf{Metody}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{fallback()} --- przechwytuje wszystkie wywołania i przekazuje je do kodu odpowiedzialnego za obecny stan }}    \\ \hline
 \end{tabular}
 \end{table}
 \label{OMclass6}
@@ -1946,7 +1946,7 @@ Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktó
     \begin{tabular}{|l|l|l|l|}
     \hline
     \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{IStateMachineBase}}                                    \\ \hline
-    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{ }} \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{Wspólny interfejs dla stanów i maszyny }} \\ \hline
     \textit{\textbf{Metody}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{amIMachine()} --- zwraca true, jeśli metoda jest aktywna w kontekście maszyny stanowej, a false w przeciwnym wypadku.}}  \\ \hline
 \end{tabular}
 \end{table}
@@ -1962,7 +1962,7 @@ Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktó
     \begin{tabular}{|l|l|l|l|}
     \hline
     \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{EntryState}}                                    \\ \hline
-    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{ }} \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{Stan początkowy umowy. Umowa jest w nim zaraz po utworzeniu. }} \\ \hline
     \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{join()} --- zwraca identyfikator aplikanta próbującego dołączyć}}    \\ 
 		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{accept()} --- akceptuje aplikanta \_suplicant}} \\ 
 		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStatus()} --- zwraca stan aplikanta}} \\ \hline
@@ -1980,7 +1980,7 @@ Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktó
     \begin{tabular}{|l|l|l|l|}
     \hline
     \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{AbstractState}}                                    \\ \hline
-    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{}} \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{Klasa abstrakcyjna zbierająca część implementacji.}} \\ \hline
     \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{isMachine()} ---  zwraca true, jeśli metoda jest aktywna w kontekście maszyny stanowej, a false w przeciwnym wypadku.}}    \\ 
 		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setMachineNextState()} --- ustawia maszynę stanową na następny stan uprzednio przygotowany}} \\ 
 		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getMachineState()} --- zwraca identyfikator obecnego stanu}} \\ 
@@ -2001,7 +2001,7 @@ Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktó
     \begin{tabular}{|l|l|l|l|}
     \hline
     \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{RunningState}}                                    \\ \hline
-    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{}} \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{Stan umowy po zaakceptowaniu jednego z petentów.}} \\ \hline
     \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{conclude()} ---  zamyka aktywny kontrakt}}    \\ 
 		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStatus()} --- zwraca status stanu maszyny stanowej}} \\ \hline
 \end{tabular}
@@ -2018,7 +2018,7 @@ Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktó
     \begin{tabular}{|l|l|l|l|}
     \hline
     \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{RemovingState}}                                    \\ \hline
-    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{}} \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{Końcowy stan umowy, w którym oczekuje na usunięcie.}} \\ \hline
     \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{remove()} ---  usuwa zamknięty kontrakt}}    \\ 
 		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStatus()} --- zwraca status stanu maszyny stanowej}} \\ \hline
 \end{tabular}
@@ -2030,14 +2030,14 @@ Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktó
 \begin{figure}[H]
 \centering
 \includegraphics[width=.4\textwidth]{OMclass14}
-\caption{?}
+\caption{Klasa abstrakcyjna}
 \begin{table}[H]
     \begin{tabular}{|l|l|l|l|}
     \hline
     \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{StateCommons}}                                    \\ \hline
-    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{}} \\ \hline
-    \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{withdraw()} ---  }}    \\ 
-		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{expirationSensitive()} --- }} \\ 
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{Klasa abstrakcyjna ze wspólną częścią implementacji dla stanów.}} \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{withdraw()} --- pozwala wypłacić tokeny}}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{expirationSensitive()} --- prywatny modyfikator}} \\ 
 		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStatus()} --- zwraca status stanu maszyny stanowej}} \\ 
 		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getSharedStoragePointer()} --- zwraca wskaźnik na wspólnej pamięci}} \\ \hline
 \end{tabular}
@@ -2049,28 +2049,28 @@ Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktó
 \begin{figure}[H]
 \centering
 \includegraphics[width=.4\textwidth]{OMclass15}
-\caption{?}
+\caption{Biblioteka}
 \begin{table}[H]
     \begin{tabular}{|l|l|l|l|}
     \hline
     \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{StorageUtil}}                                    \\ \hline
-    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{}} \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{Biblioteka dostarczająca abstrakcję nad modelem pamięci solidity}} \\ \hline
     \textit{\textbf{Zmienne}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{SPOINTER\_SIZE} ---  ustawia wielkość wskaźnika}}    \\ \hline
-    \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{setSlots()} ---  }}    \\ 
-		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getSlots()} --- }} \\ 
-		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setBytes32()} --- }} \\ 
-		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getBytes32()} --- }} \\ 
-		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setBytes()} --- }} \\ 
-		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getBytes()} --- }} \\ 
-		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setMapping()} --- }} \\ 
-		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getMapping()} --- }} \\ 
-		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setStoragePointer()} --- }} \\ 
-		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStoragePointer()} --- }} \\ 
-		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStoragePointerMapping()} --- }} \\ 
-		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setPositionAt()} --- }} \\ 
-		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{mapSPointerTo()} --- }} \\ 
-		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{relativeMove()} --- }} \\ 
-		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getAbsoluteSlotLocation()} --- }} \\ \hline
+    \multirow{ 2}{*}{\textit{\textbf{Metody}}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{setSlots()} ---  ustawia slot pamięci storage}}    \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getSlots()} --- odczytuje slot pamięci storage}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setBytes32()} --- zapisuje do pamięci storage byte32}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getBytes32()} --- odczytuje z pamięci storage byte32}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setBytes()} --- zapisuje tablicę byte'ów do pamięci storage}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getBytes()} --- odczytuje tablicę byte'ów z pamięci storage}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setMapping()} ---zapisuje element mappingu do pamięci storage }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getMapping()} --- pobiera element mappingu z pamięci storage}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setStoragePointer()} --- zapisuje wybrany wskaźnik do pamięci storage}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStoragePointer()} --- pobiera wybrany wskaźnik z pamięci storage}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStoragePointerMapping()} --- pobiera wskaźnik na mapping }} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{setPositionAt()} --- ustawia wskaźnik na wybranym slocie}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{mapSPointerTo()} --- pobiera numer obecnego slotu, hashuje go i ustawia w to miejsce wskaźnik}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{relativeMove()} --- przesuwa wskaźnik relatywnie do jego pozycji {\fontsize{5pt}{5.5cm}\selectfont :)}}} \\ 
+		&  \multicolumn{2}{m{12cm}|}{\textit{\textbf{getAbsoluteSlotLocation()} --- zwraca numer slotu}} \\ \hline
 \end{tabular}
 \end{table}
 \label{OMclass15}
@@ -2085,8 +2085,8 @@ Połączenie powyższych rozwiązań, pozwoliło stworzyć nam zestaw kontraktó
     \begin{tabular}{|l|l|l|l|}
     \hline
     \textit{\textbf{Klasa}}                & \multicolumn{2}{m{12cm}|}{\textit{StorageClient}}                                    \\ \hline
-    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{}} \\ \hline
-    \textit{\textbf{Zmienne}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{storageManagers} --- }}    \\ \hline
+    \textit{\textbf{Opis klasy}}                 & \multicolumn{2}{m{12cm}|}{\textit{Część mechanizmu abstrakcji nad pamięcią storage, jest wykorzystywana przez stan umowy do utrwalania danych}} \\ \hline
+    \textit{\textbf{Zmienne}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{storageManagers} --- prywatne pole}}    \\ \hline
 	\textit{\textbf{Metody}} & \multicolumn{2}{m{12cm}|}{\textit{\textbf{getStoragePointer()} --- zwraca id wskaźnika }}     \\ \hline
 \end{tabular}
 \end{table}

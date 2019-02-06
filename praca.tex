@@ -1625,9 +1625,9 @@ Ethereum 1.0 gwarantuje wykonanie kontraktów i poprawne przeprowadzenie transak
 
 Kontrakty są bytami posiadającymi kod, jak również stan, nazywany też pamięcią \textit{storage}. Są one zapisane pod pewnym adresem w przestrzeni kont. Interakcję z kontraktem przeprowadza się poprzez wysłanie pod jego adres transakcji. Kontrakt dotknięty nią uruchamia swój kod, z zawartością transakcji jako danymi wejściowymi.
 
-Uruchomienie transakcji, jak i każdej wykonanej instrukcji w kodzie kontraktu pochłania pewną określoną ilość gazu. Inicjator transakcji określa cenę w etherze za jednostkę gazu i limit zużycia gazu. Cena za uruchomienie jest naliczana natychmiast, a kolejne opłaty, tylko w momencie wykonania instrukcji. Jeśli incjatorowi zabraknie funduszy na opłacenie gazu, zostanie osiągnięty limit zużycia gazu lub limit gazu na blok, wykonanie kończy się wyjątkiem \textit{out of gas} i zmiany wprowadzone w stanie sieci zostają wycofane. Jednak bez względu na wynik obliczeń, koszty zakupu gazu nie zostają cofnięte, jako że górnicy (lub walidatorzy) ponieśli już koszty z wiązane z ich wykonaniem. Poprawne wykonanie transakcji, czyli bez zwrócenia do inicjatora wyjątku, utrwala zmiany wprowadzone w sieci, a niezużyty gaz zostaje automatycznie odsprzedany i koszty jego zakupu zostają zwrócone do inicjatora, po takiej samej cenie jak zakupu.
+Uruchomienie transakcji, jak i każdej wykonanej instrukcji w kodzie kontraktu, pochłania pewną określoną ilość gazu. Inicjator transakcji określa cenę w etherze za jednostkę gazu i limit zużycia gazu. Cena za uruchomienie jest naliczana natychmiast, a kolejne opłaty, tylko w momencie wykonania instrukcji. Jeśli incjatorowi zabraknie funduszy na opłacenie gazu, zostanie osiągnięty limit zużycia gazu lub limit gazu na blok, wykonanie kończy się wyjątkiem \textit{out of gas} i zmiany wprowadzone do stanu, sieci zostają wycofane. Jednak bez względu na wynik obliczeń, koszty zakupu gazu nie zostają cofnięte, jako że górnicy (lub walidatorzy) ponieśli już koszty z wiązane z ich wykonaniem. Poprawne wykonanie transakcji, czyli bez zwrócenia do inicjatora wyjątku, utrwala zmiany wprowadzone w sieci, a niezużyty gaz zostaje automatycznie odsprzedany i koszty jego zakupu zostają zwrócone do inicjatora, po takiej samej cenie jak zakupu.
 
-Uruchomienie transakcji tworzy kontekst transakcji, czli zbiór zmiennych środowiskowych dostępnych w kontrakcie istniejących, ale tylko dla tego jednego wywołania. Należą do nich adres wywołującego, adres docelowy, ilość przekazanego etheru, ilość przekazanego gazu, cena za jednostkę gazu, adres opłacający transakcję oraz tablicę dodatkowych danych\cite{work:ethereum2018yellowpaper,website:solidityDocs}.
+Uruchomienie transakcji tworzy kontekst transakcji, czli zbiór zmiennych środowiskowych dostępnych w kontrakcie, istniejących tylko dla tego jednego wywołania. Należą do nich adres wywołującego, adres docelowy, ilość przekazanego etheru, ilość przekazanego gazu, cena za jednostkę gazu, adres opłacający transakcję oraz tablicę dodatkowych danych\cite{work:ethereum2018yellowpaper,website:solidityDocs}.
 
 Szczególną uwagę należy poświęcić instrukcjom \textit{REVERT}, \textit{INVALID}, \textit{CALL}, \textit{DELEGATECALL}, \textit{STATICCALL}, \textit{CREATE}, \textit{SELFDESTRUCT} i \textit{SSTORE}.
 \begin{itemize}
@@ -2302,7 +2302,7 @@ W ramach tej pracy udało nam się przygotować:
 \newpage
 \section{Wkład własny w projekt}
 
-% na osobnym branchu
+% branch
 
 \newpage
 \section{Podsumowanie}
@@ -2316,21 +2316,37 @@ Pomimo licznych przeszkód i spornych kwestii, optymistycznie podchodzimy do mo�
 \newpage
 \section{Słownik pojęć}
 \begin{itemize}
-	\item Platforma Handlowa -- aplikacje agregujące oferty handlowe, pośredniczące w wykonaniu opłat i dostarczające narzędzia od oceny kupujących i sprzedających. 
-	\item Ekosystem Ethereum (zespół technologii Ethereum) -- Ethereum jako środowisko wykonawcze oparte na blockchainie, rozproszona przestrzeń dyskowa Swarm, system komunikatów Whisper, biblioteki web3 i aplikacje klienckie Ethereum.
-	\item  Ethereum -- środowisko wykonawcze oparte na blockchainie dla inteligentnych kontraktów.
+
 	\item  Blockchain -- struktura danych mogąca przechowywać dowolne dane w postaci bloków, skonstruowana na zasadzie listy (lub w pewnym stopniu drzewa), gdzie wskaźnikami do poprzednich bloków są ich kryptograficzne hasze.
-	\item Patricia Merkle Trie -- struktura danych mogąca przechowywać dowolne dane, skonstruowana na zasadzie drzewa, gdzie wskaźnikami na rodziców są ich kryptograficzne hasze.
-	\item Mainnet -- główna sieć Ethereum o id równym 1. Na niej odbywają się transakcje z użyciem etheru posiadającym wartość dla użytkowników.
-	\item Swarm -- zdecentralizowana przestrzeń dyskowa oparta na drzewach Merkle, zintegrowana z Ethereum. 
-	\item Whisper -- zdecentralizowany, wysoce anonimowy system komunikatów zintegrowany z Ethereum.
-	\item Wirtualna Maszyna Ethereum -- część Ethereum wykonująca bytecode skompilowanych kontraktów.
+	\item Ekosystem Ethereum (zespół technologii Ethereum) -- Ethereum jako środowisko wykonawcze oparte na blockchainie, rozproszona przestrzeń dyskowa Swarm, system komunikatów Whisper, biblioteki web3 i aplikacje klienckie Ethereum.
+	
+	\item Ethereum -- środowisko wykonawcze oparte na blockchainie dla inteligentnych kontraktów.
+	
 	\item Ether -- jednostka płatności/możliwości wykonania kodu. Jest podstawową walutą w ekosystemie Ethereum. 1 ether dzieli się na $10$\textsuperscript{18} wei.
-	\item Solidty -- jezyk zorientowany kontraktowo. W nim została wykonana gółwna cześć systemu wgrywana do sieci Ethereum.
+	
+	\item Gaz -- jednostka możliwości wykonania kodu. Jest kupowana przez wywołującego przed wywołaniem transakcji i istnieje tylko na czas jej trwania. Na obecną chwilę każda instrukcja w Ethereum zużywa niezerową ilość gazu.
+	
+	\item Korzyści skali -- korzyści płynące z produkcji masowej. Charakteryzują się malejącym kosztem produkcji w przeliczeniu na jeden egzemplarz.
+	
 	\item Krytowaluty -- rozproszony system księgowy bazujący na kryptografii, przechowujący informację o stanie posiadania w umownych jednostkach.
-	\item Zupełność w sensie Turinga -- cecha maszyny lub języka programowania, polegająca na tym, że można za jego pomocą rozwiązać identyczną klasę problemów obliczeniowych, jak na uproszczonym modelu programowalnego komputera zwanego maszyną Turinga.
-	\item Korzyści skali -- korzyści płynące z produkcji masowej. Charakteryzują się malejącym kosztem produkcji w przeliczeniu na jeden egzemplarz
+	
 	\item Krypto-ekonomia -- W swojej najprostszej formie kryptoekonomia odnosi się do zastosowań ekonomii (poprzez zachęcanie) i kryptografii (poprzez szyfrowanie) do zaprojektowania bezpiecznego systemu lub sieci z predefiniowanymi pożądanymi właściwościami.
+	
+	\item Mainnet -- główna sieć Ethereum o id równym 1. Na niej odbywają się transakcje z użyciem etheru posiadającym wartość dla użytkowników.
+	
+	\item Patricia Merkle Trie -- struktura danych mogąca przechowywać dowolne dane, skonstruowana na zasadzie drzewa, gdzie wskaźnikami na rodziców są ich kryptograficzne hasze.
+	
+	\item Platforma Handlowa -- aplikacje agregujące oferty handlowe, pośredniczące w wykonaniu opłat i dostarczające narzędzia od oceny kupujących i sprzedających.
+	
+	\item Solidty -- jezyk zorientowany kontraktowo. W nim została wykonana gółwna cześć systemu wgrywana do sieci Ethereum.
+	
+	\item Swarm -- zdecentralizowana przestrzeń dyskowa oparta na drzewach Merkle, zintegrowana z Ethereum.
+	 
+	\item Whisper -- zdecentralizowany, wysoce anonimowy system komunikatów zintegrowany z Ethereum.
+	
+	\item Wirtualna Maszyna Ethereum -- część Ethereum wykonująca bytecode skompilowanych kontraktów.
+	
+	\item Zupełność w sensie Turinga -- cecha maszyny lub języka programowania, polegająca na tym, że można za jego pomocą rozwiązać identyczną klasę problemów obliczeniowych, jak na uproszczonym modelu programowalnego komputera zwanego maszyną Turinga.
 \end{itemize}
 
 \newpage
